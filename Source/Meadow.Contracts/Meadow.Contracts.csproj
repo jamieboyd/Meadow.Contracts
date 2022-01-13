@@ -10,7 +10,7 @@
    <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Core</RepositoryUrl>
    <PackageTags>Meadow</PackageTags>
    <Description>Wilderness Labs contracts for .NET applications on Meadow hardware</Description>
-   <Version>0.29.0</Version>
+   <Version>0.23.0</Version>
    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
    <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
@@ -24,6 +24,6 @@
     <PackageReference Include="System.Memory" Version="4.5.4" Condition="'$(TargetFramework)'=='netstandard2.0'" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj" />
-  </ItemGroup>
+   <ProjectReference Include="..\Meadow.Units\Meadow.Units.csproj" />
+ </ItemGroup>
 </Project>
