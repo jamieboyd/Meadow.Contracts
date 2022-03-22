@@ -17,8 +17,9 @@ namespace Meadow.Devices
         ISpiController,
         II2cController,
         IWatchdogController
-        //IIOController<IPinDefinitions>
     {
+        IPin GetPin(string name);
+
         IPlatformOS PlatformOS { get; }
 
         /// <summary>
