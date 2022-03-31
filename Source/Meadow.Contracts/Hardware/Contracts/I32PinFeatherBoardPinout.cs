@@ -3,11 +3,6 @@ namespace Meadow.Hardware
 {
     public interface I32PinFeatherBoardPinout// : IPinDefinitions
     {
-        //==== LED
-        IPin OnboardLedBlue { get; }
-        IPin OnboardLedGreen { get; }
-        IPin OnboardLedRed { get; }
-
         //==== Left Header
         IPin A00 { get; }
         IPin A01 { get; }
