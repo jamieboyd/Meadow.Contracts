@@ -1,9 +1,9 @@
-using System.Net;
 using Meadow.Gateway.WiFi;
-using System.Collections.ObjectModel;
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Meadow.Gateways
 {
@@ -185,7 +185,13 @@ namespace Meadow.Gateways
         /// The network must be started before this method can be called.
         /// </remarks>
         /// <returns>An `IList` (possibly empty) of access points.</returns>
-        IList<WifiNetwork> Scan();
+        public Task<IList<WifiNetwork>> Scan()
+        {
+            return Scan(TimeSpan.FromMilliseconds(-1));
+        }
+
+        Task<IList<WifiNetwork>> Scan(CancellationToken token);
+        Task<IList<WifiNetwork>> Scan(TimeSpan timeout);
 
         /// <summary>
         /// Change the current WiFi antenna.
