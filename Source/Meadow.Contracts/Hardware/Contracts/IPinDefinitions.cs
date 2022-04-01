@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Meadow.Hardware;
@@ -8,7 +9,7 @@ namespace Meadow.Hardware
     /// <summary>
     /// Contract for device pin lists.
     /// </summary>
-    public interface IPinDefinitions
+    public interface IPinDefinitions : IEnumerable<IPin>
     {
         /// <summary>
         /// Convenience property which contains all the pins avaiable on the 

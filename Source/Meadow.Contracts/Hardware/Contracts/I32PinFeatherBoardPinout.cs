@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Meadow.Hardware
 {
-    public interface I32PinFeatherBoardPinout// : IPinDefinitions
+    public interface I32PinFeatherBoardPinout : IPinDefinitions
     {
         //==== Left Header
         IPin A00 { get; }
