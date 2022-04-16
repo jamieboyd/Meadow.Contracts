@@ -163,10 +163,12 @@ namespace Meadow.Gateways
         /// </summary>
         /// <param name="ssid">Name of the network to connect to.</param>
         /// <param name="password">Password for the network.</param>
+        /// <param name="timeout">Timeout period for the connection attempt</param>
+        /// <param name="token">Cancellation token for the connection attempt</param>
         /// <param name="reconnection">Should the adapter reconnect automatically?</param>
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
         /// <returns>true if the connection was successfully made.</returns>
-        Task<ConnectionResult> Connect(string ssid, string password, ReconnectionType reconnection = ReconnectionType.Automatic);
+        Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic);
 
         /// <summary>
         /// Disconnect from the the currently active access point.
