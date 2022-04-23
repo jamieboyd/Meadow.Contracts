@@ -15,9 +15,9 @@
         string Model { get; }
 
         /// <summary>
-        /// The hardware version.
+        /// The currently executing Platform.
         /// </summary>
-        MeadowPlatform HardwareRevision { get; }
+        MeadowPlatform Platform { get; }
 
         /// <summary>
         /// Get the processor type.
