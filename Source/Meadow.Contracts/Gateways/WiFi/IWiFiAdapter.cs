@@ -121,8 +121,6 @@ namespace Meadow.Gateways
 
         #endregion Delegates and Events
 
-        #region Methods
-
         /// <summary>
         /// Start the network interface on the WiFi adapter.
         /// </summary>
@@ -145,7 +143,7 @@ namespace Meadow.Gateways
         /// connection to the access point was made.
         /// </remarks>
         /// <returns>true if the adapter was started successfully, false if there was an error.</returns>
-        bool StartWiFiInterface();
+        Task<bool> StartWiFiInterface();
 
         /// <summary>
         /// Stop the WiFi interface,
@@ -156,7 +154,7 @@ namespace Meadow.Gateways
         /// Errors could occur if the adapter was not started.
         /// </remarks>
         /// <returns>true if the adapter was successfully turned off, false if there was a problem.</returns>
-        bool StopWiFiInterface();
+        Task<bool> StopWiFiInterface();
 
         /// <summary>
         /// Start a WiFi network.
@@ -169,6 +167,87 @@ namespace Meadow.Gateways
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
         /// <returns>true if the connection was successfully made.</returns>
         Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic);
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <param name="reconnection">Should the adapter reconnect automatically?</param>
+        /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password, ReconnectionType reconnection = ReconnectionType.Automatic)
+        {
+            var src = new CancellationTokenSource();
+            return await Connect(ssid, password, TimeSpan.Zero, src.Token, reconnection);
+        }
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <param name="token">Cancellation token for the connection attempt</param>
+        /// <param name="reconnection">Should the adapter reconnect automatically?</param>
+        /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic)
+        {
+            var src = new CancellationTokenSource();
+            return await Connect(ssid, password, TimeSpan.Zero, token, reconnection);
+        }
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <param name="timeout">Timeout period for the connection attempt</param>
+        /// <param name="reconnection">Should the adapter reconnect automatically?</param>
+        /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, ReconnectionType reconnection = ReconnectionType.Automatic)
+        {
+            var src = new CancellationTokenSource();
+            return await Connect(ssid, password, timeout, src.Token, reconnection);
+        }
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <param name="timeout">Timeout period for the connection attempt</param>
+        /// <param name="token">Cancellation token for the connection attempt</param>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, CancellationToken token)
+        {
+            var src = new CancellationTokenSource();
+            return await Connect(ssid, password, TimeSpan.Zero, token, ReconnectionType.Automatic);
+        }
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <param name="timeout">Timeout period for the connection attempt</param>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout)
+        {
+            return await Connect(ssid, password, timeout, CancellationToken.None);
+        }
+
+        /// <summary>
+        /// Start a WiFi network.
+        /// </summary>
+        /// <param name="ssid">Name of the network to connect to.</param>
+        /// <param name="password">Password for the network.</param>
+        /// <returns>true if the connection was successfully made.</returns>
+        async Task<ConnectionResult> Connect(string ssid, string password)
+        {
+            return await Connect(ssid, password, TimeSpan.FromSeconds(90), CancellationToken.None);
+        }
 
         /// <summary>
         /// Disconnect from the the currently active access point.
@@ -240,6 +319,5 @@ namespace Meadow.Gateways
         ///// <returns>True if the property was set, flase if there was a problem.</returns>
         //bool SetMaximumRetryCount(uint maximumRetryCount);
 
-        #endregion Methods
     }
 }
