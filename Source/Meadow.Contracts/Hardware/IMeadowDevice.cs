@@ -1,6 +1,5 @@
-﻿using System;
-using System.Threading;
-using Meadow.Hardware;
+﻿using Meadow.Hardware;
+using System;
 
 namespace Meadow.Devices
 {
@@ -21,6 +20,8 @@ namespace Meadow.Devices
         IPin GetPin(string name);
 
         IPlatformOS PlatformOS { get; }
+        
+        IDeviceInformation Information { get; }
 
         /// <summary>
         /// Gets the device capabilities.

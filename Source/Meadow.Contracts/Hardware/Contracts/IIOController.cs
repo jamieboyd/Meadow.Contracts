@@ -1,5 +1,4 @@
-﻿using Meadow.Hardware;
-using Meadow.Units;
+﻿using Meadow.Units;
 
 namespace Meadow.Hardware
 {

@@ -7,7 +7,7 @@ namespace Meadow.Hardware
     /// <summary>
     /// Contract for a pin on the Meadow board.
     /// </summary>
-    public interface IPin
+    public interface IPin : IEquatable<IPin>
     {
         IList<IChannelInfo>? SupportedChannels { get; }
         string Name { get; }
