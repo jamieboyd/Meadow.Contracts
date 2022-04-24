@@ -4,7 +4,7 @@
     /// Represents a position that an analog joystick can having, including both
     /// the `Horizontal` and `Vertical` components.
     /// </summary>
-    public struct JoystickPosition
+    public struct AnalogJoystickPosition
     {
         /// <summary>
         /// Current horizonal position of joystick
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="horizontal">horizonal position</param>
         /// <param name="vertical">vertical position</param>
-        public JoystickPosition(float? horizontal, float? vertical) 
+        public AnalogJoystickPosition(float? horizontal, float? vertical) 
         {
             Horizontal = horizontal;
             Vertical = vertical;
@@ -32,9 +32,9 @@
         /// </summary>
         /// <param name="position">Reference position to copy values from</param>
         /// <returns></returns>
-        public static JoystickPosition From(JoystickPosition position) 
+        public static AnalogJoystickPosition From(AnalogJoystickPosition position) 
         {
-            return new JoystickPosition(position.Horizontal, position.Vertical);
+            return new AnalogJoystickPosition(position.Horizontal, position.Vertical);
         }
     }
 }
