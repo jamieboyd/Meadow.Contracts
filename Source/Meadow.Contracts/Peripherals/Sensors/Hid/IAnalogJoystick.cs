@@ -10,17 +10,17 @@ namespace Meadow.Peripherals.Sensors.Hid
         /// <summary>
         /// Is the horizontal / x-axis inverted 
         /// </summary>
-        public bool IsHorizontalInverted { get; protected set; }
+        public bool IsHorizontalInverted { get; set; }
 
         /// <summary>
         /// Is the horizontal / x-axis inverted 
         /// </summary>
-        public bool IsVerticalInverted { get; protected set; }
+        public bool IsVerticalInverted { get; set; }
 
         /// <summary>
-        /// Current position of
+        /// Current position of analog joystick
         /// </summary>
-        public AnalogJoystickPosition? Position { get; protected set; }
+        public AnalogJoystickPosition? Position { get; }
 
         /// <summary>
         /// Raised when a new reading has been made. 
