@@ -1,4 +1,5 @@
 ﻿using Meadow.Hardware;
+using Meadow.Units;
 using System;
 using System.Threading;
 
@@ -52,5 +53,7 @@ namespace Meadow.Devices
         /// <remarks>Use a time of < 0 to only wake on interrupt</remarks>
         /// <param name="seconds"></param>        
         void Sleep(int seconds = Timeout.Infinite);
+        BatteryInfo GetBatteryInfo();
+        Temperature GetProcessorTemperature();
     }
 }

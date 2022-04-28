@@ -1,0 +1,35 @@
+name: Meadow.Contracts CI Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout Meadow.Contracts
+      uses: actions/checkout@v3
+      with:
+        path: root     
+        
+    - name: Checkout Meadow.Units
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Units
+        path: Meadow.Units
+        ref: develop
+    
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version:
+          6.0.x
+    
+    - name: Build Meadow.Core
+      run: dotnet build -c Release root/Source/Meadow.Contracts/Meadow.Contracts.sln
