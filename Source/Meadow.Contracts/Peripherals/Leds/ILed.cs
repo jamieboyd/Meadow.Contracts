@@ -7,12 +7,6 @@ namespace Meadow.Peripherals.Leds
     /// </summary>
     public interface ILed
     {
-        ///// <summary>
-        ///// The IDigitalOutputPort that the LED is connected to.
-        ///// </summary>
-        ///// <value>The digital output port.</value>
-        //IDigitalOutputPort Port { get; }
-
         /// <summary>
         /// Gets or sets a value indicating whether the LED is on.
         /// </summary>
