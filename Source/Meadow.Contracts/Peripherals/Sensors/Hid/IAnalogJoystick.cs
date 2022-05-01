@@ -25,6 +25,6 @@ namespace Meadow.Peripherals.Sensors.Hid
         /// <summary>
         /// Raised when a new reading has been made. 
         /// </summary>
-        event EventHandler<ChangeResult<AnalogJoystickPosition>> Updated;
+        event EventHandler<IChangeResult<AnalogJoystickPosition>> Updated;
     }
 }
