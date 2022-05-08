@@ -18,7 +18,7 @@ namespace Meadow.Foundation.Sensors.Camera
         /// Check if there is picture data on the camera
         /// </summary>
         /// <returns>true is data is avaliable</returns>
-        public bool IsPhotoAvaliable();
+        public bool IsPhotoAvailable();
 
         /// <summary>
         /// Get the picture data from the camera
