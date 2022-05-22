@@ -1,6 +1,13 @@
 # Meadow.Core pipeline
 # Reference: https://aka.ms/yaml
 
+resources:
+  repositories:
+    - repository: MeadowUnits
+      type: github
+      endpoint: WildernessLabs
+      name: WildernessLabs/Meadow.Units
+
 trigger:
   - develop
 
@@ -18,6 +25,8 @@ stages:
     jobs:
       - job: Build_Solution
         steps:
+          - checkout: self
+          - checkout: MeadowUnits
           - task: NuGetToolInstaller@1
           - task: NuGetCommand@2
             displayName: Use_Nugets
