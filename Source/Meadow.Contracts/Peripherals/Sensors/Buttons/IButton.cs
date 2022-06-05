@@ -21,7 +21,17 @@ namespace Meadow.Peripherals.Sensors.Buttons
         /// Raised when the button circuit is re-opened after it has been closed (at the end of a “press”.
         /// </summary>
         event EventHandler Clicked;
-        
+
+        /// <summary>
+        /// Raised when the button circuit is pressed for at least LongClickedThreshold.
+        /// </summary>
+        public event EventHandler LongClicked;
+
+        /// <summary>
+        /// The minimum duration for a long press.
+        /// </summary>
+        public TimeSpan LongClickedThreshold { get; set; }
+
         /// <summary>
         /// Returns the current raw state of the switch. If the switch 
         /// is pressed (connected), returns true, otherwise false.

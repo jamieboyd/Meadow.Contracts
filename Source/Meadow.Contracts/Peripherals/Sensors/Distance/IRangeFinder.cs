@@ -9,7 +9,7 @@ namespace Meadow.Peripherals.Sensors
     public interface IRangeFinder : ISensor
     {
         /// <summary>
-        /// Last value read from the Temperature sensor.
+        /// Last value read from the sensor
         /// </summary>
         Length? Distance { get; }
 

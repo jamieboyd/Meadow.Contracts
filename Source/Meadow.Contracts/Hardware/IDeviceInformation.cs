@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     public interface IDeviceInformation
     {
@@ -16,9 +15,9 @@ namespace Meadow.Hardware
         string Model { get; }
 
         /// <summary>
-        /// The hardware version.
+        /// The currently executing Platform.
         /// </summary>
-        string HardwareRevision { get; }
+        MeadowPlatform Platform { get; }
 
         /// <summary>
         /// Get the processor type.
@@ -48,6 +47,6 @@ namespace Meadow.Hardware
         /// Get the version of the firmware flashed to the coprocessor.
         /// </summary>
         /// <returns>Coprocessor firmware version..</returns>
-        string CoprocessorOSVersion { get; }
+        string? CoprocessorOSVersion { get; }
     }
 }
