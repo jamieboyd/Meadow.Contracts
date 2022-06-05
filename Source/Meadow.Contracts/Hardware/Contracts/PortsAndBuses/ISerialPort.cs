@@ -23,7 +23,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the standard length of data bits per byte.
         /// </summary>
-        int DataBits { get; }
+        int DataBits { get; set; }
 
         /// <summary>
         /// Gets a value indicating the open or closed status of the SerialPort object.
@@ -33,7 +33,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the parity-checking protocol.
         /// </summary>
-        Parity Parity { get; }
+        Parity Parity { get; set; }
 
         /// <summary>
         /// Gets the port name used for communications.
@@ -61,7 +61,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the standard number of stopbits per byte.
         /// </summary>
-        StopBits StopBits { get; }
+        StopBits StopBits { get; set; }
 
         /// <summary>
         /// Indicates that data has been received through a port represented by the SerialPort object.
