@@ -14,12 +14,12 @@
         /// <summary>
         /// Called when the application is being brought up.
         /// </summary>
-        public async Task Initialize() {  }
+        public Task Initialize() { return Task.CompletedTask; }
 
         /// <summary>
         /// The core of the app's work and logic
         /// </summary>
-        public async Task Run() { }
+        public Task Run();
 
         /// <summary>
         /// Called if the app is being brought down.
