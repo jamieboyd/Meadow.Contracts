@@ -1,4 +1,6 @@
-﻿namespace Meadow.Hardware
+﻿using Meadow.Units;
+
+namespace Meadow.Hardware
 {
     /// <summary>
     /// Contract for a Port that has is capable of 
@@ -31,7 +33,7 @@
         /// <summary>
         /// Frequency 
         /// </summary>
-        float Frequency { get; set; }
+        Frequency Frequency { get; set; }
 
         /// <summary>
         /// Is PWM signal inverted
