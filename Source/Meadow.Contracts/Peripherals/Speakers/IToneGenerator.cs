@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Meadow.Units;
+using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Speakers
 {
@@ -12,7 +13,7 @@ namespace Meadow.Peripherals.Speakers
         /// </summary>
         /// <param name="frequency"></param>
         /// <param name="duration"></param>
-        Task PlayTone(float frequency, int duration = 0);
+        Task PlayTone(Frequency frequency, int duration = 0);
 
         /// <summary>
         /// Stops the tone playing.

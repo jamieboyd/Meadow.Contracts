@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Hardware
 {
@@ -12,7 +13,7 @@ namespace Meadow.Hardware
 
         IPwmPort CreatePwmPort(
             IPin pin,
-            float frequency = DefaultPwmFrequency,
+            Frequency frequency,
             float dutyCycle = DefaultPwmDutyCycle,
             bool invert = false
         );
