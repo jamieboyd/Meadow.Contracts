@@ -19,7 +19,7 @@
         /// <summary>
         /// The core of the app's work and logic
         /// </summary>
-        public Task Start();
+        public Task Run();
 
         /// <summary>
         /// Called if the app is being brought down.
@@ -34,12 +34,12 @@
         /// <summary>
         /// Called when the application is put to sleep.
         /// </summary>
-        public void Resume();
+        public void Sleep();
 
         /// <summary>
         /// Called when the application wakes up from sleep.
         /// </summary>
-        public void Sleep();
+        public void Resume();
 
         /// <summary>
         /// Called after a full app failure
