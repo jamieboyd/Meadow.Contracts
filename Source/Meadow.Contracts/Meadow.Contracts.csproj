@@ -24,6 +24,7 @@
     <PackageReference Include="System.Memory" Version="4.5.4" Condition="'$(TargetFramework)'=='netstandard2.0'" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Meadow.Logging\lib\Meadow.Logging.csproj" />
     <ProjectReference Include="..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj" />
   </ItemGroup>
 </Project>
