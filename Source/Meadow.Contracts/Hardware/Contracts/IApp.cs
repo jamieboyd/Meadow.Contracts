@@ -14,51 +14,51 @@
         /// <summary>
         /// Called when the application is being brought up.
         /// </summary>
-        public Task Initialize() { return Task.CompletedTask; }
+        public Task Initialize();
 
         /// <summary>
         /// The core of the app's work and logic
         /// </summary>
-        public Task Run();
+        public Task Start();
 
         /// <summary>
         /// Called if the app is being brought down.
         /// </summary>
-        public void Shutdown(out bool complete, Exception? e = null) { complete = true; }
+        public void Shutdown(out bool complete, Exception? e = null);
 
         /// <summary>
         /// Called if a failure occured while running the app
         /// </summary>
-        public void OnError(Exception e, out bool recovered) { recovered = false; }
+        public void OnError(Exception e, out bool recovered);
 
         /// <summary>
         /// Called when the application is put to sleep.
         /// </summary>
-        public void BeforeSleep() { }
+        public void Resume();
 
         /// <summary>
         /// Called when the application wakes up from sleep.
         /// </summary>
-        public void AfterSleep() { }
+        public void Sleep();
 
         /// <summary>
         /// Called after a full app failure
         /// </summary>
-        public void Recovery(Exception e) { }
+        public void Recovery(Exception e);
 
         /// <summary>
         /// Called when the application is about to update itself.
         /// </summary>
-        public void BeforeUpdate(Version newVersion, out bool approveUpdate) { approveUpdate = true; }
+        public void Update(Version newVersion, out bool approveUpdate);
         /// <summary>
         /// Called when the application has updated itself.
         /// </summary>
-        public void AfterUpdate(Version oldVersion, out bool rollbackUpdate) { rollbackUpdate = false; }
+        public void UpdateComplete(Version oldVersion, out bool rollbackUpdate);
 
         /// <summary>
         /// Called in case the OS needs to restart the app. Will have limited
         /// processing time.
         /// </summary>
-        public void BeforeReset() { }
+        public void Reset();
     }
 }
