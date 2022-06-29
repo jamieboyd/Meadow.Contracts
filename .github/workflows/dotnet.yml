@@ -18,6 +18,11 @@ jobs:
       with:
         path: root     
         
+    - name: Checkout Meadow.Logging
+      uses: actions/checkout@v3
+      with:
+        path: root     
+        
     - name: Checkout Meadow.Units
       uses: actions/checkout@v3
       with:
