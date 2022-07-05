@@ -1,7 +1,6 @@
 ﻿namespace Meadow
 {
     using System;
-    using Meadow.Devices;
     using System.Threading.Tasks;
     /// <summary>
     /// Contract for Meadow applications. Provides a way for the Meadow OS to
@@ -24,7 +23,7 @@
         /// <summary>
         /// Called if the app is being brought down.
         /// </summary>
-        public void Shutdown(out bool complete, Exception? e = null);
+        public void OnShutdown(out bool complete, Exception? e = null);
 
         /// <summary>
         /// Called if a failure occured while running the app
@@ -34,31 +33,31 @@
         /// <summary>
         /// Called when the application is put to sleep.
         /// </summary>
-        public void Sleep();
+        public void OnSleep();
 
         /// <summary>
         /// Called when the application wakes up from sleep.
         /// </summary>
-        public void Resume();
+        public void OnResume();
 
         /// <summary>
         /// Called after a full app failure
         /// </summary>
-        public void Recovery(Exception e);
+        public void OnRecovery(Exception e);
 
         /// <summary>
         /// Called when the application is about to update itself.
         /// </summary>
-        public void Update(Version newVersion, out bool approveUpdate);
+        public void OnUpdate(Version newVersion, out bool approveUpdate);
         /// <summary>
         /// Called when the application has updated itself.
         /// </summary>
-        public void UpdateComplete(Version oldVersion, out bool rollbackUpdate);
+        public void OnUpdateComplete(Version oldVersion, out bool rollbackUpdate);
 
         /// <summary>
         /// Called in case the OS needs to restart the app. Will have limited
         /// processing time.
         /// </summary>
-        public void Reset();
+        public void OnReset();
     }
 }
