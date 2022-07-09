@@ -3,4 +3,4 @@
 **/.vs
 
 # macOS folder user view settings
-*.DS_Store
+.DS_Store
