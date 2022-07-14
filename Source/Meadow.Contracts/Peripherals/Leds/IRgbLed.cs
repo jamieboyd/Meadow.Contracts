@@ -1,14 +1,19 @@
-﻿using System;
-namespace Meadow.Peripherals.Leds
+﻿namespace Meadow.Peripherals.Leds
 {
+    /// <summary>
+    /// Defines an RGB Light Emitting Diode (LED).
+    /// </summary>
     public interface IRgbLed
     {
-        CommonType Common { get; }
+        /// <summary>
+        /// Gets or sets a value indicating whether the LED is on.
+        /// </summary>
+        /// <value><c>true</c> if is on; otherwise, <c>false</c>.</value>
+        bool IsOn { get; set; }
 
-        public enum CommonType
-        {
-            CommonCathode,
-            CommonAnode
-        }
+        /// <summary>
+        /// Gets or sets the LED color
+        /// </summary>
+        RgbLedColors Color { get; }
     }
 }

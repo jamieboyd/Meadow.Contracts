@@ -1,5 +1,4 @@
-﻿using Meadow.Hardware;
-using System;
+﻿using System;
 
 namespace Meadow.Peripherals.Leds
 {
