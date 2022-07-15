@@ -20,12 +20,12 @@ namespace Meadow.Hardware
         /// <returns></returns>
         IBiDirectionalPort CreateBiDirectionalPort(
             IPin pin,
-            bool initialState = false,
-            InterruptMode interruptMode = InterruptMode.None,
-            ResistorMode resistorMode = ResistorMode.Disabled,
-            PortDirectionType initialDirection = PortDirectionType.Input,
-            double debounceDuration = 0,
-            double glitchDuration = 0,
+            bool initialState,
+            InterruptMode interruptMode,
+            ResistorMode resistorMode,
+            PortDirectionType initialDirection,
+            TimeSpan debounceDuration,
+            TimeSpan glitchDuration,
             OutputType output = OutputType.PushPull
         );
 

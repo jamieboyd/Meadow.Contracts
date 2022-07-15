@@ -1,4 +1,5 @@
 ﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Hardware
 {
@@ -49,7 +50,7 @@ namespace Meadow.Hardware
             bool initialState,
             OutputType outputType
             );
-            
+
         /// <summary>
         /// 
         /// </summary>
@@ -62,8 +63,8 @@ namespace Meadow.Hardware
             IPin pin,
             ResistorMode resistorMode,
             InterruptMode interruptMode,
-            double debounceDuration,
-            double glitchDuration
+            TimeSpan debounceDuration,
+            TimeSpan glitchDuration
             );
 
         /// <summary>
@@ -78,8 +79,8 @@ namespace Meadow.Hardware
         void WireInterrupt(IPin pin,
             InterruptMode interruptMode,
             ResistorMode resistorMode,
-            double debounceDuration,
-            double glitchDuration,
+            TimeSpan debounceDuration,
+            TimeSpan glitchDuration,
             bool validateInterruptGroup = true
             );
 
