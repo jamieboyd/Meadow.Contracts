@@ -29,5 +29,18 @@ namespace Meadow.Hardware
             OutputType output = OutputType.PushPull
         );
 
+        IBiDirectionalPort CreateBiDirectionalPort(
+            IPin pin)
+        {
+            return CreateBiDirectionalPort(pin, false, InterruptMode.None, ResistorMode.Disabled, PortDirectionType.Input, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        IBiDirectionalPort CreateBiDirectionalPort(
+            IPin pin,
+            bool initialState)
+        {
+            return CreateBiDirectionalPort(pin, initialState, InterruptMode.None, ResistorMode.Disabled, PortDirectionType.Input, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
     }
 }

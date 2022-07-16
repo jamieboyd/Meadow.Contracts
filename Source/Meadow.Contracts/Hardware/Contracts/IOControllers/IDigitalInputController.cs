@@ -33,5 +33,29 @@ namespace Meadow.Hardware
             TimeSpan debounceDuration,
             TimeSpan glitchDuration
             );
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin
+            )
+        {
+            return CreateDigitalInputPort(pin, InterruptMode.None, ResistorMode.Disabled, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin,
+            InterruptMode interruptMode
+            )
+        {
+            return CreateDigitalInputPort(pin, interruptMode, ResistorMode.Disabled, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin,
+            InterruptMode interruptMode,
+            ResistorMode resistorMode
+            )
+        {
+            return CreateDigitalInputPort(pin, interruptMode, resistorMode, TimeSpan.Zero, TimeSpan.Zero);
+        }
     }
 }
