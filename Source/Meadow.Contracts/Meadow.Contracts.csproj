@@ -20,11 +20,8 @@
    <LangVersion>9.0</LangVersion>
    <Nullable>enable</Nullable>
  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.5.4" Condition="'$(TargetFramework)'=='netstandard2.0'" />
-  </ItemGroup>
-  <ItemGroup>
+ <ItemGroup>
     <ProjectReference Include="..\..\..\Meadow.Logging\lib\Meadow.Logging.csproj" />
     <ProjectReference Include="..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj" />
-  </ItemGroup>
+ </ItemGroup>
 </Project>
