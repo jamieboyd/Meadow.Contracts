@@ -19,7 +19,8 @@ namespace Meadow.Devices
         ISerialMessageController,
         ISpiController,
         II2cController,
-        IWatchdogController
+        IWatchdogController,
+        ICounterController
     {
         event PowerTransitionHandler BeforeReset;
         event PowerTransitionHandler BeforeSleep;
@@ -28,7 +29,7 @@ namespace Meadow.Devices
         IPin GetPin(string name);
 
         IPlatformOS PlatformOS { get; }
-        
+
         IDeviceInformation Information { get; }
 
         /// <summary>
