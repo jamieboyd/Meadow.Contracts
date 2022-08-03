@@ -20,7 +20,8 @@ namespace Meadow.Devices
         ISpiController,
         II2cController,
         IWatchdogController,
-        ICounterController
+        ICounterController,
+        INetworkAdapterController
     {
         event PowerTransitionHandler BeforeReset;
         event PowerTransitionHandler BeforeSleep;

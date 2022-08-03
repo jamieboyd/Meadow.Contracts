@@ -23,6 +23,7 @@ namespace Meadow.Peripherals.Sensors
         /// while the driver is updating. To start, call the `StartUpdating()`
         /// method.
         /// </summary>
+        /// 
         event EventHandler<IChangeResult<Length>> DistanceUpdated;
     }
 }
