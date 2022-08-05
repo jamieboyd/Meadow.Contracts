@@ -8,6 +8,8 @@
     /// </summary>
     public interface IApp
     {
+        void InvokeOnMainThread(Action<object> action, object? state = null);
+
         public static Version Version { get; } = new Version("1.0.0");
 
         /// <summary>
