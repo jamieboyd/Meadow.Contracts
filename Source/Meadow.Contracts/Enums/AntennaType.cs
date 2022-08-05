@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Gateways
+﻿namespace Meadow.Gateways
 {
     // <summary>
     // The types of antenna that can be selected.

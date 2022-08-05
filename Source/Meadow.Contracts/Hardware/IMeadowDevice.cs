@@ -52,9 +52,10 @@ namespace Meadow.Devices
         /// <summary>
         /// Put the device into low-power (sleep) mode for the specified amount of time, or until a wake interrupt occurs.
         /// </summary>
-        /// <remarks>Use a time of < 0 to only wake on interrupt</remarks>
+        /// <remarks>Use a time of &lt 0 to only wake on interrupt</remarks>
         /// <param name="seconds"></param>        
         void Sleep(int seconds = Timeout.Infinite);
+
         BatteryInfo GetBatteryInfo();
         Temperature GetProcessorTemperature();
     }
