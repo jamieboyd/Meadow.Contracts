@@ -1,5 +1,4 @@
-﻿using Meadow.Devices;
-using Meadow.Logging;
+﻿using Meadow.Logging;
 
 namespace Meadow
 {
@@ -43,6 +42,6 @@ namespace Meadow
         {
             get => Services?.Get<Logger>();
         }
-#pragma warning enable CS8603
+#pragma warning restore CS8603
     }
 }

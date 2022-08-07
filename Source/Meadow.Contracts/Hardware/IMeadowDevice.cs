@@ -3,18 +3,9 @@ using Meadow.Units;
 using System;
 using System.Threading;
 
-namespace Meadow.Devices
+namespace Meadow
 {
     public delegate void PowerTransitionHandler();
-    public delegate void TimeChangedEventHandler(DateTime utcTime);
-
-    public interface INtpClient
-    {
-        event TimeChangedEventHandler TimeChanged;
-
-        bool Enabled { get; }
-        TimeSpan PollPeriod { get; set; }
-    }
 
     /// <summary>
     /// Contract for Meadow boards.
@@ -39,7 +30,6 @@ namespace Meadow.Devices
         IPin GetPin(string name);
 
         IPlatformOS PlatformOS { get; }
-        INtpClient NtpClient { get; }
 
         IDeviceInformation Information { get; }
 
