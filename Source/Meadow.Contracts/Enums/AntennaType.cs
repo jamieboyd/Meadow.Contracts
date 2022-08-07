@@ -1,4 +1,4 @@
-﻿namespace Meadow.Gateways
+﻿namespace Meadow.Hardware
 {
     // <summary>
     // The types of antenna that can be selected.

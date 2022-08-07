@@ -1,6 +1,7 @@
 ﻿using Meadow.Gateway.WiFi;
 using System;
 using System.Net;
+using System.Net.NetworkInformation;
 
 namespace Meadow.Hardware
 {
@@ -15,9 +16,9 @@ namespace Meadow.Hardware
         public string Ssid { get; private set; }
 
         /// <summary>
-        /// BSSID of the netowrk the device is connected to.
+        /// BSSID (MAC) of the network the device is connected to.
         /// </summary>
-        public string Bssid { get; private set; }
+        public PhysicalAddress Bssid { get; private set; }
 
         /// <summary>
         /// WiFi channel the device is currently using.
@@ -44,7 +45,7 @@ namespace Meadow.Hardware
         /// <param name="bssid">BSSID of the network the device is connected to.</param>
         /// <param name="channel">Channel the device is connected to.</param>
         /// <param name="authenticationType">Method of authentication used to connect to the network.</param>
-        public WirelessNetworkConnectionEventArgs(IPAddress ipAddress, IPAddress subnet, IPAddress gateway, string ssid, string bssid, byte channel, NetworkAuthenticationType authenticationType)
+        public WirelessNetworkConnectionEventArgs(IPAddress ipAddress, IPAddress subnet, IPAddress gateway, string ssid, PhysicalAddress bssid, byte channel, NetworkAuthenticationType authenticationType)
             : base(ipAddress, subnet, gateway)
         {
             Ssid = ssid;
