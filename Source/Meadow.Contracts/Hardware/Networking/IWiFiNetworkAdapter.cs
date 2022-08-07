@@ -157,17 +157,5 @@ namespace Meadow.Hardware
 
         Task<IList<WifiNetwork>> Scan(CancellationToken token);
         Task<IList<WifiNetwork>> Scan(TimeSpan timeout);
-
-        /// <summary>
-        /// Change the current WiFi antenna.
-        /// </summary>
-        /// <remarks>
-        /// Allows the application to change the current antenna used by the WiFi adapter.  This
-        /// can be made to persist between reboots / power cycles by setting the persist option
-        /// to true.
-        /// </remarks>
-        /// <param name="antenna">New antenna to use.</param>
-        /// <param name="persist">Make the antenna change persistent.</param>
-        void SetAntenna(AntennaType antenna, bool persist = true);
     }
 }
