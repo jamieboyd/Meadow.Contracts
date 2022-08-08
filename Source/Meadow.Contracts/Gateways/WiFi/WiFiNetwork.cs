@@ -1,5 +1,5 @@
 ﻿using System;
-using Meadow.Hardware;
+using System.Net.NetworkInformation;
 
 namespace Meadow.Gateway.WiFi
 {
@@ -20,12 +20,12 @@ namespace Meadow.Gateway.WiFi
         /// MAC address of the AP
         /// </summary>
         /// <value>The BSSID of the WiFi network.</value>
-        public string Bssid { get; protected set; }
+        public PhysicalAddress Bssid { get; protected set; }
 
         /// <summary>
         /// Type of network (infrastructure, ad-hoc etc.).
         /// </summary>
-        public NetworkType TypeOfNetwork {get; protected set; }
+        public NetworkType TypeOfNetwork { get; protected set; }
 
         /// <summary>
         /// Beacon interval.
@@ -92,12 +92,12 @@ namespace Meadow.Gateway.WiFi
         private WifiNetwork()
         {
             Ssid = string.Empty;
-            Bssid = string.Empty;
+            Bssid = PhysicalAddress.None;
             TypeOfNetwork = NetworkType.Any;
-            Phy =  PhyType.Unknown;
+            Phy = PhyType.Unknown;
             SecuritySettings = new NetworkSecuritySettings(NetworkAuthenticationType.Unknown, NetworkEncryptionType.Unknown);
             ChannelCenterFrequency = 0;
-            Protocol =  NetworkProtocol.ProtocolLow;
+            Protocol = NetworkProtocol.ProtocolLow;
             SignalDbStrength = 0;
         }
 
@@ -112,7 +112,7 @@ namespace Meadow.Gateway.WiFi
         /// <param name="channelFreq">Center frequency of the channel is network is using for data transmission.</param>
         /// <param name="protocol">Network protocol is use / supported.</param>
         /// <param name="signalDbStrength">Signal strength for the WiFi network.</param>
-        public WifiNetwork(string ssid, string bssid, NetworkType typeOfNetworkType, PhyType phy,
+        public WifiNetwork(string ssid, PhysicalAddress bssid, NetworkType typeOfNetworkType, PhyType phy,
             NetworkSecuritySettings securitySettings, int channelFreq, NetworkProtocol protocol,
             sbyte signalDbStrength)
         {

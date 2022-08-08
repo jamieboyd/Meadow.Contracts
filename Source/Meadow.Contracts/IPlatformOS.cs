@@ -11,5 +11,8 @@ namespace Meadow
         void Initialize();
 
         Temperature GetCpuTemperature();
+
+        public INtpClient NtpClient { get; }
+
     }
 }

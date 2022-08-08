@@ -20,8 +20,7 @@ namespace Meadow.Hardware
         /// port used to sample the port value.
         /// </summary>
         /// <param name="pin">The pin to created the port on.</param>
-        /// <param name="voltageReference">Reference maximum analog input port
-        /// voltage in Volts. Default is 3.3V.</param>
+        /// <param name="sampleCount">The number of samples to use for input averaging</param>
         /// <returns></returns>
         IAnalogInputPort CreateAnalogInputPort(
             IPin pin,

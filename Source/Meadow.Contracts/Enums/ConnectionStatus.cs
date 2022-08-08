@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meadow.Gateway.WiFi
+﻿namespace Meadow.Gateway.WiFi
 {
     /// <summary>
     /// Describes the status of a WiFi network connection.
@@ -17,6 +15,7 @@ namespace Meadow.Gateway.WiFi
         /// </summary>
         Success = 1,
 
+        /*
         /// <summary>
         /// Connection failed because access to the network has been revoked.
         /// </summary>
@@ -26,7 +25,7 @@ namespace Meadow.Gateway.WiFi
         /// Connection failed because an invalid credential was presented.
         /// </summary>
         //InvalidCredential = 3,
-
+        */
         /// <summary>
         /// Connection failed because the network is not available.
         /// </summary>

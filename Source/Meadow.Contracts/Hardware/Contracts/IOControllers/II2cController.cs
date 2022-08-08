@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System;
 namespace Meadow.Hardware
 {
     /// <summary>
@@ -15,6 +14,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Creates an I2C bus instance for the default pins.
         /// </summary>
+        /// <param name="busNumber">The bus number</param>
         /// <returns>An instance of an I2cBus</returns>
         II2cBus CreateI2cBus(
             int busNumber = 0);
@@ -23,6 +23,7 @@ namespace Meadow.Hardware
         /// Creates an I2C bus instance for the default pins and the requested bus speed
         /// </summary>
         /// <param name="frequency">The bus speed in (in Hz).</param>
+        /// <param name="busNumber">The bus number</param>
         /// <returns>An instance of an I2cBus</returns>
         II2cBus CreateI2cBus(
             int busNumber,
