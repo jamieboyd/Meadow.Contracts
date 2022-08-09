@@ -23,7 +23,7 @@
         /// <summary>
         /// Called if the app is being brought down.
         /// </summary>
-        public void OnShutdown(out bool complete, Exception? e = null);
+        public void OnShutdown();
 
         /// <summary>
         /// Called if a failure occured while running the app
