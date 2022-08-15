@@ -184,7 +184,7 @@ namespace Meadow
             object? instance;
             if (ctor == null)
             {
-                instance = DoContructorInjections(ctors);
+                instance = DoConstructorInjections(ctors);
             }
             else
             {
@@ -202,7 +202,7 @@ namespace Meadow
             return instance;
         }
 
-        private object? DoContructorInjections(IEnumerable<ConstructorInfo> ctors)
+        private object? DoConstructorInjections(IEnumerable<ConstructorInfo> ctors)
         {
             List<object> pList = new List<object>();
 

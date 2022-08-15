@@ -26,7 +26,7 @@ namespace Meadow
         /// property on the result, because this only gets updated if the filter
         /// is satisfied and the result is sent to the observer.
         /// </summary>
-        protected UNIT? lastNotifedValue;
+        protected UNIT? lastNotifiedValue;
 
         /// <summary>
         /// Creates a new `FilterableChangeObserver` that will execute the handler
@@ -53,7 +53,7 @@ namespace Meadow
         {
             // if the last notified value isn't null, inject it into the result.
             // (each last notified is specific to the observer)
-            if (lastNotifedValue is { } last) {
+            if (lastNotifiedValue is { } last) {
                 result.Old = last;
             }
 
@@ -65,7 +65,7 @@ namespace Meadow
             if (Filter == null || Filter(result) || result.Old is null)
             {
                 // save the last notified value as this new value
-                lastNotifedValue = result.New;
+                lastNotifiedValue = result.New;
                 // invoke (execute) the handler
                 Handler?.Invoke(result);
             }
