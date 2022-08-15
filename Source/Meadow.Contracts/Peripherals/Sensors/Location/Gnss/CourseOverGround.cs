@@ -19,7 +19,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         public string TalkerID { get; set; } = "GP";
 
         /// <summary>
-        /// Retreives the full name associated with the TalkerID via the
+        /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
         public string TalkerSystemName {
@@ -62,7 +62,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");
             outString.Append($"\tTime of reading: {TimeOfReading}\r\n");
             outString.Append($"\tTrue Heading: {TrueHeading}\r\n");
-            outString.Append($"\tMagentic Heading: {MagneticHeading}\r\n");
+            outString.Append($"\tMagnetic Heading: {MagneticHeading}\r\n");
             outString.Append($"\tKnots: {Knots:f2}\r\n");
             outString.Append($"\tKph: {Kph:f2}\r\n");
             outString.Append("}");

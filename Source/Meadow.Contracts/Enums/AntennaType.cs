@@ -1,8 +1,8 @@
 ﻿namespace Meadow.Hardware
 {
-    // <summary>
-    // The types of antenna that can be selected.
-    // </summary>
+    /// <summary>
+    /// The types of antenna that can be selected.
+    /// </summary>
     public enum AntennaType
     {
         NotKnown = 0,

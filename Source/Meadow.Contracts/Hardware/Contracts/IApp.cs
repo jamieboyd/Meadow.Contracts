@@ -28,7 +28,7 @@
         public void OnShutdown();
 
         /// <summary>
-        /// Called if a failure occured while running the app
+        /// Called if a failure occurred while running the app
         /// </summary>
         public void OnError(Exception e, out bool recovered);
 

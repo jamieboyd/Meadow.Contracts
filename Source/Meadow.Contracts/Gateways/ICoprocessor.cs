@@ -42,7 +42,7 @@ namespace Meadow.Gateways
             PowerOn = 1,
 
             /// <summary>
-            /// External GPIO has woken the coprocessof from sleep.
+            /// External GPIO has woken the coprocessor from sleep.
             /// </summary>
             ExternalGpio = 2,
 
