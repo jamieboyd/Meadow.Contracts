@@ -32,7 +32,7 @@
         string ProcessorSerialNumber { get; }
 
         /// <summary>
-        /// Get the unique ID of the micrcontroller.
+        /// Get the unique ID of the microcontroller.
         /// </summary>
         /// <returns>Unique ID of the microcontroller.</returns>
         string ChipID { get; }

@@ -12,7 +12,7 @@ namespace Meadow.Hardware
     public interface IPinDefinitions : IEnumerable<IPin>
     {
         /// <summary>
-        /// Convenience property which contains all the pins avaiable on the 
+        /// Convenience property which contains all the pins available on the 
         /// device.
         /// </summary>
         /// <value>All the pins.</value>

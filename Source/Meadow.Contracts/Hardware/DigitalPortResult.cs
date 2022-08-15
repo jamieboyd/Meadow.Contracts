@@ -18,7 +18,7 @@ namespace Meadow.Hardware
         }
         /// <summary>
         /// The duration of time in between the time the event or notification
-        /// ocurred, and the the time it occured before.
+        /// ocurred, and the the time it occurred before.
         /// </summary>
         public TimeSpan? Delta {
             get => New.Time - Old?.Time;

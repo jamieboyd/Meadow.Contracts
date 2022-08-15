@@ -36,9 +36,9 @@
         /// </summary>
         Timeout = 5,
 
-        /// <summary>
-        /// Connection failed because the authentication protocol is not supported.
-        /// </summary>
+        ///// <summary>
+        ///// Connection failed because the authentication protocol is not supported.
+        ///// </summary>
         //UnsupportedAuthenticationProtocol = 6
 
         /// <summary>
