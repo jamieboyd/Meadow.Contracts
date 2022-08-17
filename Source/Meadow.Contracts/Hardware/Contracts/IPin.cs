@@ -9,15 +9,25 @@ namespace Meadow.Hardware
     /// </summary>
     public interface IPin : IEquatable<IPin>
     {
+        /// <summary>
+        /// Supported channels
+        /// </summary>
         IList<IChannelInfo>? SupportedChannels { get; }
+
+        /// <summary>
+        /// The name of the pin
+        /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// The key object for the pin
+        /// </summary>
         object Key { get; }
 
-        //IChannelInfo ActiveChannel { get; }
-
-        //void ReserveChannel<C>(); // TODO: should this return Task<bool>? (true if reserved)
-        //void ReleaseChannel();
-
+        /// <summary>
+        /// To string 
+        /// </summary>
+        /// <returns>The pin name</returns>
         public string ToString() => Name;
     }
 }
