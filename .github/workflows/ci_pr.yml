@@ -1,9 +1,7 @@
-name: Meadow.Contracts CI Build
+name: CI Pull Request Build
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
 
