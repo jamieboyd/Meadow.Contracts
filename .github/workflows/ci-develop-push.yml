@@ -39,8 +39,8 @@ jobs:
       run: dotnet build -c Release root/Source/Meadow.Contracts/Meadow.Contracts.sln
 
     - name: Trigger Core Build
-    - run: |
-    	curl -X POST https://api.github.com/repos/WildernessLabs/Meadow.Core/dispatches \
-		  -H 'Accept: application/vnd.github.everest-preview+json' \
-		  -u ${{ secrets.CI_ACCESS_TOKEN }} \
-		  --data '{"event_type": "cross_repo_ci", "client_payload": { "source": "'"$GITHUB_REPOSITORY"'" }}'
+      run: |
+        curl -X POST https://api.github.com/repos/WildernessLabs/Meadow.Core/dispatches \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+	-u ${{ secrets.CI_ACCESS_TOKEN }} \
+	--data '{"event_type": "cross_repo_ci", "client_payload": { "source": "'"$GITHUB_REPOSITORY"'" }}'
