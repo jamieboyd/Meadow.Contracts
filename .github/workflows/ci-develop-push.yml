@@ -1,0 +1,46 @@
+name: CI Develop Push Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout Meadow.Contracts
+      uses: actions/checkout@v3
+      with:
+        path: root     
+        
+    - name: Checkout Meadow.Logging
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Logging
+        path: Meadow.Logging
+        
+    - name: Checkout Meadow.Units
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Units
+        path: Meadow.Units
+        ref: develop
+    
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version:
+          6.0.x
+    
+    - name: Build Meadow.Contracts
+      run: dotnet build -c Release root/Source/Meadow.Contracts/Meadow.Contracts.sln
+
+    - name: Trigger Core Build
+    - run: |
+    	curl -X POST https://api.github.com/repos/WildernessLabs/Meadow.Core/dispatches \
+		  -H 'Accept: application/vnd.github.everest-preview+json' \
+		  -u ${{ secrets.CI_ACCESS_TOKEN }} \
+		  --data '{"event_type": "cross_repo_ci", "client_payload": { "source": "'"$GITHUB_REPOSITORY"'" }}'
