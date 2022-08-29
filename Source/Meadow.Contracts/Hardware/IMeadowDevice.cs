@@ -1,7 +1,6 @@
 ﻿using Meadow.Hardware;
 using Meadow.Units;
 using System;
-using System.Threading;
 
 namespace Meadow
 {
@@ -50,11 +49,25 @@ namespace Meadow
         void Reset();
 
         /// <summary>
-        /// Put the device into low-power (sleep) mode for the specified amount of time, or until a wake interrupt occurs.
+        /// Put the device into low-power (sleep) mode for the specified amount of time.
         /// </summary>
-        /// <remarks>Use a time of &lt; 0 to only wake on interrupt</remarks>
-        /// <param name="seconds"></param>        
-        void Sleep(int seconds = Timeout.Infinite);
+        /// <param name="duration">Amount of time to sleep</param>
+        /// <remarks>duration has a resolution of 1 second and must be between 1 and 0xFFFF, inclusive.</remarks>
+        void Sleep(TimeSpan duration);
+
+        /// <summary>
+        /// Put the device into low-power (sleep) mode until the specified time.
+        /// </summary>
+        /// <param name="wakeTime">UTC time to wake</param>
+        public void Sleep(DateTime wakeTime)
+        {
+            if (wakeTime.Kind == DateTimeKind.Local)
+            {
+                throw new ArgumentException("Wake time must be in UTC");
+            }
+
+            Sleep(wakeTime - DateTime.UtcNow);
+        }
 
         BatteryInfo GetBatteryInfo();
         Temperature GetProcessorTemperature();
