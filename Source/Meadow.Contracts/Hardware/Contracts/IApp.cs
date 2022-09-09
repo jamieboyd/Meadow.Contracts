@@ -13,8 +13,6 @@
 
         public static Version Version { get; } = new Version("1.0.0");
 
-        public CancellationToken CancellationToken { get; }
-
         /// <summary>
         /// Called when the application is being brought up.
         /// </summary>
@@ -54,6 +52,7 @@
         /// Called when the application is about to update itself.
         /// </summary>
         public void OnUpdate(Version newVersion, out bool approveUpdate);
+
         /// <summary>
         /// Called when the application has updated itself.
         /// </summary>

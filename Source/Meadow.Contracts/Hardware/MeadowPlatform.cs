@@ -8,7 +8,7 @@
         /// <summary>
         /// Current Platform is not resolvable
         /// </summary>
-        Unknown  = 0,
+        Unknown = 0,
 
         /// <summary>
         /// F7 Feather version 1 (revisions a -> d).
@@ -23,7 +23,7 @@
         /// <summary>
         /// F7 Core Compute Module version 1.
         /// </summary>
-        F7CoreComputeV1 = 3,
+        F7CoreComputeV2 = 3,
 
         /// <summary>
         /// Meadow for Linux
