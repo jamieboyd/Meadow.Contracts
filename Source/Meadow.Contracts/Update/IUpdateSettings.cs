@@ -2,6 +2,7 @@
 {
     public interface IUpdateSettings
     {
+        public bool Enabled { get; }
         public string UpdateServer { get; }
         public int UpdatePort { get; }
         public string ClientID { get; }
