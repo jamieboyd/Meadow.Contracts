@@ -47,5 +47,10 @@
         /// </summary>
         /// <returns>Coprocessor firmware version..</returns>
         string? CoprocessorOSVersion { get; }
+
+        /// <summary>
+        /// Get the version of the firmware flashed to the microcontroller.
+        /// </summary>
+        string OSVersion { get; }
     }
 }

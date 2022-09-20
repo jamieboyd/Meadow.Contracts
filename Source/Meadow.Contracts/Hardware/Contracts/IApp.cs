@@ -34,16 +34,6 @@
         public void OnError(Exception e, out bool recovered);
 
         /// <summary>
-        /// Called when the application is put to sleep.
-        /// </summary>
-        public void OnSleep();
-
-        /// <summary>
-        /// Called when the application wakes up from sleep.
-        /// </summary>
-        public void OnResume();
-
-        /// <summary>
         /// Called after a full app failure
         /// </summary>
         public void OnRecovery(Exception e);
@@ -57,11 +47,5 @@
         /// Called when the application has updated itself.
         /// </summary>
         public void OnUpdateComplete(Version oldVersion, out bool rollbackUpdate);
-
-        /// <summary>
-        /// Called in case the OS needs to restart the app. Will have limited
-        /// processing time.
-        /// </summary>
-        public void OnReset();
     }
 }
