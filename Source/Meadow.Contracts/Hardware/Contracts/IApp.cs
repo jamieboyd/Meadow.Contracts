@@ -13,6 +13,8 @@
 
         public static Version Version { get; } = new Version("1.0.0");
 
+        public CancellationToken CancellationToken { get; }
+
         /// <summary>
         /// Called when the application is being brought up.
         /// </summary>
@@ -21,7 +23,7 @@
         /// <summary>
         /// The core of the app's work and logic
         /// </summary>
-        public Task Run(CancellationToken cancellationToken);
+        public Task Run();
 
         /// <summary>
         /// Called if the app is being brought down.
