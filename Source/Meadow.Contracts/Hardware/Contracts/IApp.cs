@@ -1,6 +1,7 @@
 ﻿namespace Meadow
 {
     using System;
+    using System.Threading;
     using System.Threading.Tasks;
     /// <summary>
     /// Contract for Meadow applications. Provides a way for the Meadow OS to
@@ -11,6 +12,8 @@
         void InvokeOnMainThread(Action<object> action, object? state = null);
 
         public static Version Version { get; } = new Version("1.0.0");
+
+        public CancellationToken CancellationToken { get; }
 
         /// <summary>
         /// Called when the application is being brought up.
@@ -25,7 +28,7 @@
         /// <summary>
         /// Called if the app is being brought down.
         /// </summary>
-        public void OnShutdown();
+        public Task OnShutdown();
 
         /// <summary>
         /// Called if a failure occurred while running the app
@@ -41,6 +44,7 @@
         /// Called when the application is about to update itself.
         /// </summary>
         public void OnUpdate(Version newVersion, out bool approveUpdate);
+
         /// <summary>
         /// Called when the application has updated itself.
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿using Meadow.Logging;
+using Meadow.Update;
 
 namespace Meadow
 {
@@ -41,6 +42,14 @@ namespace Meadow
         public static Logger Log
         {
             get => Services?.Get<Logger>();
+        }
+
+        /// <summary>
+        /// Retrieves the current IUpdateService instance
+        /// </summary>
+        public static IUpdateService UpdateService
+        {
+            get => Services?.Get<IUpdateService>();
         }
 #pragma warning restore CS8603
     }
