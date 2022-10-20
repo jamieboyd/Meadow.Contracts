@@ -33,12 +33,7 @@
         /// <summary>
         /// Called if a failure occurred while running the app
         /// </summary>
-        public void OnError(Exception e, out bool recovered);
-
-        /// <summary>
-        /// Called after a full app failure
-        /// </summary>
-        public void OnRecovery(Exception e);
+        public Task OnError(Exception e);
 
         /// <summary>
         /// Called when the application is about to update itself.
