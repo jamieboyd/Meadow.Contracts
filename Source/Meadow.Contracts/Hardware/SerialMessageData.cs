@@ -4,7 +4,7 @@ using System.Text;
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// Represents a `SerialMessagePort` message consiting of a `byte[]` of the
+    /// Represents a `SerialMessagePort` message consisting of a `byte[]` of the
     /// actual message data.
     /// </summary>
     public class SerialMessageData : EventArgs

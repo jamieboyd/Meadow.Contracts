@@ -1,6 +1,5 @@
 ﻿using Meadow.Units;
 using System;
-using System.Collections.Generic;
 
 namespace Meadow.Hardware
 {
@@ -15,6 +14,7 @@ namespace Meadow.Hardware
         /// Reads bytes from a peripheral.
         /// </summary>
         /// <param name="peripheralAddress">The I2C Address to read</param>
+        /// <param name="readBuffer">Buffer used for data reception</param>
         /// <remarks>
         /// The number of bytes to be written will be determined by the length
         /// of the byte array.

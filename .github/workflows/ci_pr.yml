@@ -1,9 +1,7 @@
-name: Meadow.Contracts CI Build
+name: CI Pull Request Build
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
 
@@ -17,6 +15,12 @@ jobs:
       uses: actions/checkout@v3
       with:
         path: root     
+        
+    - name: Checkout Meadow.Logging
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Logging
+        path: Meadow.Logging
         
     - name: Checkout Meadow.Units
       uses: actions/checkout@v3

@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors.Weather
     public interface IAnemometer : ISensor
     {
         /// <summary>
-        /// The last recored wind speed.
+        /// The last recorded wind speed.
         /// </summary>
         Speed? WindSpeed { get; }
 

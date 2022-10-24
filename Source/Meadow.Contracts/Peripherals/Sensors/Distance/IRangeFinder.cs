@@ -9,6 +9,11 @@ namespace Meadow.Peripherals.Sensors
     public interface IRangeFinder : ISensor
     {
         /// <summary>
+        /// Sends a trigger signal
+        /// </summary>
+        void MeasureDistance();
+
+        /// <summary>
         /// Last value read from the sensor
         /// </summary>
         Length? Distance { get; }

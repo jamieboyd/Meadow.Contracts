@@ -1,8 +1,9 @@
 # Meadow.Contracts
 
-Please clone Meadow.Units as a sibling to resolve solution dependency.
+This repository contains the interfaces used by Core Meadow implementations.  It requires Meadow.Units and Meadow.Logging.
+
+Please clone Meadow.Units and Meadow.Logging as siblings to resolve solution dependency.
 
 ## Repo Status
 
-[![Meadow.Contracts CI Build](https://github.com/WildernessLabs/Meadow.Contracts/actions/workflows/dotnet.yml/badge.svg)](https://github.com/WildernessLabs/Meadow.Contracts/actions/workflows/dotnet.yml)
-
+[![Develop Branch](https://github.com/WildernessLabs/Meadow.Contracts/actions/workflows/ci-develop-push.yml/badge.svg)](https://github.com/WildernessLabs/Meadow.Contracts/actions/workflows/ci-develop-push.yml)

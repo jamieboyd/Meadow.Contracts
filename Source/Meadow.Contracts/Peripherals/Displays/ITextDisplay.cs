@@ -21,6 +21,7 @@
         /// </summary>
         /// <param name="text">String to display.</param>
         /// <param name="lineNumber">Line Number.</param>
+        /// <param name="showCursor">Show the cursor.</param>
         void WriteLine(string text, byte lineNumber, bool showCursor = false);
 
         /// <summary>
@@ -35,14 +36,14 @@
         void ClearLine(byte lineNumber);
 
         /// <summary>
-        /// Set cursor in the especified row and column.
+        /// Set cursor in the specified row and column.
         /// </summary>
         /// <param name="column"></param>
         /// <param name="line"></param>
         void SetCursorPosition(byte column, byte line);
 
         /// <summary>
-        /// Update the display, not used by character dislays
+        /// Update the display, not used by character displays
         /// </summary>
         void Show();
 

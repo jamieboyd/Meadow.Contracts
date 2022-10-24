@@ -27,7 +27,10 @@ namespace Meadow
             MacAddress,
             SoftApMacAddress,
             DefaultAccessPoint,
-            ResetReason
+            ResetReason,
+            RebootOnUnhandledException,
+            InitializationTimeout,
+            SdCardPresent
         };
 
         T GetConfigurationValue<T>(ConfigurationValues item) where T : struct;
@@ -38,6 +41,8 @@ namespace Meadow
         string OSVersion { get; }
         string OSBuildDate { get; }
         string MonoVersion { get; }
-
+        bool RebootOnUnhandledException { get; }
+        uint InitializationTimeout { get; }
+        bool SdCardPresent { get; }
     }
 }

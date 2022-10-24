@@ -17,21 +17,45 @@ namespace Meadow.Hardware
         /// <param name="resistorMode">The `ResistorMode` specifying whether an
         /// external pull-up/pull-down resistor is used, or an internal pull-up/pull-down
         /// resistor should be configured for default state.</param>
-        /// <param name="debounceDuration">The duration, in microseconds (µs),
+        /// <param name="debounceDuration">The duration, with microseconds (µs) resolution,
         /// of the time to ignore state changes _after_ a deliberate state change
         /// has occurred. Used to prevent unwanted state changes due to noise.
         /// Set to `0` if no debounce filter is required.</param>
-        /// <param name="glitchDuration">The minimum duration, in microseconds
-        /// (µs), of an initial state change to persist before it's notified as
+        /// <param name="glitchDuration">The minimum duration, with microseconds
+        /// (µs) resolution, of an initial state change to persist before it's notified as
         /// an intentional state change, rather than a spurious one. Use this to
         /// ensure that noise doens't trigger an in interrupt.</param>
         /// <returns></returns>
         IDigitalInputPort CreateDigitalInputPort(
             IPin pin,
-            InterruptMode interruptMode = InterruptMode.None,
-            ResistorMode resistorMode = ResistorMode.Disabled,
-            double debounceDuration = 0,
-            double glitchDuration = 0
+            InterruptMode interruptMode,
+            ResistorMode resistorMode,
+            TimeSpan debounceDuration,
+            TimeSpan glitchDuration
             );
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin
+            )
+        {
+            return CreateDigitalInputPort(pin, InterruptMode.None, ResistorMode.Disabled, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin,
+            InterruptMode interruptMode
+            )
+        {
+            return CreateDigitalInputPort(pin, interruptMode, ResistorMode.Disabled, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        public IDigitalInputPort CreateDigitalInputPort(
+            IPin pin,
+            InterruptMode interruptMode,
+            ResistorMode resistorMode
+            )
+        {
+            return CreateDigitalInputPort(pin, interruptMode, resistorMode, TimeSpan.Zero, TimeSpan.Zero);
+        }
     }
 }

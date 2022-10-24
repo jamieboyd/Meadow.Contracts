@@ -32,10 +32,9 @@
         string ProcessorSerialNumber { get; }
 
         /// <summary>
-        /// Get the unique ID of the micrcontroller.
+        /// Gets the unique ID of the Meadow device.
         /// </summary>
-        /// <returns>Unique ID of the microcontroller.</returns>
-        string ChipID { get; }
+        string UniqueID { get; }
 
         /// <summary>
         /// Get the coprocessor type.
@@ -48,5 +47,10 @@
         /// </summary>
         /// <returns>Coprocessor firmware version..</returns>
         string? CoprocessorOSVersion { get; }
+
+        /// <summary>
+        /// Get the version of the firmware flashed to the microcontroller.
+        /// </summary>
+        string OSVersion { get; }
     }
 }

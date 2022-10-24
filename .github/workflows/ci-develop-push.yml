@@ -1,0 +1,47 @@
+name: CI Develop Push Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout Meadow.Contracts
+      uses: actions/checkout@v3
+      with:
+        path: root     
+        
+    - name: Checkout Meadow.Logging
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Logging
+        path: Meadow.Logging
+        
+    - name: Checkout Meadow.Units
+      uses: actions/checkout@v3
+      with:
+        repository: WildernessLabs/Meadow.Units
+        path: Meadow.Units
+        ref: develop
+    
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version:
+          6.0.x
+    
+    - name: Build Meadow.Contracts
+      run: dotnet build -c Release root/Source/Meadow.Contracts/Meadow.Contracts.sln
+
+    - name: Trigger Core Build
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          token: ${{ secrets.CI_ACCESS_TOKEN }}
+          repository: WildernessLabs/Meadow.Core
+          event-type: cross_repo_ci
+          client-payload: '{"source": "${{ github.event.repository.name }}"}'
