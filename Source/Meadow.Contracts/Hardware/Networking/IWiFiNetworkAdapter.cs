@@ -49,8 +49,7 @@ namespace Meadow.Hardware
         /// <param name="token">Cancellation token for the connection attempt</param>
         /// <param name="reconnection">Should the adapter reconnect automatically?</param>
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
-        /// <returns>true if the connection was successfully made.</returns>
-        Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic);
+        Task Connect(string ssid, string password, TimeSpan timeout, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic);
 
         /// <summary>
         /// Start a WiFi network.
@@ -59,11 +58,10 @@ namespace Meadow.Hardware
         /// <param name="password">Password for the network.</param>
         /// <param name="reconnection">Should the adapter reconnect automatically?</param>
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
-        /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password, ReconnectionType reconnection = ReconnectionType.Automatic)
+        async Task Connect(string ssid, string password, ReconnectionType reconnection = ReconnectionType.Automatic)
         {
             var src = new CancellationTokenSource();
-            return await Connect(ssid, password, TimeSpan.Zero, src.Token, reconnection);
+            await Connect(ssid, password, TimeSpan.Zero, src.Token, reconnection);
         }
 
         /// <summary>
@@ -74,11 +72,10 @@ namespace Meadow.Hardware
         /// <param name="token">Cancellation token for the connection attempt</param>
         /// <param name="reconnection">Should the adapter reconnect automatically?</param>
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
-        /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic)
+        async Task Connect(string ssid, string password, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic)
         {
             var src = new CancellationTokenSource();
-            return await Connect(ssid, password, TimeSpan.Zero, token, reconnection);
+            await Connect(ssid, password, TimeSpan.Zero, token, reconnection);
         }
 
         /// <summary>
@@ -89,11 +86,10 @@ namespace Meadow.Hardware
         /// <param name="timeout">Timeout period for the connection attempt</param>
         /// <param name="reconnection">Should the adapter reconnect automatically?</param>
         /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
-        /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, ReconnectionType reconnection = ReconnectionType.Automatic)
+        async Task Connect(string ssid, string password, TimeSpan timeout, ReconnectionType reconnection = ReconnectionType.Automatic)
         {
             var src = new CancellationTokenSource();
-            return await Connect(ssid, password, timeout, src.Token, reconnection);
+            await Connect(ssid, password, timeout, src.Token, reconnection);
         }
 
         /// <summary>
@@ -103,11 +99,10 @@ namespace Meadow.Hardware
         /// <param name="password">Password for the network.</param>
         /// <param name="timeout">Timeout period for the connection attempt</param>
         /// <param name="token">Cancellation token for the connection attempt</param>
-        /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout, CancellationToken token)
+        async Task Connect(string ssid, string password, TimeSpan timeout, CancellationToken token)
         {
             var src = new CancellationTokenSource();
-            return await Connect(ssid, password, TimeSpan.Zero, token, ReconnectionType.Automatic);
+            await Connect(ssid, password, TimeSpan.Zero, token, ReconnectionType.Automatic);
         }
 
         /// <summary>
@@ -116,10 +111,9 @@ namespace Meadow.Hardware
         /// <param name="ssid">Name of the network to connect to.</param>
         /// <param name="password">Password for the network.</param>
         /// <param name="timeout">Timeout period for the connection attempt</param>
-        /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password, TimeSpan timeout)
+        async Task Connect(string ssid, string password, TimeSpan timeout)
         {
-            return await Connect(ssid, password, timeout, CancellationToken.None);
+            await Connect(ssid, password, timeout, CancellationToken.None);
         }
 
         /// <summary>
@@ -128,9 +122,9 @@ namespace Meadow.Hardware
         /// <param name="ssid">Name of the network to connect to.</param>
         /// <param name="password">Password for the network.</param>
         /// <returns>true if the connection was successfully made.</returns>
-        async Task<ConnectionResult> Connect(string ssid, string password)
+        async Task Connect(string ssid, string password)
         {
-            return await Connect(ssid, password, TimeSpan.FromSeconds(90), CancellationToken.None);
+            await Connect(ssid, password, TimeSpan.FromSeconds(90), CancellationToken.None);
         }
 
         /// <summary>
