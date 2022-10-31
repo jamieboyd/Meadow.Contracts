@@ -135,7 +135,7 @@ namespace Meadow.Hardware
         /// the disconnection from the current access point.
         /// </remarks>
         /// <param name="turnOffWiFiInterface">Should the WiFi interface be turned off?</param>
-        Task<ConnectionResult> Disconnect(bool turnOffWiFiInterface);
+        Task Disconnect(bool turnOffWiFiInterface);
 
         /// <summary>
         /// Get the list of access points.
