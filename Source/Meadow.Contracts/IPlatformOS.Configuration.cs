@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow
+﻿namespace Meadow
 {
     public partial interface IPlatformOS
     {
@@ -33,6 +32,13 @@ namespace Meadow
             SdCardPresent
         };
 
+        public enum NetworkConnectionType
+        {
+            WiFi,
+            Ethernet,
+            GSM
+        }
+
         T GetConfigurationValue<T>(ConfigurationValues item) where T : struct;
 
         void SetConfigurationValue<T>(ConfigurationValues item, T value) where T : struct;
@@ -44,5 +50,7 @@ namespace Meadow
         bool RebootOnUnhandledException { get; }
         uint InitializationTimeout { get; }
         bool SdCardPresent { get; }
+
+        public NetworkConnectionType SelectedNetwork { get; }
     }
 }
