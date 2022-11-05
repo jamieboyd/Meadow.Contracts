@@ -29,12 +29,13 @@
             ResetReason,
             RebootOnUnhandledException,
             InitializationTimeout,
-            SdCardPresent
+            SdCardPresent,
+            SelectedNetwork
         };
 
         public enum NetworkConnectionType
         {
-            WiFi,
+            WiFi = 0,
             Ethernet,
             GSM
         }
