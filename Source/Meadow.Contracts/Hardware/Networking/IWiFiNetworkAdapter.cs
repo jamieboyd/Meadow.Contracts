@@ -138,6 +138,17 @@ namespace Meadow.Hardware
         Task Disconnect(bool turnOffWiFiInterface);
 
         /// <summary>
+        /// Connect to the default access point.
+        /// </summary>
+        /// <remarks>The access point credentials should be stored in the coprocessor memory.</remarks>
+        Task ConnectToDefaultAccessPoint();
+
+        /// <summary>
+        /// Removed any stored access point information from the coprocessor memory.
+        /// </summary>
+        Task ClearStoredAccessPointInformation();
+
+        /// <summary>
         /// Get the list of access points.
         /// </summary>
         /// <remarks>
