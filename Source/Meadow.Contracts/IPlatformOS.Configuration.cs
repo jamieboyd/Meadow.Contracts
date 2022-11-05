@@ -29,8 +29,7 @@
             ResetReason,
             RebootOnUnhandledException,
             InitializationTimeout,
-            SdCardPresent,
-            SelectedNetwork
+            SdCardPresent
         };
 
         public enum NetworkConnectionType
