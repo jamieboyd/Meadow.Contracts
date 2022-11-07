@@ -141,7 +141,7 @@ namespace Meadow.Hardware
         /// Connect to the default access point.
         /// </summary>
         /// <remarks>The access point credentials should be stored in the coprocessor memory.</remarks>
-        Task ConnectToDefaultAccessPoint();
+        void ConnectToDefaultAccessPoint();
 
         /// <summary>
         /// Removed any stored access point information from the coprocessor memory.
