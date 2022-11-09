@@ -30,9 +30,15 @@
             RebootOnUnhandledException,
             InitializationTimeout,
             SdCardPresent,
-            SelectedNetwork
+            SelectedNetwork,
+            StaticIpAddress,
+            SubnetMask,
+            DefaultGateway
         };
 
+        /// <summary>
+        /// Network connection types available.
+        /// </summary>
         public enum NetworkConnectionType
         {
             WiFi = 0,
@@ -40,8 +46,19 @@
             GSM
         }
 
+        /// <summary>
+        /// Get a configuration value, as specified in meadow.config.yaml, from the OS.
+        /// </summary>
+        /// <typeparam name="T">Type of the object being retrieved.</typeparam>
+        /// <param name="item">Item to retrieve.</param>
+        /// <returns>Value for the specified item.</returns>
         T GetConfigurationValue<T>(ConfigurationValues item) where T : struct;
 
+        /// <summary>
+        /// Send a configuration value to the OS.
+        /// </summary>
+        /// <typeparam name="T">Type of the object being set.</typeparam>
+        /// <param name="item">Item to set.</param>
         void SetConfigurationValue<T>(ConfigurationValues item, T value) where T : struct;
 
         // named properties
