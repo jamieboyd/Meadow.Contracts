@@ -15,9 +15,9 @@ jobs:
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
       
     - name: Build Meadow.Contracts
-      run: dotnet build -c Release src/lib/Meadow.Contracts.csproj /p:Version=${VERSION}
+      run: dotnet build -c Release Source/Meadow.Contracts/Meadow.Contracts.csproj /p:Version=${VERSION}
     - name: Package Meadow.Contracts
-      run: dotnet pack -c Release src/lib/Meadow.Contracts.csproj /p:Version=${VERSION} --output .
+      run: dotnet pack -c Release Source/Meadow.Contracts/Meadow.Contracts.csproj /p:Version=${VERSION} --output .
     - name: Push Meadow.Linux to NuGet
       run: dotnet nuget push Meadow.Contracts.${VERSION}.nupkg -s https://api.nuget.org/v3/index.json -k ${NUGET_TOKEN}
       env:
