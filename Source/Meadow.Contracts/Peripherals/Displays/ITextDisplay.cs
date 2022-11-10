@@ -46,12 +46,5 @@
         /// Update the display, not used by character displays
         /// </summary>
         void Show();
-
-        /// <summary>
-        ///  is this going to be supported by all text displays?
-        /// </summary>
-        /// <param name="characterMap"></param>
-        /// <param name="address"></param>
-        void SaveCustomCharacter(byte[] characterMap, byte address);
     }
 }
