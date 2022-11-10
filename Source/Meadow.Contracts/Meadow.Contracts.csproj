@@ -10,7 +10,7 @@
 	 <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Contracts</RepositoryUrl>
    <PackageTags>Meadow</PackageTags>
    <Description>Wilderness Labs contracts for .NET applications on Meadow hardware</Description>
-   <Version>0.23.0</Version>
+   <Version>0.33.0</Version>
    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
    <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
@@ -25,6 +25,6 @@
     <ProjectReference Include="..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj" />
  </ItemGroup>
 	<ItemGroup>
-		<None Include="..\icon.png" Link="icon.png" Pack="true" PackagePath="" />
+		<None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 </Project>
