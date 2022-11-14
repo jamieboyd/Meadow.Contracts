@@ -6,18 +6,18 @@ namespace Meadow.Peripherals.Sensors.Motion
     /// <summary>
     /// Represents a generic gyroscopic sensor that measures angular velocity.
     /// </summary>
-    public interface IGyroscope : ISamplingSensor<AngularVelocity3D>
+    public interface IMagetometer : ISamplingSensor<MagneticField3D>
     {
         /// <summary>
         /// Last value read from the sensor.
         /// </summary>
-        AngularVelocity3D? AngularVelocity3D { get; }
+        MagneticField3D? MagneticField3d { get; }
 
         /// <summary>
         /// Raised when a new reading has been made. Events will only be raised
         /// while the driver is updating. To start, call the `StartUpdating()`
         /// method.
         /// </summary>
-        event EventHandler<IChangeResult<AngularVelocity3D>> AngularVelocity3DUpdated;
+        event EventHandler<IChangeResult<MagneticField3D>> MagneticField3dUpdated;
     }
 }

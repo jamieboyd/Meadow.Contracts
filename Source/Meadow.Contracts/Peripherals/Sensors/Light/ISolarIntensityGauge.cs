@@ -1,5 +1,6 @@
 ﻿using System;
 using Meadow;
+using Meadow.Peripherals.Sensors;
 using Meadow.Units;
 using VU = Meadow.Units.Voltage.UnitType;
 
@@ -8,7 +9,7 @@ namespace Meadow.Foundation.Sensors.Light
     /// <summary>
     /// Contract for analog solar intensity gauge
     /// </summary>
-    public interface ISolarIntensityGauge
+    public interface ISolarIntensityGauge : ISensor
     {
         /// <summary>
         /// Raised when the sensor receives a new solar intensity reading.

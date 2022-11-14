@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// Mass sensor interface requirements.
     /// </summary>
-    public interface IMassSensor : ISensor
+    public interface IMassSensor : ISamplingSensor<Mass>
     {
         /// <summary>
         /// Last value read from the sensor.
