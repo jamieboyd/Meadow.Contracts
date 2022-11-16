@@ -4,12 +4,12 @@ using System;
 namespace Meadow.Peripherals.Sensors.Motion
 {
     /// <summary>
-    /// Represents a generic gyroscopic sensor that measures angular velocity.
+    /// Represents a generic magnetometer sensor that measures the strength and direction of a magnetic field
     /// </summary>
-    public interface IMagetometer : ISamplingSensor<MagneticField3D>
+    public interface IMagnetometer : ISamplingSensor<MagneticField3D>
     {
         /// <summary>
-        /// Last value read from the sensor.
+        /// Last value read from the sensor
         /// </summary>
         MagneticField3D? MagneticField3d { get; }
 
