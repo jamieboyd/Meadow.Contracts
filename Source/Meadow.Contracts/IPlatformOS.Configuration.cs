@@ -29,7 +29,8 @@
             ResetReason,
             RebootOnUnhandledException,
             InitializationTimeout,
-            SdCardPresent,
+            SdCardEnabled,
+            SdCardMountPoint,
             SelectedNetwork,
             StaticIpAddress,
             SubnetMask,
@@ -89,9 +90,14 @@
         uint InitializationTimeout { get; }
 
         /// <summary>
-        /// Is an SD card on the device.
+        /// Is an SD card enabled on the device.
         /// </summary>
-        bool SdCardPresent { get; }
+        bool SdCardEnabled { get; }
+
+        /// <summary>
+        /// Default mount point for the SD card (if present).
+        /// </summary>
+        string SdCardMountPoint { get; }
 
         /// <summary>
         /// Should a WiFi connection be made on startup.
