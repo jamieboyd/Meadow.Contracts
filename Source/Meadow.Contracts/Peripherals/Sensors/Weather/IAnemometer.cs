@@ -3,7 +3,7 @@ using Meadow.Units;
 
 namespace Meadow.Peripherals.Sensors.Weather
 {
-    public interface IAnemometer : ISensor
+    public interface IAnemometer : ISamplingSensor<Speed>
     {
         /// <summary>
         /// The last recorded wind speed.

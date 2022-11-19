@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// Volatile Organic Compound (VOC) sensor interface requirements.
     /// </summary>
-    public interface IVocSensor : ISensor
+    public interface IVocSensor : ISamplingSensor<Concentration>
     {
         /// <summary>
         /// Last value read from the VOC sensor.
