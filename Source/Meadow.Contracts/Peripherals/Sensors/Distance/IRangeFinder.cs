@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// Interface for distance sensors classes.
     /// </summary>
-    public interface IRangeFinder : ISensor
+    public interface IRangeFinder : ISamplingSensor<Length>
     {
         /// <summary>
         /// Sends a trigger signal

@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// Pressure sensor interface requirements.
     /// </summary>
-    public interface IBarometricPressureSensor : ISensor
+    public interface IBarometricPressureSensor : ISamplingSensor<Pressure>
     {
         /// <summary>
         /// Last value read from the Pressure sensor.

@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors.Light
     /// <summary>
     /// Light sensor interface requirements.
     /// </summary>
-    public interface ILightSensor : ISensor
+    public interface ILightSensor : ISamplingSensor<Illuminance>
     {
         /// <summary>
         /// Last value read from the Light sensor.
