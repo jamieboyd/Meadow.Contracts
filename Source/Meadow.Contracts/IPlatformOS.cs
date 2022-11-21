@@ -8,10 +8,25 @@ namespace Meadow
     /// </summary>
     public partial interface IPlatformOS : IPowerController
     {
+        /// <summary>
+        /// Initializes platform-specific OS features
+        /// </summary>
         void Initialize();
 
+        /// <summary>
+        /// Gets the current CPU temperature
+        /// </summary>
+        /// <returns></returns>
         Temperature GetCpuTemperature();
 
+        /// <summary>
+        /// Gets the OS INtpClient instance
+        /// </summary>
         public INtpClient NtpClient { get; }
+
+        /// <summary>
+        /// Returns <b>true</b> if an SD storage card is detected and mounted
+        /// </summary>
+        bool SdCardPresent { get; }
     }
 }
