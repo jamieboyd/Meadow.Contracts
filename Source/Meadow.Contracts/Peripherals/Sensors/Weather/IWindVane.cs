@@ -3,7 +3,7 @@ using Meadow.Units;
 
 namespace Meadow.Peripherals.Sensors.Weather
 {
-    public interface IWindVane : ISensor
+    public interface IWindVane : ISamplingSensor<Azimuth>
     {
         /// <summary>
         /// Raised when the azimuth of the wind changes.

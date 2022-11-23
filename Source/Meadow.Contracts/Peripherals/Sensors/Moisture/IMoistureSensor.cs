@@ -3,7 +3,7 @@ using System;
 
 namespace Meadow.Peripherals.Sensors.Moisture
 {
-    public interface IMoistureSensor : ISensor
+    public interface IMoistureSensor : ISamplingSensor<double>
     {
         /// <summary>
         /// Last value read from the moisture sensor.

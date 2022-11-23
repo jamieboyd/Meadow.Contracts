@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// CO2 sensor interface requirements.
     /// </summary>
-    public interface ICo2Sensor : ISensor
+    public interface ICo2Sensor : ISamplingSensor<Concentration>
     {
         /// <summary>
         /// Last value read from the CO2 sensor.
