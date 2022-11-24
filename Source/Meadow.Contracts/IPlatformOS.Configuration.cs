@@ -1,4 +1,7 @@
-﻿namespace Meadow
+﻿using System.Collections.Generic;
+using System.IO;
+
+namespace Meadow
 {
     public partial interface IPlatformOS
     {

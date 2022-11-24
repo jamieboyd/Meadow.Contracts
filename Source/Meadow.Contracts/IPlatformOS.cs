@@ -23,10 +23,5 @@ namespace Meadow
         /// Gets the OS INtpClient instance
         /// </summary>
         public INtpClient NtpClient { get; }
-
-        /// <summary>
-        /// Returns <b>true</b> if an SD storage card is detected and mounted
-        /// </summary>
-        bool SdCardPresent { get; }
     }
 }
