@@ -21,5 +21,6 @@ namespace Meadow
     {
         public event ExternalStorageEventHandler ExternalStorageEvent;
         public IEnumerable<IExternalStorage> ExternalStorage { get; }
+        public string FileSystemRoot { get; }
     }
 }
