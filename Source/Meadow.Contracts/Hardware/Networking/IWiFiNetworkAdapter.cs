@@ -101,8 +101,7 @@ namespace Meadow.Hardware
         /// <param name="token">Cancellation token for the connection attempt</param>
         async Task Connect(string ssid, string password, TimeSpan timeout, CancellationToken token)
         {
-            var src = new CancellationTokenSource();
-            await Connect(ssid, password, TimeSpan.Zero, token, ReconnectionType.Automatic);
+            await Connect(ssid, password, timeout, token, ReconnectionType.Automatic);
         }
 
         /// <summary>
