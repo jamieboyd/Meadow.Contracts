@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow
+﻿namespace Meadow
 {
     public partial interface IPlatformOS
     {
@@ -29,8 +28,7 @@ namespace Meadow
             DefaultAccessPoint,
             ResetReason,
             RebootOnUnhandledException,
-            InitializationTimeout,
-            SdCardPresent
+            InitializationTimeout
         };
 
         T GetConfigurationValue<T>(ConfigurationValues item) where T : struct;
@@ -43,6 +41,5 @@ namespace Meadow
         string MonoVersion { get; }
         bool RebootOnUnhandledException { get; }
         uint InitializationTimeout { get; }
-        bool SdCardPresent { get; }
     }
 }
