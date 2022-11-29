@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-
-namespace Meadow
+﻿namespace Meadow
 {
     public partial interface IPlatformOS
     {
@@ -31,9 +28,7 @@ namespace Meadow
             DefaultAccessPoint,
             ResetReason,
             RebootOnUnhandledException,
-            InitializationTimeout,
-            SdCardEnabled,
-            SdCardMountPoint,
+            InitializationTimeout
         };
 
         T GetConfigurationValue<T>(ConfigurationValues item) where T : struct;
