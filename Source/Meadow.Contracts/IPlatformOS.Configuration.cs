@@ -29,8 +29,6 @@
             ResetReason,
             RebootOnUnhandledException,
             InitializationTimeout,
-            SdCardEnabled,
-            SdCardMountPoint,
             SelectedNetwork,
             StaticIpAddress,
             SubnetMask,
@@ -88,16 +86,6 @@
         /// Number of seconds allowed for the system to initialize.
         /// </summary>
         uint InitializationTimeout { get; }
-
-        /// <summary>
-        /// Is an SD card enabled on the device.
-        /// </summary>
-        bool SdCardEnabled { get; }
-
-        /// <summary>
-        /// Default mount point for the SD card (if present).
-        /// </summary>
-        string SdCardMountPoint { get; }
 
         /// <summary>
         /// Should a WiFi connection be made on startup.
