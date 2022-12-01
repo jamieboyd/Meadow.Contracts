@@ -16,6 +16,13 @@ namespace Meadow.Hardware
     public delegate void NetworkDisconnectionHandler(INetworkAdapter sender);
 
     /// <summary>
+    /// Delegate containing information about a network error event.
+    /// </summary>
+    /// <param name="sender">Object sending this error</param>
+    /// <param name="args">Error codes and information about the error.</param>
+    public delegate void NetworkErrorHandler(INetworkAdapter sender, NetworkErrorEventArgs args);
+
+    /// <summary>
     /// Base interface for a network adapter
     /// </summary>
     public interface INetworkAdapter
