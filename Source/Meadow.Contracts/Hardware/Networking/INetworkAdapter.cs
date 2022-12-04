@@ -9,6 +9,7 @@ namespace Meadow.Hardware
     /// <param name="sender"></param>
     /// <param name="args"></param>
     public delegate void NetworkConnectionHandler(INetworkAdapter sender, NetworkConnectionEventArgs args);
+
     /// <summary>
     /// Delegate containing information about a network disconnection event
     /// </summary>
@@ -31,10 +32,16 @@ namespace Meadow.Hardware
         /// Event raised when a network is connected
         /// </summary>
         event NetworkConnectionHandler NetworkConnected;
+
         /// <summary>
         /// Event raised when a network is disconnected
         /// </summary>
         event NetworkDisconnectionHandler NetworkDisconnected;
+
+        /// <summary>
+        /// Event raised on an unexpected network error.
+        /// </summary>
+        event NetworkErrorHandler NetworkError;
 
         /// <summary>
         /// Indicate if the network adapter is connected to an access point.
