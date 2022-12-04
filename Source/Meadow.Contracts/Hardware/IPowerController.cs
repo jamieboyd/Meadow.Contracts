@@ -43,5 +43,7 @@ namespace Meadow
 
             Sleep(wakeTime - DateTime.UtcNow);
         }
+
+        void RegisterForSleep(ISleepAwarePeripheral peripheral);
     }
 }
