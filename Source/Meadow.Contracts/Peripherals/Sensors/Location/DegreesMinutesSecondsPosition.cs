@@ -8,8 +8,8 @@ namespace Meadow.Peripherals.Sensors.Location
     public class DegreesMinutesSecondsPosition
     {
         /// <summary>
-        /// Latitudinal: -90º to 90º
-        /// Longitudinal: -180º to 180º
+        /// Latitudinal: -90° to 90°
+        /// Longitudinal: -180° to 180°
         /// </summary>
         public int Degrees { get; set; }
         /// <summary>
