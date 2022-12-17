@@ -16,6 +16,11 @@ namespace Meadow.Hardware
         /// </summary>
         public DateTime Time { get; set; }
 
+        /// <summary>
+        /// Creates an instance of a DigitalState
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="time"></param>
         public DigitalState(bool state, DateTime time)
         {
             State = state;
