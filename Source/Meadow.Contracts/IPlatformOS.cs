@@ -11,7 +11,8 @@ namespace Meadow
         /// <summary>
         /// Initializes platform-specific OS features
         /// </summary>
-        void Initialize();
+        /// <param name="capabilities"></param>
+        void Initialize(DeviceCapabilities capabilities);
 
         /// <summary>
         /// Gets the current CPU temperature

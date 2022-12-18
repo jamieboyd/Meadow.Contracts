@@ -8,31 +8,32 @@
         /// <remarks>It is critical that this enum matches the enum in the NuttX file hcom_nx_config_manager.h.</remarks>
         public enum ConfigurationValues
         {
-            DeviceName = 0,
-            Product,
-            Model,
-            OsVersion,
-            BuildDate,
-            ProcessorType,
-            UniqueId,
-            SerialNumber,
-            CoprocessorType,
-            CoprocessorFirmwareVersion,
-            MonoVersion,
-            AutomaticallyStartNetwork,
-            AutomaticallyReconnect,
-            MaximumNetworkRetryCount,
-            GetTimeAtStartup,
-            MacAddress,
-            SoftApMacAddress,
-            DefaultAccessPoint,
-            ResetReason,
-            RebootOnUnhandledException,
-            InitializationTimeout,
-            SelectedNetwork,
-            StaticIpAddress,
-            SubnetMask,
-            DefaultGateway
+            DeviceName = 0,                 // 0
+            Product,                        // 1
+            Model,                          // 2
+            OsVersion,                      // 3
+            BuildDate,                      // 4
+            ProcessorType,                  // 5
+            UniqueId,                       // 6
+            SerialNumber,                   // 7
+            CoprocessorType,                // 8
+            CoprocessorFirmwareVersion,     // 9
+            MonoVersion,                    // 10
+            AutomaticallyStartNetwork,      // 11
+            AutomaticallyReconnect,         // 12
+            MaximumNetworkRetryCount,       // 13
+            GetTimeAtStartup,               // 14
+            MacAddress,                     // 15
+            SoftApMacAddress,               // 16
+            DefaultAccessPoint,             // 17
+            ResetReason,                    // 18
+            RebootOnUnhandledException,     // 19
+            InitializationTimeout,          // 20
+            SelectedNetwork,                // 21
+            StaticIpAddress,                // 22
+            SubnetMask,                     // 23
+            DefaultGateway,                 // 24
+            SdStorageSupported              // 25
         };
 
         /// <summary>
@@ -97,5 +98,10 @@
         /// Which network is selected in meadow.config.yaml.
         /// </summary>
         public NetworkConnectionType SelectedNetwork { get; }
+
+        /// <summary>
+        /// Should SD card support be enabled on this platform?
+        /// </summary>
+        public bool SdStorageSupported { get; }
     }
 }
