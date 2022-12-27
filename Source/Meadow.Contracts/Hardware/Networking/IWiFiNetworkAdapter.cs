@@ -1,14 +1,66 @@
 ﻿using Meadow.Gateway.WiFi;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Delegate containing information about a access point start event.
+    /// </summary>
+    /// <param name="sender">Object raising the event.</param>
+    /// <param name="args">Information about the change in state of the access point.</param>
+    public delegate void AccessPointStartedHandler(INetworkAdapter sender, AccessPointStateChangeArgs args);
+
+    /// <summary>
+    /// Delegate containing information about a access point stop event.
+    /// </summary>
+    /// <param name="sender">Object raising the event.</param>
+    /// <param name="args">Information about the change in state of the access point.</param>
+    public delegate void AccessPointStoppedHandler(INetworkAdapter sender, AccessPointStateChangeArgs args);
+
+    /// <summary>
+    /// Delegate containing information about a new node joining the access point.
+    /// </summary>
+    /// <param name="sender">Object raising the event.</param>
+    /// <param name="args">Information about the node connecting to the access point.</param>
+    public delegate void NodeConnectedHandler(INetworkAdapter sender, NodeConnectionChangeEventArgs args);
+
+    /// <summary>
+    /// Delegate containing information about a new node leaving the access point.
+    /// </summary>
+    /// <param name="sender">Object raising the event.</param>
+    /// <param name="args">Information about the node disconnecting from the access point.</param>
+    public delegate void NodeDisconnectedHandler(INetworkAdapter sender, NodeConnectionChangeEventArgs args);
+
+    /// <summary>
+    /// Defaine the IWiFiNetworkAdapter interface.
+    /// </summary>
     public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
     {
+        /// <summary>
+        /// Event raised when the access point has started.
+        /// </summary>
+        event AccessPointStartedHandler AccessPointStarted;
+
+        /// <summary>
+        /// Event raised when the access point has stopped.
+        /// </summary>
+        event AccessPointStoppedHandler AccessPointStopped;
+
+        /// <summary>
+        /// Event raied when a node connects to the access point.
+        /// </summary>
+        event NodeConnectedHandler NodeConnected;
+
+        /// <summary>
+        /// Event raised when a node disconnects from the access point.
+        /// </summary>
+        event NodeDisconnectedHandler NodeDisconnected;
+
         /// <summary>
         /// Access point the adapter is currently connected to
         /// </summary>
@@ -141,6 +193,32 @@ namespace Meadow.Hardware
         /// </summary>
         /// <remarks>The access point credentials should be stored in the coprocessor memory.</remarks>
         void ConnectToDefaultAccessPoint();
+
+        /// <summary>
+        /// Create a new access point on the ESP32 with the specified SSID and password.
+        /// </summary>
+        /// <remarks>
+        /// The default DHCP setting will be used for the access point.
+        /// </remarks>
+        /// <param name="ssid">SSID for the access point.</param>
+        /// <param name="password">Password for the access point.</param>
+        async Task StartAccessPoint(string ssid, string password)
+        {
+            await StartaccessPoint(ssid, password, IPAddress.None, IPAddress.None, IPAddress.None);
+        }
+
+        /// <summary>
+        /// Create a new access point on the ESP32 with the specified SSID and password.
+        /// </summary>
+        /// <remarks>
+        /// The IP address and subnet mask must allow for 10 IP addresses.
+        /// </remarks>
+        /// <param name="ssid">SSID for the access point.</param>
+        /// <param name="password">Password for the access point.</param>
+        /// <param name="ip">IP address for the DHCP server.</param>
+        /// <param name="subnet"><Subnet mask for the DHCP server./param>
+        /// <param name="gateway"Default gateway for the DHCP server.></param>
+        Task StartaccessPoint(string ssid, string password, IPAddress ip, IPAddress subnet, IPAddress gateway);
 
         /// <summary>
         /// Removed any stored access point information from the coprocessor memory.
