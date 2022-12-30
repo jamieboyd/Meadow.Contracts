@@ -204,7 +204,7 @@ namespace Meadow.Hardware
         /// <param name="password">Password for the access point.</param>
         async Task StartAccessPoint(string ssid, string password)
         {
-            await StartaccessPoint(ssid, password, IPAddress.None, IPAddress.None, IPAddress.None);
+            await StartAccessPoint(ssid, password, IPAddress.None, IPAddress.None, IPAddress.None);
         }
 
         /// <summary>
@@ -218,7 +218,7 @@ namespace Meadow.Hardware
         /// <param name="ip">IP address for the DHCP server.</param>
         /// <param name="subnet"><Subnet mask for the DHCP server./param>
         /// <param name="gateway"Default gateway for the DHCP server.></param>
-        Task StartaccessPoint(string ssid, string password, IPAddress ip, IPAddress subnet, IPAddress gateway);
+        Task StartAccessPoint(string ssid, string password, IPAddress ip, IPAddress subnet, IPAddress gateway);
 
         /// <summary>
         /// Removed any stored access point information from the coprocessor memory.
