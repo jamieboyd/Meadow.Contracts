@@ -8,10 +8,21 @@ namespace Meadow
     /// </summary>
     public partial interface IPlatformOS : IPowerController
     {
-        void Initialize();
+        /// <summary>
+        /// Initializes platform-specific OS features
+        /// </summary>
+        /// <param name="capabilities"></param>
+        void Initialize(DeviceCapabilities capabilities);
 
+        /// <summary>
+        /// Gets the current CPU temperature
+        /// </summary>
+        /// <returns></returns>
         Temperature GetCpuTemperature();
 
+        /// <summary>
+        /// Gets the OS INtpClient instance
+        /// </summary>
         public INtpClient NtpClient { get; }
     }
 }

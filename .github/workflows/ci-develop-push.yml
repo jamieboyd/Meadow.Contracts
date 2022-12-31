@@ -1,4 +1,4 @@
-name: CI Develop Push Build
+name: Develop Build
 
 on:
   workflow_dispatch:
