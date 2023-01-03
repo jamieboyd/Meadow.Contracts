@@ -198,13 +198,14 @@ namespace Meadow.Hardware
         /// Create a new access point on the ESP32 with the specified SSID and password.
         /// </summary>
         /// <remarks>
-        /// The default DHCP setting will be used for the access point.
+        /// The default DHCP setting will be used for the access point.  IPAddress.Any is used in the ESP code to
+        /// indicate that the default DHCP IP address, sbnet mask and gateway should be used.
         /// </remarks>
         /// <param name="ssid">SSID for the access point.</param>
         /// <param name="password">Password for the access point.</param>
         async Task StartAccessPoint(string ssid, string password)
         {
-            await StartAccessPoint(ssid, password, IPAddress.None, IPAddress.None, IPAddress.None);
+            await StartAccessPoint(ssid, password, IPAddress.Any, IPAddress.Any, IPAddress.Any);
         }
 
         /// <summary>
