@@ -5,8 +5,8 @@ namespace Meadow.Hardware
     /// <summary>
     /// Provide information about a change of state for the access point.
     /// </summary>
-	public class AccessPointStateChangeArgs : EventArgs
-	{
+	public class AccessPointStoppedArgs : EventArgs
+    {
         /// <summary>
         /// Date and time the event was generated.
         /// </summary>
@@ -15,10 +15,9 @@ namespace Meadow.Hardware
         /// <summary>
         /// Create a new AccessPointStateChangeEventArgs object.
         /// </summary>
-        public AccessPointStateChangeArgs()
-		{
+        public AccessPointStoppedArgs()
+        {
             When = DateTime.Now;
-		}
-	}
+        }
+    }
 }
-

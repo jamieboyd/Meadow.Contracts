@@ -13,14 +13,14 @@ namespace Meadow.Hardware
     /// </summary>
     /// <param name="sender">Object raising the event.</param>
     /// <param name="args">Information about the change in state of the access point.</param>
-    public delegate void AccessPointStartedHandler(INetworkAdapter sender, AccessPointStateChangeArgs args);
+    public delegate void AccessPointStartedHandler(INetworkAdapter sender, AccessPointStartedArgs args);
 
     /// <summary>
     /// Delegate containing information about a access point stop event.
     /// </summary>
     /// <param name="sender">Object raising the event.</param>
     /// <param name="args">Information about the change in state of the access point.</param>
-    public delegate void AccessPointStoppedHandler(INetworkAdapter sender, AccessPointStateChangeArgs args);
+    public delegate void AccessPointStoppedHandler(INetworkAdapter sender, AccessPointStoppedArgs args);
 
     /// <summary>
     /// Delegate containing information about a new node joining the access point.
@@ -216,8 +216,8 @@ namespace Meadow.Hardware
         /// <param name="ssid">SSID for the access point.</param>
         /// <param name="password">Password for the access point.</param>
         /// <param name="ip">IP address for the DHCP server.</param>
-        /// <param name="subnet"><Subnet mask for the DHCP server./param>
-        /// <param name="gateway"Default gateway for the DHCP server.></param>
+        /// <param name="subnet">Subnet mask for the DHCP server.</param>
+        /// <param name="gateway">Default gateway for the DHCP server.</param>
         Task StartAccessPoint(string ssid, string password, IPAddress ip, IPAddress subnet, IPAddress gateway);
 
         /// <summary>
