@@ -3,7 +3,7 @@
 namespace Meadow.Peripherals.Sensors.Hid
 {
     /// <summary>
-    /// Interface describing 2-axis analog joysticks.
+    /// Interface describing 2-axis analog joysticks
     /// </summary>
     public interface IAnalogJoystick
     {
