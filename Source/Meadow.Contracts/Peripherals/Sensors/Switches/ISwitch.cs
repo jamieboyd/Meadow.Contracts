@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Switches
     /// <summary>
     /// Represents a generic switch
     /// </summary>
-    public interface ISwitch : ISensor
+    public interface ISwitch : ISensor<bool>
     {
         /// <summary>
         /// Describes whether or not the switch circuit is closed/connected (IsOn = true), or open (IsOn = false).
