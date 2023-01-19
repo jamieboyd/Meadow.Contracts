@@ -24,9 +24,6 @@
 		<None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="Meadow.Units" Version="0.*" />
-	</ItemGroup>
-	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Meadow.Logging\Source\Meadow.Logging\lib\Meadow.Logging.csproj" />
 	  <ProjectReference Include="..\..\..\Meadow.Units\Source\Meadow.Units\Meadow.Units.csproj" />
 	</ItemGroup>

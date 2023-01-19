@@ -33,6 +33,11 @@
         /// <summary>
         /// Meadow Simulation Platform
         /// </summary>
-        MeadowSimulation
+        MeadowSimulation,
+
+        /// <summary>
+        /// Windows Host OS
+        /// </summary>
+        Windows
     }
 }
