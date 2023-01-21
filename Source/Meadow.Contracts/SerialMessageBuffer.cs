@@ -1,12 +1,11 @@
-﻿using Meadow.Hardware.Contracts.IOControllers;
-using System;
+﻿using System;
 
 namespace Meadow.Hardware
 {
     /// <summary>
     /// A serial message buffer class to accept data and raise notifcations when complete messages are received
     /// </summary>
-    public class SerialMessageBuffer : ISerialMessageBuffer
+    public class SerialMessageBuffer
     {
         /// <summary> 
         /// The buffer size, in bytes
@@ -75,10 +74,6 @@ namespace Meadow.Hardware
         /// Add data to the buffer to be parsed
         /// </summary>
         /// 
-
-        /// value tuple, did I hit a terminator, did I hit a complete message, did I hit a "null" character 0xFF
-        /// 
-        /// Did I find a message delimeter
         public void AddData(byte[] data)
         {
             if (readBuffer == null) return;
