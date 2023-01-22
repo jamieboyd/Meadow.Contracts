@@ -3,9 +3,9 @@
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// A serial message buffer class to accept data and raise notifcations when complete messages are received
+    /// A serial message processor class to accept data, parse and raise notifcations when complete messages are received
     /// </summary>
-    public class SerialMessageBuffer
+    public class SerialMessageProcessor
     {
         /// <summary> 
         /// The buffer size, in bytes
@@ -37,7 +37,7 @@ namespace Meadow.Hardware
         /// <param name="readBufferSize"></param>
         /// <param name="suffixDelimiter"></param>
         /// <param name="preserveDelimiter"></param>
-        public SerialMessageBuffer(
+        public SerialMessageProcessor(
             int readBufferSize,
             byte[] suffixDelimiter,
             bool preserveDelimiter)
@@ -56,7 +56,7 @@ namespace Meadow.Hardware
         /// <param name="prefixDelimiter"></param>
         /// <param name="preserveDelimiter"></param>
         /// <param name="messageLength"></param>
-        public SerialMessageBuffer(
+        public SerialMessageProcessor(
             int readBufferSize,
             byte[] prefixDelimiter,
             bool preserveDelimiter,
@@ -71,10 +71,9 @@ namespace Meadow.Hardware
         }
 
         /// <summary>
-        /// Add data to the buffer to be parsed
         /// </summary>
-        /// 
-        public void AddData(byte[] data)
+        /// <param name="data">returns true if end of stream (suffix delimiter found at end, or prefix found without new prefix)</param>
+        public void Process(byte[] data)
         {
             if (readBuffer == null) return;
 
@@ -152,6 +151,9 @@ namespace Meadow.Hardware
             }
         }
 
+        /// <summary>
+        /// Process data that is delimited / seperated with a delimter pattern at end of data
+        /// </summary>
         void ProcessSuffixDelimited()
         {
             var firstIndex = readBuffer.FirstIndexOf(messageDelimiterTokens);
