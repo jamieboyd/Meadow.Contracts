@@ -1,4 +1,5 @@
-﻿using Meadow.Units;
+﻿using Meadow.Hardware;
+using Meadow.Units;
 
 namespace Meadow
 {
@@ -24,5 +25,11 @@ namespace Meadow
         /// Gets the OS INtpClient instance
         /// </summary>
         public INtpClient NtpClient { get; }
+
+        /// <summary>
+        /// Gets a list of currently available serial ports
+        /// </summary>
+        /// <returns></returns>
+        public SerialPortName[] GetSerialPortNames();
     }
 }
