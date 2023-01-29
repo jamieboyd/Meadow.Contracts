@@ -1,5 +1,4 @@
-﻿using Meadow.Units;
-using System;
+﻿using System;
 
 namespace Meadow.Hardware
 {
@@ -8,7 +7,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Bus Clock speed
         /// </summary>
-        Frequency Frequency { get; set; }
+        I2cBusSpeed BusSpeed { get; set; }
 
         /// <summary>
         /// Reads bytes from a peripheral.
