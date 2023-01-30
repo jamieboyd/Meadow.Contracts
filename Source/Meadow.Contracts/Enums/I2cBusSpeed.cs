@@ -18,8 +18,13 @@
         /// </summary>
         FastPlus = 1000000,
         /// <summary>
-        /// Fast-Plus 3.2 MHz clock frequency
+        /// High 3.2 MHz clock frequency
         /// </summary>
-        High = 3200000
+        High = 3200000,
+        /// <summary>
+        /// Ultra-Fast 5 MHz clock frequency
+        /// </summary>
+        UltraFast = 5000000
+
     }
 }
