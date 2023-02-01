@@ -1,5 +1,4 @@
 ﻿using System;
-using Meadow.Hardware;
 
 namespace Meadow.Peripherals.Sensors.Rotary
 {

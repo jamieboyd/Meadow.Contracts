@@ -1,18 +1,15 @@
-﻿namespace Meadow.Peripherals.Sensors
+﻿using System.Threading.Tasks;
+
+namespace Meadow.Peripherals.Sensors
 {
-    //TODO: after Meadow.Foundation cleanup. Get rid of comments
-    // here and enforce this pattern.
-
-    public interface ISensor/*<UNIT>
-        where UNIT : struct*/
+    /// <summary>
+    /// Abstraction for a simple sensor
+    /// </summary>
+    public interface ISensor<T>
     {
-        /*
-        bool IsSampling { get; }
-
-        UNIT Read();
-        void StartUpdating();
-        void StartUpdated(TimeSpan updateInterval, int sampleCount, TimeSpan sampleInterval);
-        void StopUpdating();
-        */
+        /// <summary>
+        /// Convenience method to get the current sensor reading
+        /// </summary>
+        public Task<T> Read();
     }
 }

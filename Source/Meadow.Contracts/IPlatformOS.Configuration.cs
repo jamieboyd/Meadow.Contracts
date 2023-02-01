@@ -74,9 +74,9 @@
         string OSBuildDate { get; }
 
         /// <summary>
-        /// Mono version install on the device.
+        /// .NET Runtime version install on the device.
         /// </summary>
-        string MonoVersion { get; }
+        string RuntimeVersion { get; }
 
         /// <summary>
         /// Should the system rebot on an exception?
