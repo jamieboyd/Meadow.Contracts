@@ -10,6 +10,8 @@ namespace Meadow.Hardware
     {
         public IList<IChannelInfo>? SupportedChannels { get; protected set; }
 
+        public IPinController Controller { get; }
+
         public string Name { get; protected set; }
         /// <summary>
         /// Identifier that the parent Device can use to identify the I/O (address, port, pin, etc)
@@ -19,8 +21,9 @@ namespace Meadow.Hardware
 
         //public abstract IChannelInfo ActiveChannel { get; protected set; }
 
-        public Pin(string name, object key, IList<IChannelInfo>? supportedChannels)
+        public Pin(IPinController controller, string name, object key, IList<IChannelInfo>? supportedChannels)
         {
+            Controller = controller;
             Name = name;
             Key = key;
             SupportedChannels = supportedChannels;
