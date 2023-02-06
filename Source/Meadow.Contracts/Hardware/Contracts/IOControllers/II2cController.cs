@@ -17,7 +17,7 @@
         /// <param name="busNumber">The bus number</param>
         /// <returns>An instance of an I2cBus</returns>
         II2cBus CreateI2cBus(
-            int busNumber,
+            int busNumber = 1,
             I2cBusSpeed busSpeed = I2cBusSpeed.Standard
         );
 
