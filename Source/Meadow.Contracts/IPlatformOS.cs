@@ -41,7 +41,7 @@ namespace Meadow
         public SerialPortName? GetSerialPortName(string portName)
         {
             return GetSerialPortNames().FirstOrDefault(
-                p => string.Compare(p.FriendlyName, "portName", true) == 0
+                p => string.Compare(p.FriendlyName, portName, true) == 0
                  || string.Compare(p.SystemName, portName, true) == 0);
         }
     }
