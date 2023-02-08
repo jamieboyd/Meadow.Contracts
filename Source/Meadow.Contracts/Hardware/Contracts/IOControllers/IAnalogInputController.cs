@@ -6,7 +6,7 @@ namespace Meadow.Hardware
     /// <summary>
     /// Contract for devices that expose `IAnalogInputPort(s)`.
     /// </summary>
-    public interface IAnalogInputController
+    public interface IAnalogInputController : IPinController
     {
         // TODO: if Microsoft ever gets around to fixing the compile time const
         // thing, we should make this a `Voltage` 

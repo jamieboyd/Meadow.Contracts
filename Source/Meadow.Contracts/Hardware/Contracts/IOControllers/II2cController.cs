@@ -3,7 +3,7 @@
     /// <summary>
     /// Contract for devices that expose an `II2cBus`.
     /// </summary>
-    public interface II2cController
+    public interface II2cController : IPinController
     {
         /// <summary>
         /// The default I2C Bus speed, in Hz, used when speed parameters are not provided

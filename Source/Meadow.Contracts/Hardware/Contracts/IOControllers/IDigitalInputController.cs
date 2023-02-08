@@ -5,7 +5,7 @@ namespace Meadow.Hardware
     /// Contract for IO devices that are capable of creating `IDigitalInputPort`
     /// instances.
     /// </summary>
-    public interface IDigitalInputController
+    public interface IDigitalInputController : IPinController
     {
         /// <summary>
         /// Creates an IDigitalInputPort on the specified pin.
