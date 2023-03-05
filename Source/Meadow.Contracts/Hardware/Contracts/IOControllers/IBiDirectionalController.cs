@@ -4,7 +4,7 @@ namespace Meadow.Hardware
     /// <summary>
     /// Contract for devices that expose `IBiDirectionPort(s)`.
     /// </summary>
-    public interface IBiDirectionalController
+    public interface IBiDirectionalController : IPinController
     {
         /// <summary>
         /// Creates an `IBiDirectionPort` on the specified pin.

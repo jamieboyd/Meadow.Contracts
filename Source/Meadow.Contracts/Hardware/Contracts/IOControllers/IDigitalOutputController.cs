@@ -1,11 +1,10 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Contract for IO devices that are capable of creating `IDigitalOuputPort`
     /// instances.
     /// </summary>
-    public interface IDigitalOutputController
+    public interface IDigitalOutputController : IPinController
     {
         /// <summary>
         /// Creates an IDigitalOutputPort on the specified pin.

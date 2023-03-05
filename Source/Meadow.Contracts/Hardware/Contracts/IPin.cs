@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// Contract for a pin on the Meadow board.
+    /// Contract for a pin
     /// </summary>
     public interface IPin : IEquatable<IPin>
     {
+        public IPinController Controller { get; }
+
         /// <summary>
         /// Supported channels
         /// </summary>
