@@ -12,10 +12,16 @@ namespace Meadow;
 public partial interface IPlatformOS : IPowerController
 {
     /// <summary>
+    /// The command line arguments provided when the Meadow application was launched
+    /// </summary>
+    public string[]? LaunchArguments { get; }
+
+    /// <summary>
     /// Initializes platform-specific OS features
     /// </summary>
     /// <param name="capabilities"></param>
-    void Initialize(DeviceCapabilities capabilities);
+    /// <param name="args">The command line arguments provided when the Meadow application was launched</param>
+    void Initialize(DeviceCapabilities capabilities, string[]? args);
 
     /// <summary>
     /// Gets the current CPU temperature
