@@ -1,9 +1,10 @@
 namespace Meadow.Gateways
 {
+    /// <summary>
+    /// Contract to describe a co-processor
+    /// </summary>
     public interface ICoprocessor
     {
-        #region Enums
-
         /// <summary>
         /// State of the ESP32 coprocessor.
         /// </summary>
@@ -87,10 +88,6 @@ namespace Meadow.Gateways
             SDIO = 10
         }
 
-        #endregion Enums
-
-        #region Properties
-
         /// <summary>
         /// Current status of the coprocessor.
         /// </summary>
@@ -105,7 +102,5 @@ namespace Meadow.Gateways
         /// Gets the current battery charge level in Volts (`V`).
         /// </summary>
         double GetBatteryLevel();
-
-        #endregion Properties
     }
 }

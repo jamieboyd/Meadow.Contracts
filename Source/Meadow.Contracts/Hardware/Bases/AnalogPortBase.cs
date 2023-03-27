@@ -1,15 +1,17 @@
-using System;
+namespace Meadow.Hardware;
 
-namespace Meadow.Hardware
+/// <summary>
+/// Provides a base implementation for much of the common tasks of 
+/// implementing IAnalogPort
+/// </summary>
+public abstract class AnalogPortBase : PortBase<IAnalogChannelInfo>, IAnalogPort
 {
     /// <summary>
-    /// Provides a base implementation for much of the common tasks of 
-    /// implementing IAnalogPort
+    /// Constructore for an Alalog port base instance
     /// </summary>
-    public abstract class AnalogPortBase : PortBase<IAnalogChannelInfo>, IAnalogPort
-    {
-        protected AnalogPortBase(IPin pin, IAnalogChannelInfo channel)
-            : base(pin, channel)
-        { }
-    }
+    /// <param name="pin"></param>
+    /// <param name="channel"></param>
+    protected AnalogPortBase(IPin pin, IAnalogChannelInfo channel)
+        : base(pin, channel)
+    { }
 }

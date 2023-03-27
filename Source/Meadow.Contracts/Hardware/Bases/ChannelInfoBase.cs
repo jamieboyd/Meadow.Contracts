@@ -1,22 +1,21 @@
-﻿using System;
+﻿namespace Meadow.Hardware;
 
-namespace Meadow.Hardware
+/// <summary>
+/// Provides base functionality for channel types.
+/// </summary>
+public abstract class ChannelInfoBase
 {
     /// <summary>
-    /// Provides base functionality for channel types.
+    /// Gets or sets the name of the channel
     /// </summary>
-    public abstract class ChannelInfoBase
-    {
-        public string Name { get; protected set; }
+    public string Name { get; protected set; }
 
-        protected ChannelInfoBase(string name)
-        {
-            Name = name;
-        }
-    }
-
-    public interface IChannelInfoBase
+    /// <summary>
+    /// The ChannelInfoBase constructor
+    /// </summary>
+    /// <param name="name"></param>
+    protected ChannelInfoBase(string name)
     {
-        public string Name { get; protected set; }
+        Name = name;
     }
 }

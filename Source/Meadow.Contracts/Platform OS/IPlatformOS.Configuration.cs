@@ -64,7 +64,7 @@
         // named properties
 
         /// <summary>
-        /// OS veriosn.
+        /// OS version.
         /// </summary>
         string OSVersion { get; }
 
