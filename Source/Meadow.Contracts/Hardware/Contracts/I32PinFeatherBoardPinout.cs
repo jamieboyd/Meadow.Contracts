@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     public interface I32PinFeatherBoardPinout : IPinDefinitions
     {
@@ -35,9 +34,7 @@ namespace Meadow.Hardware
         IPin D15 { get; }
 
         //==== Convenience pins
-        IPin I2C_SDA => D08;
-        IPin I2C_SCL => D07;
-
-
+        IPin I2C_SDA => D07;
+        IPin I2C_SCL => D08;
     }
 }

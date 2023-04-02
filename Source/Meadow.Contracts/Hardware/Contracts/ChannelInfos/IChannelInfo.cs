@@ -1,8 +1,7 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
-    /// Minimum contract to describes a GPIO channel type or protocol on a 
+    /// Minimum contract to describe a GPIO channel type or protocol on a 
     /// Meadow device such as Analog, Digital, or I2C.
     /// </summary>
     public interface IChannelInfo

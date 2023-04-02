@@ -1,12 +1,20 @@
-﻿namespace Meadow.Hardware
+﻿namespace Meadow.Hardware;
+
+/// <summary>
+/// The types of antenna that can be selected.
+/// </summary>
+public enum AntennaType
 {
     /// <summary>
-    /// The types of antenna that can be selected.
+    /// Unknown
     /// </summary>
-    public enum AntennaType
-    {
-        NotKnown = 0,
-        OnBoard = 1,
-        External = 2
-    };
-}
+    NotKnown = 0,
+    /// <summary>
+    /// On-board antenna
+    /// </summary>
+    OnBoard = 1,
+    /// <summary>
+    /// External antenna
+    /// </summary>
+    External = 2
+};
