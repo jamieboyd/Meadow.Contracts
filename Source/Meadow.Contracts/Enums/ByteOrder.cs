@@ -1,11 +1,16 @@
-namespace Meadow
+namespace Meadow;
+
+/// <summary>
+/// Describes the byte ordering for muli-byte words.
+/// </summary>
+public enum ByteOrder
 {
     /// <summary>
-    /// Describes the byte ordering for muli-byte words.
+    /// Little-endian byte ordering
     /// </summary>
-    public enum ByteOrder
-    {
-        LittleEndian,
-        BigEndian
-    };
-}
+    LittleEndian,
+    /// <summary>
+    /// Big-endian byte ordering
+    /// </summary>
+    BigEndian
+};

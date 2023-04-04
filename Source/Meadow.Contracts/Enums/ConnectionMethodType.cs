@@ -1,24 +1,22 @@
-﻿using System;
-namespace Meadow.Gateway.WiFi
+﻿namespace Meadow.Gateway.WiFi;
+
+/// <summary>
+/// Describes the Wifi connection method type.
+/// </summary>
+public enum ConnectionMethodType
 {
     /// <summary>
-    /// Describes the Wifi connection method type.
+    /// Default.
     /// </summary>
-    public enum ConnectionMethodType
-    {
-        /// <summary>
-        /// Default.
-        /// </summary>
-        Default = 0,
+    Default = 0,
 
-        /// <summary>
-        /// WPS pin.
-        /// </summary>
-        WpsPin = 1,
+    /// <summary>
+    /// WPS pin.
+    /// </summary>
+    WpsPin = 1,
 
-        /// <summary>
-        /// WPS protected setup.
-        /// </summary>
-        WpsPushButton = 2
-    }
+    /// <summary>
+    /// WPS protected setup.
+    /// </summary>
+    WpsPushButton = 2
 }

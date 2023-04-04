@@ -1,5 +1,6 @@
 ﻿using Meadow.Hardware;
 using Meadow.Units;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,4 +58,11 @@ public partial interface IPlatformOS : IPowerController
     /// </summary>
     /// <returns></returns>
     public IEnumerable<PlatformOsMessage>? GetStartupMessages() => null;
+
+    /// <summary>
+    /// Sets the platform OS clock
+    /// </summary>
+    /// <param name="dateTime"></param>
+    public void SetClock(DateTime dateTime);
+
 }
