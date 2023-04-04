@@ -10,13 +10,21 @@ public interface IUpdateSettings
     /// </summary>
     public bool Enabled { get; }
     /// <summary>
-    /// Gets the address of the Update server to use
+    /// Gets the address of the Update (API) server to use
     /// </summary>
     public string UpdateServer { get; }
     /// <summary>
-    /// Gets the port of the Update server to use
+    /// Gets the port of the Update (API) server to use
     /// </summary>
     public int UpdatePort { get; }
+    /// <summary>
+    /// Gets the address of the Update Content (MQTT) server to use
+    /// </summary>
+    public string ContentServer { get; }
+    /// <summary>
+    /// Gets the port of the Update Content (MQTT) server to use
+    /// </summary>
+    public int ContentPort { get; }
     /// <summary>
     /// Gets the Organization the device is registered to
     /// </summary>
