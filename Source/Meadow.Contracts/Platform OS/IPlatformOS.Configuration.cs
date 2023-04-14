@@ -33,7 +33,8 @@
             StaticIpAddress,                // 22
             SubnetMask,                     // 23
             DefaultGateway,                 // 24
-            SdStorageSupported              // 25
+            SdStorageSupported,             // 25
+            ReservedPins                    // 26
         };
 
         /// <summary>
@@ -103,5 +104,11 @@
         /// Should SD card support be enabled on this platform?
         /// </summary>
         public bool SdStorageSupported { get; }
+
+        /// <summary>
+        /// Names of any pins that should be reserved for OS use.
+        /// </summary>
+        /// <remarks>This should be a semicolon list of pin names that will be reserved for OS use.</remarks>
+        public string ReservedPins { get; }
     }
 }
