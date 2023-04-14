@@ -16,7 +16,8 @@ namespace Meadow.Hardware
         /// <summary>
         /// Initializes the device pins to their default power-up status (outputs, low and pulled down where applicable).
         /// </summary>
-        void Initialize();
+        /// <param name="reservedPinList">List of any pins to reserve</param>
+        void Initialize(string[]? reservedPinList);
 
         /// <summary>
         /// Sets the value out a discrete (digital output)
