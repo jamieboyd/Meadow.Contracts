@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Extension methods for the IPin interface
+    /// </summary>
     public static class IPinExtensions
     {
         /// <summary>
