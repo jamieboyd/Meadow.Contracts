@@ -1,4 +1,6 @@
-﻿namespace Meadow.Hardware
+﻿using Meadow.Hardware;
+
+namespace Meadow
 {
     /// <summary>
     /// Extension methods for the SerialPortName class
