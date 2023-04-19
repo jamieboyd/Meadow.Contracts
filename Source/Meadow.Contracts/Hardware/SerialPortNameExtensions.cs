@@ -9,10 +9,21 @@
         /// Creates an ISerialPort directly from a SerialPortName using the current IMeadowDevice
         /// </summary>
         /// <param name="name"></param>
+        /// <param name="baudRate"></param>
+        /// <param name="dataBits"></param>
+        /// <param name="parity"></param>
+        /// <param name="stopBits"></param>
+        /// <param name="readBufferSize"></param>
         /// <returns></returns>
-        public static ISerialPort CreateSerialPort(this SerialPortName name)
+        public static ISerialPort CreateSerialPort(
+            this SerialPortName name,
+            int baudRate = 9600,
+            int dataBits = 8,
+            Parity parity = Parity.None,
+            StopBits stopBits = StopBits.One,
+            int readBufferSize = 1024)
         {
-            return Resolver.Device.CreateSerialPort(name);
+            return Resolver.Device.CreateSerialPort(name, baudRate, dataBits, parity, stopBits, readBufferSize);
         }
 
         /// <summary>
