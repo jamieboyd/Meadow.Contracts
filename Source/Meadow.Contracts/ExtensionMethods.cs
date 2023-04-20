@@ -18,7 +18,7 @@ namespace Meadow
             return (source.FirstIndexOf(pattern) != -1);
         }
 
-        /// TODO: move this into the `CircularBuffer` class? or is it broadly applicable?
+        // TODO: move this into the `CircularBuffer` class? or is it broadly applicable?
         static public int FirstIndexOf<TSource>(this IEnumerable<TSource> source, TSource[] pattern)
         {
             if (pattern == null) throw new ArgumentNullException();
