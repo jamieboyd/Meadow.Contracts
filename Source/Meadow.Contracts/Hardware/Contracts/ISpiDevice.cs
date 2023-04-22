@@ -1,6 +1,6 @@
 ﻿using Meadow.Units;
 
-namespace Meadow.Hardware.Contracts
+namespace Meadow.Hardware
 {
     /// <summary>
     /// Interface for a device that communicates over SPI
