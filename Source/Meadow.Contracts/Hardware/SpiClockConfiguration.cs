@@ -135,7 +135,7 @@ namespace Meadow.Hardware
         }
 
         /// <summary>
-        /// Provided to allow setting bus mode without raising a Changed event. This method is used internally.
+        /// Provided to allow setting the SPI bus mode
         /// </summary>
         /// <param name="mode">The SPI bus mode</param>
         public void SetBusMode(Mode mode)
