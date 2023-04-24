@@ -1,6 +1,9 @@
 ﻿namespace Meadow.Hardware
 {
-    public interface II2cPeripheral : IByteCommunications
+    /// <summary>
+    /// I2C communications abstraction
+    /// </summary>
+    public interface II2cCommunications : IByteCommunications
     {
         /// <summary>
         /// The I2C address of the peripheral

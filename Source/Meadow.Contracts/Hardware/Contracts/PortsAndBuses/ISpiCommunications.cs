@@ -3,9 +3,9 @@
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// SPI peripheral abstraction
+    /// SPI communications abstraction
     /// </summary>
-    public interface ISpiPeripheral : IByteCommunications
+    public interface ISpiCommunications : IByteCommunications
     {
         /// <summary>
         /// Chip select port
