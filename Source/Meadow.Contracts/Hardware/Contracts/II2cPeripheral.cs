@@ -8,6 +8,6 @@
         /// <summary>
         /// The default I2C address for the peripheral
         /// </summary>
-        byte I2cDefaultAddress { get; }
+        byte DefaultI2cAddress { get; }
     }
 }
