@@ -3,27 +3,27 @@
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// Interface for a device that communicates over SPI
+    /// Interface for a device/peripheral that communicates over SPI
     /// </summary>
-    public interface ISpiDevice
+    public interface ISpiPeripheral
     {
         /// <summary>
-        /// SPI bus mode
+        /// Default SPI bus mode
         /// </summary>
         SpiClockConfiguration.Mode DefaultSpiBusMode { get; }
 
         /// <summary>
-        /// SPI bus speed
-        /// </summary>
-        Frequency DefaultSpiBusSpeed { get; }
-
-        /// <summary>
-        /// SPI bus mode
+        /// Current SPI bus mode
         /// </summary>
         SpiClockConfiguration.Mode SpiBusMode { get; set; }
 
         /// <summary>
-        /// SPI bus speed
+        /// Deafult SPI bus speed for the peripheral
+        /// </summary>
+        Frequency DefaultSpiBusSpeed { get; }
+
+        /// <summary>
+        /// Curent SPI bus speed
         /// </summary>
         Frequency SpiBusSpeed { get; set; }
     }
