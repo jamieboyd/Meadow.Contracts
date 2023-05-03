@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Leds
 {
@@ -16,18 +17,18 @@ namespace Meadow.Peripherals.Leds
         /// <summary>
         /// Blink animation that turns the LED on (500ms) and off (500ms)
         /// </summary>
-        void StartBlink();
+        Task StartBlink();
 
         /// <summary>
         /// Blink animation that turns the LED on and off based on the OnDuration and offDuration values in ms
         /// </summary>
         /// <param name="onDuration"></param>
         /// <param name="offDuration"></param>
-        void StartBlink(TimeSpan onDuration, TimeSpan offDuration);
+        Task StartBlink(TimeSpan onDuration, TimeSpan offDuration);
 
         /// <summary>
         /// Stops blink animation.
         /// </summary>
-        void Stop();
+        Task StopAnimation();
     }
 }
