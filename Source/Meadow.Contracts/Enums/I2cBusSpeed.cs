@@ -18,9 +18,9 @@ public enum I2cBusSpeed
     /// </summary>
     FastPlus = 1000000,
     /// <summary>
-    /// High 3.2 MHz clock frequency
+    /// High 3.4 MHz clock frequency
     /// </summary>
-    High = 3200000,
+    High = 3400000,
     /// <summary>
     /// Ultra-Fast 5 MHz clock frequency
     /// </summary>

@@ -57,7 +57,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the current Polarity of the SPI bus clock
         /// </summary>
-        public ClockPolarity Polarity 
+        public ClockPolarity Polarity
         {
             get => _polarity;
             set
@@ -71,7 +71,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the current Phase of the SPI bus clock
         /// </summary>
-        public ClockPhase Phase 
+        public ClockPhase Phase
         {
             get => _phase;
             set
@@ -126,12 +126,39 @@ namespace Meadow.Hardware
         }
 
         /// <summary>
-        /// Provided to allow setting speed value without raising a Changed event.  This method is used internally.
+        /// Provided to allow setting speed value without raising a Changed event. This method is used internally.
         /// </summary>
-        /// <param name="speed"></param>
+        /// <param name="speed">The SPI bus speed</param>
         public void SetActualSpeed(Units.Frequency speed)
         {
             _speed = speed;
+        }
+
+        /// <summary>
+        /// Provided to allow setting the SPI bus mode
+        /// </summary>
+        /// <param name="mode">The SPI bus mode</param>
+        public void SetBusMode(Mode mode)
+        {
+            switch (mode)
+            {
+                case Mode.Mode0:
+                    Polarity = ClockPolarity.Normal;
+                    Phase = ClockPhase.Zero;
+                    break;
+                case Mode.Mode1:
+                    Polarity = ClockPolarity.Normal;
+                    Phase = ClockPhase.One;
+                    break;
+                case Mode.Mode2:
+                    Polarity = ClockPolarity.Inverted;
+                    Phase = ClockPhase.Zero;
+                    break;
+                case Mode.Mode3:
+                    Polarity = ClockPolarity.Inverted;
+                    Phase = ClockPhase.One;
+                    break;
+            }
         }
 
         internal SpiClockConfiguration()
@@ -148,13 +175,12 @@ namespace Meadow.Hardware
             Units.Frequency speed,
             ClockPolarity polarity = ClockPolarity.Normal,
             ClockPhase phase = ClockPhase.Zero
-            
         )
         {
-            this.Speed = speed;
-            this.Polarity = polarity;
-            this.Phase = phase;
-            this.BitsPerWord = 8;
+            Speed = speed;
+            Polarity = polarity;
+            Phase = phase;
+            BitsPerWord = 8;
         }
 
         /// <summary>
@@ -167,26 +193,10 @@ namespace Meadow.Hardware
             Mode mode
         )
         {
-            this.Speed = speed;
-            this.BitsPerWord = 8;
-            switch (mode) {
-                case Mode.Mode0:
-                    this.Polarity = ClockPolarity.Normal;
-                    this.Phase = ClockPhase.Zero;
-                    break;
-                case Mode.Mode1:
-                    this.Polarity = ClockPolarity.Normal;
-                    this.Phase = ClockPhase.One;
-                    break;
-                case Mode.Mode2:
-                    this.Polarity = ClockPolarity.Inverted;
-                    this.Phase = ClockPhase.Zero;
-                    break;
-                case Mode.Mode3:
-                    this.Polarity = ClockPolarity.Inverted;
-                    this.Phase = ClockPhase.One;
-                    break;
-            }
+            Speed = speed;
+            BitsPerWord = 8;
+
+            SetBusMode(mode);
         }
     }
 }
