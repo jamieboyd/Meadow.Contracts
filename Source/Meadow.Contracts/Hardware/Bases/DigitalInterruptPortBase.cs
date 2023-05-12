@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Meadow.Hardware;
 
-public abstract class InterruptableDigitalInputPortBase : DigitalInputPortBase, IDigitalInterruptPort
+public abstract class DigitalInterruptPortBase : DigitalInputPortBase, IDigitalInterruptPort
 {
     private List<Unsubscriber> _unsubscribers = new List<Unsubscriber>();
 
@@ -33,7 +33,7 @@ public abstract class InterruptableDigitalInputPortBase : DigitalInputPortBase, 
     /// <param name="pin"></param>
     /// <param name="channel"></param>
     /// <param name="interruptMode"></param>
-    protected InterruptableDigitalInputPortBase(
+    protected DigitalInterruptPortBase(
         IPin pin,
         IDigitalChannelInfo channel,
         InterruptMode interruptMode = InterruptMode.None
@@ -43,6 +43,11 @@ public abstract class InterruptableDigitalInputPortBase : DigitalInputPortBase, 
         // TODO: check interrupt mode (i.e. if != none, make sure channel info agrees)
         InterruptMode = interruptMode;
     }
+
+    /// <summary>
+    /// Gets a list of port State observers
+    /// </summary>
+    protected List<IObserver<IChangeResult<DigitalState>>> Observers { get; private set; } = new List<IObserver<IChangeResult<DigitalState>>>();
 
     /// <summary>
     /// Raises the Changed event and notifies all observers of a state change

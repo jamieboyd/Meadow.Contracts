@@ -1,6 +1,6 @@
 ﻿namespace Meadow.Hardware
 {
-    public interface IBiDirectionalPort : IDigitalInputPort, IDigitalOutputPort
+    public interface IBiDirectionalInterruptPort : IDigitalInterruptPort, IDigitalOutputPort
     {
         PortDirectionType Direction { get; set; }
     }

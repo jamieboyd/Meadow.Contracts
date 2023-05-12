@@ -160,7 +160,7 @@ namespace Meadow.Hardware
         /// <param name="glitchDuration"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static IBiDirectionalPort CreateBiDirectionalPort(this IPin pin, bool initialState, InterruptMode interruptMode, ResistorMode resistorMode, PortDirectionType initialDirection, TimeSpan debounceDuration, TimeSpan glitchDuration)
+        public static IBiDirectionalInterruptPort CreateBiDirectionalPort(this IPin pin, bool initialState, InterruptMode interruptMode, ResistorMode resistorMode, PortDirectionType initialDirection, TimeSpan debounceDuration, TimeSpan glitchDuration)
         {
             if (pin.Controller is IBiDirectionalController controller)
             {
@@ -179,7 +179,7 @@ namespace Meadow.Hardware
         /// <param name="resistorMode"></param>
         /// <param name="initialDirection"></param>
         /// <returns></returns>
-        public static IBiDirectionalPort CreateBiDirectionalPort(this IPin pin, bool initialState = false, InterruptMode interruptMode = InterruptMode.None, ResistorMode resistorMode = ResistorMode.Disabled, PortDirectionType initialDirection = PortDirectionType.Input)
+        public static IBiDirectionalInterruptPort CreateBiDirectionalPort(this IPin pin, bool initialState = false, InterruptMode interruptMode = InterruptMode.None, ResistorMode resistorMode = ResistorMode.Disabled, PortDirectionType initialDirection = PortDirectionType.Input)
         {
             return pin.CreateBiDirectionalPort(initialState, interruptMode, resistorMode, initialDirection, TimeSpan.Zero, TimeSpan.Zero);
         }
