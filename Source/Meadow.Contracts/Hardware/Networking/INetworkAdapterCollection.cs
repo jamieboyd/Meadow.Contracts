@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Meadow.Hardware
 {
     public interface INetworkAdapterCollection : IEnumerable<INetworkAdapter>
     {
+        public int Count => this.Count();
+
         INetworkAdapter this[int index] { get; }
 
         /// <summary>
@@ -16,5 +19,7 @@ namespace Meadow.Hardware
         {
             return this.OfType<T>().FirstOrDefault();
         }
+
+        Task Refresh();
     }
 }

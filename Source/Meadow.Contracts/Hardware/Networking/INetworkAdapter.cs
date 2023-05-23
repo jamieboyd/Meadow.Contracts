@@ -44,6 +44,11 @@ namespace Meadow.Hardware
         event NetworkErrorHandler NetworkError;
 
         /// <summary>
+        /// Gets the friendly name of the Adapter
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Indicate if the network adapter is connected to an access point.
         /// </summary>
         bool IsConnected { get; }
