@@ -81,8 +81,7 @@ namespace Meadow.Hardware
             InterruptMode interruptMode,
             ResistorMode resistorMode,
             TimeSpan debounceDuration,
-            TimeSpan glitchDuration,
-            bool validateInterruptGroup = true
+            TimeSpan glitchDuration
             );
 
         bool UnconfigureGpio(IPin pin);
