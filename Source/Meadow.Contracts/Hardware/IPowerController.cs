@@ -42,7 +42,15 @@ namespace Meadow
         /// Puts the device into low-power (sleep) mode until the specified time.
         /// </summary>
         /// <param name="wakeTime">The UTC time to wake.</param>
-        void Sleep(DateTime wakeTime);
+        public void Sleep(DateTime wakeTime)
+        {
+            if (wakeTime.Kind == DateTimeKind.Local)
+            {
+                throw new ArgumentException("Wake time must be in UTC");
+            }
+
+            Sleep(wakeTime - DateTime.UtcNow);
+        }
 
         /// <summary>
         /// Registers a peripheral to be aware of sleep mode.
