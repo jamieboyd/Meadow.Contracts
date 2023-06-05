@@ -15,7 +15,6 @@ public class CanChannelInfo : DigitalChannelInfoBase, ICanChannelInfo
     /// </summary>
     /// <param name="name">The name of the Can Channel</param>
     /// <param name="serialDirection">The direction of the Can Channel</param>
-
     public CanChannelInfo(string name, SerialDirectionType serialDirection)
         : base(name, true, true, true, true, true, false)
     {
