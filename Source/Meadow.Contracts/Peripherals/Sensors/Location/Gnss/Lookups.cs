@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss
 {
     /// <summary>
-    /// Repository of lookup information, such as Known Talker IDs for GNSS
-    /// system information.
+    /// Repository of lookup information, such as Known Talker IDs for GNSS system information.
     /// </summary>
     public static class Lookups
     {
+        /// <summary>
+        /// Gets the dictionary of known Talker IDs and their corresponding system names.
+        /// </summary>
         public static Dictionary<string, string> KnownTalkerIDs { get; } = new Dictionary<string, string>();
 
         static Lookups()
@@ -16,6 +17,9 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             PopulateKnownTalkerIDs();
         }
 
+        /// <summary>
+        /// Populates the dictionary of known Talker IDs and their corresponding system names.
+        /// </summary>
         private static void PopulateKnownTalkerIDs()
         {
             KnownTalkerIDs.Add("BD", "BeiDou");
@@ -31,7 +35,6 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             KnownTalkerIDs.Add("LC", "Loran-C receiver (obsolete)");
             KnownTalkerIDs.Add("QZ", "QZSS regional GPS augmentation system");
             KnownTalkerIDs.Add("GI", "NavIC (IRNSS)");
-
         }
     }
 }

@@ -1,12 +1,18 @@
-﻿using System;
-namespace Meadow.Gateways.Bluetooth
+﻿namespace Meadow.Gateways.Bluetooth
 {
     /// <summary>
-    /// A descriptor for a GATT characteristic.
+    /// Represents a descriptor for a GATT characteristic.
     /// </summary>
     public interface IDescriptor : IJsonSerializable
     {
-        public ushort Handle { get; set; }
-        public string Uuid { get; }
+        /// <summary>
+        /// Gets or sets the handle of the descriptor.
+        /// </summary>
+        ushort Handle { get; set; }
+
+        /// <summary>
+        /// Gets the UUID of the descriptor.
+        /// </summary>
+        string Uuid { get; }
     }
 }

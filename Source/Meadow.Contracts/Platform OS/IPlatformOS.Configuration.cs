@@ -38,14 +38,24 @@
         };
 
         /// <summary>
-        /// Network connection types available.
+        /// Enumeration representing the available network connection types.
         /// </summary>
         public enum NetworkConnectionType
         {
+            /// <summary>
+            /// WiFi network connection
+            /// </summary>
             WiFi = 0,
+            /// <summary>
+            /// Ethernet network connection
+            /// </summary>
             Ethernet,
+            /// <summary>
+            /// GSM network connection
+            /// </summary>
             GSM
         }
+
 
         /// <summary>
         /// Get a configuration value, as specified in meadow.config.yaml, from the OS.
@@ -60,6 +70,7 @@
         /// </summary>
         /// <typeparam name="T">Type of the object being set.</typeparam>
         /// <param name="item">Item to set.</param>
+        /// <param name="value">Value of item.</param>
         void SetConfigurationValue<T>(ConfigurationValues item, T value) where T : struct;
 
         // named properties

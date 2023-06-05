@@ -1,35 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss
 {
-    // TODO: Should this be a struct with fields?
     /// <summary>
-    /// Satellite information to use in the GSV (Satellites in View) decoder.
+    /// Represents information about a satellite to be used in the GSV (Satellites in View) decoder.
     /// </summary>
     public class Satellite
     {
         /// <summary>
-        /// Satellite ID.
+        /// Gets or sets the satellite ID.
         /// </summary>
         public int ID { get; set; }
 
         /// <summary>
-        /// Angle of elevation.
+        /// Gets or sets the angle of elevation.
         /// </summary>
         public int Elevation { get; set; }
 
         /// <summary>
-        /// Satellite azimuth.
+        /// Gets or sets the satellite azimuth.
         /// </summary>
         public int Azimuth { get; set; }
 
         /// <summary>
-        /// Signal to noise ratio of the signal.
+        /// Gets or sets the signal to noise ratio of the signal.
         /// </summary>
-        public int SignalTolNoiseRatio;
+        public int SignalTolNoiseRatio { get; set; }
 
+        /// <summary>
+        /// Returns a string representation of the Satellite object.
+        /// </summary>
+        /// <returns>A string representation of the Satellite object.</returns>
         public override string ToString()
         {
             StringBuilder outString = new StringBuilder();
@@ -38,6 +39,5 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
 
             return outString.ToString();
         }
-
     }
 }

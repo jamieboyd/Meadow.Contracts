@@ -10,6 +10,9 @@ namespace Meadow
     /// <typeparam name="T"></typeparam>
     public class CircularBuffer<T> : IEnumerable<T>
     {
+        /// <summary>
+        /// Event raised when an item is added
+        /// </summary>
         public event EventHandler ItemAdded = delegate { };
 
         // TODO: this should probably be Span<T>
@@ -381,7 +384,7 @@ namespace Meadow
         public bool Contains(T searchFor)
         {
             if (_list == null) return false;
-            
+
             lock (_syncRoot)
             {
                 // we don't want to enumerate values outside of our "valid" range
