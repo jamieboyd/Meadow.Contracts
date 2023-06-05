@@ -127,7 +127,11 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
         Observers.ForEach(x => x.OnNext(changeResult));
     }
 
-
+    /// <summary>
+    /// Subscribes an observer to receive notifications of voltage change.
+    /// </summary>
+    /// <param name="observer">The observer to subscribe.</param>
+    /// <returns>An IDisposable object that can be used to unsubscribe the observer.</returns>
     public IDisposable Subscribe(IObserver<IChangeResult<Voltage>> observer)
     {
         if (!Observers.Contains(observer)) Observers.Add(observer);
