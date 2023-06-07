@@ -7,6 +7,7 @@ namespace Meadow;
 /// </summary>
 public interface IMeadowDevice :
     IDigitalInputOutputController,
+    IDigitalInterruptController,
     IBiDirectionalController,
     IAnalogInputController,
     IPwmOutputController,

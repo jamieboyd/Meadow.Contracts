@@ -5,7 +5,7 @@ namespace Meadow.Hardware
     /// <summary>
     /// Defines a digital interrupt port
     /// </summary>
-    public interface IDigitalInterruptPort
+    public interface IDigitalInterruptPort : IDigitalInputPort, IObservable<IChangeResult<DigitalState>>
     {
         //TODO: should this be `Updated`?
         /// <summary>
@@ -29,5 +29,14 @@ namespace Meadow.Hardware
         /// This is the minimum amount of time a signal needs to be stable before an event is recognized
         /// </summary>
         TimeSpan GlitchDuration { get; set; }
+
+        public static FilterableChangeObserver<DigitalState>
+            CreateObserver(
+                Action<IChangeResult<DigitalState>> handler,
+                Predicate<IChangeResult<DigitalState>>? filter = null)
+        {
+            return new FilterableChangeObserver<DigitalState>(
+                handler, filter);
+        }
     }
 }
