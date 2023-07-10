@@ -14,5 +14,7 @@ public interface IUpdateService
     void RetrieveUpdate(UpdateInfo updateInfo);
     void ApplyUpdate(UpdateInfo updateInfo);
     void ClearUpdates();
-    void Shutdown();
+
+    void Start();
+    void Stop();
 }

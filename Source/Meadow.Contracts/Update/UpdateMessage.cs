@@ -1,6 +1,6 @@
 ﻿namespace Meadow.Update
 {
-    public class UpdateMessage : UpdateInfo
+    public record UpdateMessage : UpdateInfo
     {
         public string MpakID
         {
