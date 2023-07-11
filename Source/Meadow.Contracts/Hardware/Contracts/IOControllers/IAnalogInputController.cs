@@ -35,6 +35,8 @@ namespace Meadow.Hardware
         /// port used to sample the port value.
         /// </summary>
         /// <param name="pin">The pin to created the port on.</param>
+        /// <param name="sampleCount"></param>
+        /// <param name="sampleInterval"></param>
         /// <param name="voltageReference">Reference maximum analog input port
         /// voltage in Volts. Default is 3.3V.</param>
         /// <returns></returns>

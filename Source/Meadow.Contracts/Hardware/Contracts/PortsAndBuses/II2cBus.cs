@@ -2,10 +2,13 @@
 
 namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Represents an I2C bus.
+    /// </summary>
     public interface II2cBus : IDisposable
     {
         /// <summary>
-        /// Bus Clock speed
+        /// Gets or sets the bus clock speed.
         /// </summary>
         I2cBusSpeed BusSpeed { get; set; }
 

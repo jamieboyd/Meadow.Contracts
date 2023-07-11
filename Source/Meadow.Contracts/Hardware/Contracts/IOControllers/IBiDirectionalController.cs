@@ -18,7 +18,7 @@ namespace Meadow.Hardware
         /// <param name="glitchDuration"></param>
         /// <param name="output"></param>
         /// <returns></returns>
-        IBiDirectionalPort CreateBiDirectionalPort(
+        IBiDirectionalInterruptPort CreateBiDirectionalInterruptPort(
             IPin pin,
             bool initialState,
             InterruptMode interruptMode,
@@ -29,18 +29,15 @@ namespace Meadow.Hardware
             OutputType output = OutputType.PushPull
         );
 
-        IBiDirectionalPort CreateBiDirectionalPort(
+        IBiDirectionalInterruptPort CreateBiDirectionalInterruptPort(
             IPin pin)
         {
-            return CreateBiDirectionalPort(pin, false, InterruptMode.None, ResistorMode.Disabled, PortDirectionType.Input, TimeSpan.Zero, TimeSpan.Zero);
+            return CreateBiDirectionalInterruptPort(pin, false, InterruptMode.None, ResistorMode.Disabled, PortDirectionType.Input, TimeSpan.Zero, TimeSpan.Zero);
         }
 
         IBiDirectionalPort CreateBiDirectionalPort(
             IPin pin,
-            bool initialState)
-        {
-            return CreateBiDirectionalPort(pin, initialState, InterruptMode.None, ResistorMode.Disabled, PortDirectionType.Input, TimeSpan.Zero, TimeSpan.Zero);
-        }
+            bool initialState);
 
     }
 }

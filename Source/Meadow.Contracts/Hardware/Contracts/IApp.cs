@@ -9,10 +9,21 @@
     /// </summary>
     public interface IApp
     {
+        /// <summary>
+        /// Use this method to invoke actions on the application's startup thread
+        /// </summary>
+        /// <param name="action">The action to invoke</param>
+        /// <param name="state">Optional state data to pass to the Action</param>
         void InvokeOnMainThread(Action<object?> action, object? state = null);
 
+        /// <summary>
+        /// The application's version number
+        /// </summary>
         public static Version Version { get; } = new Version("1.0.0");
 
+        /// <summary>
+        /// A cancellation token that is cancelled when the application is signalled to shut down
+        /// </summary>
         public CancellationToken CancellationToken { get; }
 
         /// <summary>

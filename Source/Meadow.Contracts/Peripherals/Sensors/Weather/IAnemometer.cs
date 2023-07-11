@@ -1,17 +1,20 @@
-﻿using System;
-using Meadow.Units;
+﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Peripherals.Sensors.Weather
 {
+    /// <summary>
+    /// Represents an anemometer sensor that measures the speed of the wind.
+    /// </summary>
     public interface IAnemometer : ISamplingSensor<Speed>
     {
         /// <summary>
-        /// The last recorded wind speed.
+        /// Gets the last recorded wind speed.
         /// </summary>
         Speed? WindSpeed { get; }
 
         /// <summary>
-        /// Raised when the speed of the wind changes.
+        /// Occurs when the speed of the wind changes.
         /// </summary>
         event EventHandler<IChangeResult<Speed>> WindSpeedUpdated;
     }
