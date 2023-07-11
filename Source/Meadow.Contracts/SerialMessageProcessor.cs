@@ -23,12 +23,34 @@ namespace Meadow.Hardware
         /// </summary>
         public event EventHandler<SerialMessageData> MessageReceived = delegate { };
 
+        /// <summary>
+        /// The current message mode used by the SerialMessageProcessor.
+        /// </summary>
         protected SerialMessageMode messageMode;
+
+        /// <summary>
+        /// The tokens used as delimiters to identify the end of a message.
+        /// </summary>
         protected byte[] messageDelimiterTokens;
+
+        /// <summary>
+        /// The expected length of each message.
+        /// </summary>
         protected int messageLength;
+
+        /// <summary>
+        /// Indicates whether the delimiter should be preserved in the received message.
+        /// </summary>
         protected bool preserveDelimiter;
 
+        /// <summary>
+        /// The read buffer used by the SerialMessageProcessor to store received data.
+        /// </summary>
         protected CircularBuffer<byte> readBuffer;
+
+        /// <summary>
+        /// The lock object used for thread synchronization during message parsing.
+        /// </summary>
         protected object msgParseLock = new object();
 
         /// <summary>
