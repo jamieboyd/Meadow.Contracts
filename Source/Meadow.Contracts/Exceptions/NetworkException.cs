@@ -3,24 +3,27 @@
 namespace Meadow
 {
     /// <summary>
-    /// A general Network exception
+    /// Represents a general network exception.
     /// </summary>
     public class NetworkException : Exception
     {
+        /// <summary>
+        /// Gets the status code associated with the network exception.
+        /// </summary>
         public int StatusCode { get; }
 
         /// <summary>
-        /// Creates a NetworkException instance
+        /// Initializes a new instance of the <see cref="NetworkException"/> class.
         /// </summary>
         public NetworkException()
         {
         }
 
         /// <summary>
-        /// Creates a NetworkException instance
+        /// Initializes a new instance of the <see cref="NetworkException"/> class with a specified message and status code.
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="statusCode"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="statusCode">The status code associated with the network exception.</param>
         public NetworkException(string message, int statusCode)
             : base(message)
         {
@@ -28,18 +31,18 @@ namespace Meadow
         }
 
         /// <summary>
-        /// Creates a NetworkException instance
+        /// Initializes a new instance of the <see cref="NetworkException"/> class with a specified status code.
         /// </summary>
-        /// <param name="statusCode"></param>
+        /// <param name="statusCode">The status code associated with the network exception.</param>
         public NetworkException(int statusCode)
         {
             StatusCode = statusCode;
         }
 
         /// <summary>
-        /// Creates a NetworkException instance
+        /// Initializes a new instance of the <see cref="NetworkException"/> class with a specified message.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
         public NetworkException(string message)
             : base(message)
         {
@@ -47,14 +50,14 @@ namespace Meadow
     }
 
     /// <summary>
-    /// An exception indicating a requested network was not found
+    /// Represents an exception indicating that a requested network was not found.
     /// </summary>
     public class NetworkNotFoundException : NetworkException
     {
         /// <summary>
-        /// Creates a NetworkNotFoundException instance
+        /// Initializes a new instance of the <see cref="NetworkNotFoundException"/> class with a specified message.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
         public NetworkNotFoundException(string message)
             : base(message)
         {
@@ -62,14 +65,14 @@ namespace Meadow
     }
 
     /// <summary>
-    /// An exception indicating a network authentication failure
+    /// Represents an exception indicating a network authentication failure.
     /// </summary>
     public class NetworkAuthenticationException : NetworkException
     {
         /// <summary>
-        /// Creates a NetworkAuthenticationException instance
+        /// Initializes a new instance of the <see cref="NetworkAuthenticationException"/> class with a specified message.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
         public NetworkAuthenticationException(string message)
             : base(message)
         {

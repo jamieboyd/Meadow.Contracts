@@ -2,20 +2,28 @@
 
 namespace Meadow
 {
+    /// <summary>
+    /// Delegate representing a power transition event handler.
+    /// </summary>
     public delegate void PowerTransitionHandler();
 
+    /// <summary>
+    /// Interface for controlling power-related functionality of the device.
+    /// </summary>
     public interface IPowerController
     {
         /// <summary>
-        /// Event called before a software reset
+        /// Event called before a software reset.
         /// </summary>
         event PowerTransitionHandler BeforeReset;
+
         /// <summary>
-        /// Event called before Sleep mode
+        /// Event called before entering sleep mode.
         /// </summary>
         event PowerTransitionHandler BeforeSleep;
+
         /// <summary>
-        /// Event called after returning from Sleep mode
+        /// Event called after waking from sleep mode.
         /// </summary>
         event PowerTransitionHandler AfterWake;
 
@@ -44,6 +52,10 @@ namespace Meadow
             Sleep(wakeTime - DateTime.UtcNow);
         }
 
+        /// <summary>
+        /// Registers a peripheral to be aware of sleep mode.
+        /// </summary>
+        /// <param name="peripheral">The peripheral to register.</param>
         void RegisterForSleep(ISleepAwarePeripheral peripheral);
     }
 }

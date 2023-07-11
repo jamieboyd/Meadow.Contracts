@@ -1,6 +1,6 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
+    /// <summary>
     public interface IDigitalInputOutputController : IDigitalInputController, IDigitalOutputController
     {
     }

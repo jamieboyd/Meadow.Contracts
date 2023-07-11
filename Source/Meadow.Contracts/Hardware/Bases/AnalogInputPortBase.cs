@@ -77,6 +77,14 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// </summary>
     protected List<IObserver<IChangeResult<Voltage>>> Observers { get; private set; } = new List<IObserver<IChangeResult<Voltage>>>();
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AnalogInputPortBase"/> class.
+    /// </summary>
+    /// <param name="pin">The pin associated with the analog input port.</param>
+    /// <param name="channel">The channel information for the analog input port.</param>
+    /// <param name="sampleCount">The number of samples to be taken during each reading.</param>
+    /// <param name="sampleInterval">The time interval between samples during each reading.</param>
+    /// <param name="referenceVoltage">The reference voltage used for analog-to-digital conversion.</param>
     protected AnalogInputPortBase(
         IPin pin, IAnalogChannelInfo channel,
         int sampleCount, TimeSpan sampleInterval,
@@ -109,13 +117,21 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// </summary>
     public abstract void StopUpdating();
 
-
+    /// <summary>
+    /// Raises the Changed event and notifies the observers with the specified change result.
+    /// </summary>
+    /// <param name="changeResult">The change result to be passed to the event and observers.</param>
     protected void RaiseChangedAndNotify(IChangeResult<Voltage> changeResult)
     {
         Updated?.Invoke(this, changeResult);
         Observers.ForEach(x => x.OnNext(changeResult));
     }
 
+    /// <summary>
+    /// Subscribes an observer to receive notifications of voltage change.
+    /// </summary>
+    /// <param name="observer">The observer to subscribe.</param>
+    /// <returns>An IDisposable object that can be used to unsubscribe the observer.</returns>
     public IDisposable Subscribe(IObserver<IChangeResult<Voltage>> observer)
     {
         if (!Observers.Contains(observer)) Observers.Add(observer);

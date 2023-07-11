@@ -1,5 +1,8 @@
 ﻿namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Interface for accessing device information.
+    /// </summary>
     public interface IDeviceInformation
     {
         /// <summary>
