@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Contract for Meadow devices.
@@ -13,7 +10,7 @@ namespace Meadow.Hardware
         /// </summary>
         /// <param name="pinName">Registered name of the pin to retrieve</param>
         /// <returns>The requested pin or null if not found</returns>
-        IPin GetPin(string pinName);
+        IPin? GetPin(string pinName);
 
         // TODO: When we move to C# 9 or whatever that will allow more specific
         // types of the interface, e.g.; `IF7MicroPinout : IPinDefinitions`
