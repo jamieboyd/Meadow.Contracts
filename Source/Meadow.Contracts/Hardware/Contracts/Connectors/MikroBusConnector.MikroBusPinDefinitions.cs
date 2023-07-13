@@ -5,6 +5,9 @@ using System;
 
 public partial class MikroBusConnector
 {
+    /// <summary>
+    /// Represents the pins definitions for the MikroBus connector
+    /// </summary>
     public class MikroBusPinDefinitions : PinDefinitionBase
     {
         private IPin? _an;
