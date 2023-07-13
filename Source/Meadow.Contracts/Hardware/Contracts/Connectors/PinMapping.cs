@@ -13,7 +13,7 @@ public sealed class PinMapping : List<PinMapping.PinAlias>
             ConnectsTo = connectsTo;
         }
 
-        public string PinName { get; set; }
-        public IPin ConnectsTo { get; set; }
+        public string PinName { get; }
+        public IPin ConnectsTo { get; }
     }
 }
