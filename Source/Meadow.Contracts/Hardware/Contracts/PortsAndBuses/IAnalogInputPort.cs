@@ -38,19 +38,19 @@ namespace Meadow.Hardware
         /// This value influences how often Updated events are raised and IObservable
         /// consumers are notified.
         /// </summary>
-        public TimeSpan UpdateInterval { get; }
+        TimeSpan UpdateInterval { get; }
 
         /// <summary>
         /// Number of samples to take per reading. If > 0, then the port will
         /// take multiple readings and automatically average them to reduce noise,
         /// a process known as oversampling.
         /// </summary>
-        public int SampleCount { get; }
+        int SampleCount { get; }
 
         /// <summary>
-        /// Duration in between samples when oversampling.
+        /// Duration between samples when oversampling.
         /// </summary>
-        public TimeSpan SampleInterval { get; }
+        TimeSpan SampleInterval { get; }
 
         /// <summary>
         /// Gets the current voltage. For frequent reads, use StartUpdating() and StopUpdating()
@@ -84,8 +84,7 @@ namespace Meadow.Hardware
             Action<IChangeResult<Voltage>> handler,
             Predicate<IChangeResult<Voltage>>? filter = null)
         {
-            return new FilterableChangeObserver<Voltage>(
-                handler, filter);
+            return new FilterableChangeObserver<Voltage>(handler, filter);
         }
     }
 }

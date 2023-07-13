@@ -53,6 +53,7 @@ namespace Meadow.Hardware
         /// </summary>
         protected object msgParseLock = new object();
 
+
         /// <summary>
         /// Create a new SerialMessageBuffer using a suffix delimiter
         /// </summary>
@@ -116,9 +117,9 @@ namespace Meadow.Hardware
 
         void AddDataAndFilterIgnoreValue(byte[] data)
         {
-            if(NullDataValue != null)
+            if (NullDataValue != null)
             {
-                for(int i = 0; i < data.Length; i++)
+                for (int i = 0; i < data.Length; i++)
                 {
                     if (data[i] != NullDataValue)
                     {
