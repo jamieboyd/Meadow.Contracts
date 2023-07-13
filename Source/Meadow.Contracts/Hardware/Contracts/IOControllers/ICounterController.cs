@@ -1,7 +1,7 @@
 ﻿namespace Meadow.Hardware
 {
     /// <summary>
-    /// Contract for devices capable of creating `ICounter` instances
+    /// Contract for devices capable of creating `ICounter` instances.
     /// </summary>
     public interface ICounterController : IPinController
     {

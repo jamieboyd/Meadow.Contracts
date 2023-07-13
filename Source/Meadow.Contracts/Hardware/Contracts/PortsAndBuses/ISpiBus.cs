@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Meadow.Hardware
 {
@@ -29,7 +28,7 @@ namespace Meadow.Hardware
             ChipSelectMode csMode = ChipSelectMode.ActiveLow);
 
         /// <summary>
-        /// Writes data to the SPI bus
+        /// Writes data to the SPI bus.
         /// </summary>
         /// <param name="chipSelect">The chip select port to activate the peripheral.</param>
         /// <param name="writeBuffer">The buffer containing data to write.</param>
@@ -40,16 +39,12 @@ namespace Meadow.Hardware
             ChipSelectMode csMode = ChipSelectMode.ActiveLow);
 
         /// <summary>
-        /// Writes data from the write buffer to a peripheral on the bus while
-        /// at the same time reading return data into the read buffer.
+        /// Writes data from the write buffer to a peripheral on the bus while reading return data into the read buffer.
         /// </summary>
-        /// <param name="chipSelect">Port to use as the chip select to activate the peripheral.</param>
-        /// <param name="writeBuffer">Buffer to read data from.</param>
-        /// <param name="readBuffer">Buffer to read returning data into.</param>
-        /// <param name="csMode">Describes which level on the chip select activates the peripheral.</param>
-        void Exchange(
-            IDigitalOutputPort? chipSelect,
-            Span<byte> writeBuffer, Span<byte> readBuffer,
-            ChipSelectMode csMode = ChipSelectMode.ActiveLow);
+        /// <param name="chipSelect">The chip select port to activate the peripheral.</param>
+        /// <param name="writeBuffer">The buffer containing data to write.</param>
+        /// <param name="readBuffer">The buffer to read returning data into.</param>
+        /// <param name="csMode">The chip select mode that activates the peripheral.</param>
+        void Exchange(IDigitalOutputPort? chipSelect, Span<byte> writeBuffer, Span<byte> readBuffer, ChipSelectMode csMode = ChipSelectMode.ActiveLow);
     }
 }

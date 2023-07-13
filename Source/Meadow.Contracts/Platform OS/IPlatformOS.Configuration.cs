@@ -38,7 +38,7 @@
         };
 
         /// <summary>
-        /// Network connection types available.
+        /// Enumeration representing the available network connection types.
         /// </summary>
         public enum NetworkConnectionType
         {
@@ -55,6 +55,7 @@
             /// </summary>
             GSM
         }
+
 
         /// <summary>
         /// Get a configuration value, as specified in meadow.config.yaml, from the OS.

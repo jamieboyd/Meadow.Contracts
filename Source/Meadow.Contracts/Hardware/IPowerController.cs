@@ -28,20 +28,20 @@ namespace Meadow
         event PowerTransitionHandler AfterWake;
 
         /// <summary>
-        /// Resets the device
+        /// Resets the device.
         /// </summary>
         void Reset();
 
         /// <summary>
-        /// Put the device into low-power (sleep) mode for the specified amount of time.
+        /// Puts the device into low-power (sleep) mode for the specified amount of time.
         /// </summary>
-        /// <param name="duration">Amount of time to sleep</param>
+        /// <param name="duration">The amount of time to sleep.</param>
         void Sleep(TimeSpan duration);
 
         /// <summary>
-        /// Put the device into low-power (sleep) mode until the specified time.
+        /// Puts the device into low-power (sleep) mode until the specified time.
         /// </summary>
-        /// <param name="wakeTime">UTC time to wake</param>
+        /// <param name="wakeTime">The UTC time to wake.</param>
         public void Sleep(DateTime wakeTime)
         {
             if (wakeTime.Kind == DateTimeKind.Local)
