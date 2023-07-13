@@ -94,6 +94,5 @@ namespace Meadow.Gateways.Bluetooth
         {
             get => m_characteristics.Values.ElementAt(index);
         }
-
     }
 }

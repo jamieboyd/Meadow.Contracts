@@ -23,7 +23,9 @@ namespace Meadow.Hardware
         /// <param name="chipSelect">The chip select port to activate the bus.</param>
         /// <param name="readBuffer">The buffer to read data into.</param>
         /// <param name="csMode">The chip select mode that activates the peripheral.</param>
-        void Read(IDigitalOutputPort? chipSelect, Span<byte> readBuffer, ChipSelectMode csMode = ChipSelectMode.ActiveLow);
+        void Read(IDigitalOutputPort? chipSelect,
+            Span<byte> readBuffer,
+            ChipSelectMode csMode = ChipSelectMode.ActiveLow);
 
         /// <summary>
         /// Writes data to the SPI bus.
@@ -31,7 +33,10 @@ namespace Meadow.Hardware
         /// <param name="chipSelect">The chip select port to activate the peripheral.</param>
         /// <param name="writeBuffer">The buffer containing data to write.</param>
         /// <param name="csMode">The chip select mode that activates the peripheral.</param>
-        void Write(IDigitalOutputPort? chipSelect, Span<byte> writeBuffer, ChipSelectMode csMode = ChipSelectMode.ActiveLow);
+        void Write(
+            IDigitalOutputPort? chipSelect,
+            Span<byte> writeBuffer,
+            ChipSelectMode csMode = ChipSelectMode.ActiveLow);
 
         /// <summary>
         /// Writes data from the write buffer to a peripheral on the bus while reading return data into the read buffer.
