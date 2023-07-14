@@ -1,9 +1,22 @@
 ﻿namespace Meadow.Hardware;
 
+/// <summary>
+/// Represents SPI channel information.
+/// </summary>
 public class SpiChannelInfo : DigitalChannelInfoBase, ISpiChannelInfo
 {
+    /// <summary>
+    /// Gets the supported line types of the SPI channel.
+    /// </summary>
     public SpiLineType LineTypes { get; protected set; }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SpiChannelInfo"/> class with the specified parameters.
+    /// </summary>
+    /// <param name="name">The name of the SPI channel.</param>
+    /// <param name="lineTypes">The supported line types of the SPI channel.</param>
+    /// <param name="pullDownCapable">Indicates whether the channel is capable of pull-down.</param>
+    /// <param name="pullUpCapable">Indicates whether the channel is capable of pull-up.</param>
     public SpiChannelInfo(string name,
         SpiLineType lineTypes,
         bool pullDownCapable = false,

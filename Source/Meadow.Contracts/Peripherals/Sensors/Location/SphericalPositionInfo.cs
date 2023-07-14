@@ -1,28 +1,28 @@
-﻿using System;
-namespace Meadow.Peripherals.Sensors.Location
+﻿namespace Meadow.Peripherals.Sensors.Location
 {
-    // TODO: Should this be a struct with fields?
     /// <summary>
-    /// Represents a position on a globe or sphere, including `Latitude`,
-    /// `Longitude`, and `Altitude`.
+    /// Represents a position on a globe or sphere, including latitude, longitude, and altitude.
     /// </summary>
     public class SphericalPositionInfo
     {
         /// <summary>
-        /// Latitude of the reading.
+        /// Gets or sets the latitude of the position.
         /// </summary>
         public DegreesMinutesSecondsPosition? Latitude { get; set; }
 
         /// <summary>
-        /// Longitude of the reading.
+        /// Gets or sets the longitude of the position.
         /// </summary>
         public DegreesMinutesSecondsPosition? Longitude { get; set; }
 
         /// <summary>
-        /// Altitude above mean sea level in meters.
+        /// Gets or sets the altitude above mean sea level in meters.
         /// </summary>
         public decimal? Altitude { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SphericalPositionInfo"/> class.
+        /// </summary>
         public SphericalPositionInfo()
         {
         }

@@ -5,11 +5,14 @@ using System.Threading;
 namespace Meadow
 {
     /// <summary>
-    /// 
+    /// Represents a fixed-length circular (LIFO) buffer
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of each element in the buffer</typeparam>
     public class CircularBuffer<T> : IEnumerable<T>
     {
+        /// <summary>
+        /// Event raised whn an item is added to the buffer
+        /// </summary>
         public event EventHandler ItemAdded = delegate { };
 
         // TODO: this should probably be Span<T>
@@ -160,6 +163,10 @@ namespace Meadow
             }
         }
 
+        /// <summary>
+        /// Appends a set of items to the buffer
+        /// </summary>
+        /// <param name="items">the items to append</param>
         public void Append(IEnumerable<T> items)
         {
             foreach (var i in items)
@@ -168,6 +175,12 @@ namespace Meadow
             }
         }
 
+        /// <summary>
+        /// Appends a set of items to the buffer
+        /// </summary>
+        /// <param name="items">The source for the items to append</param>
+        /// <param name="offset">The offset into the source to begin the append</param>
+        /// <param name="count">The number of source items to append</param>
         public void Append(T[] items, int offset, int count)
         {
             for (int i = offset; i < offset + count; i++)
@@ -237,6 +250,10 @@ namespace Meadow
             }
         }
 
+        /// <summary>
+        /// Synchronously waits for an item to be appended to the buffer
+        /// </summary>
+        /// <param name="millisecondsTimeout">The amount of time to wait for an item to be appended</param>
         public bool AppendWaitOne(int millisecondsTimeout)
         {
             return _addedResetEvent.WaitOne(millisecondsTimeout);
@@ -296,6 +313,9 @@ namespace Meadow
             }
         }
 
+        /// <summary>
+        /// This method is called when a buffer overrun occurs
+        /// </summary>
         public virtual void OnOverrun()
         {
             HasOverrun = true;
@@ -307,6 +327,9 @@ namespace Meadow
             Overrun?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// This method is called when a buffer underrun occurs
+        /// </summary>
         public virtual void OnUnderrun()
         {
             HasUnderrun = true;
@@ -381,7 +404,7 @@ namespace Meadow
         public bool Contains(T searchFor)
         {
             if (_list == null) return false;
-            
+
             lock (_syncRoot)
             {
                 // we don't want to enumerate values outside of our "valid" range
@@ -447,6 +470,13 @@ namespace Meadow
             return result;
         }
 
+        /// <summary>
+        /// Removes items from the buffer and places them in a target array
+        /// </summary>
+        /// <param name="destination">The destination array for the move</param>
+        /// <param name="index">The beginning index of the destination</param>
+        /// <param name="count">The desired number of items to move</param>
+        /// <returns>The actual number of items moved</returns>
         public int MoveItemsTo(T[] destination, int index, int count)
         {
             if (count <= 0) { return 0; }
@@ -501,6 +531,10 @@ namespace Meadow
             }
         }
 
+        /// <summary>
+        /// Returns an indexer for numeric index-based retrieval from the buffer
+        /// </summary>
+        /// <param name="index">The index of the item to retrieve</param>
         public T this[int index]
         {
             get
@@ -519,6 +553,7 @@ namespace Meadow
             }
         }
 
+        /// <inheritdoc/>
         public IEnumerator<T> GetEnumerator()
         {
             // we don't want to enumerate values outside of our "valid" range
@@ -541,8 +576,15 @@ namespace Meadow
         }
     }
 
+    /// <summary>
+    /// An exception raised by the CircularBuffer
+    /// </summary>
     public class BufferException : Exception
     {
+        /// <summary>
+        /// Creates a BufferException instance
+        /// </summary>
+        /// <param name="message">The exception message</param>
         public BufferException(string message)
             : base(message)
         {

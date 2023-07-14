@@ -1,5 +1,8 @@
 ﻿namespace Meadow.Utilities
 {
+    /// <summary>
+    /// A static class with methods to help with bit operations
+    /// </summary>
     public static class BitHelpers
     {
         /// <summary>

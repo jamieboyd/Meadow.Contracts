@@ -1,48 +1,64 @@
-﻿namespace Meadow
+﻿namespace Meadow;
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+/// <summary>
+/// Contract for Meadow applications. Provides a way for the Meadow OS to
+/// communicate with Meadow applications when system events are happening.
+/// </summary>
+public interface IApp
 {
-    using System;
-    using System.Threading;
-    using System.Threading.Tasks;
     /// <summary>
-    /// Contract for Meadow applications. Provides a way for the Meadow OS to
-    /// communicate with Meadow applications when system events are happening.
+    /// Use this method to invoke actions on the application's startup thread
     /// </summary>
-    public interface IApp
-    {
-        void InvokeOnMainThread(Action<object> action, object? state = null);
+    /// <param name="action">The action to invoke</param>
+    /// <param name="state">Optional state data to pass to the Action</param>
+    void InvokeOnMainThread(Action<object?> action, object? state = null);
 
-        public static Version Version { get; } = new Version("1.0.0");
+    /// <summary>
+    /// The application's version number
+    /// </summary>
+    public static Version Version { get; } = new Version("1.0.0");
 
-        public CancellationToken CancellationToken { get; }
+    /// <summary>
+    /// Settings parsed from the app.config.yaml at startup
+    /// </summary>
+    public Dictionary<string, string> Settings { get; }
 
-        /// <summary>
-        /// Called when the application is being brought up.
-        /// </summary>
-        public Task Initialize();
+    /// <summary>
+    /// A cancellation token that is cancelled when the application is signalled to shut down
+    /// </summary>
+    public CancellationToken CancellationToken { get; }
 
-        /// <summary>
-        /// The core of the app's work and logic
-        /// </summary>
-        public Task Run();
+    /// <summary>
+    /// Called when the application is being brought up.
+    /// </summary>
+    public Task Initialize();
 
-        /// <summary>
-        /// Called if the app is being brought down.
-        /// </summary>
-        public Task OnShutdown();
+    /// <summary>
+    /// The core of the app's work and logic
+    /// </summary>
+    public Task Run();
 
-        /// <summary>
-        /// Called if a failure occurred while running the app
-        /// </summary>
-        public Task OnError(Exception e);
+    /// <summary>
+    /// Called if the app is being brought down.
+    /// </summary>
+    public Task OnShutdown();
 
-        /// <summary>
-        /// Called when the application is about to update itself.
-        /// </summary>
-        public void OnUpdate(Version newVersion, out bool approveUpdate);
+    /// <summary>
+    /// Called if a failure occurred while running the app
+    /// </summary>
+    public Task OnError(Exception e);
 
-        /// <summary>
-        /// Called when the application has updated itself.
-        /// </summary>
-        public void OnUpdateComplete(Version oldVersion, out bool rollbackUpdate);
-    }
+    /// <summary>
+    /// Called when the application is about to update itself.
+    /// </summary>
+    public void OnUpdate(Version newVersion, out bool approveUpdate);
+
+    /// <summary>
+    /// Called when the application has updated itself.
+    /// </summary>
+    public void OnUpdateComplete(Version oldVersion, out bool rollbackUpdate);
 }

@@ -2,38 +2,46 @@
 
 namespace Meadow
 {
+    /// <summary>
+    /// Delegate representing a power transition event handler.
+    /// </summary>
     public delegate void PowerTransitionHandler();
 
+    /// <summary>
+    /// Interface for controlling power-related functionality of the device.
+    /// </summary>
     public interface IPowerController
     {
         /// <summary>
-        /// Event called before a software reset
+        /// Event called before a software reset.
         /// </summary>
         event PowerTransitionHandler BeforeReset;
+
         /// <summary>
-        /// Event called before Sleep mode
+        /// Event called before entering sleep mode.
         /// </summary>
         event PowerTransitionHandler BeforeSleep;
+
         /// <summary>
-        /// Event called after returning from Sleep mode
+        /// Event called after waking from sleep mode.
         /// </summary>
         event PowerTransitionHandler AfterWake;
 
         /// <summary>
-        /// Resets the device
+        /// Resets the device.
         /// </summary>
         void Reset();
 
         /// <summary>
-        /// Put the device into low-power (sleep) mode for the specified amount of time.
+        /// Puts the device into low-power (sleep) mode for the specified amount of time.
         /// </summary>
-        /// <param name="duration">Amount of time to sleep</param>
+        /// <param name="duration">The amount of time to sleep.</param>
         void Sleep(TimeSpan duration);
 
         /// <summary>
-        /// Put the device into low-power (sleep) mode until the specified time.
+        /// Puts the device into low-power (sleep) mode until the specified time.
         /// </summary>
-        /// <param name="wakeTime">UTC time to wake</param>
+        /// <param name="wakeTime">The UTC time to wake.</param>
         public void Sleep(DateTime wakeTime)
         {
             if (wakeTime.Kind == DateTimeKind.Local)
@@ -44,6 +52,10 @@ namespace Meadow
             Sleep(wakeTime - DateTime.UtcNow);
         }
 
+        /// <summary>
+        /// Registers a peripheral to be aware of sleep mode.
+        /// </summary>
+        /// <param name="peripheral">The peripheral to register.</param>
         void RegisterForSleep(ISleepAwarePeripheral peripheral);
     }
 }

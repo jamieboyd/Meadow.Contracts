@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace Meadow.Hardware
 {
@@ -38,10 +37,6 @@ namespace Meadow.Hardware
         /// <param name="order">Order of the bytes in the register (little endian is the default).</param>
         /// <returns>Value read from the register.</returns>
         ushort ReadRegisterAsUShort(byte address, ByteOrder order = ByteOrder.LittleEndian);
-
-        // TODO: implement and Doc
-        //uint ReadRegisterAsUInt(byte address, ByteOrder order = ByteOrder.LittleEndian);
-        //ulong ReadRegisterAsULong(byte address, ByteOrder order = ByteOrder.LittleEndian);
 
         /// <summary>
         /// Write a single byte to the peripheral.
@@ -101,6 +96,5 @@ namespace Meadow.Hardware
         /// <param name="readBuffer">Buffer where read data will be written. Number of bytes read is determined by buffer size.</param>
         /// <param name="duplex">Whether the communication will happen in a half-duplex or full-duplex fashion.</param>
         void Exchange(Span<byte> writeBuffer, Span<byte> readBuffer, DuplexType duplex = DuplexType.Half);
-
     }
 }

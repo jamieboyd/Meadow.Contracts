@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Extension methods for the IPin interface
+    /// </summary>
     public static class IPinExtensions
     {
         /// <summary>
@@ -62,11 +65,28 @@ namespace Meadow.Hardware
         /// <param name="glitchDuration"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static IDigitalInputPort CreateDigitalInputPort(this IPin pin, InterruptMode interruptMode, ResistorMode resistorMode, TimeSpan debounceDuration, TimeSpan glitchDuration)
+        public static IDigitalInterruptPort CreateDigitalInterruptPort(this IPin pin, InterruptMode interruptMode, ResistorMode resistorMode, TimeSpan debounceDuration, TimeSpan glitchDuration)
+        {
+            if (pin.Controller is IDigitalInterruptController controller)
+            {
+                return controller.CreateDigitalInterruptPort(pin, interruptMode, resistorMode, debounceDuration, glitchDuration);
+            }
+
+            throw new ArgumentException("Pin is not digital input capable");
+        }
+
+        /// <summary>
+        /// Creates an IDigitalInputPort on a capable IPin
+        /// </summary>
+        /// <param name="pin"></param>
+        /// <param name="resistorMode"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static IDigitalInputPort CreateDigitalInputPort(this IPin pin, ResistorMode resistorMode = ResistorMode.Disabled)
         {
             if (pin.Controller is IDigitalInputController controller)
             {
-                return controller.CreateDigitalInputPort(pin, interruptMode, resistorMode, debounceDuration, glitchDuration);
+                return controller.CreateDigitalInputPort(pin, resistorMode);
             }
 
             throw new ArgumentException("Pin is not digital input capable");
@@ -80,14 +100,14 @@ namespace Meadow.Hardware
         /// <param name="resistorMode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static IDigitalInputPort CreateDigitalInputPort(this IPin pin, InterruptMode interruptMode = InterruptMode.None, ResistorMode resistorMode = ResistorMode.Disabled)
+        public static IDigitalInterruptPort CreateDigitalInterruptPort(this IPin pin, InterruptMode interruptMode, ResistorMode resistorMode = ResistorMode.Disabled)
         {
-            if (pin.Controller is IDigitalInputController controller)
+            if (pin.Controller is IDigitalInterruptController controller)
             {
-                return controller.CreateDigitalInputPort(pin, interruptMode, resistorMode);
+                return controller.CreateDigitalInterruptPort(pin, interruptMode, resistorMode, TimeSpan.Zero, TimeSpan.Zero);
             }
 
-            throw new ArgumentException("Pin is not digital input capable");
+            throw new ArgumentException("Pin is not digital interrupt capable");
         }
 
         /// <summary>
@@ -157,11 +177,11 @@ namespace Meadow.Hardware
         /// <param name="glitchDuration"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static IBiDirectionalPort CreateBiDirectionalPort(this IPin pin, bool initialState, InterruptMode interruptMode, ResistorMode resistorMode, PortDirectionType initialDirection, TimeSpan debounceDuration, TimeSpan glitchDuration)
+        public static IBiDirectionalInterruptPort CreateBiDirectionalPort(this IPin pin, bool initialState, InterruptMode interruptMode, ResistorMode resistorMode, PortDirectionType initialDirection, TimeSpan debounceDuration, TimeSpan glitchDuration)
         {
             if (pin.Controller is IBiDirectionalController controller)
             {
-                return controller.CreateBiDirectionalPort(pin, initialState, interruptMode, resistorMode, initialDirection, debounceDuration, glitchDuration);
+                return controller.CreateBiDirectionalInterruptPort(pin, initialState, interruptMode, resistorMode, initialDirection, debounceDuration, glitchDuration);
             }
 
             throw new ArgumentException("Pin controller is not an IBiDirectionalController");
@@ -176,7 +196,7 @@ namespace Meadow.Hardware
         /// <param name="resistorMode"></param>
         /// <param name="initialDirection"></param>
         /// <returns></returns>
-        public static IBiDirectionalPort CreateBiDirectionalPort(this IPin pin, bool initialState = false, InterruptMode interruptMode = InterruptMode.None, ResistorMode resistorMode = ResistorMode.Disabled, PortDirectionType initialDirection = PortDirectionType.Input)
+        public static IBiDirectionalInterruptPort CreateBiDirectionalPort(this IPin pin, bool initialState = false, InterruptMode interruptMode = InterruptMode.None, ResistorMode resistorMode = ResistorMode.Disabled, PortDirectionType initialDirection = PortDirectionType.Input)
         {
             return pin.CreateBiDirectionalPort(initialState, interruptMode, resistorMode, initialDirection, TimeSpan.Zero, TimeSpan.Zero);
         }

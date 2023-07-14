@@ -1,7 +1,7 @@
+using Meadow.Units;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Meadow.Units;
 
 namespace Meadow.Hardware
 {
@@ -15,12 +15,9 @@ namespace Meadow.Hardware
         /// </summary>
         event EventHandler<IChangeResult<Voltage>> Updated;
 
-        // TODO should this be a Span<Voltage> or something? can Span<x> be
-        // implicitly cast to IList? maybe it should be IEnumerable?
         /// <summary>
         /// Gets the sample buffer.
         /// </summary>
-        /// <value>The sample buffer.</value>
         IList<Voltage> VoltageSampleBuffer { get; }
 
         /// <summary>
@@ -34,41 +31,42 @@ namespace Meadow.Hardware
         /// with StartSampling() for long-running analog sampling. For occasional
         /// sampling, use Read().
         /// </summary>
-        /// <value>The average buffer value.</value>
         Voltage Voltage { get; }
 
         /// <summary>
-        /// A `TimeSpan` that specifies how long to
-        /// wait between readings. This value influences how often `*Updated`
-        /// events are raised and `IObservable` consumers are notified.
+        /// A <see cref="TimeSpan"/> that specifies how long to wait between readings.
+        /// This value influences how often Updated events are raised and IObservable
+        /// consumers are notified.
         /// </summary>
-        public TimeSpan UpdateInterval { get; }
+        TimeSpan UpdateInterval { get; }
 
         /// <summary>
-        /// Number of samples to take per reading. If > `0` then the port will
-        /// take multiple readings and These are automatically averaged to
-        /// reduce noise, a process known as _oversampling_.
+        /// Number of samples to take per reading. If > 0, then the port will
+        /// take multiple readings and automatically average them to reduce noise,
+        /// a process known as oversampling.
         /// </summary>
-        public int SampleCount { get; }
+        int SampleCount { get; }
 
         /// <summary>
-        /// Duration in between samples when oversampling.
+        /// Duration between samples when oversampling.
         /// </summary>
-        public TimeSpan SampleInterval { get; }
+        TimeSpan SampleInterval { get; }
 
         /// <summary>
-        /// Convenience method to get the current voltage. For frequent reads, use
-        /// StartSampling() and StopSampling() in conjunction with the SampleBuffer.
+        /// Gets the current voltage. For frequent reads, use StartUpdating() and StopUpdating()
+        /// in conjunction with the SampleBuffer.
         /// </summary>
+        /// <returns>The current voltage.</returns>
         Task<Voltage> Read();
 
         /// <summary>
         /// Starts continuously sampling the analog port.
         ///
-        /// This method also starts raising `Changed` events and IObservable
-        /// subscribers getting notified. Use the `readIntervalDuration` parameter
-        /// to specify how often events and notifications are raised/sent.
+        /// This method also starts raising Updated events and notifying IObservable
+        /// subscribers. Use the updateInterval parameter to specify how often events
+        /// and notifications are raised.
         /// </summary>
+        /// <param name="updateInterval">The interval between readings.</param>
         void StartUpdating(TimeSpan? updateInterval = null);
 
         /// <summary>
@@ -76,14 +74,17 @@ namespace Meadow.Hardware
         /// </summary>
         void StopUpdating();
 
-        public static FilterableChangeObserver<Voltage>
-            CreateObserver(
-                Action<IChangeResult<Voltage>> handler,
-                Predicate<IChangeResult<Voltage>>? filter = null)
+        /// <summary>
+        /// Creates an observer for monitoring changes in the analog input voltage.
+        /// </summary>
+        /// <param name="handler">The handler to be called when a change occurs.</param>
+        /// <param name="filter">An optional filter predicate for filtering changes.</param>
+        /// <returns>The created observer.</returns>
+        public static FilterableChangeObserver<Voltage> CreateObserver(
+            Action<IChangeResult<Voltage>> handler,
+            Predicate<IChangeResult<Voltage>>? filter = null)
         {
-            return new FilterableChangeObserver<Voltage>(
-                handler, filter);
+            return new FilterableChangeObserver<Voltage>(handler, filter);
         }
-
     }
 }

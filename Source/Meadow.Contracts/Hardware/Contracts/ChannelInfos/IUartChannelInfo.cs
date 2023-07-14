@@ -1,6 +1,8 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Represents the communication channel information for a UART channel.
+    /// </summary>
     public interface IUartChannelInfo : IDigitalChannelInfo, ISerialCommunicationChannelInfo
     {
         //TODO: what else should this have? allowed speeds?

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Leds
 {
@@ -17,21 +18,31 @@ namespace Meadow.Peripherals.Leds
         /// <summary>
         /// Gets the brightness of the LED, controlled by a PWM signal
         /// </summary>
-        public float Brightness { get; set; }
+        public float Brightness { get; }
+
+        /// <summary>
+        /// Start a Blink animation which sets the brightness of the LED alternating between a low and high brightness setting.
+        /// </summary>
+        public Task StartBlink(float highBrightness = 1f, float lowBrightness = 0f);
 
         /// <summary>
         /// Start the Blink animation which sets the brightness of the LED alternating between a low and high brightness setting, using the durations provided.
         /// </summary>
-        public void StartBlink(TimeSpan onDuration, TimeSpan offDuration, float highBrightness = 1f, float lowBrightness = 0f);
+        public Task StartBlink(TimeSpan highBrightnessDuration, TimeSpan lowBrightnessDuration, float highBrightness = 1f, float lowBrightness = 0f);
+
+        /// <summary>
+        /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting.
+        /// </summary>
+        public Task StartPulse(float highBrightness = 1, float lowBrightness = 0.15F);
 
         /// <summary>
         /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting, using the durations provided.
         /// </summary>
-        public void StartPulse(TimeSpan pulseDuration, float highBrightness, float lowBrightness = 0.15F);
+        public Task StartPulse(TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
 
         /// <summary>
         /// Stops any running animations.
         /// </summary>
-        public void Stop();
+        public Task StopAnimation();
     }
 }
