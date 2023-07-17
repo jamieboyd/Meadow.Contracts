@@ -12,6 +12,8 @@ public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
     private SerialPortName _serialPortName;
     private I2cBusMapping _i2cBusMapping;
     private SpiBusMapping _spiBusMapping;
+    private ISpiBus? _spi;
+    private II2cBus? _i2c;
 
     /// <summary>
     /// The set of MikroBus pin names
@@ -102,29 +104,32 @@ public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
     }
 
     /// <summary>
-    /// Creates an II2cBus on the connector
+    /// Gets the connector's I2C bus
     /// </summary>
-    /// <param name="busSpeed">The bus speed</param>
-    public II2cBus CreateI2cBus(I2cBusSpeed busSpeed = I2cBusSpeed.Standard)
+    public II2cBus I2cBus
     {
-        return _i2cBusMapping.Controller.CreateI2cBus(_i2cBusMapping.BusNumber, busSpeed);
+        get
+        {
+            if (_i2c == null)
+            {
+                _i2c = _i2cBusMapping.Controller.CreateI2cBus(_i2cBusMapping.BusNumber, I2cBusSpeed.Standard);
+            }
+            return _i2c;
+        }
     }
 
     /// <summary>
-    /// Creates an ISpiBus on the connector
+    /// Gets the connector's SPI bus
     /// </summary>
-    /// <param name="speed">The bus speed</param>
-    public ISpiBus CreateSpiBus(Frequency speed)
+    public ISpiBus SpiBus
     {
-        return _spiBusMapping.Controller.CreateSpiBus(_spiBusMapping.Clock, _spiBusMapping.Copi, _spiBusMapping.Cipo, speed);
-    }
-
-    /// <summary>
-    /// Creates an ISpiBus on the connector
-    /// </summary>
-    /// <param name="config">The bus clock configuration parameters</param>
-    public ISpiBus CreateSpiBus(SpiClockConfiguration config)
-    {
-        return _spiBusMapping.Controller.CreateSpiBus(_spiBusMapping.Clock, _spiBusMapping.Copi, _spiBusMapping.Cipo, config);
+        get
+        {
+            if (_spi == null)
+            {
+                _spi = _spiBusMapping.Controller.CreateSpiBus(_spiBusMapping.Clock, _spiBusMapping.Copi, _spiBusMapping.Cipo, new Frequency(1, Frequency.UnitType.Megahertz));
+            }
+            return _spi;
+        }
     }
 }
