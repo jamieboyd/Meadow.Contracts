@@ -51,9 +51,9 @@
             /// </summary>
             Ethernet,
             /// <summary>
-            /// GSM network connection
+            /// Cell network connection
             /// </summary>
-            GSM
+            Cell
         }
 
 
