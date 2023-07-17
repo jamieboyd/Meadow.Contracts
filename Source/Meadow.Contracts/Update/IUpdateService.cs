@@ -1,7 +1,15 @@
 ﻿namespace Meadow.Update;
 
+/// <summary>
+/// A delegate for events raised by an IUpdateService
+/// </summary>
+/// <param name="updateService">The IUpdateService that is the event source</param>
+/// <param name="info">The UpdateInfo associated with the event</param>
 public delegate void UpdateEventHandler(IUpdateService updateService, UpdateInfo info);
 
+/// <summary>
+/// A contract for update service implementations
+/// </summary>
 public interface IUpdateService
 {
     event UpdateEventHandler OnUpdateAvailable;
