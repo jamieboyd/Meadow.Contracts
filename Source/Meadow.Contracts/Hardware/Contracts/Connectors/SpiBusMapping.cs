@@ -1,6 +1,4 @@
-﻿namespace Meadow;
-
-using Meadow.Hardware;
+﻿namespace Meadow.Hardware;
 
 /// <summary>
 /// Represents a mapping of a specific SPI bus on a controller

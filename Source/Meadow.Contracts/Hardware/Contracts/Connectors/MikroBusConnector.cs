@@ -1,6 +1,5 @@
-﻿namespace Meadow;
+﻿namespace Meadow.Hardware;
 
-using Meadow.Hardware;
 using Meadow.Units;
 using static Meadow.MikroBusConnector;
 
