@@ -1,8 +1,10 @@
-﻿namespace Meadow;
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+
+namespace Meadow;
+
 /// <summary>
 /// Contract for Meadow applications. Provides a way for the Meadow OS to
 /// communicate with Meadow applications when system events are happening.
@@ -20,6 +22,11 @@ public interface IApp
     /// The application's version number
     /// </summary>
     public static Version Version { get; } = new Version("1.0.0");
+
+    /// <summary>
+    /// Settings parsed from the app.config.yaml at startup
+    /// </summary>
+    public Dictionary<string, string> Settings { get; }
 
     /// <summary>
     /// A cancellation token that is cancelled when the application is signalled to shut down
