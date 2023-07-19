@@ -18,10 +18,5 @@
         /// Gets or sets the download URL of the MPak.
         /// </summary>
         public string MpakDownloadUrl { get; set; }
-
-        /// <summary>
-        /// Gets or sets the target devices for the update.
-        /// </summary>
-        public string[] TargetDevices { get; set; }
     }
 }

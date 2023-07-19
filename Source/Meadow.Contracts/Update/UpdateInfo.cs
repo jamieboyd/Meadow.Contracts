@@ -47,5 +47,9 @@ namespace Meadow.Update
         /// The expected Hash of the Update package
         /// </summary>
         public string DownloadHash { get; set; } = string.Empty;
+        /// <summary>
+        /// Metadata for the package
+        /// </summary>
+        public string Metadata { get; set; }
     }
 }
