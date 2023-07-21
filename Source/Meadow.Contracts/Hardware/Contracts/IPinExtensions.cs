@@ -107,7 +107,7 @@ namespace Meadow.Hardware
                 return controller.CreateDigitalInterruptPort(pin, interruptMode, resistorMode, TimeSpan.Zero, TimeSpan.Zero);
             }
 
-            throw new ArgumentException("Pin is not digital interrupt capable");
+            throw new ArgumentException($"Pin '{pin.Name}' is not digital interrupt capable");
         }
 
         /// <summary>
