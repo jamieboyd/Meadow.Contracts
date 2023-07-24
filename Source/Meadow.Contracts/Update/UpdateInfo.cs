@@ -8,6 +8,7 @@ namespace Meadow.Update
     /// </summary>
     public record UpdateInfo : INotifyPropertyChanged
     {
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         private bool _applied;
@@ -20,7 +21,7 @@ namespace Meadow.Update
         /// <summary>
         /// A unique identifier for the Update
         /// </summary>
-        public string ID { get; protected set; }
+        public string ID { get; protected set; } = default!;
         /// <summary>
         /// The type of the Update
         /// </summary>
