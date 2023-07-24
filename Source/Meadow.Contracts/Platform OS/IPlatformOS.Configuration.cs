@@ -8,34 +8,142 @@
         /// <remarks>It is critical that this enum matches the enum in the NuttX file hcom_nx_config_manager.h.</remarks>
         public enum ConfigurationValues
         {
-            DeviceName = 0,                 // 0
-            Product,                        // 1
-            Model,                          // 2
-            OsVersion,                      // 3
-            BuildDate,                      // 4
-            ProcessorType,                  // 5
-            UniqueId,                       // 6
-            SerialNumber,                   // 7
-            CoprocessorType,                // 8
-            CoprocessorFirmwareVersion,     // 9
-            MonoVersion,                    // 10
-            AutomaticallyStartNetwork,      // 11
-            AutomaticallyReconnect,         // 12
-            MaximumNetworkRetryCount,       // 13
-            GetTimeAtStartup,               // 14
-            MacAddress,                     // 15
-            SoftApMacAddress,               // 16
-            DefaultAccessPoint,             // 17
-            ResetReason,                    // 18
-            RebootOnUnhandledException,     // 19
-            InitializationTimeout,          // 20
-            SelectedNetwork,                // 21
-            StaticIpAddress,                // 22
-            SubnetMask,                     // 23
-            DefaultGateway,                 // 24
-            SdStorageSupported,             // 25
-            ReservedPins                    // 26
-        };
+            /// <summary>
+            /// Device name configuration value.
+            /// </summary>
+            DeviceName = 0,
+
+            /// <summary>
+            /// Product configuration value.
+            /// </summary>
+            Product,
+
+            /// <summary>
+            /// Model configuration value.
+            /// </summary>
+            Model,
+
+            /// <summary>
+            /// OS version configuration value.
+            /// </summary>
+            OsVersion,
+
+            /// <summary>
+            /// Build date configuration value.
+            /// </summary>
+            BuildDate,
+
+            /// <summary>
+            /// Processor type configuration value.
+            /// </summary>
+            ProcessorType,
+
+            /// <summary>
+            /// Unique ID configuration value.
+            /// </summary>
+            UniqueId,
+
+            /// <summary>
+            /// Serial number configuration value.
+            /// </summary>
+            SerialNumber,
+
+            /// <summary>
+            /// Coprocessor type configuration value.
+            /// </summary>
+            CoprocessorType,
+
+            /// <summary>
+            /// Coprocessor firmware version configuration value.
+            /// </summary>
+            CoprocessorFirmwareVersion,
+
+            /// <summary>
+            /// Mono version configuration value.
+            /// </summary>
+            MonoVersion,
+
+            /// <summary>
+            /// Automatically start network configuration value.
+            /// </summary>
+            AutomaticallyStartNetwork,
+
+            /// <summary>
+            /// Automatically reconnect configuration value.
+            /// </summary>
+            AutomaticallyReconnect,
+
+            /// <summary>
+            /// Maximum network retry count configuration value.
+            /// </summary>
+            MaximumNetworkRetryCount,
+
+            /// <summary>
+            /// Get time at startup configuration value.
+            /// </summary>
+            GetTimeAtStartup,
+
+            /// <summary>
+            /// MAC address configuration value.
+            /// </summary>
+            MacAddress,
+
+            /// <summary>
+            /// Soft AP MAC address configuration value.
+            /// </summary>
+            SoftApMacAddress,
+
+            /// <summary>
+            /// Default access point configuration value.
+            /// </summary>
+            DefaultAccessPoint,
+
+            /// <summary>
+            /// Reset reason configuration value.
+            /// </summary>
+            ResetReason,
+
+            /// <summary>
+            /// Reboot on unhandled exception configuration value.
+            /// </summary>
+            RebootOnUnhandledException,
+
+            /// <summary>
+            /// Initialization timeout configuration value.
+            /// </summary>
+            InitializationTimeout,
+
+            /// <summary>
+            /// Selected network configuration value.
+            /// </summary>
+            SelectedNetwork,
+
+            /// <summary>
+            /// Static IP address configuration value.
+            /// </summary>
+            StaticIpAddress,
+
+            /// <summary>
+            /// Subnet mask configuration value.
+            /// </summary>
+            SubnetMask,
+
+            /// <summary>
+            /// Default gateway configuration value.
+            /// </summary>
+            DefaultGateway,
+
+            /// <summary>
+            /// SD storage supported configuration value.
+            /// </summary>
+            SdStorageSupported,
+
+            /// <summary>
+            /// Reserved pins configuration value.
+            /// </summary>
+            ReservedPins
+        }
+
 
         /// <summary>
         /// Enumeration representing the available network connection types.
