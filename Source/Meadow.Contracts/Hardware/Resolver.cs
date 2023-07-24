@@ -52,9 +52,9 @@ namespace Meadow
         {
             get => Services?.Get<IUpdateService>();
         }
-        
+
         /// <summary>
-        /// Retrieves the current IUpdateService instance
+        /// Retrieves the current IMeadowCloudService instance
         /// </summary>
         public static IMeadowCloudService MeadowCloudService
         {
