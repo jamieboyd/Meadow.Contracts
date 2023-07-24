@@ -18,14 +18,6 @@ public interface IUpdateSettings
     /// </summary>
     public int UpdatePort { get; set; }
     /// <summary>
-    /// Gets the address of the authentication server to use
-    /// </summary>
-    public string AuthServer { get; set; }
-    /// <summary>
-    /// Gets the port of the authentication server to use
-    /// </summary>
-    public int AuthPort { get; set; }
-    /// <summary>
     /// Gets the Organization the device is registered to
     /// </summary>
     public string Organization { get; set; }
