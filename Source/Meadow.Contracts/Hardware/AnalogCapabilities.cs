@@ -44,7 +44,7 @@ public class AnalogCapabilities
             }
             else
             {
-                _maxRawAdcVoltageValue = (int?)Math.Pow(2, AdcResolution ?? 1);
+                _maxRawAdcVoltageValue = (int?)Math.Pow(2, AdcResolution ?? 1) - 1;
                 return _maxRawAdcVoltageValue;
             }
         }
