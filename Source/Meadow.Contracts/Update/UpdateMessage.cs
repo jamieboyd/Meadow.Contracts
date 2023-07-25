@@ -17,5 +17,5 @@ public class UpdateMessage : UpdateInfo
     /// <summary>
     /// Gets or sets the download URL of the MPak.
     /// </summary>
-    public string MpakDownloadUrl { get; set; }
+    public string MpakDownloadUrl { get; set; } = default!;
 }

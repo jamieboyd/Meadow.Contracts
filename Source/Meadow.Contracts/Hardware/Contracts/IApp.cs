@@ -1,9 +1,10 @@
-﻿namespace Meadow;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+
+namespace Meadow;
+
 /// <summary>
 /// Contract for Meadow applications. Provides a way for the Meadow OS to
 /// communicate with Meadow applications when system events are happening.
