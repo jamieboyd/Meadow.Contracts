@@ -8,9 +8,9 @@ namespace Meadow.Cloud;
 public class CloudLog
 {
     /// <summary>
-    /// The message's Log Level
+    /// The message's severity
     /// </summary>
-    public string Level { get; set; } = default!;
+    public string Severity { get; set; } = default!;
     /// <summary>
     /// The message's text
     /// </summary>
