@@ -37,9 +37,7 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
         /// </summary>
         public IPin D1 => _d1 ?? throw new PlatformNotSupportedException("Pin not connected");
 
-        internal GroveDigitalPinDefinitions(
-        PinMapping mapping
-        )
+        internal GroveDigitalPinDefinitions(PinMapping mapping)
         {
             foreach (var m in mapping)
             {

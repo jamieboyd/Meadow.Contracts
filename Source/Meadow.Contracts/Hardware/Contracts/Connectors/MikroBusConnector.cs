@@ -105,29 +105,11 @@ public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
     /// Gets the connector's I2C bus
     /// </summary>
     public II2cBus I2cBus
-    {
-        get
-        {
-            if (_i2c == null)
-            {
-                _i2c = _i2cBusMapping.Controller.CreateI2cBus(_i2cBusMapping.BusNumber, I2cBusSpeed.Standard);
-            }
-            return _i2c;
-        }
-    }
+        => _i2c ??= _i2cBusMapping.Controller.CreateI2cBus(_i2cBusMapping.BusNumber, I2cBusSpeed.Standard);
 
     /// <summary>
     /// Gets the connector's SPI bus
     /// </summary>
     public ISpiBus SpiBus
-    {
-        get
-        {
-            if (_spi == null)
-            {
-                _spi = _spiBusMapping.Controller.CreateSpiBus(_spiBusMapping.Clock, _spiBusMapping.Copi, _spiBusMapping.Cipo, new Frequency(1, Frequency.UnitType.Megahertz));
-            }
-            return _spi;
-        }
-    }
+        => _spi ??= _spiBusMapping.Controller.CreateSpiBus(_spiBusMapping.Clock, _spiBusMapping.Copi, _spiBusMapping.Cipo, new Frequency(1, Frequency.UnitType.Megahertz));
 }
