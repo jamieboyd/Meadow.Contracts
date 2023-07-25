@@ -14,6 +14,11 @@ public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
     private II2cBus? _i2c;
 
     /// <summary>
+    /// The serial port name
+    /// </summary>
+    public SerialPortName SerialPortName => _serialPortName;
+
+    /// <summary>
     /// The set of MikroBus pin names
     /// </summary>
     public static class PinNames
