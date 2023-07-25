@@ -1,6 +1,5 @@
 using Meadow.Units;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meadow.Hardware
@@ -18,7 +17,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets the sample buffer.
         /// </summary>
-        IList<Voltage> VoltageSampleBuffer { get; }
+        Voltage[] VoltageSampleBuffer { get; }
 
         /// <summary>
         /// The maximum voltage that the Analog Port can read. Typically 3.3V.
