@@ -1,14 +1,14 @@
 ﻿using System;
-using static Meadow.Hardware.GroveUartConnector;
+using static Meadow.Hardware.UartConnector;
 
 namespace Meadow.Hardware;
 
-public class GroveUartConnector : Connector<GroveUartPinDefinitions>
+public class UartConnector : Connector<UartPinDefinitions>
 {
     private SerialPortName _serialPortName;
 
     /// <summary>
-    /// The set of UART (serial) Grove connector pins
+    /// The set of UART (serial) connector pins
     /// </summary>
     public static class PinNames
     {
@@ -23,9 +23,9 @@ public class GroveUartConnector : Connector<GroveUartPinDefinitions>
     }
 
     /// <summary>
-    /// Represents the pins definitions for the Grove Uart (serial) connector
+    /// Represents the pins definitions for the Uart (serial) connector
     /// </summary>
-    public class GroveUartPinDefinitions : PinDefinitionBase
+    public class UartPinDefinitions : PinDefinitionBase
     {
         private IPin? _rx;
         private IPin? _tx;
@@ -39,7 +39,7 @@ public class GroveUartConnector : Connector<GroveUartPinDefinitions>
         /// </summary>
         public IPin Tx => _tx ?? throw new PlatformNotSupportedException("Pin not connected");
 
-        internal GroveUartPinDefinitions(PinMapping mapping)
+        internal UartPinDefinitions(PinMapping mapping)
         {
             foreach (var m in mapping)
             {
@@ -58,8 +58,9 @@ public class GroveUartConnector : Connector<GroveUartPinDefinitions>
 
     /// <param name="name">The connector name</param>
     /// <param name="mapping">The mappings to the host controller</param>
-    public GroveUartConnector(string name, PinMapping mapping, SerialPortName hostSerialPort)
-        : base(name, new GroveUartPinDefinitions(mapping))
+    /// /// <param name="hostSerialPort">The mapping for the connector's serial port</param>
+    public UartConnector(string name, PinMapping mapping, SerialPortName hostSerialPort)
+        : base(name, new UartPinDefinitions(mapping))
     {
         _serialPortName = hostSerialPort;
     }

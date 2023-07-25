@@ -1,18 +1,18 @@
 ﻿namespace Meadow.Hardware;
 
 using System;
-using static Meadow.Hardware.QwiicConnector;
+using static Meadow.Hardware.I2cConnector;
 
 /// <summary>
-/// Represents a connector for Qwiic devices
+/// Represents a connector for 2 wire I2C devices
 /// </summary>
-public partial class QwiicConnector : Connector<QwiicPinDefinitions>
+public partial class I2cConnector : Connector<I2cPinDefinitions>
 {
     private I2cBusMapping _i2cBusMapping;
     private II2cBus? _i2c;
 
     /// <summary>
-    /// The set of Qwiic pin names
+    /// The set of I2C pin names
     /// </summary>
     public static class PinNames
     {
@@ -27,9 +27,9 @@ public partial class QwiicConnector : Connector<QwiicPinDefinitions>
     }
 
     /// <summary>
-    /// Represents the pins definitions for the I2C Qwiic connector
+    /// Represents the pins definitions for the 2 wire I2C connector
     /// </summary>
-    public class QwiicPinDefinitions : PinDefinitionBase
+    public class I2cPinDefinitions : PinDefinitionBase
     {
         private IPin? _scl;
         private IPin? _sda;
@@ -43,7 +43,7 @@ public partial class QwiicConnector : Connector<QwiicPinDefinitions>
         /// </summary>
         public IPin Sda => _sda ?? throw new PlatformNotSupportedException("Pin not connected");
 
-        internal QwiicPinDefinitions(PinMapping mapping)
+        internal I2cPinDefinitions(PinMapping mapping)
         {
             foreach (var m in mapping)
             {
@@ -61,15 +61,15 @@ public partial class QwiicConnector : Connector<QwiicPinDefinitions>
     }
 
     /// <summary>
-    /// Creates a QwiicConnector
+    /// Creates a I2cConnector
     /// </summary>
     /// <param name="name">The connector name</param>
     /// <param name="mapping">The mappings to the host controller</param>
     /// <param name="i2CBusMapping">The mapping for the connector's I2C bus</param>
-    public QwiicConnector(string name,
+    public I2cConnector(string name,
         PinMapping mapping,
         I2cBusMapping i2CBusMapping)
-        : base(name, new QwiicPinDefinitions(mapping))
+        : base(name, new I2cPinDefinitions(mapping))
     {
         _i2cBusMapping = i2CBusMapping;
     }
