@@ -21,5 +21,5 @@ public record PlatformOsMessage
     /// <summary>
     /// The message being passed from the host OS
     /// </summary>
-    public string Message { get; set; }
+    public string Message { get; set; } = default!;
 }
