@@ -8,6 +8,11 @@ public class UartConnector : Connector<UartPinDefinitions>
     private SerialPortName _serialPortName;
 
     /// <summary>
+    /// The serial port name
+    /// </summary>
+    public SerialPortName SerialPortName => _serialPortName;
+
+    /// <summary>
     /// The set of UART (serial) connector pins
     /// </summary>
     public static class PinNames
