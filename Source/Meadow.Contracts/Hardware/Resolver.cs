@@ -1,4 +1,5 @@
-﻿using Meadow.Logging;
+﻿using Meadow.Cloud;
+using Meadow.Logging;
 using Meadow.Update;
 
 namespace Meadow
@@ -50,6 +51,14 @@ namespace Meadow
         public static IUpdateService UpdateService
         {
             get => Services?.Get<IUpdateService>();
+        }
+
+        /// <summary>
+        /// Retrieves the current IMeadowCloudService instance
+        /// </summary>
+        public static IMeadowCloudService MeadowCloudService
+        {
+            get => Services?.Get<IMeadowCloudService>();
         }
 #pragma warning restore CS8603
     }
