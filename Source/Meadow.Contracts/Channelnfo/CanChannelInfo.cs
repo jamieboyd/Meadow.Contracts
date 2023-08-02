@@ -20,5 +20,4 @@ public class CanChannelInfo : DigitalChannelInfoBase, ICanChannelInfo
     {
         SerialDirection = serialDirection;
     }
-
 }

@@ -28,7 +28,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// </summary>
     /// <value>The sample buffer.</value>
     // TODO: make this a Memory<Voltage> if possible.
-    public IList<Voltage> VoltageSampleBuffer { get; } = new List<Voltage>();
+    public Voltage[] VoltageSampleBuffer { get; }
 
     /// <summary>
     /// A `TimeSpan` that specifies how long to
@@ -54,6 +54,8 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// </summary>
     public Voltage ReferenceVoltage { get; protected set; }
 
+    private readonly double _voltsPerBit;
+
     /// <summary>
     /// Gets the average value of the values in the buffer. Use in conjunction
     /// with StartUpdating() for long-running analog sampling. For occasional
@@ -67,7 +69,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
             //heh. may be a faster way to do this. 
             lock (BufferSyncRoot)
             {
-                return new Voltage(VoltageSampleBuffer.Select(x => x.Volts).Sum() / VoltageSampleBuffer.Count(), Voltage.UnitType.Volts);
+                return new Voltage(VoltageSampleBuffer.Select(x => x.Volts).Sum() / VoltageSampleBuffer.Length, Voltage.UnitType.Volts);
             }
         }
     }
@@ -93,8 +95,20 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     {
         Pin = pin;
         SampleCount = sampleCount;
+        VoltageSampleBuffer = new Voltage[SampleCount];
         SampleInterval = sampleInterval;
         ReferenceVoltage = referenceVoltage;
+
+        _voltsPerBit = ReferenceVoltage.Volts / (Math.Pow(2, channel.Precision) - 1);
+    }
+
+    /// <summary>
+    /// Converts a raw 32-bit reading to a sclaed value in volts
+    /// </summary>
+    /// <param name="rawReading">The raw reading to convert</param>
+    protected double ConvertReadingToVoltage(int rawReading)
+    {
+        return _voltsPerBit * rawReading;
     }
 
     /// <summary>
@@ -140,8 +154,8 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
 
     private class Unsubscriber : IDisposable
     {
-        private List<IObserver<IChangeResult<Voltage>>> _observers;
-        private IObserver<IChangeResult<Voltage>> _observer;
+        private readonly List<IObserver<IChangeResult<Voltage>>> _observers;
+        private readonly IObserver<IChangeResult<Voltage>> _observer;
 
         public Unsubscriber(List<IObserver<IChangeResult<Voltage>>> observers, IObserver<IChangeResult<Voltage>> observer)
         {

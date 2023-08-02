@@ -1,4 +1,5 @@
 ﻿using Meadow.Hardware;
+using System;
 
 namespace Meadow
 {
@@ -25,7 +26,8 @@ namespace Meadow
             StopBits stopBits = StopBits.One,
             int readBufferSize = 1024)
         {
-            return name.SerialController.CreateSerialPort(name, baudRate, dataBits, parity, stopBits, readBufferSize);
+            return name.SerialController?.CreateSerialPort(name, baudRate, dataBits, parity, stopBits, readBufferSize)
+                ?? throw new Exception("PortName does not have a valid serial controller");
         }
 
         /// <summary>
@@ -50,7 +52,8 @@ namespace Meadow
             StopBits stopBits = StopBits.One,
             int readBufferSize = 512)
         {
-            return name.SerialMessageController.CreateSerialMessagePort(name, suffixDelimiter, preserveDelimiter, baudRate, dataBits, parity, stopBits, readBufferSize);
+            return name.SerialMessageController?.CreateSerialMessagePort(name, suffixDelimiter, preserveDelimiter, baudRate, dataBits, parity, stopBits, readBufferSize)
+                ?? throw new Exception("PortName does not have a valid serial controller");
         }
 
         /// <summary>
@@ -77,7 +80,8 @@ namespace Meadow
             StopBits stopBits = StopBits.One,
             int readBufferSize = 512)
         {
-            return name.SerialMessageController.CreateSerialMessagePort(name, prefixDelimiter, preserveDelimiter, messageLength, baudRate, dataBits, parity, stopBits, readBufferSize);
+            return name.SerialMessageController?.CreateSerialMessagePort(name, prefixDelimiter, preserveDelimiter, messageLength, baudRate, dataBits, parity, stopBits, readBufferSize)
+                ?? throw new Exception("PortName does not have a valid serial controller");
         }
     }
 }

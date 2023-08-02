@@ -35,7 +35,6 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             KnownTalkerIDs.Add("LC", "Loran-C receiver (obsolete)");
             KnownTalkerIDs.Add("QZ", "QZSS regional GPS augmentation system");
             KnownTalkerIDs.Add("GI", "NavIC (IRNSS)");
-
         }
     }
 }

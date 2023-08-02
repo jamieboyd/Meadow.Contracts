@@ -22,8 +22,6 @@
         /// Creates an IDigitalInputPort on the specified pin with Disabled resistor mode
         /// </summary>
         /// <param name="pin">The pin on which to create the port.</param>
-        /// external pull-up/pull-down resistor is used, or an internal pull-up/pull-down
-        /// resistor should be configured for default state.</param>
         public IDigitalInputPort CreateDigitalInputPort(
             IPin pin
             )
