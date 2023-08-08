@@ -2,6 +2,7 @@ name: Develop Build
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches: [ develop ]
 
@@ -11,16 +12,12 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout Meadow.Contracts
-      uses: actions/checkout@v3
-      with:
-        path: root     
-        
     - name: Checkout Meadow.Logging
       uses: actions/checkout@v3
       with:
         repository: WildernessLabs/Meadow.Logging
         path: Meadow.Logging
+        ref: develop
         
     - name: Checkout Meadow.Units
       uses: actions/checkout@v3
@@ -28,15 +25,21 @@ jobs:
         repository: WildernessLabs/Meadow.Units
         path: Meadow.Units
         ref: develop
+
+    - name: Checkout Meadow.Contracts
+      uses: actions/checkout@v3
+      with:
+        path: Meadow.Contracts
+        ref: develop
     
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version:
-          6.0.x
+          7.0.x
     
     - name: Build Meadow.Contracts
-      run: dotnet build -c Release root/Source/Meadow.Contracts/Meadow.Contracts.sln
+      run: dotnet build -c Release Meadow.Contracts/Source/Meadow.Contracts/Meadow.Contracts.sln
 
     - name: Trigger Core Build
       uses: peter-evans/repository-dispatch@v2
