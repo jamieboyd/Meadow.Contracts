@@ -50,5 +50,5 @@ public interface IMeadowDevice :
     /// Retrieves battery info about the current IMeadowDevice
     /// </summary>
     /// <returns></returns>
-    BatteryInfo GetBatteryInfo();
+    BatteryInfo? GetBatteryInfo();
 }
