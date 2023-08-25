@@ -12,4 +12,10 @@ public interface IHealthReporter
     /// </summary>
     /// <param name="interval">In minutes</param>
     void Start(int interval);
+
+    /// <summary>
+    /// Can be called to manually send a health report event.
+    /// </summary>
+    /// <returns></returns>
+    Task Send();
 }
