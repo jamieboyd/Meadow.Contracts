@@ -17,7 +17,9 @@
    <Nullable>enable</Nullable>
  </PropertyGroup>
  <PropertyGroup>
-   <LangVersion>10</LangVersion>
+    <Authors>Wilderness Labs, Inc</Authors>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <LangVersion>10.0</LangVersion>
    <Nullable>enable</Nullable>
  </PropertyGroup>
 	<ItemGroup>
