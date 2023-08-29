@@ -19,4 +19,8 @@ public class CloudLog
     /// The timestamp of the message
     /// </summary>
     public DateTime Timestamp { get; set; } = default!;
+    /// <summary>
+    /// Exception body of the message
+    /// </summary>
+    public string Exception { get; set; } = default!;
 }

@@ -62,7 +62,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// sampling, use Read().
     /// </summary>
     /// <value>The average buffer value.</value>
-    public Voltage Voltage
+    public virtual Voltage Voltage
     {
         get
         {

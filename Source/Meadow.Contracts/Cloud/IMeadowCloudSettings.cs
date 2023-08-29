@@ -13,4 +13,12 @@ public interface IMeadowCloudSettings
     /// The host name used for data exchange
     /// </summary>
     string DataHostname { get; set; }
+    /// <summary>
+    /// Enable to send health metrics to Meadow.Cloud
+    /// </summary>
+    bool EnableHealthMetrics { get; set; }
+    /// <summary>
+    /// Interval (in mins) to send health metrics
+    /// </summary>
+    int HealthMetricsInterval { get; set; }
 }
