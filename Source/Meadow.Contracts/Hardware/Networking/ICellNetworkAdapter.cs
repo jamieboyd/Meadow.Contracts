@@ -24,9 +24,19 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     /// <returns>A list of CellNetworks</returns>
     CellNetwork[] Scan();
-    
+
     /// <summary>
-    /// Get the signal quality
+    /// Get current signal quality
     /// </summary>
-    double GetSignalQuality();
+    /// <param name="timeout"></param>
+    /// <return>Cell signal quality</return>
+    double GetSignalQuality(int timeout = 10);
+
+    /// <summary>
+    /// Scan available networks,
+    /// this method is used without entering the "Scan Mode"
+    /// </summary>
+    /// <param name="timeout"></param>
+    /// <returns>A list of CellNetworks</returns>
+    CellNetwork[] ScanNetwork(int timeout = 30);
 }
