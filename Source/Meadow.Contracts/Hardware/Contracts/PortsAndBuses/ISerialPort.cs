@@ -102,6 +102,11 @@ namespace Meadow.Hardware
         /// <returns>The number of bytes read.</returns>
         int Read(byte[] buffer, int offset, int count);
 
+        /// <summary>
+        /// Reads all bytes from the SerialPort input buffer and writes those bytes into a byte array.
+        /// </summary>
+        /// <param name="buffer">The byte array to write the input to.</param>
+        /// <returns>The number of bytes read.</returns>
         int ReadAll(byte[] buffer);
 
         /// <summary>
