@@ -1,4 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System;
+
+namespace Meadow.Hardware;
 
 /// <summary>
 /// Provides a base implementation for digital input ports.

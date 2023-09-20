@@ -10,7 +10,7 @@ namespace Meadow.Peripherals.Speakers
     public interface IToneGenerator
     {
         /// <summary>
-        /// Plays the tone with a especified frequency and duration
+        /// Plays the tone with a specified frequency and duration
         /// </summary>
         /// <param name="frequency"></param>
         /// <param name="duration"></param>

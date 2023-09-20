@@ -1,5 +1,6 @@
 ﻿using System;
 using static Meadow.Hardware.GroveDigitalConnector;
+using static System.Net.WebRequestMethods;
 
 namespace Meadow.Hardware;
 
@@ -11,11 +12,11 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
     public static class PinNames
     {
         /// <summary>
-        /// Pin D0
+        /// Primary Digital Input/Output
         /// </summary>
         public const string D0 = "D0";
         /// <summary>
-        /// Pin D0
+        /// Secondary Digital Input/Output
         /// </summary>
         public const string D1 = "D1";
     }
@@ -29,11 +30,11 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
         private IPin? _d1;
 
         /// <summary>
-        /// Pin D0
+        /// Primary Digital Input/Output
         /// </summary>
         public IPin D0 => _d0 ?? throw new PlatformNotSupportedException("Pin not connected");
         /// <summary>
-        /// Pin D1
+        /// Secondary Digital Input/Output
         /// </summary>
         public IPin D1 => _d1 ?? throw new PlatformNotSupportedException("Pin not connected");
 

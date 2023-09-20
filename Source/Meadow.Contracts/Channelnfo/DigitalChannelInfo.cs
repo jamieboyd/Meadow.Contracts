@@ -17,7 +17,7 @@ public class DigitalChannelInfo : DigitalChannelInfoBase
     /// <param name="inverseLogic"></param>
     /// <param name="interruptGroup"></param>
     public DigitalChannelInfo(
-        string name,
+    string name,
         bool inputCapable = true,
         bool outputCapable = true,
         bool interruptCapable = true,

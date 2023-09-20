@@ -18,12 +18,12 @@ namespace Meadow.Hardware
         SpiClockConfiguration.Mode SpiBusMode { get; set; }
 
         /// <summary>
-        /// Deafult SPI bus speed for the peripheral
+        /// Default SPI bus speed for the peripheral
         /// </summary>
         Frequency DefaultSpiBusSpeed { get; }
 
         /// <summary>
-        /// Curent SPI bus speed
+        /// Current SPI bus speed
         /// </summary>
         Frequency SpiBusSpeed { get; set; }
     }

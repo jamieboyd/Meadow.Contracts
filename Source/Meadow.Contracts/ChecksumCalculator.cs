@@ -49,7 +49,7 @@ public static class ChecksumCalculator
     }
 
     /// <summary>
-    ///     Generte the lookup table for the PolynomialCRC method.
+    ///     Generate the lookup table for the PolynomialCRC method.
     /// </summary>
     private static void PopulateLookupTable(byte polynomial)
     {

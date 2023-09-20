@@ -58,7 +58,7 @@ namespace Meadow.Hardware
         TimeSpan WriteTimeout { get; set; }
 
         /// <summary>
-        /// Gets or sets the standard number of stopbits per byte.
+        /// Gets or sets the standard number of stop bits per byte.
         /// </summary>
         StopBits StopBits { get; set; }
 

@@ -130,7 +130,7 @@ public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
     }
 
     /// <summary>
-    /// Disconnect from the the currently active access point.
+    /// Disconnect from the currently active access point.
     /// </summary>
     /// <remarks>
     /// Setting turnOffWiFiInterface to true will call StopWiFiInterface following

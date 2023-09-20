@@ -8,11 +8,11 @@ namespace Meadow
     public interface IChangeResult<UNIT> where UNIT: struct
     {
         /// <summary>
-        /// Current/new event value.
+        /// The value at the time of this event or notification.
         /// </summary>
         UNIT New { get; set; }
         /// <summary>
-        /// Previous value.
+        /// The previous value before this event or notification, or null if there was no previous value.
         /// </summary>
         UNIT? Old { get; set; }
     }

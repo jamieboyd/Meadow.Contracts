@@ -47,7 +47,7 @@ public enum ConnectionStatus
     ConnectionRefused = 7,
 
     /// <summary>
-    /// The network interface cannot be initialised.
+    /// The network interface cannot be initialized.
     /// </summary>
     NetworkInterfaceCannotBeStarted = 8,
 

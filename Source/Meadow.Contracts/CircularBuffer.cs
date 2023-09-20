@@ -11,7 +11,7 @@ namespace Meadow;
 public class CircularBuffer<T> : IEnumerable<T>
 {
     /// <summary>
-    /// Event raised whn an item is added to the buffer
+    /// Event raised when an item is added to the buffer
     /// </summary>
     public event EventHandler ItemAdded = delegate { };
 

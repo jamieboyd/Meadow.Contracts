@@ -24,7 +24,7 @@ namespace Meadow.Hardware
         /// <param name="glitchDuration">The minimum duration, with microseconds
         /// (µs) resolution, of an initial state change to persist before it's notified as
         /// an intentional state change, rather than a spurious one. Use this to
-        /// ensure that noise doens't trigger an in interrupt.</param>
+        /// ensure that noise doesn't trigger an in interrupt.</param>
         IDigitalInterruptPort CreateDigitalInterruptPort(
             IPin pin,
             InterruptMode interruptMode,

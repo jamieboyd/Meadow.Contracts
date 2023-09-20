@@ -18,11 +18,11 @@ public class UartConnector : Connector<UartPinDefinitions>
     public static class PinNames
     {
         /// <summary>
-        /// Pin D0
+        /// Pin RX
         /// </summary>
         public const string RX = "RX";
         /// <summary>
-        /// Pin D0
+        /// Pin TX
         /// </summary>
         public const string TX = "TX";
     }

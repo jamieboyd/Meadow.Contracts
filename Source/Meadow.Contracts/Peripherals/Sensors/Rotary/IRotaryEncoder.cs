@@ -3,7 +3,7 @@
 namespace Meadow.Peripherals.Sensors.Rotary
 {
     /// <summary>
-    /// Defines a generic rotaty encoder
+    /// Defines a generic rotary encoder
     /// </summary>
     public interface IRotaryEncoder
     {

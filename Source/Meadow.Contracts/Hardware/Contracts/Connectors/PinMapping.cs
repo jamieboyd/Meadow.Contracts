@@ -1,7 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
-
+namespace Meadow.Hardware;
 /// <summary>
 /// Represents a mapping of a connector pin names to a host IPins
 /// </summary>
@@ -28,7 +27,7 @@ public sealed class PinMapping : List<PinMapping.PinAlias>
         /// </summary>
         public string PinName { get; }
         /// <summary>
-        /// The host IPin it connects to
+        /// Gets the host IPin that this Connector pin connects to
         /// </summary>
         public IPin ConnectsTo { get; }
     }

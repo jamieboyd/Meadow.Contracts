@@ -14,14 +14,14 @@ namespace Meadow.Hardware
         string[]? SystemReservedPins { get; set; }
 
         /// <summary>
-        /// Reserves an IPin at run time for a specified configuration
+        /// Reserves an IPin at run-time for a specified configuration
         /// </summary>
         /// <param name="pin"></param>
         /// <param name="configType"></param>
         /// <returns></returns>
         Tuple<bool, string> ReservePin(IPin pin, ChannelConfigurationType configType);
         /// <summary>
-        /// Unreserves an IPin at run time
+        /// Releases a reservation on an IPin at run-time
         /// </summary>
         /// <param name="pin"></param>
         /// <returns></returns>

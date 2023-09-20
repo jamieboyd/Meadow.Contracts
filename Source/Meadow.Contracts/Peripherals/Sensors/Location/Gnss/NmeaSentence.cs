@@ -29,7 +29,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         public string TalkerID { get; set; } = "GP";
 
         /// <summary>
-        /// Retreives the full name associated with the TalkerID via the
+        /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
         public string TalkerSystemName {
@@ -90,7 +90,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
 
         /// <summary>
         /// Creates a `NmeaSentence` from a string. Will parse the prefix, data
-        /// elements, and also valide the checksum. If the checksum is invalid,
+        /// elements, and also validate the checksum. If the checksum is invalid,
         /// it will throw an `ArgumentException`, therefore this should be used
         /// in a `try`/`catch` block.
         /// </summary>
