@@ -24,7 +24,7 @@ public class AnalogCapabilities
     }
 
     /// <summary>
-    /// Returns true if the platofm has an analog-to-digital converter
+    /// Returns true if the platform has an analog-to-digital converter
     /// </summary>
     public bool HasAdc { get; protected set; }
     /// <summary>
