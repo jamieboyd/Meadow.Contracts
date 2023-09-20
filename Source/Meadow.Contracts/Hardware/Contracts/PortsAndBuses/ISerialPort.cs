@@ -2,6 +2,11 @@
 
 namespace Meadow.Hardware
 {
+    /// <summary>
+    /// Delegate containing information about a serial data received event.
+    /// </summary>
+    /// <param name="sender">The source of the event</param>
+    /// <param name="e">Data about the serial data received</param>
     public delegate void SerialDataReceivedEventHandler(object sender, SerialDataReceivedEventArgs e);
 
     /// <summary>
@@ -115,6 +120,10 @@ namespace Meadow.Hardware
         /// <returns>The byte, cast to an Int32, or -1 if the end of the stream has been read.</returns>
         int ReadByte();
 
+        /// <summary>
+        /// Returns a string that represents the current <see cref="ISerialPort"/>.
+        /// </summary>
+        /// <returns>A string that represents the current <see cref="ISerialPort"/>.</returns>
         string ToString();
 
         /// <summary>

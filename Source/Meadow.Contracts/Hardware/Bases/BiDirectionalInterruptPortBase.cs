@@ -38,12 +38,13 @@ public abstract class BiDirectionalInterruptPortBase : BiDirectionalPortBase, IB
     /// <summary>
     /// Constructor for the BiDirectionalPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
-    /// <param name="initialState"></param>
-    /// <param name="interruptMode"></param>
-    /// <param name="resistorMode"></param>
-    /// <param name="initialDirection"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <param name="initialState">The initial state of the port.</param>
+    /// <param name="interruptMode">The type of interrupt monitoring the port.</param>
+    /// <param name="resistorMode">The resistor mode of the port.</param>
+    /// <param name="initialDirection">The initial direction of the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected BiDirectionalInterruptPortBase(
         IPin pin,
         IDigitalChannelInfo channel,
@@ -58,15 +59,16 @@ public abstract class BiDirectionalInterruptPortBase : BiDirectionalPortBase, IB
     /// <summary>
     /// Constructor for the BiDirectionalPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
-    /// <param name="initialState"></param>
-    /// <param name="interruptMode"></param>
-    /// <param name="resistorMode"></param>
-    /// <param name="initialDirection"></param>
-    /// <param name="debounceDuration"></param>
-    /// <param name="glitchDuration"></param>
-    /// <param name="initialOutputType"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <param name="initialState">The initial state of the port.</param>
+    /// <param name="interruptMode">The type of interrupt monitoring the port.</param>
+    /// <param name="resistorMode">The resistor mode of the port.</param>
+    /// <param name="initialDirection">The initial direction of the port.</param>
+    /// <param name="debounceDuration">The debounce duration of the port.</param>
+    /// <param name="glitchDuration">The glitch filter duration of the port.</param>
+    /// <param name="initialOutputType">The initial output type of the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected BiDirectionalInterruptPortBase(
         IPin pin,
         IDigitalChannelInfo channel,

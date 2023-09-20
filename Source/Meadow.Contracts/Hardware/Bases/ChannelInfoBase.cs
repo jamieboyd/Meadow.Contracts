@@ -13,7 +13,7 @@ public abstract class ChannelInfoBase
     /// <summary>
     /// The ChannelInfoBase constructor
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="name">The name of the channel.</param>
     protected ChannelInfoBase(string name)
     {
         Name = name;

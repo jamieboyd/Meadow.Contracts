@@ -77,7 +77,6 @@ public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
     /// <exception cref="ArgumentNullException">Thrown if the ssid is null or empty or the password is null.</exception>
     async Task Connect(string ssid, string password, CancellationToken token, ReconnectionType reconnection = ReconnectionType.Automatic)
     {
-        var src = new CancellationTokenSource();
         await Connect(ssid, password, TimeSpan.Zero, token, reconnection);
     }
 
@@ -162,6 +161,22 @@ public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
         return Scan(TimeSpan.FromMilliseconds(-1));
     }
 
+    /// <summary>
+    /// Get the list of access points.
+    /// </summary>
+    /// <remarks>
+    /// The network must be started before this method can be called.
+    /// </remarks>
+    /// <param name="token">A <see cref="CancellationToken"/> to be used if the Scan should be cancelled.</param>
+    /// <returns>An `IList` (possibly empty) of access points.</returns>
     Task<IList<WifiNetwork>> Scan(CancellationToken token);
+    /// <summary>
+    /// Get the list of access points.
+    /// </summary>
+    /// <remarks>
+    /// The network must be started before this method can be called.
+    /// </remarks>
+    /// <param name="timeout">A <see cref="TimeSpan"/> representing the time to search before giving up.</param>
+    /// <returns>An `IList` (possibly empty) of access points.</returns>
     Task<IList<WifiNetwork>> Scan(TimeSpan timeout);
 }

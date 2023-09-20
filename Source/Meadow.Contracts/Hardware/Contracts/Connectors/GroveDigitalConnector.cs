@@ -3,6 +3,9 @@ using static Meadow.Hardware.GroveDigitalConnector;
 using static System.Net.WebRequestMethods;
 
 namespace Meadow.Hardware;
+/// <summary>
+/// Represents a connector for Seeed Studio Grove for digital devices. See <seealso href="https://wiki.seeedstudio.com/Grove_System/#digital"/>
+/// </summary>
 
 public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
 {

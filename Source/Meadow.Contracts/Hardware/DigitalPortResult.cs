@@ -8,7 +8,9 @@ namespace Meadow.Hardware
     /// </summary>
     public struct DigitalPortResult : IChangeResult<DigitalState>
     {
+        /// <inheritdoc/>
         public DigitalState New { get; set; }
+        /// <inheritdoc/>
         public DigitalState? Old { get; set; }
 
         /// <summary>

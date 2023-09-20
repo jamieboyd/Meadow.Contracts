@@ -8,14 +8,14 @@ public class DigitalChannelInfo : DigitalChannelInfoBase
     /// <summary>
     /// Creates a new DigitalChannelInfo instance
     /// </summary>
-    /// <param name="name"></param>
-    /// <param name="inputCapable"></param>
-    /// <param name="outputCapable"></param>
-    /// <param name="interruptCapable"></param>
-    /// <param name="pullDownCapable"></param>
-    /// <param name="pullUpCapable"></param>
-    /// <param name="inverseLogic"></param>
-    /// <param name="interruptGroup"></param>
+    /// <param name="name">The name of the channel.</param>
+    /// <param name="inputCapable">The channel's digital input capability.</param>
+    /// <param name="outputCapable">The channel's digital output capability.</param>
+    /// <param name="interruptCapable">The channel's digital interrupt capability.</param>
+    /// <param name="pullDownCapable">The channel's internal pull-down resistor capability.</param>
+    /// <param name="pullUpCapable">The channel's internal pull-up resistor capability.</param>
+    /// <param name="inverseLogic">The channel has inverse boolean logic (low == true).</param>
+    /// <param name="interruptGroup">The platform interrupt group association for the channel.</param>
     public DigitalChannelInfo(
     string name,
         bool inputCapable = true,

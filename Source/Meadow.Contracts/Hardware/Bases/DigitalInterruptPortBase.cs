@@ -33,9 +33,10 @@ public abstract class DigitalInterruptPortBase : DigitalInputPortBase, IDigitalI
     /// <summary>
     /// Constructor for the DigitalInputPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
     /// <param name="interruptMode"></param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected DigitalInterruptPortBase(
         IPin pin,
         IDigitalChannelInfo channel,

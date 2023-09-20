@@ -2,7 +2,9 @@
 using static Meadow.Hardware.UartConnector;
 
 namespace Meadow.Hardware;
-
+/// <summary>
+/// Represents a connector for Uart (serial) communication
+/// </summary>
 public class UartConnector : Connector<UartPinDefinitions>
 {
     private SerialPortName _serialPortName;
