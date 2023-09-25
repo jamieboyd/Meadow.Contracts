@@ -167,7 +167,7 @@ public interface IWiFiNetworkAdapter : IWirelessNetworkAdapter
     /// <remarks>
     /// The network must be started before this method can be called.
     /// </remarks>
-    /// <param name="token">A <see cref="CancellationToken"/> to be used if the Scan should be cancelled.</param>
+    /// <param name="token">A <see cref="CancellationToken"/> to be used if the Scan should be canceled.</param>
     /// <returns>An `IList` (possibly empty) of access points.</returns>
     Task<IList<WifiNetwork>> Scan(CancellationToken token);
     /// <summary>
