@@ -199,7 +199,7 @@
         string RuntimeVersion { get; }
 
         /// <summary>
-        /// Should the system rebot on an exception?
+        /// Should the system reboot on an exception?
         /// </summary>
         bool RebootOnUnhandledException { get; }
 

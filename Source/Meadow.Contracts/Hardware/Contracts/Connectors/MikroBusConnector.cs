@@ -1,7 +1,7 @@
-﻿namespace Meadow.Hardware;
-using Meadow.Units;
+﻿using Meadow.Units;
 using static Meadow.Hardware.MikroBusConnector;
 
+namespace Meadow.Hardware;
 /// <summary>
 /// Represents a connector for MikroBus devices
 /// </summary>

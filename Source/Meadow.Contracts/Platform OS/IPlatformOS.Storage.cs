@@ -3,6 +3,11 @@ using System.IO;
 
 namespace Meadow
 {
+    /// <summary>
+    /// Delegate containing information about an external storage event.
+    /// </summary>
+    /// <param name="storage">The source of the event</param>
+    /// <param name="state">Data about the external storage event received</param>
     public delegate void ExternalStorageEventHandler(IExternalStorage storage, ExternalStorageState state);
 
     /// <summary>
@@ -19,7 +24,9 @@ namespace Meadow
         /// </summary>
         Ejected
     }
-
+    /// <summary>
+    /// Contract for external storage devices.
+    /// </summary>
     public interface IExternalStorage
     {
         public DirectoryInfo Directory { get; } // this or string???

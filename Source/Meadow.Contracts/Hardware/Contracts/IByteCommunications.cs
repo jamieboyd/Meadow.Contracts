@@ -31,7 +31,7 @@ namespace Meadow.Hardware
         byte ReadRegister(byte address);
 
         /// <summary>
-        /// Read an usingned short from a register.
+        /// Read an unsigned short from a register.
         /// </summary>
         /// <param name="address">Register address of the low byte (the high byte will follow).</param>
         /// <param name="order">Order of the bytes in the register (little endian is the default).</param>
@@ -51,7 +51,7 @@ namespace Meadow.Hardware
         void Write(Span<byte> writeBuffer);
 
         /// <summary>
-        /// Write data tp a register in the peripheral.
+        /// Write data to a register in the peripheral.
         /// </summary>
         /// <param name="address">Address of the register to write to.</param>
         /// <param name="value">Data to write into the register.</param>

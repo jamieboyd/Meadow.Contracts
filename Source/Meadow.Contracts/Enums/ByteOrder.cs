@@ -1,7 +1,7 @@
 namespace Meadow;
 
 /// <summary>
-/// Describes the byte ordering for muli-byte words.
+/// Describes the byte ordering for multi-byte words.
 /// </summary>
 public enum ByteOrder
 {

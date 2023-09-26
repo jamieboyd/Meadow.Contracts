@@ -1,7 +1,6 @@
-﻿namespace Meadow;
+﻿using Meadow.Hardware;
 
-using Meadow.Hardware;
-
+namespace Meadow;
 /// <summary>
 /// An interface for a named collection of pins
 /// </summary>

@@ -24,7 +24,7 @@ public enum ResistorMode
     /// </summary>
     ExternalPullDown = 3,
     /// <summary>
-    /// External Pull up ressistor.
+    /// External Pull up resistor.
     /// </summary>
     ExternalPullUp = 4
 }

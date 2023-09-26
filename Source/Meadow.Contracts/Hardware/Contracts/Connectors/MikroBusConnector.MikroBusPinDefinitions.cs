@@ -1,7 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System;
 
-using System;
-
+namespace Meadow.Hardware;
 public partial class MikroBusConnector
 {
     /// <summary>

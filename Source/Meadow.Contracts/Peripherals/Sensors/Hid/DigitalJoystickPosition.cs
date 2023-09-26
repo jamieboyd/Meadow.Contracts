@@ -11,7 +11,7 @@ namespace Meadow.Peripherals.Sensors.Hid
         /// </summary>
         Center,
         /// <summary>
-        /// Up or top postion with no horizontal movement
+        /// Up or top position with no horizontal movement
         /// </summary>
         Up,
         /// <summary>

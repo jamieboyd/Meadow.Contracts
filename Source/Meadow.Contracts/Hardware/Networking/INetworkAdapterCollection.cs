@@ -19,7 +19,7 @@ public interface INetworkAdapterCollection : IEnumerable<INetworkAdapter>
     event NetworkDisconnectionHandler NetworkDisconnected;
 
     /// <summary>
-    /// Gets the number of netowrk adapters in the collection
+    /// Gets the number of network adapters in the collection
     /// </summary>
     public int Count => this.Count();
 

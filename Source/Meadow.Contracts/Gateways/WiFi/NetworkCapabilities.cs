@@ -10,7 +10,7 @@ public class NetworkCapabilities
     /// </summary>
     public bool HasWiFi { get; protected set; }
     /// <summary>
-    /// Gets a device's wired etehrnet capabilities
+    /// Gets a device's wired Ethernet capabilities
     /// </summary>
     public bool HasEthernet { get; protected set; }
 
