@@ -29,7 +29,7 @@ public interface IApp
     public Dictionary<string, string> Settings { get; }
 
     /// <summary>
-    /// A cancellation token that is cancelled when the application is signalled to shut down
+    /// A cancellation token that is canceled when the application is signaled to shut down
     /// </summary>
     public CancellationToken CancellationToken { get; }
 

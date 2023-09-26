@@ -16,8 +16,7 @@ namespace Meadow.Gateways.Bluetooth
         /// Initializes a new instance of the <see cref="CharacteristicCollection"/> class.
         /// </summary>
         public CharacteristicCollection()
-        {
-
+        { 
         }
 
         /// <summary>

@@ -1,3 +1,5 @@
+using System;
+
 namespace Meadow.Hardware;
 
 /// <summary>
@@ -7,10 +9,11 @@ namespace Meadow.Hardware;
 public abstract class AnalogPortBase : PortBase<IAnalogChannelInfo>, IAnalogPort
 {
     /// <summary>
-    /// Constructore for an Alalog port base instance
+    /// Constructor for an Analog port base instance
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected AnalogPortBase(IPin pin, IAnalogChannelInfo channel)
         : base(pin, channel)
     { }

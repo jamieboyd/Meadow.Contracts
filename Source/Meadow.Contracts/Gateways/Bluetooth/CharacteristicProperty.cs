@@ -1,8 +1,11 @@
-﻿namespace Meadow.Gateways.Bluetooth
+﻿using System;
+
+namespace Meadow.Gateways.Bluetooth
 {
     /// <summary>
     /// Specifies the properties of a Bluetooth characteristic.
     /// </summary>
+    [Flags]
     public enum CharacteristicProperty : byte
     {
         /// <summary>

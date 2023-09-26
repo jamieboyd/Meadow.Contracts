@@ -103,7 +103,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     }
 
     /// <summary>
-    /// Converts a raw 32-bit reading to a sclaed value in volts
+    /// Converts a raw 32-bit reading to a scaled value in volts
     /// </summary>
     /// <param name="rawReading">The raw reading to convert</param>
     protected double ConvertReadingToVoltage(int rawReading)
@@ -145,7 +145,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// Subscribes an observer to receive notifications of voltage change.
     /// </summary>
     /// <param name="observer">The observer to subscribe.</param>
-    /// <returns>An IDisposable object that can be used to unsubscribe the observer.</returns>
+    /// <returns>An IDisposable object that can be used to unsubscribe from the observer.</returns>
     public IDisposable Subscribe(IObserver<IChangeResult<Voltage>> observer)
     {
         if (!Observers.Contains(observer)) Observers.Add(observer);

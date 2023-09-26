@@ -2,7 +2,7 @@
 namespace Meadow.Hardware
 {
     /// <summary>
-    /// Digital port.
+    /// Contract for a digital port.
     /// </summary>
     public interface IDigitalPort : IPort<IDigitalChannelInfo>
     {

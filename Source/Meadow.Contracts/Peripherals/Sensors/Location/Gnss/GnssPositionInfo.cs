@@ -76,10 +76,17 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// </summary>
         public decimal? HorizontalDilutionOfPrecision { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GnssPositionInfo"/> class.
+        /// </summary>
         public GnssPositionInfo()
         {
         }
 
+        /// <summary>
+        /// Returns a formatted string representing the <see cref="GnssPositionInfo"/> object.
+        /// </summary>
+        /// <returns>A formatted string representing the <see cref="GnssPositionInfo"/> object.</returns>
         public override string ToString()
         {
             StringBuilder outString = new StringBuilder();

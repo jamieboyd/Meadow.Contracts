@@ -14,7 +14,7 @@ public record CellNetwork
     /// </summary>
     public string Name { get; set; } = default!;
     /// <summary>
-    /// Gets or set the network oeprator
+    /// Gets or set the network operator
     /// </summary>
     public string Operator { get; set; } = default!;
     /// <summary>

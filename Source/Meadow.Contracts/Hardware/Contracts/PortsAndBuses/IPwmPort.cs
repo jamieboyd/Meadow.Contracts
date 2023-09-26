@@ -53,7 +53,7 @@ namespace Meadow.Hardware
         bool State { get; }
 
         /// <summary>
-        /// Timescale for time calcutions (will be removed in future revisions)
+        /// Timescale for time calculations (will be removed in future revisions)
         /// </summary>
         TimeScale TimeScale { get; set; }
     }

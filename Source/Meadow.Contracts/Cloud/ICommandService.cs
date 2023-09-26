@@ -2,7 +2,6 @@
 
 namespace Meadow.Cloud;
 
-
 /// <summary>
 /// Service responsible for subscribing and unsubscribing to Meadow commands.
 /// </summary>

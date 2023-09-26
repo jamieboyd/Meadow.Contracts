@@ -1,4 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System;
+
+namespace Meadow.Hardware;
 
 /// <summary>
 /// Provides a base implementation for digital input ports.
@@ -18,8 +20,9 @@ public abstract class DigitalInputPortBase : DigitalPortBase, IDigitalInputPort
     /// <summary>
     /// Constructor for the DigitalInputPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected DigitalInputPortBase(
         IPin pin,
         IDigitalChannelInfo channel

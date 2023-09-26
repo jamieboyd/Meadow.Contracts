@@ -15,7 +15,7 @@ namespace Meadow
         /// <summary>
         /// Creates a NativeException object
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
         public NativeException(string message)
             : base(message)
         {
@@ -24,8 +24,8 @@ namespace Meadow
         /// <summary>
         /// Creates a NativeException object
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="errorCode"></param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
+        /// <param name="errorCode">The error code associated with the exception.</param>
         public NativeException(string message, int errorCode)
             : base(message)
         {

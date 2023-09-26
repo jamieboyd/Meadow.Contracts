@@ -1,13 +1,13 @@
-﻿namespace Meadow.Hardware;
+﻿using System;
+
+namespace Meadow.Hardware;
 
 /// <summary>
 /// Provides a base implementation for digital output ports.
 /// </summary>
 public abstract class DigitalOutputPortBase : DigitalPortBase, IDigitalOutputPort
 {
-    /// <summary>
-    /// The initial state of the port.
-    /// </summary>
+    /// <inheritdoc/>
     public bool InitialState { get; protected set; }
     /// <summary>
     /// Gets or sets the initial OutputType for the port
@@ -22,10 +22,11 @@ public abstract class DigitalOutputPortBase : DigitalPortBase, IDigitalOutputPor
     /// <summary>
     /// Constructor for the DigitalOutputPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
-    /// <param name="initialState"></param>
-    /// <param name="initialOutputType"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <param name="initialState">The initial state of the port, either low (false) or high (true)</param>
+    /// <param name="initialOutputType">The initial output configuration for the port</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected DigitalOutputPortBase(IPin pin, IDigitalChannelInfo channel, bool initialState, OutputType initialOutputType)
         : base(pin, channel)
     {

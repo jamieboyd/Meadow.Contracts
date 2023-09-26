@@ -28,7 +28,7 @@ public class UpdateInfo
     /// </summary>
     public long DownloadSize { get; set; }
     /// <summary>
-    /// An optional, human-readable summray of the Update
+    /// An optional, human-readable summary of the Update
     /// </summary>
     public string? Summary { get; set; }
     /// <summary>
