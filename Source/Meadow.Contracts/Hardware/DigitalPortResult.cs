@@ -8,7 +8,9 @@ namespace Meadow.Hardware
     /// </summary>
     public struct DigitalPortResult : IChangeResult<DigitalState>
     {
+        /// <inheritdoc/>
         public DigitalState New { get; set; }
+        /// <inheritdoc/>
         public DigitalState? Old { get; set; }
 
         /// <summary>
@@ -22,8 +24,8 @@ namespace Meadow.Hardware
             Old = oldState;
         }
         /// <summary>
-        /// The duration of time in between the time the event or notification
-        /// ocurred, and the the time it occurred before.
+        /// The duration of time between the time of this event or notification
+        /// and the time of the previous occurrence.
         /// </summary>
         public TimeSpan? Delta
         {

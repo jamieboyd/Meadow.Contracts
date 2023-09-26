@@ -6,6 +6,9 @@ namespace Meadow.Hardware
     /// </summary>
     public class SerialErrorReceivedEventArgs
     {
+        /// <summary>
+        /// The type of error encountered during serial communication.
+        /// </summary>
         public SerialErrorType EventType { get; }
     }
 }

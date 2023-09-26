@@ -1,7 +1,7 @@
 ﻿namespace Meadow.Hardware
 {
     /// <summary>
-    /// Represents a digital output port.
+    /// Contract for ports that are capable of writing digital outputs.
     /// </summary>
     public interface IDigitalOutputPort : IDigitalPort
     {

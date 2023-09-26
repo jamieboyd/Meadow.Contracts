@@ -54,6 +54,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// </summary>
         public decimal Kph { get; set; }
 
+        /// <summary>
+        /// Returns a formatted string representing the <see cref="CourseOverGround"/> object.
+        /// </summary>
+        /// <returns>A formatted string representing the <see cref="CourseOverGround"/> object.</returns>
         public override string ToString()
         {
             StringBuilder outString = new StringBuilder();

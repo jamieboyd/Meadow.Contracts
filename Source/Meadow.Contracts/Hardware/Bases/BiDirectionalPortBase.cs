@@ -24,19 +24,18 @@ public abstract class BiDirectionalPortBase : DigitalPortBase, IBiDirectionalPor
     /// Gets or sets the current state of the port
     /// </summary>
     public abstract bool State { get; set; }
-    /// <summary>
-    /// Gets or sets the current direction of the port
-    /// </summary>
+    /// <inheritdoc/>
     public abstract PortDirectionType Direction { get; set; }
 
     /// <summary>
     /// Constructor for the BiDirectionalPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
-    /// <param name="initialState"></param>
-    /// <param name="resistorMode"></param>
-    /// <param name="initialDirection"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <param name="initialState">The initial state of the port.</param>
+    /// <param name="resistorMode">The resistor mode of the port.</param>
+    /// <param name="initialDirection">The current direction of the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected BiDirectionalPortBase(
         IPin pin,
         IDigitalChannelInfo channel,
@@ -50,12 +49,13 @@ public abstract class BiDirectionalPortBase : DigitalPortBase, IBiDirectionalPor
     /// <summary>
     /// Constructor for the BiDirectionalPortBase
     /// </summary>
-    /// <param name="pin"></param>
-    /// <param name="channel"></param>
-    /// <param name="initialState"></param>
-    /// <param name="resistorMode"></param>
-    /// <param name="initialDirection"></param>
-    /// <param name="initialOutputType"></param>
+    /// <param name="pin">The pin associated with the port.</param>
+    /// <param name="channel">The channel information for the port.</param>
+    /// <param name="initialState">The initial state of the port.</param>
+    /// <param name="resistorMode">The resistor mode of the port.</param>
+    /// <param name="initialDirection">The current direction of the port.</param>
+    /// <param name="initialOutputType">The initial output type of the port.</param>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="pin"/> or <paramref name="channel"/> is <c>null</c>.</exception>
     protected BiDirectionalPortBase(
         IPin pin,
         IDigitalChannelInfo channel,

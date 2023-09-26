@@ -26,7 +26,7 @@ public interface IUpdateSettings
     /// </summary>
     public string RootTopic { get; set; }
     /// <summary>
-    /// Reconnect period used when a disconnection from the Update server occrs
+    /// Reconnect period used when a disconnection from the Update server occurs
     /// </summary>
     public int CloudConnectRetrySeconds { get; set; }
     /// <summary>

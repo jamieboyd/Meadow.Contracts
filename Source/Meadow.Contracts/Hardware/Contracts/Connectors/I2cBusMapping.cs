@@ -1,7 +1,7 @@
-﻿namespace Meadow;
-
+﻿
 using Meadow.Hardware;
 
+namespace Meadow;
 /// <summary>
 /// Represents a mapping of a specific I2C bus on a controller
 /// </summary>

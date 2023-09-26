@@ -1,7 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System.Linq;
 
-using System.Linq;
-
+namespace Meadow.Hardware;
 /// <summary>
 /// Represents a Collection of IPins
 /// </summary>

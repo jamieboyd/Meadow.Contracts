@@ -18,7 +18,7 @@ namespace Meadow
         /// <summary>
         /// Creates an instance of a PortInUseException
         /// </summary>
-        /// <param name="message">An exception message</param>
+        /// <param name="message">The error message that explains the reason for the exception.</param>
         public PortInUseException(string message)
             : base(message)
         {

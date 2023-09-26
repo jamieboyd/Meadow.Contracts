@@ -10,7 +10,7 @@ public class PwmChannelInfo : DigitalChannelInfoBase, IPwmChannelInfo
     /// </summary>
     public float MinimumFrequency { get; protected set; }
     /// <summary>
-    /// The maximium pulse frequency supported by the channel
+    /// The maximum pulse frequency supported by the channel
     /// </summary>
     public float MaximumFrequency { get; protected set; }
     /// <summary>

@@ -7,7 +7,7 @@
     public struct AnalogJoystickPosition
     {
         /// <summary>
-        /// Current horizonal position of joystick
+        /// Current horizontal position of joystick
         /// </summary>
         public float? Horizontal { get; set; }
 
@@ -19,7 +19,7 @@
         /// <summary>
         /// Represents the position of a 2-axis joystick
         /// </summary>
-        /// <param name="horizontal">horizonal position</param>
+        /// <param name="horizontal">horizontal position</param>
         /// <param name="vertical">vertical position</param>
         public AnalogJoystickPosition(float? horizontal, float? vertical) 
         {

@@ -3,7 +3,7 @@
 namespace Meadow.Hardware;
 
 /// <summary>
-/// A serial message processor class to accept data, parse and raise notifcations when complete messages are received
+/// A serial message processor class to accept data, parse and raise notifications when complete messages are received
 /// </summary>
 public class SerialMessageProcessor
 {
@@ -175,7 +175,7 @@ public class SerialMessageProcessor
     }
 
     /// <summary>
-    /// Process data that is delimited / seperated with a delimter pattern at end of data
+    /// Process data that is delimited / separated with a delimiter pattern at end of data
     /// </summary>
     private void ProcessSuffixDelimited()
     {
@@ -210,7 +210,7 @@ public class SerialMessageProcessor
     }
 
     /// <summary>
-    /// Raise message received notifcation to subscribers
+    /// Raise message received notification to subscribers
     /// </summary>
     /// <param name="messageData"></param>
     protected void RaiseMessageReceivedAndNotify(SerialMessageData messageData)

@@ -26,7 +26,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
 
         // TODO: implementation @ core switchover
         ///// <summary>
-        ///// Retreives the full name associated with the TalkerID via the
+        ///// Retrieves the full name associated with the TalkerID via the
         ///// `KnownTalkerIDs` property of the Lookups class.
         ///// </summary>
         //public string TalkerSystemName {
@@ -37,7 +37,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         //}
 
         /// <summary>
-        /// Retreives the full name associated with the TalkerID via the
+        /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
         public string TalkerSystemName { get; }

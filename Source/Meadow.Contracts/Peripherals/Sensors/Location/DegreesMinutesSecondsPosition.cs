@@ -25,7 +25,10 @@ namespace Meadow.Peripherals.Sensors.Location
         /// </summary>
         public CardinalDirection Direction;
 
-
+        /// <summary>
+        /// Returns a string that represents the position in the format dd° mm' ss"X, where X represents the cardinal direction of the position.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             var position = $"{this.Degrees:f2}° {this.Minutes:f2}' {this.seconds:f2}\"";

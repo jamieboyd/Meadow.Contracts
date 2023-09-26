@@ -1,7 +1,7 @@
 ﻿namespace Meadow.Networking;
 
 /// <summary>
-/// The status of a cell network
+/// The operator status of a cell network
 /// </summary>
 public enum CellNetworkStatus
 {
@@ -25,4 +25,31 @@ public enum CellNetworkStatus
     /// Operator status is undefined
     /// </summary>
     OperatorUndefined = 0xff
+};
+
+/// <summary>
+/// State of the cell
+/// </summary>
+public enum CellNetworkState
+{
+    /// <summary>
+    /// Resume Cell
+    /// </summary>
+    Resumed = 0,
+    /// <summary>
+    /// Paused Cell 
+    /// </summary>
+    Paused = 1,
+    /// <summary>
+    /// Tracking GPS location
+    /// </summary>
+    TrackingGPSLocation = 2,
+    /// <summary>
+    /// Fetching signal quality
+    /// </summary>
+    FetchingSignalQuality = 3,
+    /// <summary>
+    /// Execute network scan
+    /// </summary>
+    ScanningNetworks = 4,
 };

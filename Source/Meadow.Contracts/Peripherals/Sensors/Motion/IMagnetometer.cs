@@ -14,7 +14,9 @@ namespace Meadow.Peripherals.Sensors.Motion
         MagneticField3D? MagneticField3D { get; }
 
         /// <summary>
-        /// Raised when a new reading has been made
+        /// Raised when a new reading has been made. Events will only be raised
+        /// while the driver is updating. To start, call the `StartUpdating()`
+        /// method.
         /// </summary>
         event EventHandler<IChangeResult<MagneticField3D>> MagneticField3DUpdated;
     }
