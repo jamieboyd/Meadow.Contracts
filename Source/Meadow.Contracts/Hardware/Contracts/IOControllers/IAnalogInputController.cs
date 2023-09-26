@@ -3,6 +3,7 @@ using System;
 
 namespace Meadow.Hardware
 {
+
     /// <summary>
     /// Contract for devices that expose `IAnalogInputPort(s)`.
     /// </summary>
