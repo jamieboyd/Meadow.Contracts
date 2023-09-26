@@ -21,6 +21,21 @@ public interface ICellNetworkAdapter : INetworkAdapter
     string AtCmdsOutput { get; }
 
     /// <summary>
+    /// Timeout duration in seconds for online network scans
+    /// </summary>
+    const int networkScanTimeoutInSeconds = 600;
+
+    /// <summary>
+    /// Timeout duration in seconds for fetching cell signal quality
+    /// </summary>
+    const int signalQualityFetchTimeoutInSeconds = 120;
+
+    /// <summary>
+    /// Timeout duration in seconds for GNSS-related AT commands and output retrieval
+    /// </summary>
+    const int gnssFixTimeoutInSeconds = 600;
+
+    /// <summary>
     /// Performs an offline scan for networks detected by the adapter
     /// </summary>
     /// <returns>An array of CellNetwork objects representing available networks.</returns>
@@ -31,7 +46,7 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     /// <param name="timeout"></param>
     /// <return>Cell signal quality</return>
-    double GetSignalQuality(int timeout = 30);
+    double GetSignalQuality(int timeout = signalQualityFetchTimeoutInSeconds);
 
     /// <summary>
     /// Initiates an online network scan to detect available networks,
@@ -39,11 +54,11 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     /// <param name="timeout">The scan timeout duration in seconds.</param>
     /// <returns>An array of CellNetwork objects representing available networks.</returns>
-    CellNetwork[] ScanForAvailableNetworks(int timeout = 180);
+    CellNetwork[] ScanForAvailableNetworks(int timeout = networkScanTimeoutInSeconds);
 
     /// Execute GNSS-related AT commands and retrieve combined output, including NMEA sentences
     /// <param name="resultTypes">An array of supported GNSS result types for data processing.</param>
     /// <param name="timeout">The GNSS scan timeout duration in seconds.</param>
     /// <returns>A string containing combined output from GNSS-related AT commands, including NMEA sentences.</returns>
-    string FetchGnssAtCmdsOutput(IGnssResult[] resultTypes, int timeout = 300);
+    string FetchGnssAtCmdsOutput(IGnssResult[] resultTypes, int timeout = gnssFixTimeoutInSeconds);
 }
