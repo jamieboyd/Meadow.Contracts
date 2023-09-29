@@ -1,4 +1,6 @@
-﻿namespace Meadow.Peripherals.Relays
+﻿using System;
+
+namespace Meadow.Peripherals.Relays
 {
     /// <summary>
     /// Electrical switch (usually mechanical) that switches on an isolated circuit
@@ -20,5 +22,10 @@
         /// Toggles the relay on or off.
         /// </summary>
         void Toggle();
+
+        /// <summary>
+        /// Event raised after relay state change
+        /// </summary>
+        event EventHandler<bool> OnRelayChanged;
     }
 }
