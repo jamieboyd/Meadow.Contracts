@@ -1,7 +1,7 @@
 ﻿using Meadow.Units;
 using System;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors.Atmospheric
 {
     /// <summary>
     /// CO2 sensor interface requirements.

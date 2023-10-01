@@ -1,7 +1,6 @@
-﻿using Meadow.Units;
-using System;
+﻿using System;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors.Mass
 {
     /// <summary>
     /// Mass sensor interface requirements.
