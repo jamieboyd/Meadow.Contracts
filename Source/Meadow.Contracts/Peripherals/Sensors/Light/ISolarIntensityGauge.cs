@@ -1,8 +1,7 @@
-﻿using System;
-using Meadow.Peripherals.Sensors;
-using Meadow.Units;
+﻿using Meadow.Units;
+using System;
 
-namespace Meadow.Foundation.Sensors.Light
+namespace Meadow.Peripherals.Sensors.Light
 {
     /// <summary>
     /// Contract for analog solar intensity gauge

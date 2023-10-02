@@ -1,22 +1,21 @@
-﻿using Meadow.Units;
-using System;
+﻿using System;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors.Mass
 {
     /// <summary>
     /// Mass sensor interface requirements.
     /// </summary>
-    public interface IMassSensor : ISamplingSensor<Mass>
+    public interface IMassSensor : ISamplingSensor<Units.Mass>
     {
         /// <summary>
         /// Last value read from the sensor.
         /// </summary>
-        Mass? Mass { get; }
+        Units.Mass? Mass { get; }
         /// <summary>
         /// Raised when a new reading has been made. Events will only be raised
         /// while the driver is updating. To start, call the `StartUpdating()`
         /// method.
         /// </summary>
-        event EventHandler<IChangeResult<Mass>> MassUpdated;
+        event EventHandler<IChangeResult<Units.Mass>> MassUpdated;
     }
 }
