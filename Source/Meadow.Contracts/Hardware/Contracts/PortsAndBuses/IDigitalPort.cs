@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Contract for a digital port.

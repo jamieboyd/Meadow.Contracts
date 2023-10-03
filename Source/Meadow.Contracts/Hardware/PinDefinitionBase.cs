@@ -9,7 +9,7 @@ namespace Meadow;
 /// </summary>
 public abstract class PinDefinitionBase : IPinDefinitions
 {
-    private List<IPin> _pins = new();
+    private readonly List<IPin> _pins = new();
     /// <inheritdoc/>
     public IList<IPin> AllPins => _pins;
 

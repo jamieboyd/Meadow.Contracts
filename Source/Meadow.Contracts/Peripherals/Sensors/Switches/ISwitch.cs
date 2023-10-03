@@ -1,5 +1,5 @@
-﻿using System;
-using Meadow.Peripherals.Sensors;
+﻿using Meadow.Peripherals.Sensors;
+using System;
 
 namespace Meadow.Peripherals.Switches
 {

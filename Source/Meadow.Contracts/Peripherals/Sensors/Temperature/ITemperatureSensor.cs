@@ -1,5 +1,5 @@
-﻿using System;
-using Meadow.Units;
+﻿using Meadow.Units;
+using System;
 
 namespace Meadow.Peripherals.Sensors
 {

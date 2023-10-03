@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow
+﻿namespace Meadow
 {
     /// <summary>
     /// Contract for change notifications.
@@ -8,7 +7,7 @@ namespace Meadow
     /// a `struct`. Will most often be a unit such as `Temperature` or `Mass`,
     /// but can also be a primitive type such as `int`, `float`, or even
     /// `DateTime`.</typeparam>
-    public interface IChangeResult<UNIT> where UNIT: struct
+    public interface IChangeResult<UNIT> where UNIT : struct
     {
         /// <summary>
         /// The value at the time of this event or notification.

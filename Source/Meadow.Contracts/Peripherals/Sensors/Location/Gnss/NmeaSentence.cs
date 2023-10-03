@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Meadow.Utilities;
+using System;
 using System.Collections.Generic;
-using Meadow.Utilities;
 
 namespace Meadow.Peripherals.Sensors.Location.Gnss
 {
@@ -32,8 +32,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
-        public string TalkerSystemName {
-            get {
+        public string TalkerSystemName
+        {
+            get
+            {
                 string name = Lookups.KnownTalkerIDs[TalkerID];
                 return (name != null) ? name : "";
             }
@@ -55,7 +57,8 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// The checksum data of the data elements. Calculated by `XOR`ing
         /// all of the data elements.
         /// </summary>
-        public byte Checksum {
+        public byte Checksum
+        {
             get { return ChecksumCalculator.XOR(GetDataString()); }
         }
 
@@ -101,33 +104,39 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         {
             NmeaSentence newSentence = new NmeaSentence();
 
-            if (string.IsNullOrWhiteSpace(sentence)) {
+            if (string.IsNullOrWhiteSpace(sentence))
+            {
                 throw new ArgumentException("Empty sentence. Nothing to parse.");
             }
 
             var checksumLocation = sentence.LastIndexOf('*');
-            if (checksumLocation > 0) {
+            if (checksumLocation > 0)
+            {
                 // extract the data from the sentence
                 var checksumString = sentence.Substring(checksumLocation + 1);
                 var messageData = sentence.Substring(0, checksumLocation);
                 byte parsedChecksum;
                 // calculate the checksum (have to remove the first character, the "$")
                 byte calculatedChecksum = ChecksumCalculator.XOR(messageData.Substring(1));
-                try {
+                try
+                {
                     parsedChecksum = Convert.ToByte(checksumString.Trim(), 16);
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     throw new ArgumentException($"Checksum failed to parse, error: {e.Message}");
                 }
 
                 //if (DebugMode) {
-                    //Console.WriteLine($"checksum in NMEA:'{checksumString}'");
-                    //Console.WriteLine($"parsed checksum:{parsedChecksum:x}");
-                    //Console.WriteLine($"actualData:{messageData}");
-                    //Console.WriteLine($"Checksum match? {(calculatedChecksum == parsedChecksum ? "yes" : "no")}");
+                //Console.WriteLine($"checksum in NMEA:'{checksumString}'");
+                //Console.WriteLine($"parsed checksum:{parsedChecksum:x}");
+                //Console.WriteLine($"actualData:{messageData}");
+                //Console.WriteLine($"Checksum match? {(calculatedChecksum == parsedChecksum ? "yes" : "no")}");
                 //}
 
                 // make sure data is good
-                if (calculatedChecksum == parsedChecksum) {
+                if (calculatedChecksum == parsedChecksum)
+                {
 
                     int tagLength = messageData.IndexOf(',') - 1;
                     int talkerIDLength = (tagLength == 5) ? 2 : 1;
@@ -154,17 +163,22 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
 
                     // split the sentence data up by commas
                     var elements = messageData.Split(',').AsSpan<string>();
-                    if (elements.Length <= 0) {
+                    if (elements.Length <= 0)
+                    {
                         throw new ArgumentException("No data in sentence.");
                     }
                     // store the data
                     newSentence.DataElements.Clear();
                     // skip the first element, which is the tag ($GPRMC).
                     newSentence.DataElements.AddRange(elements.Slice(1).ToArray());
-                } else {
+                }
+                else
+                {
                     throw new ArgumentException("Checksum does not match data. Invalid data.");
                 }
-            } else {
+            }
+            else
+            {
                 throw new ArgumentException("No checksum found. Invalid data.");
             }
             return newSentence;

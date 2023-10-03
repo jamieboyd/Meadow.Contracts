@@ -7,7 +7,7 @@ namespace Meadow.Hardware;
 /// </summary>
 public class UartConnector : Connector<UartPinDefinitions>
 {
-    private SerialPortName _serialPortName;
+    private readonly SerialPortName _serialPortName;
 
     /// <summary>
     /// The serial port name
@@ -34,8 +34,8 @@ public class UartConnector : Connector<UartPinDefinitions>
     /// </summary>
     public class UartPinDefinitions : PinDefinitionBase
     {
-        private IPin? _rx;
-        private IPin? _tx;
+        private readonly IPin? _rx;
+        private readonly IPin? _tx;
 
         /// <summary>
         /// Pin RX

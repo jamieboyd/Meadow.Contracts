@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     public class NamedPinGroup
     {
-        public string Name { get; protected set; }  
+        public string Name { get; protected set; }
 
         public IPin[] Pins { get; protected set; }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using static Meadow.Hardware.GroveDigitalConnector;
-using static System.Net.WebRequestMethods;
 
 namespace Meadow.Hardware;
 /// <summary>
@@ -29,8 +28,8 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
     /// </summary>
     public class GroveDigitalPinDefinitions : PinDefinitionBase
     {
-        private IPin? _d0;
-        private IPin? _d1;
+        private readonly IPin? _d0;
+        private readonly IPin? _d1;
 
         /// <summary>
         /// Primary Digital Input/Output
