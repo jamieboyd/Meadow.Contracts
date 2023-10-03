@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Peripherals.Sensors.Hid
+﻿namespace Meadow.Peripherals.Sensors.Hid
 {
     /// <summary>
     /// Represents 8-way digital joystick positions

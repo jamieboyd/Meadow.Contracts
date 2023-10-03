@@ -22,8 +22,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
-        public string TalkerSystemName {
-            get {
+        public string TalkerSystemName
+        {
+            get
+            {
                 string name = Lookups.KnownTalkerIDs[TalkerID];
                 return (name != null) ? name : "";
             }

@@ -10,13 +10,13 @@ namespace Meadow.Gateways.Bluetooth
     /// </summary>
     public class CharacteristicCollection : IEnumerable<ICharacteristic>
     {
-        private Dictionary<string, ICharacteristic> m_characteristics = new Dictionary<string, ICharacteristic>(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, ICharacteristic> m_characteristics = new Dictionary<string, ICharacteristic>(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CharacteristicCollection"/> class.
         /// </summary>
         public CharacteristicCollection()
-        { 
+        {
         }
 
         /// <summary>

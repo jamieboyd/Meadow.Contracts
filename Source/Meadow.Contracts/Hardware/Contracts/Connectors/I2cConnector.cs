@@ -7,7 +7,7 @@ namespace Meadow.Hardware;
 /// </summary>
 public partial class I2cConnector : Connector<I2cPinDefinitions>
 {
-    private I2cBusMapping _i2cBusMapping;
+    private readonly I2cBusMapping _i2cBusMapping;
     private II2cBus? _i2c;
 
     /// <summary>
@@ -30,8 +30,8 @@ public partial class I2cConnector : Connector<I2cPinDefinitions>
     /// </summary>
     public class I2cPinDefinitions : PinDefinitionBase
     {
-        private IPin? _scl;
-        private IPin? _sda;
+        private readonly IPin? _scl;
+        private readonly IPin? _sda;
 
         /// <summary>
         /// I2C Clock Pin (SCL)

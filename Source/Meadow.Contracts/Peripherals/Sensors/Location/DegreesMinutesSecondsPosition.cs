@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Peripherals.Sensors.Location
+﻿namespace Meadow.Peripherals.Sensors.Location
 {
     // TODO: Should this be a struct with fields?
     /// <summary>
@@ -32,7 +31,8 @@ namespace Meadow.Peripherals.Sensors.Location
         public override string ToString()
         {
             var position = $"{this.Degrees:f2}° {this.Minutes:f2}' {this.seconds:f2}\"";
-            switch (this.Direction) {
+            switch (this.Direction)
+            {
                 case CardinalDirection.East:
                     position += "E";
                     break;
