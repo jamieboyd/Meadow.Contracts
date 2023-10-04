@@ -1,15 +1,15 @@
-﻿namespace Meadow.Hardware;
-using Meadow.Units;
+﻿using Meadow.Units;
 using static Meadow.Hardware.MikroBusConnector;
 
+namespace Meadow.Hardware;
 /// <summary>
 /// Represents a connector for MikroBus devices
 /// </summary>
 public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
 {
-    private SerialPortName _serialPortName;
-    private I2cBusMapping _i2cBusMapping;
-    private SpiBusMapping _spiBusMapping;
+    private readonly SerialPortName _serialPortName;
+    private readonly I2cBusMapping _i2cBusMapping;
+    private readonly SpiBusMapping _spiBusMapping;
     private ISpiBus? _spi;
     private II2cBus? _i2c;
 

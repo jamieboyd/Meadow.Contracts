@@ -2,6 +2,9 @@
 using static Meadow.Hardware.GroveDigitalConnector;
 
 namespace Meadow.Hardware;
+/// <summary>
+/// Represents a connector for Seeed Studio Grove for digital devices. See <seealso href="https://wiki.seeedstudio.com/Grove_System/#digital"/>
+/// </summary>
 
 public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
 {
@@ -11,11 +14,11 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
     public static class PinNames
     {
         /// <summary>
-        /// Pin D0
+        /// Primary Digital Input/Output
         /// </summary>
         public const string D0 = "D0";
         /// <summary>
-        /// Pin D0
+        /// Secondary Digital Input/Output
         /// </summary>
         public const string D1 = "D1";
     }
@@ -25,15 +28,15 @@ public class GroveDigitalConnector : Connector<GroveDigitalPinDefinitions>
     /// </summary>
     public class GroveDigitalPinDefinitions : PinDefinitionBase
     {
-        private IPin? _d0;
-        private IPin? _d1;
+        private readonly IPin? _d0;
+        private readonly IPin? _d1;
 
         /// <summary>
-        /// Pin D0
+        /// Primary Digital Input/Output
         /// </summary>
         public IPin D0 => _d0 ?? throw new PlatformNotSupportedException("Pin not connected");
         /// <summary>
-        /// Pin D1
+        /// Secondary Digital Input/Output
         /// </summary>
         public IPin D1 => _d1 ?? throw new PlatformNotSupportedException("Pin not connected");
 

@@ -11,7 +11,7 @@ namespace Meadow;
 /// </summary>
 public class ServiceCollection : IEnumerable<object>
 {
-    private Dictionary<Type, object> m_items = new();
+    private readonly Dictionary<Type, object> m_items = new();
 
     /// <summary>
     /// Returns an enumerator that iterates through the collection of services.

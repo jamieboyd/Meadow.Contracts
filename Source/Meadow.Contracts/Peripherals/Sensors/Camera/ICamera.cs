@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace Meadow.Foundation.Sensors.Camera
+namespace Meadow.Peripherals.Sensors.Cameras
 {
     /// <summary>
     /// Interface for camera sensors
@@ -17,7 +17,7 @@ namespace Meadow.Foundation.Sensors.Camera
         /// <summary>
         /// Check if there is picture data on the camera
         /// </summary>
-        /// <returns>true is data is avaliable</returns>
+        /// <returns>true is data is available</returns>
         public bool IsPhotoAvailable();
 
         /// <summary>

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Describes the capabilities of a Pulse-Width-Modulation channel
@@ -21,14 +19,14 @@ namespace Meadow.Hardware
 
         /// <summary>
         /// Gets the minimum frequency that the underlying PWM generator is 
-        /// capable of.
+        /// capable of generating.
         /// </summary>
         /// <value>The minimum frequency.</value>
         float MinimumFrequency { get; }
 
         /// <summary>
         /// Gets the maximum frequency that the underlying PWM generator is 
-        /// capabel of
+        /// capable of generating.
         /// </summary>
         /// <value>The maximum frequency.</value>
         float MaximumFrequency { get; }

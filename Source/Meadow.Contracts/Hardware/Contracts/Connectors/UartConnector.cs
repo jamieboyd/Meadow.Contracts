@@ -2,10 +2,12 @@
 using static Meadow.Hardware.UartConnector;
 
 namespace Meadow.Hardware;
-
+/// <summary>
+/// Represents a connector for Uart (serial) communication
+/// </summary>
 public class UartConnector : Connector<UartPinDefinitions>
 {
-    private SerialPortName _serialPortName;
+    private readonly SerialPortName _serialPortName;
 
     /// <summary>
     /// The serial port name
@@ -18,11 +20,11 @@ public class UartConnector : Connector<UartPinDefinitions>
     public static class PinNames
     {
         /// <summary>
-        /// Pin D0
+        /// Pin RX
         /// </summary>
         public const string RX = "RX";
         /// <summary>
-        /// Pin D0
+        /// Pin TX
         /// </summary>
         public const string TX = "TX";
     }
@@ -32,8 +34,8 @@ public class UartConnector : Connector<UartPinDefinitions>
     /// </summary>
     public class UartPinDefinitions : PinDefinitionBase
     {
-        private IPin? _rx;
-        private IPin? _tx;
+        private readonly IPin? _rx;
+        private readonly IPin? _tx;
 
         /// <summary>
         /// Pin RX

@@ -11,18 +11,18 @@ namespace Meadow;
 public class CircularBuffer<T> : IEnumerable<T>
 {
     /// <summary>
-    /// Event raised whn an item is added to the buffer
+    /// Event raised when an item is added to the buffer
     /// </summary>
     public event EventHandler ItemAdded = delegate { };
 
     // TODO: this should probably be Span<T>
-    private T[] _list;
-    private object _syncRoot = new object();
+    private readonly T[] _list;
+    private readonly object _syncRoot = new object();
     private int _head = 0;
     private int _tail = 0;
     private bool _highwaterExceeded = false;
     private bool _lowwaterExceeded = true;
-    private AutoResetEvent _addedResetEvent;
+    private readonly AutoResetEvent _addedResetEvent;
 
     /// <summary>
     /// Fires when an element is added to the buffer when it is already full

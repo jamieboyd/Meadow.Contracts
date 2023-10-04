@@ -22,8 +22,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
-        public string TalkerSystemName {
-            get {
+        public string TalkerSystemName
+        {
+            get
+            {
                 string name = Lookups.KnownTalkerIDs[TalkerID];
                 return (name != null) ? name : "";
             }
@@ -64,6 +66,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// </summary>
         public decimal VerticalDilutionOfPrecision { get; set; }
 
+        /// <summary>
+        /// Returns a formatted string representing the <see cref="ActiveSatellites"/> object.
+        /// </summary>
+        /// <returns>A formatted string representing the <see cref="ActiveSatellites"/> object.</returns>
         public override string ToString()
         {
             StringBuilder outString = new StringBuilder();
@@ -75,9 +81,11 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             outString.Append($"\tDilution of precision: {DilutionOfPrecision:f2}\r\n");
             outString.Append($"\tHDOP: {HorizontalDilutionOfPrecision:f2}\r\n");
             outString.Append($"\tVDOP: {VerticalDilutionOfPrecision:f2}\r\n");
-            if (SatellitesUsedForFix != null) {
+            if (SatellitesUsedForFix != null)
+            {
                 outString.Append($"\tSatellites used for fix:\r\n");
-                foreach (var sat in SatellitesUsedForFix) {
+                foreach (var sat in SatellitesUsedForFix)
+                {
                     outString.Append($"\t{sat}\r\n");
                 }
             }

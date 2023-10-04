@@ -10,14 +10,13 @@ namespace Meadow.Gateways.Bluetooth
     /// </summary>
     public class ServiceCollection : IEnumerable<IService>
     {
-        private Dictionary<string, IService> m_services = new(StringComparer.InvariantCultureIgnoreCase);
+        private readonly Dictionary<string, IService> m_services = new(StringComparer.InvariantCultureIgnoreCase);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceCollection"/> class.
         /// </summary>
         public ServiceCollection()
         {
-
         }
 
         /// <summary>

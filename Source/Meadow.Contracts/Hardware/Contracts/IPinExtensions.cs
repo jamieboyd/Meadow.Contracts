@@ -117,8 +117,6 @@ namespace Meadow.Hardware
         /// <param name="sampleCount"></param>
         /// <param name="sampleInterval"></param>
         /// <param name="referenceVoltage"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
         public static IAnalogInputPort CreateAnalogInputPort(this IPin pin, int sampleCount, TimeSpan sampleInterval, Units.Voltage referenceVoltage)
         {
             if (pin.Controller is IAnalogInputController controller)
@@ -144,6 +142,20 @@ namespace Meadow.Hardware
             }
 
             throw new ArgumentException("Pin is not analog input capable");
+        }
+
+        /// <summary>
+        /// Creates an IAnalogOutputPort on a capable IPin
+        /// </summary>
+        /// <param name="pin"></param>
+        public static IAnalogOutputPort CreateAnalogOutputPort(this IPin pin)
+        {
+            if (pin.Controller is IAnalogOutputController controller)
+            {
+                return controller.CreateAnalogOutputPort(pin);
+            }
+
+            throw new ArgumentException("Pin is not analog output capable");
         }
 
         /// <summary>

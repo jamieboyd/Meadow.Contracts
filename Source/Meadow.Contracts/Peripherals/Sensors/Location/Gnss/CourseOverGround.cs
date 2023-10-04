@@ -22,8 +22,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// Retrieves the full name associated with the TalkerID via the
         /// `KnownTalkerIDs` property of the Lookups class.
         /// </summary>
-        public string TalkerSystemName {
-            get {
+        public string TalkerSystemName
+        {
+            get
+            {
                 string name = Lookups.KnownTalkerIDs[TalkerID];
                 return (name != null) ? name : "";
             }
@@ -54,6 +56,10 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// </summary>
         public decimal Kph { get; set; }
 
+        /// <summary>
+        /// Returns a formatted string representing the <see cref="CourseOverGround"/> object.
+        /// </summary>
+        /// <returns>A formatted string representing the <see cref="CourseOverGround"/> object.</returns>
         public override string ToString()
         {
             StringBuilder outString = new StringBuilder();

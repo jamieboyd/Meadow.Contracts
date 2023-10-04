@@ -1,5 +1,4 @@
-﻿using System;
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Contract for devices that expose `ISerialMessagePort(s)`.
@@ -13,7 +12,7 @@ namespace Meadow.Hardware
         /// <param name="portName">The 'SerialPortName` of port to use.</param>
         /// <param name="suffixDelimiter">A `byte[]` of the delimiter(s) that
         /// denote the end of the message.</param>
-        /// <param name="preserveDelimiter">Whether or not to preseve the
+        /// <param name="preserveDelimiter">Whether or not to preserve the
         /// delimiter tokens when passing the message to subscribers.</param>
         /// <param name="baudRate">Speed, in bits per second, of the serial port.</param>
         /// <param name="parity">`Parity` enum describing what type of
@@ -47,7 +46,7 @@ namespace Meadow.Hardware
         /// delimiter, to be parsed out of the incoming data.</param>
         /// <param name="prefixDelimiter">A `byte[]` of the delimiter(s) that
         /// denote the beginning of the message.</param>
-        /// <param name="preserveDelimiter">Whether or not to preseve the
+        /// <param name="preserveDelimiter">Whether or not to preserve the
         /// delimiter tokens when passing the message to subscribers.</param>
         /// <param name="baudRate">Speed, in bits per second, of the serial port.</param>
         /// <param name="parity">`Parity` enum describing what type of

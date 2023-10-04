@@ -42,7 +42,7 @@ public partial interface IPlatformOS : IPowerController
     public SerialPortName[] GetSerialPortNames();
 
     /// <summary>
-    /// Finds a plautform serial port name by either friendly or system name
+    /// Finds a platform serial port name by either friendly or system name
     /// </summary>
     /// <param name="portName"></param>
     /// <returns></returns>

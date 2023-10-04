@@ -3,6 +3,7 @@ using System;
 
 namespace Meadow.Hardware
 {
+
     /// <summary>
     /// Contract for devices that expose `IAnalogInputPort(s)`.
     /// </summary>
@@ -19,22 +20,19 @@ namespace Meadow.Hardware
         /// Initializes the specified pin to be an AnalogInput and returns the
         /// port used to sample the port value.
         /// </summary>
-        /// <param name="pin">The pin to created the port on.</param>
+        /// <param name="pin">The pin to create the port on.</param>
         /// <param name="sampleCount">The number of samples to use for input averaging</param>
         /// <returns></returns>
         IAnalogInputPort CreateAnalogInputPort(
             IPin pin,
             int sampleCount
-        )
-        {
-            return CreateAnalogInputPort(pin, sampleCount, TimeSpan.FromSeconds(1), new Voltage(3.3, Voltage.UnitType.Volts));
-        }
+        ) => CreateAnalogInputPort(pin, sampleCount, TimeSpan.FromSeconds(1), new Voltage(DefaultA2DReferenceVoltage, Voltage.UnitType.Volts));
 
         /// <summary>
         /// Initializes the specified pin to be an AnalogInput and returns the
         /// port used to sample the port value.
         /// </summary>
-        /// <param name="pin">The pin to created the port on.</param>
+        /// <param name="pin">The pin to create the port on.</param>
         /// <param name="sampleCount"></param>
         /// <param name="sampleInterval"></param>
         /// <param name="voltageReference">Reference maximum analog input port

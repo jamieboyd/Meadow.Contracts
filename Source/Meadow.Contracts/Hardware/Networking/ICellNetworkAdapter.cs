@@ -16,7 +16,7 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     string Csq { get; }
     /// <summary>
-    /// Gets the adapter's AT comman output
+    /// Gets the adapter's AT common output
     /// </summary>
     string AtCmdsOutput { get; }
 

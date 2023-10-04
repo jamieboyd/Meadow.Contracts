@@ -4,7 +4,7 @@ using System;
 namespace Meadow.Peripherals.Sensors.Environmental
 {
     /// <summary>
-    /// Light sensor interface requirements.
+    /// Concentration interface requirements.
     /// </summary>
     public interface IConcentrationSensor : ISamplingSensor<Concentration>
     {
@@ -14,7 +14,7 @@ namespace Meadow.Peripherals.Sensors.Environmental
         Concentration? Concentration { get; }
 
         /// <summary>
-        /// Raised when a change in C=concentration is detected.
+        /// Raised when a change in concentration is detected.
         /// </summary>
         event EventHandler<IChangeResult<Concentration>> ConcentrationUpdated;
     }

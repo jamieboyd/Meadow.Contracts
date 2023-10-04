@@ -6,7 +6,7 @@
 public class ConnectionResult
 {
     /// <summary>
-    /// Connecrtion status.
+    /// Connection status.
     /// </summary>
     public ConnectionStatus ConnectionStatus { get; protected set; }
 

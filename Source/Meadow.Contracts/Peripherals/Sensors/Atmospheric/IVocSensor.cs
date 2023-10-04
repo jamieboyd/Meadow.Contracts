@@ -1,7 +1,7 @@
 ﻿using Meadow.Units;
 using System;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors.Atmospheric
 {
     /// <summary>
     /// Volatile Organic Compound (VOC) sensor interface requirements.

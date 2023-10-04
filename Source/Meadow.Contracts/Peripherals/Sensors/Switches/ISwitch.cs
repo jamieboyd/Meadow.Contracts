@@ -1,5 +1,5 @@
-﻿using System;
-using Meadow.Peripherals.Sensors;
+﻿using Meadow.Peripherals.Sensors;
+using System;
 
 namespace Meadow.Peripherals.Switches
 {
@@ -14,7 +14,7 @@ namespace Meadow.Peripherals.Switches
         bool IsOn { get; }
 
         /// <summary>
-        /// Raised when the switch circuit circuit is opened or closed.
+        /// Raised when the switch circuit is opened or closed.
         /// </summary>
         event EventHandler Changed;
     }

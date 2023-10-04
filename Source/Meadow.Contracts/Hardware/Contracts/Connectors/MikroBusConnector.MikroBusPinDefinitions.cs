@@ -1,7 +1,6 @@
-﻿namespace Meadow.Hardware;
+﻿using System;
 
-using System;
-
+namespace Meadow.Hardware;
 public partial class MikroBusConnector
 {
     /// <summary>
@@ -9,18 +8,18 @@ public partial class MikroBusConnector
     /// </summary>
     public class MikroBusPinDefinitions : PinDefinitionBase
     {
-        private IPin? _an;
-        private IPin? _rst;
-        private IPin? _cs;
-        private IPin? _sck;
-        private IPin? _cipo;
-        private IPin? _copi;
-        private IPin? _pwm;
-        private IPin? _int;
-        private IPin? _rx;
-        private IPin? _tx;
-        private IPin? _scl;
-        private IPin? _sda;
+        private readonly IPin? _an;
+        private readonly IPin? _rst;
+        private readonly IPin? _cs;
+        private readonly IPin? _sck;
+        private readonly IPin? _cipo;
+        private readonly IPin? _copi;
+        private readonly IPin? _pwm;
+        private readonly IPin? _int;
+        private readonly IPin? _rx;
+        private readonly IPin? _tx;
+        private readonly IPin? _scl;
+        private readonly IPin? _sda;
 
         /// <summary>
         /// Pin AN

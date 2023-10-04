@@ -1,8 +1,7 @@
 ﻿using Meadow.Units;
 using System;
-using System.Threading.Tasks;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors.Atmospheric
 {
     /// <summary>
     /// Humidity sensor interface requirements.

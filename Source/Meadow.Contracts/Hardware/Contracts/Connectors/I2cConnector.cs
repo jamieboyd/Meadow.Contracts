@@ -1,14 +1,13 @@
-﻿namespace Meadow.Hardware;
-
-using System;
+﻿using System;
 using static Meadow.Hardware.I2cConnector;
 
+namespace Meadow.Hardware;
 /// <summary>
 /// Represents a connector for 2 wire I2C devices
 /// </summary>
 public partial class I2cConnector : Connector<I2cPinDefinitions>
 {
-    private I2cBusMapping _i2cBusMapping;
+    private readonly I2cBusMapping _i2cBusMapping;
     private II2cBus? _i2c;
 
     /// <summary>
@@ -17,11 +16,11 @@ public partial class I2cConnector : Connector<I2cPinDefinitions>
     public static class PinNames
     {
         /// <summary>
-        /// Pin CIPO
+        /// I2C Clock Pin (SCL)
         /// </summary>
         public const string SCL = "SCL";
         /// <summary>
-        /// Pin COPI
+        /// I2C Data Pin (SDA)
         /// </summary>
         public const string SDA = "SDA";
     }
@@ -31,15 +30,15 @@ public partial class I2cConnector : Connector<I2cPinDefinitions>
     /// </summary>
     public class I2cPinDefinitions : PinDefinitionBase
     {
-        private IPin? _scl;
-        private IPin? _sda;
+        private readonly IPin? _scl;
+        private readonly IPin? _sda;
 
         /// <summary>
-        /// Pin SCL
+        /// I2C Clock Pin (SCL)
         /// </summary>
         public IPin Scl => _scl ?? throw new PlatformNotSupportedException("Pin not connected");
         /// <summary>
-        /// Pin TX
+        /// I2C Data Pin (SDA)
         /// </summary>
         public IPin Sda => _sda ?? throw new PlatformNotSupportedException("Pin not connected");
 
