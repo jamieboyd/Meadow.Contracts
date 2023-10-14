@@ -4,21 +4,31 @@ using System.Linq;
 
 namespace Meadow;
 
+/// <summary>
+/// ExtensionMethods class
+/// </summary>
 public static class ExtensionMethods
 {
     /// <summary>
-    /// 
+    /// Contains static extention method to check if the pattern exists within the source
     /// </summary>
     /// <typeparam name="TSource"></typeparam>
     /// <param name="source"></param>
     /// <param name="pattern"></param>
-    /// <returns></returns>
+    /// <returns>true if the pattern exists</returns>
     // TODO: move this into the `CircularBuffer` class? or is it broadly applicable?
     public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource[] pattern)
     {
         return (source.FirstIndexOf(pattern) != -1);
     }
 
+    /// <summary>
+    /// FirstIndexOf static extention method for an IEnumerable
+    /// </summary>
+    /// <typeparam name="TSource"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="pattern"></param>
+    /// <returns>the index position of the found pattern</returns>
     // TODO: move this into the `CircularBuffer` class? or is it broadly applicable?
     public static int FirstIndexOf<TSource>(this IEnumerable<TSource> source, TSource[] pattern)
     {
@@ -106,6 +116,11 @@ public static class ExtensionMethods
         return (sourceValue - sourceMin) / (sourceMax - sourceMin) * (targetMax - targetMin) + targetMin;
     }
 
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each with the args
+    /// </summary>
+    /// <param name="handler">The delegate we are acting upon.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
     public static void Fire(this Delegate handler, params object[] args)
     {
         if (handler == null) return;
@@ -122,40 +137,35 @@ public static class ExtensionMethods
         }
     }
 
-    public static void Fire(this EventHandler h, object sender)
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    public static void Fire(this EventHandler handler, object sender)
     {
-        Fire(h, sender, EventArgs.Empty);
+        Fire(handler, sender, EventArgs.Empty);
     }
 
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
     public static void Fire(this EventHandler handler, object sender, EventArgs args)
     {
-        if (handler == null) return;
-        foreach (var d in handler.GetInvocationList())
-        {
-            try
-            {
-                d.DynamicInvoke(sender, args);
-            }
-            catch (Exception ex)
-            {
-                Resolver.Log.Error($"Event handler threw {ex.GetType().Name}: {ex.Message}");
-            }
-        }
+        Fire(handler, sender, args);
     }
 
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
     public static void Fire<T>(this EventHandler<T> handler, object sender, T args) where T : EventArgs
     {
-        if (handler == null) return;
-        foreach (var d in handler.GetInvocationList())
-        {
-            try
-            {
-                d.DynamicInvoke(sender, args);
-            }
-            catch (Exception ex)
-            {
-                Resolver.Log.Error($"Event handler threw {ex.GetType().Name}: {ex.Message}");
-            }
-        }
+        Fire(handler, sender, args);
     }
 }

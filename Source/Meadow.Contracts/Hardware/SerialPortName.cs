@@ -5,13 +5,21 @@
     /// </summary>
     public class SerialPortName
     {
+        /// <summary>
+        /// The SerialController in documentation
+        /// </summary>
         public ISerialController? SerialController { get; private set; }
+
+        /// <summary>
+        /// The SerialMessageController in documentation
+        /// </summary>
         public ISerialMessageController? SerialMessageController { get; private set; }
 
         /// <summary>
         /// The common name used for the port in documentation
         /// </summary>
         public string FriendlyName { get; set; }
+
         /// <summary>
         /// The assigned driver name for the port
         /// </summary>
