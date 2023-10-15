@@ -117,13 +117,57 @@ public static class ExtensionMethods
     }
 
     /// <summary>
-    /// Traverses the handler's invocation list and invokes each with the args
+    /// Traverses the handler's invocation list and invokes each via the EventHandler() method
     /// </summary>
     /// <param name="handler">The delegate we are acting upon.</param>
     /// <param name="args">The arguments we want to pass to each delegate.</param>
     public static void Fire(this Delegate handler, params object[] args)
     {
-        if (handler == null) return;
+        EventHandler(handler, args);
+    }
+
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each via the EventHandler() method
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    public static void Fire(this EventHandler handler, object sender)
+    {
+        EventHandler(handler, sender, EventArgs.Empty);
+    }
+
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each via the EventHandler() method
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
+    public static void Fire(this EventHandler handler, object sender, EventArgs args)
+    {
+        EventHandler(handler, sender, args);
+    }
+
+    /// <summary>
+    /// Traverses the handler's invocation list and invokes each via the EventHandler() method
+    /// </summary>
+    /// <param name="handler">The eventhandler we are acting upon.</param>
+    /// <param name="sender">The sender object.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
+    public static void Fire<T>(this EventHandler<T> handler, object sender, T args) where T : EventArgs
+    {
+        EventHandler(handler, sender, args);
+    }
+
+    /// <summary>
+    /// Centralised EventHandler that traverses the handler's invocation list and invokes each with the args
+    /// </summary>
+    /// <param name="handler">The delegate we are acting upon.</param>
+    /// <param name="args">The arguments we want to pass to each delegate.</param>
+    private static void EventHandler(Delegate handler, params object[] args)
+    {
+        if (handler == null)
+            return;
+
         foreach (var d in handler.GetInvocationList())
         {
             try
@@ -135,37 +179,5 @@ public static class ExtensionMethods
                 Resolver.Log.Error($"Event handler threw {ex.GetType().Name}: {ex.Message}");
             }
         }
-    }
-
-    /// <summary>
-    /// Traverses the handler's invocation list and invokes each
-    /// </summary>
-    /// <param name="handler">The eventhandler we are acting upon.</param>
-    /// <param name="sender">The sender object.</param>
-    public static void Fire(this EventHandler handler, object sender)
-    {
-        Fire(handler, sender, EventArgs.Empty);
-    }
-
-    /// <summary>
-    /// Traverses the handler's invocation list and invokes each
-    /// </summary>
-    /// <param name="handler">The eventhandler we are acting upon.</param>
-    /// <param name="sender">The sender object.</param>
-    /// <param name="args">The arguments we want to pass to each delegate.</param>
-    public static void Fire(this EventHandler handler, object sender, EventArgs args)
-    {
-        Fire(handler, sender, args);
-    }
-
-    /// <summary>
-    /// Traverses the handler's invocation list and invokes each
-    /// </summary>
-    /// <param name="handler">The eventhandler we are acting upon.</param>
-    /// <param name="sender">The sender object.</param>
-    /// <param name="args">The arguments we want to pass to each delegate.</param>
-    public static void Fire<T>(this EventHandler<T> handler, object sender, T args) where T : EventArgs
-    {
-        Fire(handler, sender, args);
     }
 }
