@@ -1,15 +1,21 @@
 ﻿using System.Threading.Tasks;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors;
+
+/// <summary>
+/// Abstraction for a simple sensor
+/// </summary>
+public interface ISensor
+{
+}
+
+/// <summary>
+/// Abstraction for a simple sensor
+/// </summary>
+public interface ISensor<T> : ISensor
 {
     /// <summary>
-    /// Abstraction for a simple sensor
+    /// Convenience method to get the current sensor reading
     /// </summary>
-    public interface ISensor<T>
-    {
-        /// <summary>
-        /// Convenience method to get the current sensor reading
-        /// </summary>
-        public Task<T> Read();
-    }
+    public Task<T> Read();
 }

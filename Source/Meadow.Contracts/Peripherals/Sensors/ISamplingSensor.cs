@@ -5,7 +5,14 @@ namespace Meadow.Peripherals.Sensors
     /// <summary>
     /// Abstraction for a sampling/observable sensor
     /// </summary>
-    public interface ISamplingSensor<UNIT> : ISensor<UNIT>
+    public interface ISamplingSensor
+    {
+    }
+
+    /// <summary>
+    /// Abstraction for a sampling/observable sensor
+    /// </summary>
+    public interface ISamplingSensor<UNIT> : ISensor<UNIT>, ISamplingSensor
     {
         /// <summary>
         /// A `TimeSpan` that specifies how long to wait between readings
