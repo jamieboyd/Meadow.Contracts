@@ -1,5 +1,6 @@
 ﻿using Meadow.Cloud;
 using Meadow.Logging;
+using Meadow.Peripherals.Sensors;
 using Meadow.Update;
 
 namespace Meadow
@@ -51,6 +52,14 @@ namespace Meadow
         public static IUpdateService UpdateService
         {
             get => Services?.Get<IUpdateService>();
+        }
+
+        /// <summary>
+        /// Retrieves the current ISensorService instance
+        /// </summary>
+        public static ISensorService SensorService
+        {
+            get => Services?.Get<ISensorService>();
         }
 
         /// <summary>
