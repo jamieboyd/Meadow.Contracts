@@ -28,6 +28,6 @@ namespace Meadow.Hardware
         /// <summary>
         /// Gets or sets the IPinController associated with the IPins
         /// </summary>
-        IPinController Controller { get; set; }
+        IPinController? Controller { get; set; }
     }
 }

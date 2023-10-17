@@ -14,10 +14,9 @@ public abstract class PinDefinitionBase : IPinDefinitions
     public IList<IPin> AllPins => _pins;
 
     /// <inheritdoc/>
-    public IPinController Controller { get; set; }
+    public IPinController? Controller { get; set; }
 
     /// <inheritdoc/>
     public IEnumerator<IPin> GetEnumerator() => _pins.GetEnumerator();
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
-

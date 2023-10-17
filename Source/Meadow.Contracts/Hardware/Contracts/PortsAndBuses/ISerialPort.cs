@@ -123,7 +123,7 @@ public interface ISerialPort : IDisposable
     /// Returns a friendly string descriptor of the SerialPort
     /// </summary>
     /// <returns></returns>
-    string ToString();
+    string? ToString();
 
     /// <summary>
     /// Writes data to the serial port.
