@@ -65,4 +65,14 @@ public partial interface IPlatformOS : IPowerController
     /// <param name="dateTime"></param>
     public void SetClock(DateTime dateTime);
 
+    /// <summary>
+    /// Retrieves the current usage (as a percentage in the range of 0-100) for each processor/core
+    /// </summary>
+    public int[] GetProcessorUtilization();
+
+    /// <summary>
+    /// Gets the current state of all available storage devices
+    /// </summary>
+    /// <returns></returns>
+    public IStorageInformation[] GetStorageInformation();
 }
