@@ -13,15 +13,15 @@ public delegate void TouchEventHandler(int x, int y);
 public interface ITouchScreen
 {
     /// <summary>
-    /// Event fired when the touchscreen is pressed
+    /// Event raised when the touchscreen is pressed
     /// </summary>
     public event TouchEventHandler TouchDown;
     /// <summary>
-    /// Event fired when the touchscreen is released
+    /// Event raised when the touchscreen is released
     /// </summary>
     public event TouchEventHandler TouchUp;
     /// <summary>
-    /// Event fired when a cycle of press and release has occurred
+    /// Event raised when a cycle of press and release has occurred
     /// </summary>
     public event TouchEventHandler TouchClick;
 }
