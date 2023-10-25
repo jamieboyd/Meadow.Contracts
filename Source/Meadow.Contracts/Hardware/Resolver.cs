@@ -16,7 +16,8 @@ namespace Meadow
 
         static Resolver()
         {
-            Services = new ServiceCollection { Services };
+            Services = new ServiceCollection();
+            Services.Add(Services);
         }
 
 #pragma warning disable CS8603
