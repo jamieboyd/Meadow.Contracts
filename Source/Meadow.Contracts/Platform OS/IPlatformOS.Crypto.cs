@@ -11,6 +11,7 @@ public partial interface IPlatformOS
     /// <param name="encryptedValue">The value to decrypt</param>
     /// <returns>The decrypted value</returns>
     public byte[] RsaDecrypt(byte[] encryptedValue);
+
     /// <summary>
     /// Performs AES decryption of a value using the Meadow device certificate.
     /// </summary>
