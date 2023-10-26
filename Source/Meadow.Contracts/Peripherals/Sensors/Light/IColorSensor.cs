@@ -4,7 +4,7 @@
 //namespace Meadow.Peripherals.Sensors.Light
 //{
 //    /// <summary>
-//    /// Light sensor interface requirements.
+//    /// Color sensor interface requirements.
 //    /// </summary>
 //    public interface IColorSensor : ISensor
 //    {
@@ -16,6 +16,6 @@
 //        /// <summary>
 //        /// Raised when a change in light is detected.
 //        /// </summary>
-//        event EventHandler<IChangeResult<Illuminance>> LuminosityUpdated;
+//        event EventHandler<IChangeResult<Color>> ColorUpdated;
 //    }
 //}
