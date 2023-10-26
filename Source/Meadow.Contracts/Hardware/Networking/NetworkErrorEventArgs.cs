@@ -22,7 +22,7 @@ public class NetworkErrorEventArgs : EventArgs
     /// </summary>
     public NetworkErrorEventArgs(uint code)
     {
-        When = DateTime.Now;
+        When = DateTime.UtcNow;
         ErrorCode = code;
     }
 }
