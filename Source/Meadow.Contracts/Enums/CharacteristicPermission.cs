@@ -1,8 +1,11 @@
-﻿namespace Meadow.Gateways.Bluetooth;
+﻿using System;
+
+namespace Meadow.Gateways.Bluetooth;
 
 /// <summary>
 /// Specifies the permissions for accessing a Bluetooth characteristic.
 /// </summary>
+[Flags]
 public enum CharacteristicPermission : short
 {
     /// <summary>

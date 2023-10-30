@@ -45,11 +45,11 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// </summary>
     public int MaxElements { get; private set; }
     /// <summary>
-    /// When set to <b>true</b>, overrun conditions will throw an exception.  Default is <b>false</b>.
+    /// When set to <c>true</c>, overrun conditions will throw an exception.  Default is <c>false</c>.
     /// </summary>
     public bool ExceptOnOverrun { get; set; }
     /// <summary>
-    /// When set to <b>true</b>, underrun conditions will throw an exception.  Default is <b>false</b>.
+    /// When set to <c>true</c>, underrun conditions will throw an exception.  Default is <c>false</c>.
     /// </summary>
     public bool ExceptOnUnderrun { get; set; }
     /// <summary>
@@ -67,7 +67,7 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// </remarks>
     public bool HasUnderrun { get; set; }
     /// <summary>
-    /// Returns <b>true</b> if the buffer's Count equals its MaxEleemnts.
+    /// Returns <c>true</c> if the buffer's Count equals its MaxEleemnts.
     /// </summary>
     public bool IsFull { get; private set; }
 
