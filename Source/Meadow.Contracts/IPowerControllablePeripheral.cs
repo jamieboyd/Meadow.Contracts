@@ -12,6 +12,7 @@ public interface IPowerControllablePeripheral
     /// </summary>
     /// <returns></returns>
     Task PowerOn();
+
     /// <summary>
     /// Powers off the peripheral
     /// </summary>
