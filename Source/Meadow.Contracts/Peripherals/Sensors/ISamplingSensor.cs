@@ -6,6 +6,7 @@ namespace Meadow.Peripherals.Sensors
     /// Abstraction for a sampling/observable sensor
     /// </summary>
     public interface ISamplingSensor<UNIT> : ISensor<UNIT>
+        where UNIT : struct
     {
         /// <summary>
         /// A `TimeSpan` that specifies how long to wait between readings
