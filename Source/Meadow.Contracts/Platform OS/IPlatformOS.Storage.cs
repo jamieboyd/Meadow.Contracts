@@ -56,7 +56,7 @@ namespace Meadow
             /// <summary>
             /// Raised when a change on an external storage device is detected
             /// </summary>
-            public event ExternalStorageEventHandler ExternalStorageEvent = delegate { };
+            public event ExternalStorageEventHandler ExternalStorageEvent = default!;
 
             /// <summary>
             /// A list of available external storage devices

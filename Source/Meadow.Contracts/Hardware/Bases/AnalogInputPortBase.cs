@@ -20,7 +20,7 @@ public abstract class AnalogInputPortBase : AnalogPortBase, IAnalogInputPort
     /// <summary>
     /// Raised when the value of the reading changes.
     /// </summary>
-    public event EventHandler<IChangeResult<Voltage>> Updated = delegate { };
+    public event EventHandler<IChangeResult<Voltage>> Updated = default!;
 
     /// <summary>
     /// Gets the sample buffer. Make sure to call StartUpdating() before 
