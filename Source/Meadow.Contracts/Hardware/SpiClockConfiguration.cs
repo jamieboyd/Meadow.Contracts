@@ -15,7 +15,7 @@ public class SpiClockConfiguration
     /// <summary>
     /// Event raised when the configuration changes
     /// </summary>
-    public event EventHandler Changed = delegate { };
+    public event EventHandler Changed = default!;
 
     /// <summary>
     /// SPI Bus Clock Polarity (CPOL)

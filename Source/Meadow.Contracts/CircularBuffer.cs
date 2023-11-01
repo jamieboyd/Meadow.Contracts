@@ -13,7 +13,7 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// <summary>
     /// Event raised when an item is added to the buffer
     /// </summary>
-    public event EventHandler ItemAdded = delegate { };
+    public event EventHandler ItemAdded = default!;
 
     // TODO: this should probably be Span<T>
     private readonly T[] _list;
@@ -27,19 +27,19 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// <summary>
     /// Fires when an element is added to the buffer when it is already full
     /// </summary>
-    public event EventHandler Overrun = delegate { };
+    public event EventHandler Overrun = default!;
     /// <summary>
     /// Fires when an attempt is made to remove an item from an empty buffer
     /// </summary>
-    public event EventHandler Underrun = delegate { };
+    public event EventHandler Underrun = default!;
     /// <summary>
     /// Fires when the number of elements reaches a non-zero HighWaterLevel value on an Enqueue call.  This event fires only once when passing upward across the boundary.
     /// </summary>
-    public event EventHandler HighWater = delegate { };
+    public event EventHandler HighWater = default!;
     /// <summary>
     /// Fires when the number of elements reaches a non-zero LowWaterLevel value on a Remove call.  This event fires only once when passing downward across the boundary.
     /// </summary>
-    public event EventHandler LowWater = delegate { };
+    public event EventHandler LowWater = default!;
     /// <summary>
     /// Gets the maximum number of elements the buffer can hold.
     /// </summary>
