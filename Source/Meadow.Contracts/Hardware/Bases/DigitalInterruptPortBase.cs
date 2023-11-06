@@ -13,7 +13,7 @@ public abstract class DigitalInterruptPortBase : DigitalInputPortBase, IDigitalI
     /// <summary>
     /// Occurs when the state is changed. To enable this, set the InterruptMode at construction
     /// </summary>
-    public event EventHandler<DigitalPortResult> Changed = delegate { };
+    public event EventHandler<DigitalPortResult> Changed = default!;
 
     /// <summary>
     /// Gets or sets a value indicating the type of interrupt monitoring this input.

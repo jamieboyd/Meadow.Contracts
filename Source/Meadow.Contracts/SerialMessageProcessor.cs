@@ -21,7 +21,7 @@ public class SerialMessageProcessor
     /// <summary>
     /// Raised when a message, as defined in the constructor, arrives.
     /// </summary>
-    public event EventHandler<SerialMessageData> MessageReceived = delegate { };
+    public event EventHandler<SerialMessageData> MessageReceived = default!;
 
     /// <summary>
     /// The current message mode used by the SerialMessageProcessor.
