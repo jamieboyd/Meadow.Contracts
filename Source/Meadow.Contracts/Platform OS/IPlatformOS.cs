@@ -71,12 +71,6 @@ public partial interface IPlatformOS : IPowerController
     public int[] GetProcessorUtilization();
 
     /// <summary>
-    /// Gets the current state of all available storage devices
-    /// </summary>
-    /// <returns></returns>
-    public IStorageInformation[] GetStorageInformation();
-
-    /// <summary>
     /// Sets the server certificate validation mode for SSL/TLS protocols
     /// </summary>
     /// <param name="authmode">The validation mode to be set: None for no validation, Optional for facultative validation,
@@ -84,5 +78,4 @@ public partial interface IPlatformOS : IPowerController
     /// <exception cref="ArgumentException">Thrown when an invalid validation mode is provided</exception>
     /// <exception cref="Exception">Thrown when there is an error setting the validation mode</exception>
     public void SetServerCertificateValidationMode(ServerCertificateValidationMode authmode);
-
 }
