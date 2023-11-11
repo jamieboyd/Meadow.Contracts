@@ -24,51 +24,32 @@ namespace Meadow
         /// <summary>
         /// Retrieves the currently executing IApp instance
         /// </summary>
-        public static IApp App
-        {
-            get => Services?.Get<IApp>();
-        }
+        public static IApp App => Services?.Get<IApp>();
 
         /// <summary>
         /// Retrieves the current IMeadowDevice the app is running on
         /// </summary>
-        public static IMeadowDevice Device
-        {
-            get => Services?.Get<IMeadowDevice>();
-        }
+        public static IMeadowDevice Device => Services?.Get<IMeadowDevice>();
 
         /// <summary>
         /// Retrieves the current Logger instance
         /// </summary>
-        public static Logger Log
-        {
-            get => Services?.Get<Logger>();
-        }
+        public static Logger Log => Services?.Get<Logger>();
 
         /// <summary>
         /// Retrieves the current IUpdateService instance
         /// </summary>
-        public static IUpdateService UpdateService
-        {
-            get => Services?.Get<IUpdateService>();
-        }
+        public static IUpdateService UpdateService => Services?.Get<IUpdateService>();
 
         /// <summary>
         /// Retrieves the current IMeadowCloudService instance
         /// </summary>
-        public static IMeadowCloudService MeadowCloudService
-        {
-            get => Services?.Get<IMeadowCloudService>();
-        }
-#pragma warning restore CS8603
+        public static IMeadowCloudService MeadowCloudService => Services?.Get<IMeadowCloudService>();
 
         /// <summary>
         /// Retrieves the current ICommandService instance
         /// </summary>
-        public static ICommandService? CommandService
-        {
-            get => Services?.Get<ICommandService>();
-        }
-
+        public static ICommandService? CommandService => Services?.Get<ICommandService>();
+#pragma warning restore CS8603
     }
 }

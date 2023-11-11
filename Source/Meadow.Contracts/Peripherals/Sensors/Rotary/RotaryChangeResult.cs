@@ -11,10 +11,7 @@ namespace Meadow.Peripherals.Sensors.Rotary
         /// Gets or sets the rotary's direction. (Obsolete: Please use the `New` property.)
         /// </summary>
         [Obsolete("Please use the `New` property.")]
-        public RotationDirection Direction
-        {
-            get { return New; }
-        }
+        public RotationDirection Direction => New;
 
         /// <summary>
         /// Gets or sets the new direction of rotation.

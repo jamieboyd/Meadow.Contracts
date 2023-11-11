@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Meadow.Peripherals.Sensors.Location
 {
     // TODO: Should this be a struct with fields?
@@ -19,7 +20,7 @@ namespace Meadow.Peripherals.Sensors.Location
         /// <summary>
         /// 0" to 60"
         /// </summary>
-        public decimal seconds { get; set; }
+        public decimal Seconds { get; set; }
         /// <summary>
         /// Cardinal direction.
         /// </summary>
@@ -31,26 +32,15 @@ namespace Meadow.Peripherals.Sensors.Location
         /// <returns></returns>
         public override string ToString()
         {
-            var position = $"{this.Degrees:f2}° {this.Minutes:f2}' {this.seconds:f2}\"";
-            switch (this.Direction) {
-                case CardinalDirection.East:
-                    position += "E";
-                    break;
-                case CardinalDirection.West:
-                    position += "W";
-                    break;
-                case CardinalDirection.North:
-                    position += "N";
-                    break;
-                case CardinalDirection.South:
-                    position += "S";
-                    break;
-                case CardinalDirection.Unknown:
-                    position += "Unknown";
-                    break;
-            }
-            return position;
-
+            var direction = Direction switch {
+                CardinalDirection.North => "N",
+                CardinalDirection.South => "S",
+                CardinalDirection.East => "E",
+                CardinalDirection.West => "W",
+                CardinalDirection.Unknown => "Unknown",
+                _ => throw new ArgumentOutOfRangeException(nameof(Direction), Direction, null)
+            };
+            return $"{Degrees:f2}° {Minutes:f2}' {Seconds:f2}\"{direction}";
         }
     }
 }

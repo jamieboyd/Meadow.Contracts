@@ -11,7 +11,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// The IPinController associated with this IPin
         /// </summary>
-        public IPinController Controller { get; }
+        public IPinController? Controller { get; }
 
         /// <summary>
         /// Supported channels

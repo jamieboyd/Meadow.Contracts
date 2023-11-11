@@ -1,6 +1,4 @@
-﻿using Meadow.Units;
-
-namespace Meadow
+﻿namespace Meadow
 {
     /// <summary>
     /// Represents a change result from an event. Contains a `New` and an optional

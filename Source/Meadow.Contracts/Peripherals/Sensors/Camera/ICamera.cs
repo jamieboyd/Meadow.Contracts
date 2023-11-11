@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace Meadow.Foundation.Sensors.Camera
+namespace Meadow.Peripherals.Sensors.Cameras
 {
     /// <summary>
     /// Interface for camera sensors

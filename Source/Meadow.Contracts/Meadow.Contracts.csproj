@@ -6,8 +6,8 @@
    <Company>Wilderness Labs, Inc</Company>
    <PackageProjectUrl>http://developer.wildernesslabs.co/Meadow/</PackageProjectUrl>
    <PackageId>Meadow.Contracts</PackageId>
-	 <PackageIcon>icon.png</PackageIcon>
-	 <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Contracts</RepositoryUrl>
+   <PackageIcon>icon.png</PackageIcon>
+   <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Contracts</RepositoryUrl>
    <PackageTags>Meadow</PackageTags>
    <Description>Wilderness Labs contracts for .NET applications on Meadow hardware</Description>
    <Version>0.33.0</Version>
@@ -15,6 +15,7 @@
    <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
    <Nullable>enable</Nullable>
+     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
  </PropertyGroup>
  <PropertyGroup>
     <Authors>Wilderness Labs, Inc</Authors>
@@ -22,11 +23,11 @@
     <LangVersion>10.0</LangVersion>
    <Nullable>enable</Nullable>
  </PropertyGroup>
-	<ItemGroup>
-		<None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
-	</ItemGroup>
-	<ItemGroup>
-    <PackageReference Include="Meadow.Logging" Version="*" />
-    <PackageReference Include="Meadow.Units" Version="*" />
-	</ItemGroup>
+    <ItemGroup>
+        <None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+    <ItemGroup>
+    <PackageReference Include="Meadow.Logging" Version="1.4.0.3" />
+    <PackageReference Include="Meadow.Units" Version="1.4.0.3" />
+    </ItemGroup>
 </Project>

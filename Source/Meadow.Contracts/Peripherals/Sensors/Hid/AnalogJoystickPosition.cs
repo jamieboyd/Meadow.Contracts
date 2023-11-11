@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="horizontal">horizontal position</param>
         /// <param name="vertical">vertical position</param>
-        public AnalogJoystickPosition(float? horizontal, float? vertical) 
+        public AnalogJoystickPosition(float? horizontal, float? vertical)
         {
             Horizontal = horizontal;
             Vertical = vertical;
@@ -32,7 +32,7 @@
         /// </summary>
         /// <param name="position">Reference position to copy values from</param>
         /// <returns></returns>
-        public static AnalogJoystickPosition From(AnalogJoystickPosition position) 
+        public static AnalogJoystickPosition From(AnalogJoystickPosition position)
         {
             return new AnalogJoystickPosition(position.Horizontal, position.Vertical);
         }

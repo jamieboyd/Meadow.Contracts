@@ -1,8 +1,7 @@
 ﻿namespace Meadow.Hardware
 {
     /// <summary>
-    /// Contract for ports that are capable of reading digital input and raising
-    /// events when state changes.
+    /// Contract for ports that are capable of reading digital inputs.
     /// </summary>
     public interface IDigitalInputPort : IDigitalPort
     {

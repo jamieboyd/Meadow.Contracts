@@ -24,17 +24,28 @@ namespace Meadow
         /// </summary>
         Ejected
     }
+
     /// <summary>
     /// Contract for external storage devices.
     /// </summary>
     public interface IExternalStorage
     {
+        /// <summary>
+        /// Directory information property
+        /// </summary>
         public DirectoryInfo Directory { get; } // this or string???
+
+        /// <summary>
+        /// Eject Storage Device method
+        /// </summary>
         public void Eject();
     }
 
     public partial interface IPlatformOS
     {
+        /// <summary>
+        /// FileSystemInfo property
+        /// </summary>
         public abstract FileSystemInfo FileSystem { get; }
 
         /// <summary>

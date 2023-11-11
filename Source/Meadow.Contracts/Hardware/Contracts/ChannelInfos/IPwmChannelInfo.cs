@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Meadow.Hardware
+﻿namespace Meadow.Hardware
 {
     /// <summary>
     /// Describes the capabilities of a Pulse-Width-Modulation channel
