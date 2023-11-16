@@ -37,7 +37,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
             get
             {
                 string name = Lookups.KnownTalkerIDs[TalkerID];
-                return (name != null) ? name : "";
+                return name ?? "";
             }
         }
 
@@ -57,10 +57,7 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         /// The checksum data of the data elements. Calculated by `XOR`ing
         /// all of the data elements.
         /// </summary>
-        public byte Checksum
-        {
-            get { return ChecksumCalculator.XOR(GetDataString()); }
-        }
+        public byte Checksum => ChecksumCalculator.XOR(GetDataString());
 
         /// <summary>
         /// Returns the NMEA sentence string without the checksum digits.
@@ -92,9 +89,9 @@ namespace Meadow.Peripherals.Sensors.Location.Gnss
         public NmeaSentence() { }
 
         /// <summary>
-        /// Creates a `NmeaSentence` from a string. Will parse the prefix, data
+        /// Creates a <see cref="NmeaSentence"/> from a string. Will parse the prefix, data
         /// elements, and also validate the checksum. If the checksum is invalid,
-        /// it will throw an `ArgumentException`, therefore this should be used
+        /// it will throw an <see cref="ArgumentException"/>, therefore this should be used
         /// in a `try`/`catch` block.
         /// </summary>
         /// <param name="sentence">A NMEA sentence string.</param>

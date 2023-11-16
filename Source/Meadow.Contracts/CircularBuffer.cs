@@ -13,7 +13,7 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// <summary>
     /// Event raised when an item is added to the buffer
     /// </summary>
-    public event EventHandler ItemAdded = delegate { };
+    public event EventHandler ItemAdded = default!;
 
     // TODO: this should probably be Span<T>
     private readonly T[] _list;
@@ -27,29 +27,29 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// <summary>
     /// Fires when an element is added to the buffer when it is already full
     /// </summary>
-    public event EventHandler Overrun = delegate { };
+    public event EventHandler Overrun = default!;
     /// <summary>
     /// Fires when an attempt is made to remove an item from an empty buffer
     /// </summary>
-    public event EventHandler Underrun = delegate { };
+    public event EventHandler Underrun = default!;
     /// <summary>
     /// Fires when the number of elements reaches a non-zero HighWaterLevel value on an Enqueue call.  This event fires only once when passing upward across the boundary.
     /// </summary>
-    public event EventHandler HighWater = delegate { };
+    public event EventHandler HighWater = default!;
     /// <summary>
     /// Fires when the number of elements reaches a non-zero LowWaterLevel value on a Remove call.  This event fires only once when passing downward across the boundary.
     /// </summary>
-    public event EventHandler LowWater = delegate { };
+    public event EventHandler LowWater = default!;
     /// <summary>
     /// Gets the maximum number of elements the buffer can hold.
     /// </summary>
     public int MaxElements { get; private set; }
     /// <summary>
-    /// When set to <b>true</b>, overrun conditions will throw an exception.  Default is <b>false</b>.
+    /// When set to <c>true</c>, overrun conditions will throw an exception.  Default is <c>false</c>.
     /// </summary>
     public bool ExceptOnOverrun { get; set; }
     /// <summary>
-    /// When set to <b>true</b>, underrun conditions will throw an exception.  Default is <b>false</b>.
+    /// When set to <c>true</c>, underrun conditions will throw an exception.  Default is <c>false</c>.
     /// </summary>
     public bool ExceptOnUnderrun { get; set; }
     /// <summary>
@@ -67,7 +67,7 @@ public class CircularBuffer<T> : IEnumerable<T>
     /// </remarks>
     public bool HasUnderrun { get; set; }
     /// <summary>
-    /// Returns <b>true</b> if the buffer's Count equals its MaxEleemnts.
+    /// Returns <c>true</c> if the buffer's Count equals its MaxEleemnts.
     /// </summary>
     public bool IsFull { get; private set; }
 

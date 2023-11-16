@@ -15,7 +15,7 @@ public class Pin : IPin
     /// <summary>
     /// Gets the IPinController associated with the pin
     /// </summary>
-    public IPinController Controller { get; }
+    public IPinController? Controller { get; }
 
     /// <summary>
     /// Gets the name of the pin
@@ -34,7 +34,7 @@ public class Pin : IPin
     /// <param name="name"></param>
     /// <param name="key"></param>
     /// <param name="supportedChannels"></param>
-    public Pin(IPinController controller, string name, object key, IList<IChannelInfo>? supportedChannels)
+    public Pin(IPinController? controller, string name, object key, IList<IChannelInfo>? supportedChannels)
     {
         Controller = controller;
         Name = name;

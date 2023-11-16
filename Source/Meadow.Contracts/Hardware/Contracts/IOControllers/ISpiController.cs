@@ -11,13 +11,13 @@
         public static Units.Frequency DefaultSpiBusSpeed = new Units.Frequency(375, Units.Frequency.UnitType.Kilohertz);
 
         /// <summary>
-        /// Creates a SPI bus instance for the requested control pins and bus speed
+        /// Creates a SPI bus instance for the requested control pins and clock configuration
         /// </summary>
         /// <param name="clock">The IPin instance to use as the bus clock</param>
         /// <param name="copi">The IPin instance to use for data transmit (controller out/peripheral in)</param>
         /// <param name="cipo">The IPin instance to use for data receive (controller in/peripheral out)</param>
         /// <param name="config">The bus clock configuration parameters</param>
-        /// <returns>An instance of an IISpiBus</returns>
+        /// <returns>An instance of an <see cref="ISpiBus"/></returns>
         public ISpiBus CreateSpiBus(
             IPin clock,
             IPin copi,
@@ -25,15 +25,15 @@
             SpiClockConfiguration config
         );
 
-        /// <summary>
-        /// Creates a SPI bus instance for the requested control pins and bus speed
-        /// </summary>
-        /// <param name="clock">The IPin instance to use as the bus clock</param>
-        /// <param name="copi">The IPin instance to use for data transmit (controller out/peripheral in)</param>
-        /// <param name="cipo">The IPin instance to use for data receive (controller in/peripheral out)</param>
-        /// <param name="speed">The bus speed</param>
-        /// <returns>An instance of an IISpiBus</returns>
-        ISpiBus CreateSpiBus(
+		/// <summary>
+		/// Creates a SPI bus instance for the requested control pins and bus speed
+		/// </summary>
+		/// <param name="clock">The IPin instance to use as the bus clock</param>
+		/// <param name="copi">The IPin instance to use for data transmit (controller out/peripheral in)</param>
+		/// <param name="cipo">The IPin instance to use for data receive (controller in/peripheral out)</param>
+		/// <param name="speed">The bus speed</param>
+		/// <returns>An instance of an <see cref="ISpiBus"/></returns>
+		ISpiBus CreateSpiBus(
             IPin clock,
             IPin copi,
             IPin cipo,

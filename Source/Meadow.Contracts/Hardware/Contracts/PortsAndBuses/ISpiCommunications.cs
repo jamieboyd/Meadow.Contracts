@@ -10,7 +10,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Chip select port
         /// </summary>
-        IDigitalOutputPort ChipSelect { get; }
+        IDigitalOutputPort? ChipSelect { get; }
 
         /// <summary>
         /// SPI bus

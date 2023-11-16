@@ -15,7 +15,7 @@ public class FilterableChangeObserver<UNIT> : IObserver<IChangeResult<UNIT>>
     /// <summary>
     /// Than handler that is called in `OnNext` if the filter is satisfied.
     /// </summary>
-    protected Action<IChangeResult<UNIT>> Handler { get; } = delegate { };
+    protected Action<IChangeResult<UNIT>> Handler { get; } = default!;
     /// <summary>
     /// A filter that specifies whether or not the observer should get notified.
     /// </summary>
