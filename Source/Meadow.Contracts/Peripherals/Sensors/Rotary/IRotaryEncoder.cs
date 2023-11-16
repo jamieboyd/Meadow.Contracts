@@ -1,20 +1,19 @@
 ﻿using System;
 
-namespace Meadow.Peripherals.Sensors.Rotary
+namespace Meadow.Peripherals.Sensors.Rotary;
+
+/// <summary>
+/// Defines a generic rotary encoder
+/// </summary>
+public interface IRotaryEncoder
 {
     /// <summary>
-    /// Defines a generic rotary encoder
+    /// Gets the last direction of rotation
     /// </summary>
-    public interface IRotaryEncoder
-    {
-        /// <summary>
-        /// Gets the last direction of rotation
-        /// </summary>
-        RotationDirection? LastDirectionOfRotation { get; }
+    RotationDirection? LastDirectionOfRotation { get; }
 
-        /// <summary>
-        /// Raised when the encoder detects a rotation
-        /// </summary>
-        event EventHandler<RotaryChangeResult> Rotated;
-    }
+    /// <summary>
+    /// Raised when the encoder detects a rotation
+    /// </summary>
+    event EventHandler<RotaryChangeResult> Rotated;
 }

@@ -49,8 +49,8 @@ public partial interface IPlatformOS : IPowerController
     public SerialPortName? GetSerialPortName(string portName)
     {
         return GetSerialPortNames().FirstOrDefault(
-            p => string.Compare(p.FriendlyName, portName, true) == 0
-             || string.Compare(p.SystemName, portName, true) == 0);
+            p => string.Compare(p.FriendlyName, portName, StringComparison.OrdinalIgnoreCase) == 0
+                 || string.Compare(p.SystemName, portName, StringComparison.OrdinalIgnoreCase) == 0);
     }
 
     /// <summary>
@@ -71,8 +71,11 @@ public partial interface IPlatformOS : IPowerController
     public int[] GetProcessorUtilization();
 
     /// <summary>
-    /// Gets the current state of all available storage devices
+    /// Sets the server certificate validation mode for SSL/TLS protocols
     /// </summary>
-    /// <returns></returns>
-    public IStorageInformation[] GetStorageInformation();
+    /// <param name="authmode">The validation mode to be set: None for no validation, Optional for facultative validation,
+    /// Required for mandatory validation</param>
+    /// <exception cref="ArgumentException">Thrown when an invalid validation mode is provided</exception>
+    /// <exception cref="Exception">Thrown when there is an error setting the validation mode</exception>
+    public void SetServerCertificateValidationMode(ServerCertificateValidationMode authmode);
 }

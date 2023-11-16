@@ -15,7 +15,7 @@ public class SpiClockConfiguration
     /// <summary>
     /// Event raised when the configuration changes
     /// </summary>
-    public event EventHandler Changed = delegate { };
+    public event EventHandler Changed = default!;
 
     /// <summary>
     /// SPI Bus Clock Polarity (CPOL)
@@ -124,7 +124,7 @@ public class SpiClockConfiguration
         set
         {
             if (value == BitsPerWord) return;
-            if (value < 4 || value > 16) throw new ArgumentOutOfRangeException();
+            if (value < 4 || value > 16) throw new ArgumentOutOfRangeException(nameof(value), value, null);
 
             _bitsPerWord = value;
             Changed?.Invoke(this, EventArgs.Empty);

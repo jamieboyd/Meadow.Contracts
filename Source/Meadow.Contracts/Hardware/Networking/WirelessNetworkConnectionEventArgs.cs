@@ -52,6 +52,6 @@ public class WirelessNetworkConnectionEventArgs : NetworkConnectionEventArgs
         Bssid = bssid;
         Channel = channel;
         AuthenticationType = authenticationType;
-        When = DateTime.Now;
+        When = DateTime.UtcNow;
     }
 }
