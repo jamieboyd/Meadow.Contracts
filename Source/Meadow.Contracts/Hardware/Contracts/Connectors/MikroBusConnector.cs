@@ -107,6 +107,52 @@ public partial class MikroBusConnector : Connector<MikroBusPinDefinitions>
     }
 
     /// <summary>
+    /// Creates an <see cref="ISerialMessagePort"/> directly from a <see cref="SerialPortName"/> using the current <see cref="IMeadowDevice"/>
+    /// </summary>
+    /// <param name="suffixDelimiter"></param>
+    /// <param name="preserveDelimiter"></param>
+    /// <param name="baudRate">The speed, in bits per second, of the serial port.</param>
+    /// <param name="parity">The `Parity` enum describing what type of cyclic-redundancy-check (CRC) bit, if any, should be expected in the serial message frame. Default is `Parity.None`.</param>
+    /// <param name="dataBits">The number of data bits expected in the serial message frame. Default is 8.</param>
+    /// <param name="stopBits">The `StopBits` describing how many bits should be expected at the end of every character in the serial message frame. Default is `StopBits.One`.</param>
+    /// <param name="readBufferSize">The size, in bytes, of the read buffer. Default is 1024.</param>
+    public ISerialMessagePort CreateSerialMessagePort(
+        byte[] suffixDelimiter,
+        bool preserveDelimiter,
+        int baudRate = 9600,
+        int dataBits = 8,
+        Parity parity = Parity.None,
+        StopBits stopBits = StopBits.One,
+        int readBufferSize = 512)
+    {
+        return _serialPortName.CreateSerialMessagePort(suffixDelimiter, preserveDelimiter, baudRate, dataBits, parity, stopBits, readBufferSize)!;
+    }
+
+    /// <summary>
+    /// Creates an <see cref="ISerialMessagePort"/> directly from a <see cref="SerialPortName"/> using the current <see cref="IMeadowDevice"/>
+    /// </summary>
+    /// <param name="prefixDelimiter"></param>
+    /// <param name="preserveDelimiter"></param>
+    /// <param name="messageLength"></param>
+    /// <param name="baudRate">The speed, in bits per second, of the serial port.</param>
+    /// <param name="parity">The `Parity` enum describing what type of cyclic-redundancy-check (CRC) bit, if any, should be expected in the serial message frame. Default is `Parity.None`.</param>
+    /// <param name="dataBits">The number of data bits expected in the serial message frame. Default is 8.</param>
+    /// <param name="stopBits">The `StopBits` describing how many bits should be expected at the end of every character in the serial message frame. Default is `StopBits.One`.</param>
+    /// <param name="readBufferSize">The size, in bytes, of the read buffer. Default is 1024.</param>
+    public ISerialMessagePort CreateSerialMessagePort(
+        byte[] prefixDelimiter,
+        bool preserveDelimiter,
+        int messageLength,
+        int baudRate = 9600,
+        int dataBits = 8,
+        Parity parity = Parity.None,
+        StopBits stopBits = StopBits.One,
+        int readBufferSize = 512)
+    {
+        return _serialPortName.CreateSerialMessagePort(prefixDelimiter, preserveDelimiter, messageLength, baudRate, dataBits, parity, stopBits, readBufferSize)!;
+    }
+
+    /// <summary>
     /// Gets the connector's I2C bus
     /// </summary>
     public II2cBus I2cBus
