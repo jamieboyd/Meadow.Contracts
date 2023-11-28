@@ -6,7 +6,12 @@ namespace Meadow.Peripherals.Sensors;
 /// Abstraction for a sampling/observable sensor
 /// </summary>
 public interface ISamplingSensor<UNIT> : ISensor<UNIT>, ISamplingSensor
+    where UNIT : struct
 {
+    /// <summary>
+    /// Raised when a change in light is detected.
+    /// </summary>
+    event EventHandler<IChangeResult<UNIT>> Updated;
 }
 
 /// <summary>
