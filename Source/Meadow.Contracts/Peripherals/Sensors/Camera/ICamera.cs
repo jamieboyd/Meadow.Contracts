@@ -30,6 +30,6 @@ namespace Meadow.Peripherals.Sensors.Cameras
         /// Get the picture data from the camera
         /// </summary>
         /// <returns>the picture data as a memory stream</returns>
-        public Task<MemoryStream> GetPhotoStream();
+        public Task<MemoryStream?> GetPhotoStream();
     }
 }
