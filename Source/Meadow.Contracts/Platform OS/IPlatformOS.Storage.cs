@@ -26,15 +26,10 @@ namespace Meadow
     }
 
     /// <summary>
-    /// Contract for external storage devices.
+    /// Contract for ejectable external storage devices.
     /// </summary>
-    public interface IExternalStorage
+    public interface IExternalStorage : IStorageInformation
     {
-        /// <summary>
-        /// Directory information property
-        /// </summary>
-        public DirectoryInfo Directory { get; } // this or string???
-
         /// <summary>
         /// Eject Storage Device method
         /// </summary>
@@ -59,9 +54,9 @@ namespace Meadow
             public event ExternalStorageEventHandler ExternalStorageEvent = delegate { };
 
             /// <summary>
-            /// A list of available external storage devices
+            /// A list of available storage devices
             /// </summary>
-            public abstract IEnumerable<IExternalStorage> ExternalStorage { get; }
+            public abstract IEnumerable<IStorageInformation> Drives { get; }
 
             /// <summary>
             /// The root OS folder for the Meadow subsystem

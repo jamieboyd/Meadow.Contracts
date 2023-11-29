@@ -13,7 +13,7 @@ public abstract class BiDirectionalInterruptPortBase : BiDirectionalPortBase, IB
     /// <summary>
     /// Event raised when the port value changes
     /// </summary>
-    public event EventHandler<DigitalPortResult> Changed = delegate { };
+    public event EventHandler<DigitalPortResult> Changed = default!;
 
     /// <summary>
     /// Gets a list of port State observers
