@@ -8,61 +8,64 @@ namespace Meadow.Peripherals.Motors;
 /// <summary>
 /// Represents an interface for controlling a positional motor.
 /// </summary>
-public interface IPositionalMotor : IMotor
+public interface IPositionalMotor : IVariableSpeedMotor
 {
     /// <summary>
-    /// 
+    /// Gets the current position of the motor.
     /// </summary>
     Angle Position { get; }
 
     /// <summary>
-    /// Go to the specified position at the specified power.
+    /// Gets the maximum run velocity for the motor
     /// </summary>
-    /// <param name="position">The desired position for the motor</param>
-    /// <param name="velocity">The speed to use to get to the desired <paramref name="position"/></param>
-    /// <param name="cancellationToken"></param>
+    AngularVelocity MaxVelocity { get; }
+
+    /// <summary>
+    /// Moves the motor to the specified position with the given velocity.
+    /// </summary>
+    /// <param name="position">The target position to move to.</param>
+    /// <param name="velocity">The angular velocity of the motor during the movement.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task GoTo(Angle position, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
-    /// 
+    /// Moves the motor to the specified position and direction with the given velocity.
     /// </summary>
-    /// <param name="position"></param>
-    /// <param name="velocity"></param>
-    /// <param name="direction"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    /// <param name="position">The target position to move to.</param>
+    /// <param name="direction">The direction in which to move the motor.</param>
+    /// <param name="velocity">The angular velocity of the motor during the movement.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task GoTo(Angle position, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Run the motor in the specified direction at the specified power.
+    /// Runs the motor in the specified direction with the given velocity.
     /// </summary>
-    /// <param name="direction"></param>
-    /// <param name="velocity"></param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="direction">The direction in which to run the motor.</param>
+    /// <param name="velocity">The angular velocity of the motor during the run.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task Run(RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
-    /// Run the motor in the specified direction at the specified power for the specified time.
+    /// Runs the motor for a specified duration in the specified direction with the given velocity.
     /// </summary>
-    /// <param name="direction"></param>
-    /// <param name="runTime"></param>
-    /// <param name="velocity"></param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="runTime">The duration for which to run the motor.</param>
+    /// <param name="direction">The direction in which to run the motor.</param>
+    /// <param name="velocity">The angular velocity of the motor during the run.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task RunFor(TimeSpan runTime, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
-    /// Reset the current position to 0
+    /// Resets the position of the motor.
     /// </summary>
-    /// <param name="cancellationToken"></param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task ResetPosition(CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
-    /// 
+    /// Rotates the motor by the specified angle and direction with the given velocity.
     /// </summary>
-    /// <param name="amountToRotate"></param>
-    /// <param name="velocity"></param>
-    /// <param name="direction"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    /// <param name="amountToRotate">The angle by which to rotate the motor.</param>
+    /// <param name="direction">The direction in which to rotate the motor.</param>
+    /// <param name="velocity">The angular velocity of the motor during the rotation.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     Task Rotate(Angle amountToRotate, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default);
 }

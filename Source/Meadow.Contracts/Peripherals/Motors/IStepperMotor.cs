@@ -1,4 +1,6 @@
 ﻿using Meadow.Units;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Motors;
 
@@ -6,40 +8,19 @@ namespace Meadow.Peripherals.Motors;
 /// <summary>
 /// Represents an interface for controlling a stepper motor.
 /// </summary>
-public interface IStepperMotor
+public interface IStepperMotor : IPositionalMotor
 {
     /// <summary>
-    /// Gets the number of steps per revolution of the stepper motor.
+    /// Rotates the stepper motor by the specified number of steps in the specified direction with the given frequency.
+    /// </summary>
+    /// <param name="steps">The number of steps to rotate the motor.</param>
+    /// <param name="direction">The direction in which to rotate the motor.</param>
+    /// <param name="rate">The frequency of the steps at which to rotate the motor.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    Task Rotate(int steps, RotationDirection direction, Frequency rate, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the number of steps required for the stepper motor to complete one full revolution.
     /// </summary>
     int StepsPerRevolution { get; }
-
-    /// <summary>
-    /// Moves the stepper motor a specified number of steps in a given direction at a specified rate.
-    /// </summary>
-    /// <param name="steps">The number of steps to move.</param>
-    /// <param name="direction">The direction of rotation.</param>
-    /// <param name="rate">The rotation rate in steps per second.</param>
-    void Step(int steps, RotationDirection direction, Frequency rate);
-
-    /// <summary>
-    /// Rotates the stepper motor by a specified angle in a given direction at a specified rate.
-    /// </summary>
-    /// <param name="angle">The angle to rotate.</param>
-    /// <param name="direction">The direction of rotation.</param>
-    /// <param name="rate">The rotation rate in steps per second.</param>
-    void Rotate(Angle angle, RotationDirection direction, Frequency rate)
-    {
-        Step((int)(StepsPerRevolution / 360f * angle.Degrees), direction, rate);
-    }
-
-    /// <summary>
-    /// Rotates the stepper motor by a specified number of degrees in a given direction at a specified rate.
-    /// </summary>
-    /// <param name="degrees">The number of degrees to rotate.</param>
-    /// <param name="direction">The direction of rotation.</param>
-    /// <param name="rate">The rotation rate in steps per second.</param>
-    void Rotate(float degrees, RotationDirection direction, Frequency rate)
-    {
-        Step((int)(StepsPerRevolution / 360f * degrees), direction, rate);
-    }
 }

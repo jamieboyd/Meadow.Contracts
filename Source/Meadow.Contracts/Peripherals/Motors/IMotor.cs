@@ -10,49 +10,36 @@ namespace Meadow.Peripherals.Motors;
 public interface IMotor
 {
     /// <summary>
-    /// Gets the direction the motor is currently moving (or last moved) in
+    /// Gets the current rotation direction of the motor.
     /// </summary>
-    public RotationDirection Direction { get; }
+    RotationDirection Direction { get; }
 
     /// <summary>
-    /// Run the motor for the specified time in the specified direction.
+    /// Runs the motor for a specified duration with the given parameters.
     /// </summary>
-    /// <param name="direction"></param>
-    /// <param name="runTime"></param>
-    /// <param name="power">The percent power the motor should run at</param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    /// <remarks>
-    /// This method will not return until the time has elapsed or the <see cref="CancellationToken"/> is cancelled.
-    /// The power is a percentage from 0 to 100.
-    /// </remarks>
-    Task RunFor(TimeSpan runTime, RotationDirection direction, float power, CancellationToken cancellationToken = default(CancellationToken));
+    /// <param name="runTime">The duration for which the motor should run.</param>
+    /// <param name="direction">The rotation direction of the motor.</param>
+    /// <param name="cancellationToken">Optional cancellation token to stop the operation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task RunFor(TimeSpan runTime, RotationDirection direction, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Run the motor in the specified direction until <see cref="Stop"/> is called or the <see cref="CancellationToken"/> is cancelled.
+    /// Runs the motor continuously with the given parameters.
     /// </summary>
-    /// <param name="direction"></param>
-    /// <param name="power">The percent power the motor should run at</param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    /// <remarks>
-    /// This method will not return until <see cref="Stop"/> is called or the <see cref="CancellationToken"/> is cancelled.
-    /// The power is a percentage from 0 to 100.
-    /// </remarks>
-    Task Run(RotationDirection direction, float power, CancellationToken cancellationToken = default(CancellationToken));
+    /// <param name="direction">The rotation direction of the motor.</param>
+    /// <param name="cancellationToken">Optional cancellation token to stop the operation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task Run(RotationDirection direction, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Stop the motor
+    /// Stops the motor.
     /// </summary>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    /// <remarks>
-    /// This method will stop a running motor, even if <see cref="RunFor"/> started it. If the motor is not running, this method will do nothing.
-    /// </remarks>
-    Task Stop(CancellationToken cancellationToken = default(CancellationToken));
+    /// <param name="cancellationToken">Optional cancellation token to stop the operation.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    Task Stop(CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Gets if the motor is currently moving.
+    /// Gets a value indicating whether the motor is currently in motion.
     /// </summary>
     /// <remarks>
     /// This property will return true if the motor is currently executing a run command. this may or may not account for motor ramp up or down, depending on the motor/drive capabilities.
