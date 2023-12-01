@@ -26,7 +26,7 @@ public interface IMotor
     /// This method will not return until the time has elapsed or the <see cref="CancellationToken"/> is cancelled.
     /// The power is a percentage from 0 to 100.
     /// </remarks>
-    Task RunFor(RotationDirection direction, TimeSpan runTime, float power, CancellationToken cancellationToken = default(CancellationToken));
+    Task RunFor(TimeSpan runTime, RotationDirection direction, float power, CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
     /// Run the motor in the specified direction until <see cref="Stop"/> is called or the <see cref="CancellationToken"/> is cancelled.

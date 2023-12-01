@@ -11,12 +11,27 @@ namespace Meadow.Peripherals.Motors;
 public interface IPositionalMotor : IMotor
 {
     /// <summary>
+    /// 
+    /// </summary>
+    Angle Position { get; }
+
+    /// <summary>
     /// Go to the specified position at the specified power.
     /// </summary>
     /// <param name="position">The desired position for the motor</param>
     /// <param name="velocity">The speed to use to get to the desired <paramref name="position"/></param>
     /// <param name="cancellationToken"></param>
     Task GoTo(Angle position, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="velocity"></param>
+    /// <param name="direction"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task GoTo(Angle position, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Run the motor in the specified direction at the specified power.
@@ -33,11 +48,21 @@ public interface IPositionalMotor : IMotor
     /// <param name="runTime"></param>
     /// <param name="velocity"></param>
     /// <param name="cancellationToken"></param>
-    Task RunFor(RotationDirection direction, TimeSpan runTime, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
+    Task RunFor(TimeSpan runTime, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default(CancellationToken));
 
     /// <summary>
     /// Reset the current position to 0
     /// </summary>
     /// <param name="cancellationToken"></param>
     Task ResetPosition(CancellationToken cancellationToken = default(CancellationToken));
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="amountToRotate"></param>
+    /// <param name="velocity"></param>
+    /// <param name="direction"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task Rotate(Angle amountToRotate, RotationDirection direction, AngularVelocity velocity, CancellationToken cancellationToken = default);
 }
