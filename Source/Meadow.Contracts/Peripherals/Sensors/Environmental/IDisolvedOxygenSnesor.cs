@@ -5,7 +5,7 @@ namespace Meadow.Peripherals.Sensors.Environmental
     /// <summary>
     /// Disolved Oxygen interface requirements.
     /// </summary>
-    internal interface IDisolvedOxygenSnesor : ISamplingSensor<double>
+    public interface IDisolvedOxygenSnesor : ISamplingSensor<double>
     {
         /// <summary>
         /// Last value read from the Disolved Oxygen Saturation sensor.
