@@ -23,5 +23,5 @@ public class CloudEvent
     /// <summary>
     /// Gets or set the UTC timestamp when the CloudEvent was generated
     /// </summary>
-    public DateTimeOffset Timestamp { get; set; } = default!;
+    public DateTimeOffset Timestamp { get; set; } = DateTimeOffset.UtcNow;
 }
