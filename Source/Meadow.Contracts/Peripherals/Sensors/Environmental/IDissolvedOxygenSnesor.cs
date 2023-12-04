@@ -3,17 +3,17 @@
 namespace Meadow.Peripherals.Sensors.Environmental
 {
     /// <summary>
-    /// Disolved Oxygen interface requirements.
+    /// Dissolved Oxygen interface requirements
     /// </summary>
-    public interface IDisolvedOxygenSnesor : ISamplingSensor<double>
+    public interface IDissolvedOxygenSnesor : ISamplingSensor<double>
     {
         /// <summary>
-        /// Last value read from the Disolved Oxygen Saturation sensor.
+        /// Last value read from the Dissolved Oxygen Saturation sensor
         /// </summary>
         double? Saturation { get; }
 
         /// <summary>
-        /// Raised when a change in Saturation is detected.
+        /// Raised when a change in Saturation is detected
         /// </summary>
         event EventHandler<IChangeResult<double>> SaturationUpdated;
     }
