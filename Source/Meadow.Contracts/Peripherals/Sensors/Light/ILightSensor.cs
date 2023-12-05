@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System;
 
 namespace Meadow.Peripherals.Sensors.Light
 {
@@ -12,10 +11,5 @@ namespace Meadow.Peripherals.Sensors.Light
         /// Last value read from the Light sensor.
         /// </summary>
         Illuminance? Illuminance { get; }
-
-        /// <summary>
-        /// Raised when a change in light is detected.
-        /// </summary>
-        event EventHandler<IChangeResult<Illuminance>> IlluminanceUpdated;
     }
 }
