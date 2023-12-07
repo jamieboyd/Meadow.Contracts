@@ -1,23 +1,14 @@
 ﻿using Meadow.Units;
-using System;
 
-namespace Meadow.Peripherals.Sensors.Atmospheric
+namespace Meadow.Peripherals.Sensors.Atmospheric;
+
+/// <summary>
+/// Pressure sensor interface requirements.
+/// </summary>
+public interface IBarometricPressureSensor : ISamplingSensor<Pressure>
 {
     /// <summary>
-    /// Pressure sensor interface requirements.
+    /// Last value read from the Pressure sensor.
     /// </summary>
-    public interface IBarometricPressureSensor : ISamplingSensor<Pressure>
-    {
-        /// <summary>
-        /// Last value read from the Pressure sensor.
-        /// </summary>
-        Pressure? Pressure { get; }
-
-        /// <summary>
-        /// Raised when a new reading has been made. Events will only be raised
-        /// while the driver is updating. To start, call the `StartUpdating()`
-        /// method.
-        /// </summary>
-        event EventHandler<IChangeResult<Pressure>> PressureUpdated;
-    }
+    Pressure? Pressure { get; }
 }
