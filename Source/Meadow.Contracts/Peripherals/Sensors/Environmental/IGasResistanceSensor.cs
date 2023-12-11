@@ -10,5 +10,5 @@ public interface IGasResistanceSensor : ISamplingSensor<Resistance>
     /// <summary>
     /// Last value read from the gas resistance sensor.
     /// </summary>
-    Resistance? Resistance { get; }
+    Resistance? GasResistance { get; }
 }
