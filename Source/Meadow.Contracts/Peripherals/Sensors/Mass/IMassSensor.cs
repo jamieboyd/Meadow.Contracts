@@ -1,13 +1,12 @@
-﻿namespace Meadow.Peripherals.Sensors.Mass
+﻿namespace Meadow.Peripherals.Sensors.Mass;
+
+/// <summary>
+/// Mass sensor interface requirements.
+/// </summary>
+public interface IMassSensor : ISamplingSensor<Units.Mass>
 {
     /// <summary>
-    /// Mass sensor interface requirements.
+    /// Last value read from the sensor.
     /// </summary>
-    public interface IMassSensor : ISamplingSensor<Units.Mass>
-    {
-        /// <summary>
-        /// Last value read from the sensor.
-        /// </summary>
-        Units.Mass? Mass { get; }
-    }
+    Units.Mass? Mass { get; }
 }

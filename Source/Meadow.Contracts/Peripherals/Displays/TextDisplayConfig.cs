@@ -1,23 +1,22 @@
-﻿namespace Meadow.Peripherals.Displays
+﻿namespace Meadow.Peripherals.Displays;
+
+/// <summary>
+/// Represents Text Display configurations
+/// </summary>
+public class TextDisplayConfig
 {
     /// <summary>
-    /// Represents Text Display configurations
+    /// Height of the display in lines (usually 2 or 4).
     /// </summary>
-    public class TextDisplayConfig
-    {
-        /// <summary>
-        /// Height of the display in lines (usually 2 or 4).
-        /// </summary>
-        public ushort Height;
+    public ushort Height;
 
-        /// <summary>
-        /// Width of the display in columns (normally 16 or 20).
-        /// </summary>
-        public ushort Width;
+    /// <summary>
+    /// Width of the display in columns (normally 16 or 20).
+    /// </summary>
+    public ushort Width;
 
-        /// <summary>
-        /// Font scale multiplier for pixel displays.
-        /// </summary>
-        public ushort FontScale = 1;
-    }
+    /// <summary>
+    /// Font scale multiplier for pixel displays.
+    /// </summary>
+    public ushort FontScale = 1;
 }

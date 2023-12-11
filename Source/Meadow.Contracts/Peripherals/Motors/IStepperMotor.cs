@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace Meadow.Peripherals.Motors;
 
-
 /// <summary>
 /// Represents an interface for controlling a stepper motor.
 /// </summary>
