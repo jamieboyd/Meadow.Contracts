@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System;
 
 namespace Meadow.Peripherals.Sensors.Light
 {
@@ -8,11 +7,6 @@ namespace Meadow.Peripherals.Sensors.Light
     /// </summary>
     public interface ISolarIntensityGauge : ISensor<float>
     {
-        /// <summary>
-        /// Raised when the sensor receives a new solar intensity reading
-        /// </summary>
-        event EventHandler<IChangeResult<float>> SolarIntensityUpdated;
-
         /// <summary>
         /// The maximum expected voltage when the solar panel is outputting 100% power
         /// </summary>

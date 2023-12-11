@@ -1,5 +1,4 @@
 ﻿using Meadow.Units;
-using System;
 
 namespace Meadow.Peripherals.Sensors.Weather
 {
@@ -12,10 +11,5 @@ namespace Meadow.Peripherals.Sensors.Weather
         /// Gets the last recorded azimuth of the wind.
         /// </summary>
         Azimuth? WindAzimuth { get; }
-
-        /// <summary>
-        /// Occurs when the azimuth of the wind changes.
-        /// </summary>
-        event EventHandler<IChangeResult<Azimuth>> WindAzimuthUpdated;
     }
 }
