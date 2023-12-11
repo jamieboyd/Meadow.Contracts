@@ -1,46 +1,46 @@
 ﻿using System;
 
-namespace Meadow.Peripherals.Sensors.Location
-{
-    // TODO: Should this be a struct with fields?
-    /// <summary>
-    /// Represents a positional point on a spherical axis.
-    /// </summary>
-    public class DegreesMinutesSecondsPosition
-    {
-        /// <summary>
-        /// Latitudinal: -90° to 90°
-        /// Longitudinal: -180° to 180°
-        /// </summary>
-        public int Degrees { get; set; }
-        /// <summary>
-        /// 0' to 60'
-        /// </summary>
-        public decimal Minutes { get; set; }
-        /// <summary>
-        /// 0" to 60"
-        /// </summary>
-        public decimal Seconds { get; set; }
-        /// <summary>
-        /// Cardinal direction.
-        /// </summary>
-        public CardinalDirection Direction;
+namespace Meadow.Peripherals.Sensors.Location;
 
-        /// <summary>
-        /// Returns a string that represents the position in the format dd° mm' ss"X, where X represents the cardinal direction of the position.
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+// TODO: Should this be a struct with fields?
+/// <summary>
+/// Represents a positional point on a spherical axis.
+/// </summary>
+public class DegreesMinutesSecondsPosition
+{
+    /// <summary>
+    /// Latitudinal: -90° to 90°
+    /// Longitudinal: -180° to 180°
+    /// </summary>
+    public int Degrees { get; set; }
+    /// <summary>
+    /// 0' to 60'
+    /// </summary>
+    public decimal Minutes { get; set; }
+    /// <summary>
+    /// 0" to 60"
+    /// </summary>
+    public decimal Seconds { get; set; }
+    /// <summary>
+    /// Cardinal direction.
+    /// </summary>
+    public CardinalDirection Direction;
+
+    /// <summary>
+    /// Returns a string that represents the position in the format dd° mm' ss"X, where X represents the cardinal direction of the position.
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        var direction = Direction switch
         {
-            var direction = Direction switch {
-                CardinalDirection.North => "N",
-                CardinalDirection.South => "S",
-                CardinalDirection.East => "E",
-                CardinalDirection.West => "W",
-                CardinalDirection.Unknown => "Unknown",
-                _ => throw new ArgumentOutOfRangeException(nameof(Direction), Direction, null)
-            };
-            return $"{Degrees:f2}° {Minutes:f2}' {Seconds:f2}\"{direction}";
-        }
+            CardinalDirection.North => "N",
+            CardinalDirection.South => "S",
+            CardinalDirection.East => "E",
+            CardinalDirection.West => "W",
+            CardinalDirection.Unknown => "Unknown",
+            _ => throw new ArgumentOutOfRangeException(nameof(Direction), Direction, null)
+        };
+        return $"{Degrees:f2}° {Minutes:f2}' {Seconds:f2}\"{direction}";
     }
 }

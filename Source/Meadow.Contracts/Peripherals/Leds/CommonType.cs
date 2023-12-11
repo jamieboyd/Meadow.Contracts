@@ -1,17 +1,16 @@
-﻿namespace Meadow.Peripherals.Leds
+﻿namespace Meadow.Peripherals.Leds;
+
+/// <summary>
+/// Enumeration representing the electrical configuration of LEDs in a common package.
+/// </summary>
+public enum CommonType
 {
     /// <summary>
-    /// Enumeration representing the electrical configuration of LEDs in a common package.
+    /// The cathode is electrically shared among the LEDs
     /// </summary>
-    public enum CommonType
-    {
-        /// <summary>
-        /// The cathode is electrically shared among the LEDs
-        /// </summary>
-        CommonCathode,
-        /// <summary>
-        /// The anode is electrically shared among the LEDs
-        /// </summary>
-        CommonAnode
-    }
+    CommonCathode,
+    /// <summary>
+    /// The anode is electrically shared among the LEDs
+    /// </summary>
+    CommonAnode
 }

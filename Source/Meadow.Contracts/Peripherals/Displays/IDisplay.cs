@@ -1,9 +1,8 @@
-﻿namespace Meadow.Peripherals.Displays
+﻿namespace Meadow.Peripherals.Displays;
+
+/// <summary>
+/// Display Interface
+/// </summary>
+public interface IDisplay
 {
-    /// <summary>
-    /// Display Interface
-    /// </summary>
-    public interface IDisplay
-    {
-    }
 }
