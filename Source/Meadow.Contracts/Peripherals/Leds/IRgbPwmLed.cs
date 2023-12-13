@@ -16,7 +16,7 @@ public interface IRgbPwmLed
     /// <summary>
     /// The brightness value assigned to the LED
     /// </summary>
-    public float Brightness { get; }
+    float Brightness { get; }
 
     /// <summary>
     /// Sets the current color of the LED
@@ -59,7 +59,7 @@ public interface IRgbPwmLed
 
     /// <summary>
     /// Start the Blink animation which sets the brightness of the LED alternating 
-    /// between a low and high brightness setting, using the durations provided.
+    /// between a low and high brightness setting, using the durations provided
     /// </summary>
     /// <param name="color">The LED color</param>
     /// <param name="onDuration">The duration the LED stays on</param>
@@ -78,8 +78,8 @@ public interface IRgbPwmLed
     Task StartPulse(float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
-    /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting
-    /// with a cycle time of 600ms
+    /// Start the Pulse animation which gradually alternates the brightness of 
+    /// the LED between a low and high brightness setting with a cycle time of 600ms
     /// </summary>
     /// <param name="color">The LED color</param>
     /// <param name="highBrightness">The maximum brightness of the animation</param>
@@ -87,7 +87,9 @@ public interface IRgbPwmLed
     Task StartPulse(Color color, float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
-    /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting, using the durations provided.
+    /// Start the Pulse animation which gradually alternates the brightness of the 
+    /// LED between a low and high brightness setting, using the duration provided
+    /// and especified color
     /// </summary>
     /// <param name="color">The LED color</param>
     /// <param name="pulseDuration">The pulse animation duration</param>
@@ -96,7 +98,8 @@ public interface IRgbPwmLed
     Task StartPulse(Color color, TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
-    /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting, using the durations provided.
+    /// Start the Pulse animation which gradually alternates the brightness of the 
+    /// LED between a low and high brightness setting, using the duration provided
     /// </summary>
     /// <param name="pulseDuration">The pulse animation duration</param>
     /// <param name="highBrightness">The maximum brightness of the animation</param>
