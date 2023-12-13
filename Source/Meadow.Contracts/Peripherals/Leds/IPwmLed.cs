@@ -18,30 +18,30 @@ public interface IPwmLed
     /// <summary>
     /// Gets the brightness of the LED, controlled by a PWM signal
     /// </summary>
-    public float Brightness { get; }
+    float Brightness { get; }
 
     /// <summary>
     /// Start a Blink animation which sets the brightness of the LED alternating between a low and high brightness setting.
     /// </summary>
-    public Task StartBlink(float highBrightness = 1f, float lowBrightness = 0f);
+    Task StartBlink(float highBrightness = 1f, float lowBrightness = 0f);
 
     /// <summary>
     /// Start the Blink animation which sets the brightness of the LED alternating between a low and high brightness setting, using the durations provided.
     /// </summary>
-    public Task StartBlink(TimeSpan highBrightnessDuration, TimeSpan lowBrightnessDuration, float highBrightness = 1f, float lowBrightness = 0f);
+    Task StartBlink(TimeSpan highBrightnessDuration, TimeSpan lowBrightnessDuration, float highBrightness = 1f, float lowBrightness = 0f);
 
     /// <summary>
     /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting.
     /// </summary>
-    public Task StartPulse(float highBrightness = 1, float lowBrightness = 0.15F);
+    Task StartPulse(float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
     /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting, using the durations provided.
     /// </summary>
-    public Task StartPulse(TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
+    Task StartPulse(TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
     /// Stops any running animations.
     /// </summary>
-    public Task StopAnimation();
+    Task StopAnimation();
 }
