@@ -14,6 +14,11 @@ public interface IRgbPwmLed
     bool IsOn { get; set; }
 
     /// <summary>
+    /// The brightness value assigned to the LED
+    /// </summary>
+    public float Brightness { get; }
+
+    /// <summary>
     /// Sets the current color of the LED
     /// </summary>
     /// <param name="color">The LED color</param>
@@ -97,6 +102,4 @@ public interface IRgbPwmLed
     /// <param name="highBrightness">The maximum brightness of the animation</param>
     /// <param name="lowBrightness">The minimum brightness of the animation</param>
     Task StartPulse(TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
-
-
 }
