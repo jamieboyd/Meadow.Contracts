@@ -1,28 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Meadow.Peripherals.Sensors;
-
-public enum SimulationBehavior
-{
-    RandomWalk,
-    Sawtooth,
-    Sine
-}
-
-public interface ISimulatedSensor
-{
-    SimulationBehavior[] SupportedBehaviors { get; }
-    Type ValueType { get; }
-    void SetSensorValue(object value);
-    void Start(SimulationBehavior behavior);
-}
-
-public interface ISimulationService
-{
-    ISimulatedSensor[] Sensors { get; }
-    void StopAll();
-}
 
 /// <summary>
 /// Represents a sensor service interface for registering sensors.
