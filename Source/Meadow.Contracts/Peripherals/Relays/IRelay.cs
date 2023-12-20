@@ -8,10 +8,27 @@ namespace Meadow.Peripherals.Relays;
 public interface IRelay
 {
     /// <summary>
-    /// Gets or sets a value indicating whether the Relay is on.
+    /// Gets or sets a value indicating whether the relay is in an open state.
     /// </summary>
-    /// <value><c>true</c> if is on; otherwise, <c>false</c>.</value>
-    bool IsOn { get; set; }
+    public bool IsOpen
+    {
+        get => State == RelayState.Open;
+        set => State = value ? RelayState.Open : RelayState.Closed;
+    }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the relay is in a closed state.
+    /// </summary>
+    public bool IsClosed
+    {
+        get => State == RelayState.Closed;
+        set => State = value ? RelayState.Closed : RelayState.Open;
+    }
+
+    /// <summary>
+    /// Gets or sets the state of the relay.
+    /// </summary>
+    RelayState State { get; set; }
 
     /// <summary>
     /// Returns relay type.
@@ -26,5 +43,5 @@ public interface IRelay
     /// <summary>
     /// Event raised after relay state change
     /// </summary>
-    event EventHandler<bool> OnRelayChanged;
+    event EventHandler<RelayState> OnChanged;
 }
