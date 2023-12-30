@@ -66,10 +66,7 @@ namespace Meadow
             /// <summary>
             /// Gets the root directory of the app file system partition.
             /// </summary>
-            public string UserFileSystemRoot
-            {
-                get => FileSystemRoot ?? "/meadow0/";
-            }
+            public string UserFileSystemRoot => FileSystemRoot ?? "/meadow0/";
 
             /// <summary>
             /// Gets the `/Data` directory. Use this directory to store files that

@@ -47,7 +47,7 @@ public interface IRgbPwmLed : IPwmLed, IRgbLed
     /// <summary>
     /// Start the Pulse animation which gradually alternates the brightness of the 
     /// LED between a low and high brightness setting, using the duration provided
-    /// and especified color
+    /// and specified color
     /// </summary>
     /// <param name="color">The LED color</param>
     /// <param name="pulseDuration">The pulse animation duration</param>
