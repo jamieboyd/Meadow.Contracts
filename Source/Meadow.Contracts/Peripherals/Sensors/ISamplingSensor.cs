@@ -9,7 +9,7 @@ public interface ISamplingSensor<UNIT> : ISensor<UNIT>, ISamplingSensor
     where UNIT : struct
 {
     /// <summary>
-    /// Raised when a change in light is detected.
+    /// Raised when a change is detected
     /// </summary>
     event EventHandler<IChangeResult<UNIT>> Updated;
 }

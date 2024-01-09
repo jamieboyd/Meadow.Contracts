@@ -1,17 +1,16 @@
-﻿namespace Meadow.Peripherals.Relays
+﻿namespace Meadow.Peripherals.Relays;
+
+/// <summary>
+/// Relay Type
+/// </summary>
+public enum RelayType
 {
     /// <summary>
-    /// Relay Type
+    /// A normally open relay
     /// </summary>
-    public enum RelayType
-    {
-        /// <summary>
-        /// A normally open relay
-        /// </summary>
-        NormallyOpen,
-        /// <summary>
-        /// A normally closed relay
-        /// </summary>
-        NormallyClosed
-    }
+    NormallyOpen,
+    /// <summary>
+    /// A normally closed relay
+    /// </summary>
+    NormallyClosed
 }

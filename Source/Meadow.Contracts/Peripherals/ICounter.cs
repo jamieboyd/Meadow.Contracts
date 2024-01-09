@@ -1,21 +1,20 @@
-﻿namespace Meadow.Hardware
+﻿namespace Meadow.Hardware;
+
+/// <summary>
+/// Abstraction for Counter devices
+/// </summary>
+public interface ICounter
 {
     /// <summary>
-    /// Abstraction for Counter devices
+    /// Gets or sets the Enabled property
     /// </summary>
-    public interface ICounter
-    {
-        /// <summary>
-        /// Gets or sets the Enabled property
-        /// </summary>
-        bool Enabled { get; set; }
-        /// <summary>
-        /// Gets the current Count
-        /// </summary>
-        long Count { get; }
-        /// <summary>
-        /// Resets the Count to zero
-        /// </summary>
-        void Reset();
-    }
+    bool Enabled { get; set; }
+    /// <summary>
+    /// Gets the current Count
+    /// </summary>
+    long Count { get; }
+    /// <summary>
+    /// Resets the Count to zero
+    /// </summary>
+    void Reset();
 }

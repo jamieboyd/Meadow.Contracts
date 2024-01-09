@@ -72,4 +72,9 @@ public interface INetworkAdapter
     /// Physical (MAC) address of the adapter
     /// </summary>
     PhysicalAddress MacAddress { get; }
+
+    /// <summary>
+    /// DNS Addresses of the network adapter.
+    /// </summary>
+    IPAddressCollection DnsAddresses{ get; }
 }
