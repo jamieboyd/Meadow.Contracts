@@ -3,7 +3,7 @@
    <TargetFramework>netstandard2.1</TargetFramework>
    <OutputType>Library</OutputType>
    <AssemblyName>Meadow.Contracts</AssemblyName>   
-   <Company>Wilderness Labs, Inc</Company>
+    <Company>Wilderness Labs, Inc</Company>
    <PackageProjectUrl>http://developer.wildernesslabs.co/Meadow/</PackageProjectUrl>
    <PackageId>Meadow.Contracts</PackageId>
    <PackageIcon>icon.png</PackageIcon>
@@ -12,16 +12,15 @@
    <Description>Wilderness Labs contracts for .NET applications on Meadow hardware</Description>
     <Version>1.7.0</Version>
    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-   <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
-   <Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>
      <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
  </PropertyGroup>
  <PropertyGroup>
     <Authors>Wilderness Labs, Inc</Authors>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <LangVersion>10.0</LangVersion>
-   <Nullable>enable</Nullable>
  </PropertyGroup>
     <ItemGroup>
         <None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
