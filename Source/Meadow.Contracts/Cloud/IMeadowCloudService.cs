@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace Meadow.Cloud;
@@ -7,6 +8,11 @@ namespace Meadow.Cloud;
 /// </summary>
 public interface IMeadowCloudService
 {
+    /// <summary>
+    /// Event raised when an error occurs
+    /// </summary>
+    event EventHandler<string> ServiceError;
+
     /// <summary>
     /// The current JWT
     /// </summary>

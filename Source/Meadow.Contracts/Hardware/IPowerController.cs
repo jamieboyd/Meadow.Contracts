@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Meadow.Hardware;
+using System;
 
 namespace Meadow
 {
@@ -51,6 +52,14 @@ namespace Meadow
 
             Sleep(wakeTime - DateTime.UtcNow);
         }
+
+        /// <summary>
+        /// Puts the device into low-power (sleep) mode until an interrupt occurs
+        /// </summary>
+        /// <param name="interruptPin">The IPin to monitor for the wake interrupt.</param>
+        /// <param name="interruptMode">The interrupt mode used for wake</param>
+        /// <param name="resistorMode">The resistor mode used for wake</param>
+        void Sleep(IPin interruptPin, InterruptMode interruptMode, ResistorMode resistorMode = ResistorMode.Disabled);
 
         /// <summary>
         /// Registers a peripheral to be aware of sleep mode.

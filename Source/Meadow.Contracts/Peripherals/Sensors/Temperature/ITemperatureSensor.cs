@@ -1,15 +1,14 @@
 ﻿using Meadow.Units;
 
-namespace Meadow.Peripherals.Sensors
+namespace Meadow.Peripherals.Sensors;
+
+/// <summary>
+/// Temperature sensor interface requirements.
+/// </summary>
+public interface ITemperatureSensor : ISamplingSensor<Temperature>
 {
     /// <summary>
-    /// Temperature sensor interface requirements.
+    /// Last value read from the Temperature sensor.
     /// </summary>
-    public interface ITemperatureSensor : ISamplingSensor<Temperature>
-    {
-        /// <summary>
-        /// Last value read from the Temperature sensor.
-        /// </summary>
-        public Temperature? Temperature { get; }
-    }
+    public Temperature? Temperature { get; }
 }
