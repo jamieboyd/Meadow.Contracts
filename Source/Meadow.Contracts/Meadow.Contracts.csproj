@@ -11,7 +11,6 @@
    <RepositoryUrl>https://github.com/WildernessLabs/Meadow.Contracts</RepositoryUrl>
    <PackageTags>Meadow</PackageTags>
    <Description>Wilderness Labs contracts for .NET applications on Meadow hardware</Description>
-    <Version>1.7.0</Version>
    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
