@@ -20,7 +20,7 @@ namespace Meadow.Hardware
         /// <param name="configType"></param>
         /// <returns></returns>
         Tuple<bool, string> ReservePin(IPin pin, ChannelConfigurationType configType);
-        
+
         /// <summary>
         /// Releases a reservation on an IPin at run-time
         /// </summary>
@@ -36,15 +36,15 @@ namespace Meadow.Hardware
         /// <param name="frequency"></param>
         /// <returns></returns>
         Tuple<bool, string> ReservePwm(IPin pin, IPwmChannelInfo channelInfo, Frequency frequency);
-        
+
         /// <summary>
-        /// Method called before Meadow Core starts a PWM.  This allows hardware-specific actions like channel reservation and setup.
+        /// Method called before Meadow Core starts a PWM. This allows hardware-specific actions like channel reservation and setup.
         /// </summary>
         /// <param name="info"></param>
         void BeforeStartPwm(IPwmChannelInfo info);
-        
+
         /// <summary>
-        /// Method called after Meadow Core starts a PWM.  This allows hardware-specific actions like channel reservation and setup.
+        /// Method called after Meadow Core starts a PWM. This allows hardware-specific actions like channel reservation and setup.
         /// </summary>
         /// <param name="info"></param>
         /// <param name="ioController"></param>

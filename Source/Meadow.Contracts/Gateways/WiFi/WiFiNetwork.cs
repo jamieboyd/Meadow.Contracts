@@ -100,7 +100,7 @@ public class WifiNetwork
     /// </summary>
     /// <param name="ssid">Name of the network (Service Set Identifier)</param>
     /// <param name="bssid">Section of the WiFi network (Basic Service Set Identifier)</param>
-    /// <param name="typeOfNetworkType">Type of network, infrastructure, ad-hoc etc.  (see <see cref="NetworkType"/>).</param>
+    /// <param name="typeOfNetworkType">Type of network, infrastructure, ad-hoc etc. (see <see cref="NetworkType"/>).</param>
     /// <param name="phy">Physical network type <see cref="PhyType"/>.</param>
     /// <param name="securitySettings">Security settings for the network.</param>
     /// <param name="channelFreq">Center frequency of the channel is network is using for data transmission.</param>
