@@ -26,7 +26,7 @@ namespace Meadow
         /// <summary>
         /// Event called after waking from sleep mode.
         /// </summary>
-        event PowerTransitionHandler AfterWake;
+        event EventHandler<WakeSource> AfterWake;
 
         /// <summary>
         /// Resets the device.
