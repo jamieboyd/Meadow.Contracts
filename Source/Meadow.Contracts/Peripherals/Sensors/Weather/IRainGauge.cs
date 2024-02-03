@@ -5,7 +5,7 @@ namespace Meadow.Peripherals.Sensors.Weather;
 /// <summary>
 /// Represents a rain gauge to measure accumulated rainfall depth.
 /// </summary>
-public interface IRainGauge : ISamplingSensor<Speed>
+public interface IRainGauge : ISamplingSensor<Length>
 {
     /// <summary>
     /// Gets the total accumulated rainfall depth.
