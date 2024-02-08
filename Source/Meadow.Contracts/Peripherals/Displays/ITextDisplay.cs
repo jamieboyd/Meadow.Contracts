@@ -1,9 +1,9 @@
 ﻿namespace Meadow.Peripherals.Displays;
 
 /// <summary>
-/// Defines a Text Display.
+/// Defines a Text Display
 /// </summary>
-public interface ITextDisplay
+public interface ITextDisplay : IDisplay
 {
     /// <summary>
     /// Gets a Display Configuration
@@ -11,13 +11,13 @@ public interface ITextDisplay
     TextDisplayConfig DisplayConfig { get; }
 
     /// <summary>
-    /// Writes the specified string on the display.
+    /// Writes the specified string on the display
     /// </summary>
     /// <param name="text">String to display</param>
     void Write(string text);
 
     /// <summary>
-    /// Writes the specified string to the specified line number on the display.
+    /// Writes the specified string to the specified line number on the display
     /// </summary>
     /// <param name="text">String to display.</param>
     /// <param name="lineNumber">Line Number.</param>
@@ -30,13 +30,13 @@ public interface ITextDisplay
     void ClearLines();
 
     /// <summary>
-    /// Clears the specified line of characters on the display.
+    /// Clears the specified line of characters on the display
     /// </summary>
     /// <param name="lineNumber">Line Number</param>
     void ClearLine(byte lineNumber);
 
     /// <summary>
-    /// Set cursor in the specified row and column.
+    /// Set cursor in the specified row and column
     /// </summary>
     /// <param name="column"></param>
     /// <param name="line"></param>
