@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Meadow.Hardware
 {
@@ -14,16 +13,6 @@ namespace Meadow.Hardware
         /// </summary>
         /// <value>All the pins.</value>
         IList<IPin> AllPins { get; }
-
-        /// <summary>
-        /// Retrieves a pin from <see cref="AllPins"/> by Name or Key
-        /// </summary>
-        IPin this[string name]
-        {
-            get => AllPins.FirstOrDefault(p =>
-                string.Compare(p.Name, name, true) == 0
-                || string.Compare($"{p.Key}", name, true) == 0);
-        }
 
         /// <summary>
         /// Gets or sets the IPinController associated with the IPins
