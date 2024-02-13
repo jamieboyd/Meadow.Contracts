@@ -3,14 +3,14 @@
 /// <summary>
 /// Represents a J1939 frame, extending the CanFrame class.
 /// </summary>
-public class J1939Frame : CanFrame
+public class J1939Frame : ExtendedCanFrame
 {
     /// <summary>
     /// Creates a J1939Frame from a given CanFrame.
     /// </summary>
     /// <param name="frame">The CanFrame to convert to a J1939Frame.</param>
     /// <returns>A new instance of J1939Frame.</returns>
-    public static J1939Frame FromCanFrame(CanFrame frame)
+    public static J1939Frame FromCanFrame(ExtendedCanFrame frame)
     {
         return new J1939Frame(frame);
     }
@@ -19,7 +19,7 @@ public class J1939Frame : CanFrame
     /// Initializes a new instance of the J1939Frame class with the specified CanFrame.
     /// </summary>
     /// <param name="frame">The CanFrame to use for initialization.</param>
-    private J1939Frame(CanFrame frame)
+    private J1939Frame(ExtendedCanFrame frame)
         : base(frame)
     {
     }
@@ -32,7 +32,7 @@ public class J1939Frame : CanFrame
     /// <summary>
     /// Gets the priority group number of the J1939 frame.
     /// </summary>
-    public int PriorityGroupNumber => (int)(ID >> 8) & 0x3ffff;
+    public int PriorityGroupNumber => ID >> 8 & 0x3ffff;
 
     /// <summary>
     /// Gets the source address of the J1939 frame.
