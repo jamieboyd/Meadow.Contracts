@@ -16,6 +16,10 @@ public class UpdateInfo
     /// </summary>
     public string ID { get; protected set; } = default!;
     /// <summary>
+    /// Metadata for the package
+    /// </summary>
+    public string? Name { get; set; }
+    /// <summary>
     /// The type of the Update
     /// </summary>
     public UpdateType UpdateType { get; set; }
@@ -24,9 +28,13 @@ public class UpdateInfo
     /// </summary>
     public string Version { get; set; } = string.Empty;
     /// <summary>
+    /// Download progress (in Bytes) of the Update
+    /// </summary>
+    public long DownloadProgress { get; set; }
+    /// <summary>
     /// The size, in bytes, of the Update
     /// </summary>
-    public long DownloadSize { get; set; }
+    public long FileSize { get; set; }
     /// <summary>
     /// An optional, human-readable summary of the Update
     /// </summary>
