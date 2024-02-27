@@ -14,7 +14,8 @@ public delegate void NetworkConnectionHandler(INetworkAdapter sender, NetworkCon
 /// Delegate containing information about a network disconnection event
 /// </summary>
 /// <param name="sender"></param>
-public delegate void NetworkDisconnectionHandler(INetworkAdapter sender);
+/// <param name="args"></param>
+public delegate void NetworkDisconnectionHandler(INetworkAdapter sender, NetworkDisconnectionEventArgs args);
 
 /// <summary>
 /// Delegate containing information about a network error event.

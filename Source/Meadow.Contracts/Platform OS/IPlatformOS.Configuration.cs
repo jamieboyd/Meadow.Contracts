@@ -229,5 +229,10 @@
         /// </summary>
         /// <remarks>This should be a semicolon list of pin names that will be reserved for OS use.</remarks>
         public string ReservedPins { get; }
+
+        /// <summary>
+        /// Gets a list of NTP servers used for time synchronization
+        /// </summary>
+        public string[] NtpServers { get; }
     }
 }
