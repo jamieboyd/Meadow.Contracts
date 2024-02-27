@@ -23,6 +23,10 @@ public interface IUpdateService
     /// </summary>
     event UpdateEventHandler OnUpdateAvailable;
     /// <summary>
+    /// Event raised with an update on download progress
+    /// </summary>
+    event UpdateEventHandler OnUpdateProgress;
+    /// <summary>
     /// Event raised after an update package has been retrieved from the defined Update server
     /// </summary>
     event UpdateEventHandler OnUpdateRetrieved;
