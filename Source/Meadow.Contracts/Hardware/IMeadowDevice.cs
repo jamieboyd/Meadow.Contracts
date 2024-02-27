@@ -44,7 +44,8 @@ public interface IMeadowDevice :
     /// <summary>
     /// Method called by the Core stack to initialize the IMeadowDevice
     /// </summary>
-    void Initialize();
+    /// <param name="detectedPlatform">The MeadowPlatform that core detected the application is running on</param>
+    void Initialize(MeadowPlatform detectedPlatform);
 
     /// <summary>
     /// Retrieves battery info about the current IMeadowDevice

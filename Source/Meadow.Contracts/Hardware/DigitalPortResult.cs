@@ -29,7 +29,7 @@ namespace Meadow.Hardware
         /// </summary>
         public TimeSpan? Delta
         {
-            get => New.Time - Old?.Time;
+            get => TimeSpan.FromMilliseconds(New.Time - Old?.Time ?? 0);
         }
     }
 }

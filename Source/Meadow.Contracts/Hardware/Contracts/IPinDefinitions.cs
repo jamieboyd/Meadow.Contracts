@@ -18,7 +18,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// Retrieves a pin from <see cref="AllPins"/> by Name or Key
         /// </summary>
-        IPin this[string name]
+        public IPin this[string name]
         {
             get => AllPins.FirstOrDefault(p =>
                 string.Compare(p.Name, name, true) == 0

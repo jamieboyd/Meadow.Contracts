@@ -12,13 +12,11 @@ public interface ISleepAwarePeripheral
     /// Called before the platform goes into Sleep state
     /// </summary>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
     public Task BeforeSleep(CancellationToken cancellationToken);
 
     /// <summary>
     /// Called after the platform returns to Wake state
     /// </summary>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
     public Task AfterWake(CancellationToken cancellationToken);
 }

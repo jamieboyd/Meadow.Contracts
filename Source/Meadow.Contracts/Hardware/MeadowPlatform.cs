@@ -26,9 +26,14 @@
         F7CoreComputeV2 = 3,
 
         /// <summary>
-        /// Meadow for Linux
+        /// Meadow on an embedded Linux platform
         /// </summary>
-        MeadowForLinux,
+        EmbeddedLinux,
+
+        /// <summary>
+        /// Meadow on a desktop Linux platform
+        /// </summary>
+        DesktopLinux,
 
         /// <summary>
         /// Meadow Simulation Platform
@@ -38,6 +43,11 @@
         /// <summary>
         /// Windows Host OS
         /// </summary>
-        Windows
+        Windows,
+
+        /// <summary>
+        /// OSX Host OS
+        /// </summary>
+        OSX,
     }
 }
