@@ -15,12 +15,12 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
    <RootNamespace>Meadow</RootNamespace>
     <Nullable>enable</Nullable>
-     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
  </PropertyGroup>
  <PropertyGroup>
     <Authors>Wilderness Labs, Inc</Authors>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
  </PropertyGroup>
     <ItemGroup>
         <None Include="icon.png" Link="icon.png" Pack="true" PackagePath="" />
