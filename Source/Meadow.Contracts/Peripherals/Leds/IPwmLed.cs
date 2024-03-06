@@ -44,4 +44,10 @@ public interface IPwmLed
     /// Stops any running animations.
     /// </summary>
     Task StopAnimation();
+
+    /// <summary>
+    /// Set the LED brightness
+    /// </summary>
+    /// <param name="brightness">Valid values are from 0 to 1, inclusive</param>
+    public void SetBrightness(float brightness);
 }
