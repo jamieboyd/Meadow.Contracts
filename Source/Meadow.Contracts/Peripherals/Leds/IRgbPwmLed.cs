@@ -6,7 +6,7 @@ namespace Meadow.Peripherals.Leds;
 /// <summary>
 /// Defines a Pulse-Width-Modulation (PWM) controlled RGB LED.
 /// </summary>
-public interface IRgbPwmLed : IPwmLed
+public interface IRgbPwmLed : IPwmLed, IRgbLed
 {
     /// <summary>
     /// Sets the current color of the LED
