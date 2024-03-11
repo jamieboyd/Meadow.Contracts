@@ -1,4 +1,5 @@
-﻿namespace Meadow.Hardware
+﻿using System;
+namespace Meadow.Hardware
 {
     /// <summary>
     /// Represents a snapshot of the state of a digital port at a given time.
@@ -13,14 +14,14 @@
         /// <summary>
         /// The time at the event or notification.
         /// </summary>
-        public int Time { get; set; }
+        public DateTime Time { get; set; }
 
         /// <summary>
         /// Creates an instance of a DigitalState
         /// </summary>
         /// <param name="state"></param>
         /// <param name="time"></param>
-        public DigitalState(bool state, int time)
+        public DigitalState(bool state, DateTime time)
         {
             State = state;
             Time = time;

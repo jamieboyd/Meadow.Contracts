@@ -1,6 +1,31 @@
 ﻿namespace Meadow.Peripherals.Leds
 {
     /// <summary>
+    /// Extesnion methods for RgbLedColors
+    /// </summary>
+    public static class ColorExtensions
+    {
+        /// <summary>
+        /// Converts an RgbLedColor into a Color
+        /// </summary>
+        /// <param name="rgbLedColor"></param>
+        /// <returns></returns>
+        public static Color AsColor(this RgbLedColors rgbLedColor)
+        {
+            return rgbLedColor switch
+            {
+                RgbLedColors.Red => Color.Red,
+                RgbLedColors.Green => Color.Green,
+                RgbLedColors.Blue => Color.Blue,
+                RgbLedColors.Yellow => Color.Yellow,
+                RgbLedColors.Magenta => Color.Magenta,
+                RgbLedColors.Cyan => Color.Cyan,
+                _ => Color.White
+            };
+        }
+    }
+
+    /// <summary>
     /// Colors for RGB Led
     /// </summary>
     public enum RgbLedColors
