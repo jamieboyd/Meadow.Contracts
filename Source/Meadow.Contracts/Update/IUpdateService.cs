@@ -17,27 +17,27 @@ public interface IUpdateService
     /// <summary>
     /// Event raised when an the state of the Update service changes
     /// </summary>
-    event EventHandler<UpdateState> OnStateChanged;
+    event EventHandler<UpdateState> StateChanged;
     /// <summary>
     /// Event raised when an update is available on the defined Update server
     /// </summary>
-    event UpdateEventHandler OnUpdateAvailable;
+    event UpdateEventHandler UpdateAvailable;
     /// <summary>
     /// Event raised with an update on download progress
     /// </summary>
-    event UpdateEventHandler OnUpdateProgress;
+    event UpdateEventHandler UpdateProgress;
     /// <summary>
     /// Event raised after an update package has been retrieved from the defined Update server
     /// </summary>
-    event UpdateEventHandler OnUpdateRetrieved;
+    event UpdateEventHandler UpdateRetrieved;
     /// <summary>
     /// Event raised after an update package has been successfully applied
     /// </summary>
-    event UpdateEventHandler OnUpdateSuccess;
+    event UpdateEventHandler UpdateSuccess;
     /// <summary>
     /// Event raised if a failure occurs in an attempt to apply an update package
     /// </summary>
-    event UpdateEventHandler OnUpdateFailure;
+    event UpdateEventHandler UpdateFailure;
     /// <summary>
     /// Returns the update service's current ability to apply an update
     /// </summary>
@@ -63,5 +63,5 @@ public interface IUpdateService
     /// <summary>
     /// Stops the service
     /// </summary>
-    void Shutdown();
+    void Stop();
 }

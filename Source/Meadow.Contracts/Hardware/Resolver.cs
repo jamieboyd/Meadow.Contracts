@@ -58,7 +58,12 @@ namespace Meadow
         /// <summary>
         /// Retrieves the current ICommandService instance
         /// </summary>
-        public static ICommandService? CommandService => Services?.Get<ICommandService>();
+        public static ICommandService CommandService => Services?.Get<ICommandService>();
+
+        /// <summary>
+        /// Retrieves the current IJsonSerializer instance
+        /// </summary>
+        public static IJsonSerializer JsonSerializer => Services?.Get<IJsonSerializer>();
 #pragma warning restore CS8603
     }
 }
