@@ -5,7 +5,7 @@ namespace Meadow.Hardware;
 /// <summary>
 /// Represents data for touchscreen events
 /// </summary>
-public struct TouchPoint
+public readonly struct TouchPoint
     : IEquatable<TouchPoint?>, IEquatable<TouchPoint>
 {
     /// <summary>
@@ -69,7 +69,7 @@ public struct TouchPoint
     public int? ScreenZ { get; }
 
     /// <inheritdoc/>
-    public bool Equals(TouchPoint other)
+    public readonly bool Equals(TouchPoint other)
     {
         if (ScreenX != other.ScreenX) return false;
         if (ScreenY != other.ScreenY) return false;
@@ -77,9 +77,15 @@ public struct TouchPoint
     }
 
     /// <inheritdoc/>
-    public bool Equals(TouchPoint? other)
+    public readonly bool Equals(TouchPoint? other)
     {
         if (other == null) return false;
         return Equals(this, other.Value);
+    }
+
+    /// <inheritdoc/>
+    public override readonly string ToString()
+    {
+        return $"{RawX}, {RawY}, {RawZ}, {ScreenX}, {ScreenY}, {ScreenZ}";
     }
 }
