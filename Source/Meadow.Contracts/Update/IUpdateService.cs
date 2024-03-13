@@ -23,9 +23,9 @@ public interface IUpdateService
     /// </summary>
     event UpdateEventHandler UpdateAvailable;
     /// <summary>
-    /// Event raised with an update on download progress
+    /// Event raised during update file retrieval progress
     /// </summary>
-    event UpdateEventHandler UpdateProgress;
+    event UpdateEventHandler RetrieveProgress;
     /// <summary>
     /// Event raised after an update package has been retrieved from the defined Update server
     /// </summary>
@@ -41,7 +41,7 @@ public interface IUpdateService
     /// <summary>
     /// Returns the update service's current ability to apply an update
     /// </summary>
-    bool CanUpdate => State == UpdateState.Idle;
+    bool CanUpdate => State == UpdateState.Connected;
     /// <summary>
     /// Gets the current state of the service
     /// </summary>
