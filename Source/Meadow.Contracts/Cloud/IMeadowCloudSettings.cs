@@ -8,7 +8,7 @@ public interface IMeadowCloudSettings
     /// <summary>
     /// The host name to use for authentication
     /// </summary>
-    string Hostname { get; set; }
+    string AuthHostname { get; set; }
     /// <summary>
     /// The host name used for data exchange
     /// </summary>
@@ -21,4 +21,32 @@ public interface IMeadowCloudSettings
     /// Interval (in minutes) to send health metrics
     /// </summary>
     int HealthMetricsInterval { get; set; }
+    /// <summary>
+    /// Enable to provide update service capabiltiies
+    /// </summary>
+    bool EnableUpdateService { get; set; }
+    /// <summary>
+    /// The host name used for cloud MQTT subscriptions
+    /// </summary>
+    string MqttHostname { get; set; }
+    /// <summary>
+    /// The port used for cloud MQTT subscriptions
+    /// </summary>
+    int MqttPort { get; set; }
+    /// <summary>
+    /// Reconnect period used when a disconnection from the server occurs
+    /// </summary>
+    int ConnectRetrySeconds { get; set; }
+    /// <summary>
+    /// Timeout period used when a authenticating
+    /// </summary>
+    int AuthTimeoutSeconds { get; set; }
+    /// <summary>
+    /// Whether or not authentication is used with the cloud server
+    /// </summary>
+    bool UseAuthentication { get; set; }
+    /// <summary>
+    /// Whether or not Meadow.Cloud services are enabled
+    /// </summary>
+    bool Enabled { get; set; }
 }
