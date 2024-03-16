@@ -14,7 +14,7 @@ namespace Meadow.Hardware
         public DigitalState? Old { get; set; }
 
         /// <summary>
-        /// Creates an instance of a DigitialPortResult
+        /// Creates an instance of a DigitalPortResult
         /// </summary>
         /// <param name="newState"></param>
         /// <param name="oldState"></param>
@@ -27,9 +27,6 @@ namespace Meadow.Hardware
         /// The duration of time between the time of this event or notification
         /// and the time of the previous occurrence.
         /// </summary>
-        public TimeSpan? Delta
-        {
-            get => New.Time - Old?.Time;
-        }
+        public TimeSpan? Delta => New.Time - Old?.Time;
     }
 }
