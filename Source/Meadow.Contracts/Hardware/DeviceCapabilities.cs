@@ -30,9 +30,9 @@
             StorageCapabilities storage
             )
         {
-            this.Network = network;
-            this.Analog = analog;
-            this.Storage = storage;
+            Network = network;
+            Analog = analog;
+            Storage = storage;
         }
     }
 }

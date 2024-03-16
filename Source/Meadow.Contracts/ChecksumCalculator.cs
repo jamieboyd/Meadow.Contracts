@@ -41,9 +41,9 @@ public static class ChecksumCalculator
     public static byte XOR(byte[] data)
     {
         byte checksum = 0;
-        for (var index = 0; index < data.Length; index++)
+        foreach (var b in data)
         {
-            checksum ^= data[index];
+            checksum ^= b;
         }
         return checksum;
     }
