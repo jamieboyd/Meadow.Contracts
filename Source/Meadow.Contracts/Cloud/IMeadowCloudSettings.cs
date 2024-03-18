@@ -24,7 +24,7 @@ public interface IMeadowCloudSettings
     /// <summary>
     /// Enable to provide update service capabiltiies
     /// </summary>
-    bool EnableUpdateService { get; set; }
+    bool EnableUpdates { get; set; }
     /// <summary>
     /// The host name used for cloud MQTT subscriptions
     /// </summary>
