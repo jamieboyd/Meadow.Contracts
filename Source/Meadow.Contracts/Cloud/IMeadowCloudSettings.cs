@@ -20,7 +20,7 @@ public interface IMeadowCloudSettings
     /// <summary>
     /// Interval (in minutes) to send health metrics
     /// </summary>
-    int HealthMetricsInterval { get; set; }
+    int HealthMetricsIntervalMinutes { get; set; }
     /// <summary>
     /// Enable to provide update service capabiltiies
     /// </summary>
