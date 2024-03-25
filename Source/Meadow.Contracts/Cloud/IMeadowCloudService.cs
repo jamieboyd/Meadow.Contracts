@@ -10,23 +10,6 @@ namespace Meadow.Cloud;
 /// </summary>
 public interface IMeadowCloudService
 {
-    /*
-    /// <summary>
-    /// Event raised when an error occurs
-    /// </summary>
-    event EventHandler<string> ServiceError;
-
-    /// <summary>
-    /// The current JWT
-    /// </summary>
-    string? CurrentJwt { get; }
-
-    /// <summary>
-    /// Authenticates with the Meadow.Cloud service
-    /// </summary>
-    Task<bool> Authenticate();
-    */
-
     /// <summary>
     /// Event raised when the cloud connection state changes
     /// </summary>
@@ -92,4 +75,9 @@ public interface IMeadowCloudService
             Exception = exceptionMessage ?? string.Empty
         });
     }
+
+    /// <summary>
+    /// Stops the service
+    /// </summary>
+    public void Stop();
 }
