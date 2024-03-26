@@ -27,7 +27,7 @@ public class CourseOverGround : IGnssResult
         get
         {
             string name = Lookups.KnownTalkerIDs[TalkerID];
-            return (name != null) ? name : "";
+            return name ?? "";
         }
     }
 

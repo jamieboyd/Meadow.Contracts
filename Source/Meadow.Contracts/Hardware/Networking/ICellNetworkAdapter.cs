@@ -14,7 +14,7 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// <summary>
     /// Gets the adapter's CSQ
     /// </summary>
-    string Csq { get; }
+    int Csq { get; }
     /// <summary>
     /// Gets the adapter's AT common output
     /// </summary>
@@ -46,7 +46,7 @@ public interface ICellNetworkAdapter : INetworkAdapter
     /// </summary>
     /// <param name="timeout"></param>
     /// <return>Cell signal quality</return>
-    double GetSignalQuality(int timeout = signalQualityFetchTimeoutInSeconds);
+    int GetSignalQuality(int timeout = signalQualityFetchTimeoutInSeconds);
 
     /// <summary>
     /// Initiates an online network scan to detect available networks,
