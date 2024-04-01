@@ -27,8 +27,13 @@ public partial interface IPlatformOS : IPowerController
     /// <summary>
     /// Gets the current CPU temperature
     /// </summary>
-    /// <returns></returns>
     Temperature GetCpuTemperature();
+
+
+    /// <summary>
+    /// Gets the amount of storage space in use on the primarys storage device
+    /// </summary>
+    DigitalStorage GetPrimaryDiskSpaceInUse();
 
     /// <summary>
     /// Gets the OS INtpClient instance
@@ -38,14 +43,12 @@ public partial interface IPlatformOS : IPowerController
     /// <summary>
     /// Gets a list of currently available serial ports
     /// </summary>
-    /// <returns></returns>
     public SerialPortName[] GetSerialPortNames();
 
     /// <summary>
     /// Finds a platform serial port name by either friendly or system name
     /// </summary>
     /// <param name="portName"></param>
-    /// <returns></returns>
     public SerialPortName? GetSerialPortName(string portName)
     {
         return GetSerialPortNames().FirstOrDefault(
