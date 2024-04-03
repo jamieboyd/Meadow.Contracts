@@ -24,13 +24,13 @@ public interface IMeadowCloudService
     /// Sends a log message to the Meadow.Cloud service
     /// </summary>
     /// <param name="cloudLog">The log entry to send</param>
-    Task<bool> SendLog(CloudLog cloudLog);
+    Task SendLog(CloudLog cloudLog);
 
     /// <summary>
     /// Sends a CloudEvent to the Meadow.Cloud service
     /// </summary>
     /// <param name="cloudEvent"></param>
-    Task<bool> SendEvent(CloudEvent cloudEvent);
+    Task SendEvent(CloudEvent cloudEvent);
 
     /// <summary>
     /// Sends a CloudEvent to the Meadow.Cloud service
@@ -38,7 +38,7 @@ public interface IMeadowCloudService
     /// <param name="eventId">id used for a set of events.</param>
     /// <param name="description">Description of the event.</param>
     /// <param name="measurements">Dynamic payload of measurements to be recorded.</param>
-    public Task<bool> SendEvent(int eventId, string description, Dictionary<string, object> measurements)
+    public Task SendEvent(int eventId, string description, Dictionary<string, object> measurements)
     {
         return SendEvent(new CloudEvent()
         {
@@ -54,7 +54,7 @@ public interface IMeadowCloudService
     /// </summary>
     /// <param name="level">The log level for the log event</param>
     /// <param name="message">The message property for the log event</param>
-    Task<bool> SendLog(LogLevel level, string message)
+    Task SendLog(LogLevel level, string message)
     {
         return SendLog(level.ToString(), message);
     }
@@ -65,7 +65,7 @@ public interface IMeadowCloudService
     /// <param name="logLevel">The log level for the log event</param>
     /// <param name="message">The message property for the log event</param>
     /// <param name="exceptionMessage">Optional exception message data</param>
-    Task<bool> SendLog(string logLevel, string message, string? exceptionMessage = null)
+    Task SendLog(string logLevel, string message, string? exceptionMessage = null)
     {
         return SendLog(new CloudLog()
         {
