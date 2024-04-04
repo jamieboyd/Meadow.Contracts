@@ -31,7 +31,7 @@ public partial interface IPlatformOS : IPowerController
 
 
     /// <summary>
-    /// Gets the amount of storage space in use on the primarys storage device
+    /// Gets the amount of storage space in use on the primary storage device
     /// </summary>
     DigitalStorage GetPrimaryDiskSpaceInUse();
 
