@@ -11,9 +11,14 @@ namespace Meadow.Cloud;
 public interface IMeadowCloudService
 {
     /// <summary>
+    /// Event raised when an error in communicating with Meadow Cloud occurrs
+    /// </summary>
+    event EventHandler<Exception>? ErrorOccurred;
+
+    /// <summary>
     /// Event raised when the cloud connection state changes
     /// </summary>
-    event EventHandler<CloudConnectionState> ConnectionStateChanged;
+    event EventHandler<CloudConnectionState>? ConnectionStateChanged;
 
     /// <summary>
     /// Gets the current connection state for the service
