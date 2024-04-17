@@ -9,11 +9,10 @@ public interface IDCMotor
 {
     /// <summary>
     /// The speed of the motor from -1 to 1.
-    ///
-    /// Deprecated, please use `Power`.
     /// </summary>
-    [Obsolete]
-    float Speed { get => Power; set { Power = value; } }
+    /// <remarks>Deprecated, please use `Power`.</remarks>
+    [Obsolete("Deprecated, please use `Power`.")]
+    float Speed { get => Power; set => Power = value; }
 
     /// <summary>
     /// The power applied to the motor, as a percentage between

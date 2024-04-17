@@ -11,7 +11,7 @@ public interface IHealthReporter
     /// Starts the health reporter based on the desired interval.
     /// </summary>
     /// <param name="interval">In minutes</param>
-    void Start(int interval);
+    Task Start(int interval);
 
     /// <summary>
     /// Can be called to manually send a health report event.

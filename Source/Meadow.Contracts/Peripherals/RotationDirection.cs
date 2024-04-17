@@ -1,7 +1,7 @@
 ﻿namespace Meadow.Peripherals;
 
 /// <summary>
-/// Stepper motor direction
+/// Direction of rotation for e.g. DC or stepper motors
 /// </summary>
 public enum RotationDirection
 {

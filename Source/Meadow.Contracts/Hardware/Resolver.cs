@@ -17,6 +17,7 @@ namespace Meadow
 
         static Resolver()
         {
+            // ReSharper disable once UseObjectOrCollectionInitializer, since this breaks the world.
             Services = new ServiceCollection();
             Services.Add(Services);
         }
@@ -45,10 +46,7 @@ namespace Meadow
         /// <summary>
         /// Retrieves the current ISensorService instance
         /// </summary>
-        public static ISensorService SensorService
-        {
-            get => Services?.Get<ISensorService>();
-        }
+        public static ISensorService SensorService => Services?.Get<ISensorService>();
 
         /// <summary>
         /// Retrieves the current IMeadowCloudService instance
@@ -58,7 +56,12 @@ namespace Meadow
         /// <summary>
         /// Retrieves the current ICommandService instance
         /// </summary>
-        public static ICommandService? CommandService => Services?.Get<ICommandService>();
+        public static ICommandService CommandService => Services?.Get<ICommandService>();
+
+        /// <summary>
+        /// Retrieves the current IJsonSerializer instance
+        /// </summary>
+        public static IJsonSerializer JsonSerializer => Services?.Get<IJsonSerializer>();
 #pragma warning restore CS8603
     }
 }

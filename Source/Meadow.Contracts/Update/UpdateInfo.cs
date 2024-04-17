@@ -54,7 +54,7 @@ public class UpdateInfo
     /// <summary>
     /// The expected Hash of the Update package
     /// </summary>
-    public string DownloadHash { get; set; } = string.Empty;
+    public string Crc { get; set; } = string.Empty;
     /// <summary>
     /// Metadata for the package
     /// </summary>

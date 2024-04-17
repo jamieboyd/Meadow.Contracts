@@ -1,4 +1,6 @@
+using Meadow.Logging;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Meadow.Cloud;
@@ -9,30 +11,78 @@ namespace Meadow.Cloud;
 public interface IMeadowCloudService
 {
     /// <summary>
-    /// Event raised when an error occurs
+    /// Event raised when an error in communicating with Meadow Cloud occurrs
     /// </summary>
-    event EventHandler<string> ServiceError;
+    event EventHandler<Exception>? ErrorOccurred;
 
     /// <summary>
-    /// The current JWT
+    /// Event raised when the cloud connection state changes
     /// </summary>
-    string? CurrentJwt { get; }
+    event EventHandler<CloudConnectionState>? ConnectionStateChanged;
 
     /// <summary>
-    /// Authenticates with the Meadow.Cloud service
+    /// Gets the current connection state for the service
     /// </summary>
-    Task<bool> Authenticate();
+    CloudConnectionState ConnectionState { get; }
 
     /// <summary>
     /// Sends a log message to the Meadow.Cloud service
     /// </summary>
     /// <param name="cloudLog">The log entry to send</param>
-    Task<bool> SendLog(CloudLog cloudLog);
+    Task SendLog(CloudLog cloudLog);
 
     /// <summary>
     /// Sends a CloudEvent to the Meadow.Cloud service
     /// </summary>
     /// <param name="cloudEvent"></param>
-    /// <returns></returns>
-    Task<bool> SendEvent(CloudEvent cloudEvent);
+    Task SendEvent(CloudEvent cloudEvent);
+
+    /// <summary>
+    /// Sends a CloudEvent to the Meadow.Cloud service
+    /// </summary>
+    /// <param name="eventId">id used for a set of events.</param>
+    /// <param name="description">Description of the event.</param>
+    /// <param name="measurements">Dynamic payload of measurements to be recorded.</param>
+    public Task SendEvent(int eventId, string description, Dictionary<string, object> measurements)
+    {
+        return SendEvent(new CloudEvent()
+        {
+            EventId = eventId,
+            Description = description,
+            Measurements = measurements,
+            Timestamp = DateTime.UtcNow
+        });
+    }
+
+    /// <summary>
+    /// Sends a log message to the Meadow.Cloud service
+    /// </summary>
+    /// <param name="level">The log level for the log event</param>
+    /// <param name="message">The message property for the log event</param>
+    Task SendLog(LogLevel level, string message)
+    {
+        return SendLog(level.ToString(), message);
+    }
+
+    /// <summary>
+    /// Sends a log message to the Meadow.Cloud service
+    /// </summary>
+    /// <param name="logLevel">The log level for the log event</param>
+    /// <param name="message">The message property for the log event</param>
+    /// <param name="exceptionMessage">Optional exception message data</param>
+    Task SendLog(string logLevel, string message, string? exceptionMessage = null)
+    {
+        return SendLog(new CloudLog()
+        {
+            Severity = logLevel,
+            Message = message,
+            Timestamp = DateTime.UtcNow,
+            Exception = exceptionMessage ?? string.Empty
+        });
+    }
+
+    /// <summary>
+    /// Stops the service
+    /// </summary>
+    public void Stop();
 }
