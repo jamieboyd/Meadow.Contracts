@@ -21,6 +21,11 @@ public interface IMeadowCloudService
     event EventHandler<CloudConnectionState>? ConnectionStateChanged;
 
     /// <summary>
+    /// Gets the Enabled state for the service
+    /// </summary>
+    bool IsEnabled { get; }
+
+    /// <summary>
     /// Gets the current connection state for the service
     /// </summary>
     CloudConnectionState ConnectionState { get; }
