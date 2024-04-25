@@ -11,5 +11,5 @@ public interface IPixelDisplayProvider
     /// <param name="width">The desired display width</param>
     /// <param name="height">The desired display height</param>
     /// <returns>An instance of an IPixelDisplay</returns>
-    public IPixelDisplay CreateDisplay(int? width = null, int? height = null);
+    public IResizablePixelDisplay CreateDisplay(int? width = null, int? height = null);
 }
