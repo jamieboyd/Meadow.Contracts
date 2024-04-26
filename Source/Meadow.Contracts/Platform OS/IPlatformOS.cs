@@ -15,7 +15,7 @@ public partial interface IPlatformOS : IPowerController
     /// <summary>
     /// This event is raised in the event that an exception or error occurs outside of the managed stack, such as with a coprocessor
     /// </summary>
-    public event EventHandler<int>? OsException;
+    public event EventHandler<int>? MeadowSystemError;
 
     /// <summary>
     /// The command line arguments provided when the Meadow application was launched
