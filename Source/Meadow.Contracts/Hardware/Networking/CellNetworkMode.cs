@@ -10,11 +10,11 @@ public enum CellNetworkMode
     /// </summary>
     GSM = 0,
     /// <summary>
-    /// CAT M1 network
+    /// CAT-M1 network
     /// </summary>
-    CAT_M1 = 8,
+    CATM1 = 8,
     /// <summary>
     /// NB IoT network
     /// </summary>
-    NB_IoT = 9
+    NBIOT = 9
 };

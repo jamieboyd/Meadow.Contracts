@@ -12,7 +12,7 @@ namespace Meadow.Hardware
         /// <summary>
         /// A `byte[]` of the actual message data.
         /// </summary>
-        public byte[] Message { get; set; } = new byte[0];
+        public byte[] Message { get; set; } = Array.Empty<byte>();
 
         /// <summary>
         /// Returns a decoded version of the <see cref="Message"/> based on the specified <paramref name="encoding"/>.
@@ -21,7 +21,7 @@ namespace Meadow.Hardware
         /// <returns>A string that contains the results of decoding the <see cref="Message"/> bytes.</returns>
         public string GetMessageString(Encoding encoding)
         {
-            return encoding.GetString(this.Message);
+            return encoding.GetString(Message);
         }
         /// <summary>
         /// Returns a <see cref="SerialMessageData"/> that represents <paramref name="message"/> encoded as bytes.

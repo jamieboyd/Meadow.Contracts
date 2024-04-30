@@ -12,8 +12,7 @@ namespace Meadow.Hardware
         /// </summary>
         /// <param name="readBuffer">The buffer to read from the peripheral into.</param>
         /// <remarks>
-        /// The number of bytes to be read is determined by the length of the
-        /// `readBuffer`.
+        /// The number of bytes to be read is determined by the length of <paramref name="readBuffer"/>.
         /// </remarks>
         void Read(Span<byte> readBuffer);
 
@@ -22,6 +21,9 @@ namespace Meadow.Hardware
         /// </summary>
         /// <param name="address"></param>
         /// <param name="readBuffer"></param>
+        /// <remarks>
+        /// The number of bytes to be read is determined by the length of <paramref name="readBuffer"/>.
+        /// </remarks>
         void ReadRegister(byte address, Span<byte> readBuffer);
 
         /// <summary>
@@ -48,6 +50,9 @@ namespace Meadow.Hardware
         /// Write an array of bytes to the peripheral.
         /// </summary>
         /// <param name="writeBuffer">A buffer of byte values to be written.</param>
+        /// <remarks>
+        /// The number of bytes to be written is determined by the length of <paramref name="writeBuffer"/>.
+        /// </remarks>
         void Write(Span<byte> writeBuffer);
 
         /// <summary>
@@ -63,6 +68,9 @@ namespace Meadow.Hardware
         /// <param name="address">Address of the register to write to.</param>
         /// <param name="writeBuffer">A buffer of byte values to be written.</param>
         /// <param name="order">Indicate if the data should be written as big or little endian.</param>
+        /// <remarks>
+        /// The number of bytes to be written is determined by the length of <paramref name="writeBuffer"/>.
+        /// </remarks>
         void WriteRegister(byte address, Span<byte> writeBuffer, ByteOrder order = ByteOrder.LittleEndian);
 
         /// <summary>

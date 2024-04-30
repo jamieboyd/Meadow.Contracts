@@ -70,7 +70,7 @@ namespace Meadow
         /// <summary>
         /// Hue of current color (0-360.0)
         /// </summary>
-        public double Hue
+        public float Hue
         {
             get
             {
@@ -81,12 +81,12 @@ namespace Meadow
                 return hue;
             }
         }
-        double hue;
+        float hue;
 
         /// <summary>
         /// Saturation of color (0-1.0)
         /// </summary>
-        public double Saturation
+        public float Saturation
         {
             get
             {
@@ -97,12 +97,12 @@ namespace Meadow
                 return saturation;
             }
         }
-        double saturation;
+        float saturation;
 
         /// <summary>
         /// Brightness of color (0-1.0)
         /// </summary>
-        public double Brightness
+        public float Brightness
         {
             get
             {
@@ -113,7 +113,7 @@ namespace Meadow
                 return brightness;
             }
         }
-        double brightness;
+        float brightness;
 
         /// <summary>
         /// Create a color struct
@@ -133,12 +133,12 @@ namespace Meadow
         }
 
         /// <summary>
-        /// Create a color struct - convenience ctor for doubles - prefer byte version
+        /// Create a color struct - convenience ctor for floats - prefer byte version
         /// </summary>
         /// <param name="red">red component of color</param>
         /// <param name="green">green component of color</param>
         /// <param name="blue">blue component of color</param>
-        public Color(double red, double green, double blue) :
+        public Color(float red, float green, float blue) :
             this((byte)(red * 255), (byte)(green * 255), (byte)(blue * 255), 1)
         {
         }
@@ -151,9 +151,9 @@ namespace Meadow
         /// <param name="brightness">brightness of color</param>
         /// <param name="alpha">alpha (transparency) of color</param>
 
-        public Color(double hue, double saturation, double brightness, byte alpha = 255)
+        public Color(float hue, float saturation, float brightness, byte alpha = 255)
         {
-            HslToRgb(hue * 360, saturation, brightness, out double red, out double green, out double blue);
+            HslToRgb(hue * 360, saturation, brightness, out float red, out float green, out float blue);
 
             R = (byte)(255 * red);
             G = (byte)(255 * green);
@@ -170,7 +170,7 @@ namespace Meadow
         /// </summary>
         /// <param name="brightness">brightness of new color (0-1.0)</param>
         /// <returns>new color object</returns>
-        public Color WithBrightness(double brightness)
+        public Color WithBrightness(float brightness)
         {
             return new Color(Hue, Saturation, brightness, A);
         }
@@ -180,7 +180,7 @@ namespace Meadow
         /// </summary>
         /// <param name="hue">hue of new color (0-360.0)</param>
         /// <returns>new color object</returns>
-        public Color WithHue(double hue)
+        public Color WithHue(float hue)
         {
             return new Color(hue, Saturation, Brightness, A);
         }
@@ -190,23 +190,23 @@ namespace Meadow
         /// </summary>
         /// <param name="saturation">saturation of new color (0-1.0)</param>
         /// <returns>new color object</returns>
-        public Color WithSaturation(double saturation)
+        public Color WithSaturation(float saturation)
         {
             return new Color(Hue, saturation, Brightness, A);
         }
 
-        static void ConvertToHsb(byte r, byte g, byte b, out double h, out double s, out double l)
+        static void ConvertToHsb(byte r, byte g, byte b, out float h, out float s, out float l)
         {
-            ConvertToHsb(r / 255.0, g / 255.0, b / 255.0, out h, out s, out l);
+            ConvertToHsb(r / 255.0f, g / 255.0f, b / 255.0f, out h, out s, out l);
         }
 
-        static void ConvertToHsb(double r, double g, double b, out double h, out double s, out double l)
+        static void ConvertToHsb(float r, float g, float b, out float h, out float s, out float l)
         {
-            double v = (double)Math.Max(r, g);
-            v = (double)Math.Max(v, b);
+            float v = Math.Max(r, g);
+            v = Math.Max(v, b);
 
-            double m = (double)Math.Min(r, g);
-            m = (double)Math.Min(m, b);
+            float m = Math.Min(r, g);
+            m = Math.Min(m, b);
 
             l = (m + v) / 2.0f;
             if (l <= 0.0)
@@ -214,7 +214,7 @@ namespace Meadow
                 h = s = l = 0;
                 return;
             }
-            double vm = v - m;
+            float vm = v - m;
             s = vm;
 
             if (s > 0.0)
@@ -228,9 +228,9 @@ namespace Meadow
                 return;
             }
 
-            double r2 = (v - r) / vm;
-            double g2 = (v - g) / vm;
-            double b2 = (v - b) / vm;
+            float r2 = (v - r) / vm;
+            float g2 = (v - g) / vm;
+            float b2 = (v - b) / vm;
 
             if (r == v)
             {
@@ -427,7 +427,7 @@ namespace Meadow
         /// <param name="b">blue component of color (0-1)</param>
         /// <param name="a">alpha of color (0-1)</param>
         /// <returns>new color object</returns>
-        public static Color FromRgba(double r, double g, double b, double a)
+        public static Color FromRgba(float r, float g, float b, float a)
         {
             return new Color((byte)(r * 255), (byte)(g * 255), (byte)(b * 255), (byte)(a * 255));
         }
@@ -439,7 +439,7 @@ namespace Meadow
         /// <param name="g">green component of color (0-1)</param>
         /// <param name="b">blue component of color (0-1)</param>
         /// <returns>new color object</returns>
-        public static Color FromRgb(double r, double g, double b)
+        public static Color FromRgb(float r, float g, float b)
         {
             return FromRgba(r, g, b, 1f);
         }
@@ -452,7 +452,7 @@ namespace Meadow
         /// <param name="b">brightness of color (0-1)</param>
         /// <param name="a">alpha of color (0-1)</param>
         /// <returns>new color object</returns>
-        public static Color FromHsba(double h, double s, double b, double a = 1.0)
+        public static Color FromHsba(float h, float s, float b, float a = 1.0f)
         {
             return new Color(h, s, b, (byte)(a * 255));
         }
@@ -465,9 +465,9 @@ namespace Meadow
         /// <param name="saturation"></param>
         /// <param name="value"></param>
         /// <returns>A Color object</returns>
-        public static Color FromAhsv(double alpha, double hue, double saturation, double value)
+        public static Color FromAhsv(float alpha, float hue, float saturation, float value)
         {
-            HsvToRgb(hue, saturation, value, out double red, out double green, out double blue);
+            HsvToRgb(hue, saturation, value, out float red, out float green, out float blue);
 
             return new Color((byte)(red * 255), (byte)(green * 255), (byte)(blue * 255), (byte)(alpha * 255));
         }
@@ -481,17 +481,17 @@ namespace Meadow
         /// <param name="r">The red component (0-1)</param>
         /// <param name="g">The green component (0-1)</param>
         /// <param name="b">The blue component (0-1)</param>
-        public static void HslToRgb(double hue, double saturation, double lightness, out double r, out double g, out double b)
+        public static void HslToRgb(float hue, float saturation, float lightness, out float r, out float g, out float b)
         {
-            double h = hue;
-            double R, G, B;
+            float h = hue;
+            float R, G, B;
 
             // hue parameter checking/fixing
             if (h < 0)
             {
                 h = 0;
             }
-            else if (h > 360)
+            else if (h >= 360)
             {
                 h %= 360;
             }
@@ -499,21 +499,21 @@ namespace Meadow
             //default to gray
             R = G = B = lightness;
 
-            var v = (lightness <= 0.5) ?
-                (lightness * (1.0 + saturation)) :
+            var v = (lightness <= 0.5f) ?
+                (lightness * (1.0f + saturation)) :
                 (lightness + saturation - lightness * saturation);
 
             if (v > 0)
             {
-                double m;
-                double l = lightness;
-                double sv;
+                float m;
+                float l = lightness;
+                float sv;
                 int sextant;
-                double fract, vsf, mid1, mid2;
+                float fract, vsf, mid1, mid2;
 
                 m = l + l - v;
                 sv = (v - m) / v;
-                h /= 60.0;
+                h /= 60.0f;
                 sextant = (int)h;
                 fract = h - sextant;
                 vsf = v * sv * fract;
@@ -568,10 +568,10 @@ namespace Meadow
         /// <param name="r">The red component (0-1)</param>
         /// <param name="g">The green component (0-1)</param>
         /// <param name="b">The blue component (0-1)</param>
-        public static void HsvToRgb(double hue, double saturation, double brightValue, out double r, out double g, out double b)
+        public static void HsvToRgb(float hue, float saturation, float brightValue, out float r, out float g, out float b)
         {
-            double H = hue;
-            double R, G, B;
+            float H = hue;
+            float R, G, B;
 
             // hue parameter checking/fixing
             if (H < 0)
@@ -596,12 +596,12 @@ namespace Meadow
             }
             else // if we got here, then there is a color to create.
             {
-                double hf = H / 60.0;
+                float hf = H / 60.0f;
                 int i = (int)Math.Floor(hf);
-                double f = hf - i;
-                double pv = brightValue * (1 - saturation);
-                double qv = brightValue * (1 - saturation * f);
-                double tv = brightValue * (1 - saturation * (1 - f));
+                float f = hf - i;
+                float pv = brightValue * (1 - saturation);
+                float qv = brightValue * (1 - saturation * f);
+                float tv = brightValue * (1 - saturation * (1 - f));
 
                 switch (i)
                 {
@@ -670,7 +670,7 @@ namespace Meadow
         /// <summary>
         /// Clamp a value to 0 to 1
         /// </summary>
-        static double Clamp(double i)
+        static float Clamp(float i)
         {
             if (i < 0) return 0;
             if (i > 1) return 1;
@@ -683,7 +683,7 @@ namespace Meadow
         /// <param name="blendColor">The color to blend</param>
         /// <param name="ratio">The ratio of the blend color to source color</param>
         /// <returns>The resulting blended color</returns>
-        public Color Blend(Color blendColor, double ratio)
+        public Color Blend(Color blendColor, float ratio)
         {
             if (ratio == 0)
             {

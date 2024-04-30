@@ -7,14 +7,8 @@ namespace Meadow.Peripherals.Leds;
 /// Defines a Light Emitting Diode (LED) controlled by a pulse-width-modulation
 /// (PWM) signal to limit current.
 /// </summary>
-public interface IPwmLed
+public interface IPwmLed : ILed
 {
-    /// <summary>
-    /// Gets or sets a value indicating whether the LED is on.
-    /// </summary>
-    /// <value><c>true</c> if is on; otherwise, <c>false</c>.</value>
-    bool IsOn { get; set; }
-
     /// <summary>
     /// Gets the brightness of the LED, controlled by a PWM signal
     /// </summary>
@@ -23,25 +17,37 @@ public interface IPwmLed
     /// <summary>
     /// Start a Blink animation which sets the brightness of the LED alternating between a low and high brightness setting.
     /// </summary>
-    Task StartBlink(float highBrightness = 1f, float lowBrightness = 0f);
+    /// <param name="highBrightness">The maximum brightness of the animation</param>
+    /// <param name="lowBrightness">The minimum brightness of the animation</param>
+    Task StartBlink(float highBrightness, float lowBrightness);
 
     /// <summary>
     /// Start the Blink animation which sets the brightness of the LED alternating between a low and high brightness setting, using the durations provided.
     /// </summary>
+    /// <param name="highBrightnessDuration">The duration the LED stays in high brightness</param>
+    /// <param name="lowBrightnessDuration">The duration the LED stays in low brightness</param>
+    /// <param name="highBrightness">The maximum brightness of the animation</param>
+    /// <param name="lowBrightness">The minimum brightness of the animation</param>
     Task StartBlink(TimeSpan highBrightnessDuration, TimeSpan lowBrightnessDuration, float highBrightness = 1f, float lowBrightness = 0f);
 
     /// <summary>
     /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting.
     /// </summary>
+    /// <param name="highBrightness">The maximum brightness of the animation</param>
+    /// <param name="lowBrightness">The minimum brightness of the animation</param>
     Task StartPulse(float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
     /// Start the Pulse animation which gradually alternates the brightness of the LED between a low and high brightness setting, using the durations provided.
     /// </summary>
+    /// <param name="pulseDuration">The pulse animation duration</param>
+    /// <param name="highBrightness">The maximum brightness of the animation</param>
+    /// <param name="lowBrightness">The minimum brightness of the animation</param>
     Task StartPulse(TimeSpan pulseDuration, float highBrightness = 1, float lowBrightness = 0.15F);
 
     /// <summary>
-    /// Stops any running animations.
+    /// Set the LED brightness
     /// </summary>
-    Task StopAnimation();
+    /// <param name="brightness">Valid values are from 0 to 1, inclusive</param>
+    public void SetBrightness(float brightness);
 }
