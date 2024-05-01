@@ -53,7 +53,7 @@ public interface INetworkAdapter
     /// <summary>
     /// Event raised when a auto-reconnecting to a network has terminaled
     /// </summary>
-    event NetworkStateHandler ConnectFailed;
+    event NetworkStateHandler NetworkConnectFailed;
 
     /// <summary>
     /// Event raised on an unexpected network error.
