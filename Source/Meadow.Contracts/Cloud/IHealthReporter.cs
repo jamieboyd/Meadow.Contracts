@@ -9,6 +9,11 @@ namespace Meadow.Cloud;
 public interface IHealthReporter
 {
     /// <summary>
+    /// Gets the enabled state of the HealthReporter
+    /// </summary>
+    bool IsEnabled { get; }
+
+    /// <summary>
     /// Starts the health reporter based on the desired interval.
     /// </summary>
     /// <param name="interval">In minutes</param>
