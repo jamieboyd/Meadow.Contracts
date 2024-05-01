@@ -75,6 +75,19 @@ public static class IPinExtensions
     }
 
     /// <summary>
+    /// Creates a digital interrupt port for the specified pin with specified configurations.
+    /// </summary>
+    /// <param name="pin">The pin to create a digital interrupt port for.</param>
+    /// <param name="interruptMode">The interrupt mode for the digital interrupt port.</param>
+    /// <param name="resistorMode">The resistor mode for the digital interrupt port.</param>
+    /// <param name="debounceDuration">The debounce duration for the digital interrupt port.</param>
+    /// <returns>The created digital interrupt port.</returns>
+    public static IDigitalInterruptPort CreateDigitalInterruptPort(this IPin pin, InterruptMode interruptMode, ResistorMode resistorMode, TimeSpan debounceDuration)
+    {
+        return pin.CreateDigitalInterruptPort(interruptMode, resistorMode, debounceDuration, TimeSpan.Zero);
+    }
+
+    /// <summary>
     /// Creates a digital input port for the specified pin with the specified resistor mode.
     /// </summary>
     /// <param name="pin">The pin to create a digital input port for.</param>
