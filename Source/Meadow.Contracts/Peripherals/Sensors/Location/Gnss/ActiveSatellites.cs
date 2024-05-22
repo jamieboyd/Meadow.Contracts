@@ -71,8 +71,8 @@ public struct ActiveSatellites : IGnssResult
     public ActiveSatellites()
     {
         TalkerID = "GP";
-        TimeOfReading = default(DateTime);
-        Dimensions = DimensionalFixType.NoFix;
+        TimeOfReading = default;
+        Dimensions = DimensionalFixType.None;
         SatelliteSelection = ActiveSatelliteSelection.Automatic;
         SatellitesUsedForFix = null;
         DilutionOfPrecision = 0m;
@@ -86,7 +86,7 @@ public struct ActiveSatellites : IGnssResult
     /// <returns>A formatted string representing the <see cref="ActiveSatellites"/> struct.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("Active Satellites: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");

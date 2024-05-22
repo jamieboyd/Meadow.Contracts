@@ -74,7 +74,7 @@ public struct CourseOverGround : IGnssResult
     /// <returns>A formatted string representing the <see cref="CourseOverGround"/> struct.</returns>
     public override string ToString()
     {
-        StringBuilder outString = new StringBuilder();
+        StringBuilder outString = new();
 
         outString.Append("CourseOverGround: {\r\n");
         outString.Append($"\tTalker ID: {TalkerID}, talker name: {TalkerSystemName}\r\n");
