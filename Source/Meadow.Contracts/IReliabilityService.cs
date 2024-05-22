@@ -1,4 +1,5 @@
 ﻿using Meadow.Hardware;
+using System;
 using System.Collections.Generic;
 
 namespace Meadow;
@@ -8,6 +9,11 @@ namespace Meadow;
 /// </summary>
 public interface IReliabilityService
 {
+    /// <summary>
+    /// This event is raised in the event that an exception or error occurs outside of the managed stack, such as with a coprocessor
+    /// </summary>
+    public event EventHandler<MeadowSystemErrorInfo>? MeadowSystemError;
+
     /// <summary>
     /// Returns true is the last device boot followed a crash
     /// </summary>
@@ -47,8 +53,8 @@ public interface IReliabilityService
     /// <summary>
     /// Override this method to provide specific behaviors when System Errors occur
     /// </summary>
-    /// <param name="error">The MeadowSystemErrorInfo describing the error details</param>
-    public void OnMeadowSystemError(MeadowSystemErrorInfo error);
+    /// <param name="errorInfo">The MeadowSystemErrorInfo describing the error details</param>
+    public void OnMeadowSystemError(MeadowSystemErrorInfo errorInfo);
 
     /// <summary>
     /// Override this method to provide specific behaviors the device boots after a crash

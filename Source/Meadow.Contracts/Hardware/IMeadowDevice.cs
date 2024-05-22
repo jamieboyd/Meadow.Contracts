@@ -54,8 +54,7 @@ public interface IMeadowDevice :
     BatteryInfo? GetBatteryInfo();
 
     /// <summary>
-    /// Creates a device-specific instance if an IReliabilityService interface
+    /// Gets a device-specific instance if an IReliabilityService interface
     /// </summary>
-    /// <returns></returns>
-    public IReliabilityService? CreateReliabilityService() { return null; }
+    public IReliabilityService? ReliabilityService { get => null; }
 }
