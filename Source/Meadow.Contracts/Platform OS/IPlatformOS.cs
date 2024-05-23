@@ -7,6 +7,43 @@ using System.Linq;
 namespace Meadow;
 
 /// <summary>
+/// A collection of device memory-allocation statistics
+/// </summary>
+public struct AllocationInfo
+{
+    /// <summary>
+    /// This is the total size of memory allocated for use by malloc in bytes. 
+    /// </summary>
+    public int Arena { get; set; }
+    /// <summary>
+    /// This is the number of free (not in use) chunks 
+    /// </summary>
+    public int FreeBlocks { get; set; }
+    /// <summary>
+    /// Size of the largest free (not in use) chunk 
+    /// </summary>
+    public int LargestFreeBlock { get; set; }
+    /// <summary>
+    /// This is the total size of memory occupied by chunks handed out by malloc. 
+    /// </summary>
+    public int TotalAllocated { get; set; }
+    /// <summary>
+    /// This is the total size of memory occupied by free (not in use) chunks.
+    /// </summary>
+    public int TotalFree { get; set; }
+    /*
+    struct mallinfo
+    {
+        int arena;    // This is the total size of memory allocated for use by malloc in bytes. 
+        int ordblks;  // This is the number of free (not in use) chunks 
+        int mxordblk; // Size of the largest free (not in use) chunk 
+        int uordblks; // This is the total size of memory occupied by chunks handed out by malloc. 
+        int fordblks; // This is the total size of memory occupied by free (not in use) chunks.
+    };
+    */
+}
+
+/// <summary>
 /// Provides an abstraction for OS services such as configuration so that
 /// Meadow can operate on different OS's and platforms.
 /// </summary>
@@ -86,4 +123,9 @@ public partial interface IPlatformOS : IPowerController
     /// <exception cref="ArgumentException">Thrown when an invalid validation mode is provided</exception>
     /// <exception cref="Exception">Thrown when there is an error setting the validation mode</exception>
     public void SetServerCertificateValidationMode(ServerCertificateValidationMode authmode);
+
+    /// <summary>
+    /// Retrieves memory allocation statistics from the OS
+    /// </summary>
+    public AllocationInfo GetMemoryAllocationInfo();
 }
