@@ -50,4 +50,16 @@ public class MeadowSystemErrorInfo
         ErrorNumber = systemErrorNumber;
         Exception = exception;
     }
+
+    /// <inheritdoc/>
+    public override string ToString()
+    {
+        var s = $"{this.GetType().Name} ({ErrorNumber}): {Message}";
+        if (Exception != null)
+        {
+            s += $"{Environment.NewLine}Inner: {Exception.GetType().Name}: {Exception.Message}";
+        }
+
+        return s;
+    }
 }
